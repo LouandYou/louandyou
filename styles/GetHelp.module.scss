@@ -1,0 +1,12 @@
+.get_help {
+    background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0) 100%
+        ),
+        rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(300px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 40px;
+}
