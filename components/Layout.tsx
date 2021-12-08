@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import Head from "next/head";
-
 import styles from "../styles/Home.module.scss";
+import ExitButton from "./ExitButton";
 
 interface Props {
     children: JSX.Element | JSX.Element[];
@@ -18,7 +18,11 @@ function Layout({ children }: Props): ReactElement {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className={styles.main}>{children}</main>
+            <main className={styles.main}>
+                {children}
+                <ExitButton />
+            </main>
+
             <footer></footer>
         </div>
     );
