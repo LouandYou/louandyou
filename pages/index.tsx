@@ -2,18 +2,10 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import logo from "../public/logo.png";
 import GetHelp from "../components/GetHelp";
-import styles from "../styles/Home.module.scss";
-import React, { useState } from "react";
-import Checkbox from "../components/Checkbox";
-import EmergancyWindow from "../components/EmergancyWindow";
+import React from "react";
+import SafetyCheck from "../components/SafetyCheck";
 
 const Home: NextPage = () => {
-    const [isSafe, setIsSafe] = useState<boolean>(true);
-
-    const handleChangeOne = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setIsSafe(!isSafe);
-    };
-
     return (
         <>
             <Image src={logo} width="210" height="110" alt="logo" />
@@ -32,27 +24,11 @@ const Home: NextPage = () => {
                         you what might be helpful for you.{" "}
                     </p>
                 </div>
-                <div className={styles.get_help}>
-                    <div className="card-content">
-                        <p className="py-2 ">Are you safe right now?</p>
-                        <Checkbox
-                            className="checkbox "
-                            label="Yes"
-                            value={isSafe}
-                            onChange={handleChangeOne}
-                        />
-                        <Checkbox
-                            className="checkbox px-2 "
-                            label="No"
-                            value={!isSafe}
-                            onChange={handleChangeOne}
-                        />
-                    </div>
-                </div>
+                <SafetyCheck />
                 <GetHelp />
                 <p className="block pt-5">
-                    Learn more about <a href="/sexual_violence"> sexual </a>
-                    or <a href="/domestic_violence">domestic </a>
+                    Learn more about <a href="/sexual_general"> sexual </a>
+                    or <a href="/domestic_general">domestic </a>
                     violence.
                 </p>
                 <p className="block">
@@ -63,7 +39,6 @@ const Home: NextPage = () => {
                     <a>we can change a lot.</a>
                 </p>
             </div>
-            {!isSafe && <EmergancyWindow />}
         </>
     );
 };

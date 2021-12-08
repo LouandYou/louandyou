@@ -1,25 +1,55 @@
 import React, { ReactElement, useState } from "react";
 import Checkbox from "./Checkbox";
 import styles from "../styles/GetHelp.module.scss";
+import Link from "next/link";
 
 function GetHelp(): ReactElement {
     const [isSexual, setIsSexual] = useState<boolean>(true);
     const [isLongAgo, setisLongAgo] = useState<boolean>(true);
+    const [href, setHref] = useState<string>("/result_2");
 
-    const handleChangeTwo = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeTwo = () => {
+        console.log("handleChange 1");
+
         setIsSexual(!isSexual);
+        console.log("isSexual after change", isSexual);
+        setUrl();
+        console.log("href", href);
     };
-
-    const handleChangeThree = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChangeThree = () => {
         setisLongAgo(!isLongAgo);
+
+        console.log("href", href);
     };
 
-    const handleSubmit = () => {};
+    // setting the url still doesnt work :(
+
+    const setUrl = () => {
+        if (isSexual && !isLongAgo) {
+            console.log("block 1");
+
+            setHref("/result_1");
+        } else if (isSexual && isLongAgo) {
+            console.log("isSexual", isSexual);
+
+            console.log("block 2");
+            setHref("/result_2");
+        } else if (!isSexual && !isLongAgo) {
+            console.log("block 3");
+            setHref("/result_3");
+        } else if (!isSexual && isLongAgo) {
+            console.log("block 4");
+            setHref("/result_4");
+        }
+    };
 
     return (
         <>
-            <div className={styles.get_help}>
-                <div className="card-content ">
+            <div
+                onClick={() => console.log("isSexual", isSexual, "href", href)}
+                className={styles.get_help}
+            >
+                <div className="card-content">
                     <p className="py-2 ">
                         What type of violence did you experience?
                     </p>
@@ -52,12 +82,9 @@ function GetHelp(): ReactElement {
                     />
                 </div>
                 <div className="card-content">
-                    <button
-                        className="button is-fullwidth"
-                        onSubmit={handleSubmit}
-                    >
-                        Submit
-                    </button>
+                    <Link href={href} passHref>
+                        <button className="button is-fullwidth">Submit</button>
+                    </Link>
                 </div>
             </div>
         </>

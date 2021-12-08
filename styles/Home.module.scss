@@ -4,8 +4,6 @@
 
 .main {
     min-height: 100vh;
-
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,26 +74,20 @@
     font-size: 1.5rem;
 }
 
-.code {
-    background: #fafafa;
-    border-radius: 5px;
-    padding: 0.75rem;
-    font-size: 1.1rem;
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 800px;
-}
-
 .logo {
     height: 1em;
     margin-left: 0.5rem;
+}
+
+.exit_bt {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(180deg, #db0606 0%, #ff922e 88.54%);
+    backdrop-filter: blur(14px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 40px;
+    bottom: 15px;
+    position: fixed;
 }
 
 @media (max-width: 600px) {
