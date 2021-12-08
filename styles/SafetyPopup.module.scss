@@ -1,15 +1,19 @@
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .popup {
     z-index: 1;
     top: 40px;
     position: fixed;
     padding: 5px;
     width: 82vw;
-    height: 90vh;
+    height: auto;
     text-align: center;
     flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter();
     background: linear-gradient(
             180deg,
             rgba(255, 255, 255, 0.2) 0%,
@@ -26,9 +30,7 @@
     margin-bottom: 20px;
     width: 55px;
     height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter();
     background: radial-gradient(
         50% 50% at 50% 50%,
         rgba(176, 239, 174, 0.5) 0%,
@@ -42,9 +44,7 @@
 .call_bt {
     width: 55px;
     height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter();
     background: linear-gradient(
         310.38deg,
         rgba(255, 138, 0, 0.5) 26.34%,
@@ -53,6 +53,5 @@
     margin-bottom: 20px;
     backdrop-filter: blur(14px);
     /* Note: backdrop-filter has minimal browser support */
-
     border-radius: 40px;
 }
