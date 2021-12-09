@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from "react";
+import React, { ReactElement, useState } from "react";
 import styles from "../styles/SafetyPopup.module.scss";
 import phone from "../public/phone.png";
 import Image from "next/image";
@@ -9,7 +9,7 @@ interface Props {
     onClick: (event: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const SafetyPopup = ({safety, onClick}: Props): ReactElement => {
+const SafetyPopup = ({ safety, onClick }: Props): ReactElement => {
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
     const handleCloseBt = () => {
@@ -23,12 +23,6 @@ const SafetyPopup = ({safety, onClick}: Props): ReactElement => {
                     <div className={styles.close_bt} onClick={onClick}>
                         <p>X</p>
                     </div>
-                    {safety === "yes" && (
-                        <p className="block">
-                            Im glad your safe! <br/> You can always go back
-                            here for a safety check.
-                        </p>
-                    )}
                     {safety === "no" && (
                         <>
                             <p className="block">Do you need the police?</p>
