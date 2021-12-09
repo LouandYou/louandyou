@@ -11,49 +11,47 @@ const SafetyCheck = () => {
     const checkbox2 = useRef<HTMLInputElement>();
     const checkbox3 = useRef<HTMLInputElement>();
 
-    const handleChangeOne = () => {
+    const onClickOne = () => {
         checkbox3.current!.checked = false;
         checkbox2.current!.checked = false;
         setSafety(safety === "yes" ? "" : "yes");
     };
 
-    const handleChangeTwo = () => {
+    const onClickTwo = () => {
         checkbox3.current!.checked = false;
         checkbox1.current!.checked = false;
         setSafety(safety === "no" ? "" : "no");
     };
-    const handleChangeThree = () => {
+    const onClickThree = () => {
         checkbox1.current!.checked = false;
         checkbox2.current!.checked = false;
         setSafety(safety === "unsure" ? "" : "unsure");
     };
 
-    const handleClick = () => {
-        isOpen ? setIsOpen(false) : setIsOpen(true);
-    };
+    const handleClick = () => isOpen ? setIsOpen(false) : setIsOpen(true);
 
     return (
         <>
             <div className={styles.get_help}>
                 <div className="card-content">
-                    <p className="py-2 ">Are you safe right now?</p>
+                    <p className="py-2">Are you safe right now?</p>
                     <Checkbox
                         className="checkbox"
                         ref={checkbox1}
                         label="Yes"
-                        onChange={handleChangeOne}
+                        onChange={onClickOne}
                     />
                     <Checkbox
-                        className="checkbox px-2 "
+                        className="checkbox px-2"
                         label="No"
                         ref={checkbox2}
-                        onChange={handleChangeTwo}
+                        onChange={onClickTwo}
                     />
                     <Checkbox
                         className="checkbox px-2 "
                         label="Not sure"
                         ref={checkbox3}
-                        onChange={handleChangeThree}
+                        onChange={onClickThree}
                     />
                 </div>
                 <div className="card-content">

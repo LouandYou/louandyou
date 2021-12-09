@@ -1,69 +1,44 @@
-import React, { ReactElement, useState } from "react";
+import React, {ReactElement, useState} from "react";
 import Checkbox from "./Checkbox";
 import styles from "../styles/GetHelp.module.scss";
 import Link from "next/link";
 
 function GetHelp(): ReactElement {
-    const [isSexual, setIsSexual] = useState<boolean>(true);
-    const [isLongAgo, setisLongAgo] = useState<boolean>(true);
-    const [href, setHref] = useState<string>("/result_2");
+    const [isSexual, setIsSexual] = useState<boolean>();
+    const [isLongAgo, setIsLongAgo] = useState<boolean>();
 
-    const handleChangeTwo = () => {
-        console.log("handleChange 1");
-
-        setIsSexual(!isSexual);
-        console.log("isSexual after change", isSexual);
-        setUrl();
-        console.log("href", href);
-    };
-    const handleChangeThree = () => {
-        setisLongAgo(!isLongAgo);
-
-        console.log("href", href);
-    };
-
-    // setting the url still doesnt work :(
-
-    const setUrl = () => {
+    const getHref = () => {
         if (isSexual && !isLongAgo) {
-            console.log("block 1");
-
-            setHref("/result_1");
+            return "/result_1";
         } else if (isSexual && isLongAgo) {
-            console.log("isSexual", isSexual);
-
-            console.log("block 2");
-            setHref("/result_2");
+            return "/result_2";
         } else if (!isSexual && !isLongAgo) {
-            console.log("block 3");
-            setHref("/result_3");
-        } else if (!isSexual && isLongAgo) {
-            console.log("block 4");
-            setHref("/result_4");
+            return "/result_3";
         }
+
+        return "/result_4";
     };
+
+    const canSubmit = () => isSexual !== undefined && isLongAgo !== undefined;
 
     return (
         <>
-            <div
-                onClick={() => console.log("isSexual", isSexual, "href", href)}
-                className={styles.get_help}
-            >
+            <div className={styles.get_help}>
                 <div className="card-content">
-                    <p className="py-2 ">
+                    <p className="py-2">
                         What type of violence did you experience?
                     </p>
                     <Checkbox
                         className="checkbox"
-                        label="Sexualle"
-                        value={isSexual}
-                        onChange={handleChangeTwo}
+                        label="Sexual"
+                        value={isSexual === true}
+                        onChange={() => setIsSexual(true)}
                     />
                     <Checkbox
                         className="checkbox px-2"
                         label="Domestic"
-                        value={!isSexual}
-                        onChange={handleChangeTwo}
+                        value={isSexual === false}
+                        onChange={() => setIsSexual(false)}
                     />
                 </div>
                 <div className="card-content">
@@ -71,20 +46,22 @@ function GetHelp(): ReactElement {
                     <Checkbox
                         className="checkbox"
                         label="Long ago"
-                        value={isLongAgo}
-                        onChange={handleChangeThree}
+                        value={isLongAgo === true}
+                        onChange={() => setIsLongAgo(true)}
                     />
                     <Checkbox
                         className="checkbox px-2"
                         label="Last 7 days"
-                        value={!isLongAgo}
-                        onChange={handleChangeThree}
+                        value={isLongAgo === false}
+                        onChange={() => setIsLongAgo(false)}
                     />
                 </div>
                 <div className="card-content">
-                    <Link href={href} passHref>
-                        <button className="button is-fullwidth">Submit</button>
-                    </Link>
+                    {
+                        canSubmit() && <Link href={getHref()} passHref>
+                            <button className="button is-fullwidth">Submit</button>
+                        </Link>
+                    }
                 </div>
             </div>
         </>

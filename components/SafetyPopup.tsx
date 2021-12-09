@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import React, {ReactElement, useState} from "react";
 import styles from "../styles/SafetyPopup.module.scss";
 import phone from "../public/phone.png";
 import Image from "next/image";
@@ -9,7 +9,7 @@ interface Props {
     onClick: (event: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const SafetyPopup = ({ safety, onClick }: Props): ReactElement => {
+const SafetyPopup = ({safety, onClick}: Props): ReactElement => {
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
     const handleCloseBt = () => {
@@ -25,7 +25,7 @@ const SafetyPopup = ({ safety, onClick }: Props): ReactElement => {
                     </div>
                     {safety === "yes" && (
                         <p className="block">
-                            Im glad your safe! <br /> You can always go back
+                            Im glad your safe! <br/> You can always go back
                             here for a safety check.
                         </p>
                     )}
@@ -39,7 +39,7 @@ const SafetyPopup = ({ safety, onClick }: Props): ReactElement => {
                                         alt="phone"
                                         width="25"
                                         height="25"
-                                    ></Image>
+                                    />
                                 </Link>
                             </div>
                             <p className="block">Do you need an ambulance?</p>
@@ -50,7 +50,7 @@ const SafetyPopup = ({ safety, onClick }: Props): ReactElement => {
                                         alt="phone"
                                         width="25"
                                         height="25"
-                                    ></Image>
+                                    />
                                 </Link>
                             </div>
                             <p className="block is-size-7">
@@ -73,7 +73,7 @@ const SafetyPopup = ({ safety, onClick }: Props): ReactElement => {
                                         alt="phone"
                                         width="25"
                                         height="25"
-                                    ></Image>
+                                    />
                                 </Link>
                             </div>
                         </>
