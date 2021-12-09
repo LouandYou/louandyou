@@ -3,6 +3,7 @@ import Image from "next/image";
 import logo from "../public/logo.png";
 import GetHelp from "../components/GetHelp";
 import React from "react";
+import Link from "next/link";
 
 const Home: NextPage = () => {
     return (
@@ -25,8 +26,8 @@ const Home: NextPage = () => {
                 </div>
                 <GetHelp />
                 <p className="block pt-5">
-                    Learn more about <a href="/sexual_general"> sexual </a>
-                    or <a href="/domestic_general">domestic </a>
+                    Learn more about <Link href="/sexual_general" passHref> sexual </Link>
+                    or <Link href="/domestic_general" passHref>domestic </Link>
                     violence.
                 </p>
                 <p className="block">
