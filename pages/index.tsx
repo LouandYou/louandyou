@@ -3,7 +3,6 @@ import Image from "next/image";
 import logo from "../public/logo.png";
 import GetHelp from "../components/GetHelp";
 import React from "react";
-import SafetyCheck from "../components/SafetyCheck";
 
 const Home: NextPage = () => {
     return (
@@ -24,7 +23,6 @@ const Home: NextPage = () => {
                         you what might be helpful for you.{" "}
                     </p>
                 </div>
-                <SafetyCheck />
                 <GetHelp />
                 <p className="block pt-5">
                     Learn more about <a href="/sexual_general"> sexual </a>
