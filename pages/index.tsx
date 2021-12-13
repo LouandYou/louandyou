@@ -4,10 +4,10 @@ import logo from "../public/logo.png";
 import GetHelp from "../components/GetHelp";
 import React from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import en from "../locales/en";
 import de from "../locales/de";
-import Link from "next/link";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -15,8 +15,6 @@ const Home: NextPage = () => {
   const t = locale === "en" ? en : de;
 
   const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log("at onchange");
-
     const locale = e.target.value;
     router.push(router.pathname, router.asPath, { locale });
   };
