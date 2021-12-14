@@ -2,13 +2,13 @@
   background: rgba(255, 255, 255, 0.5);
   border-radius: 30px;
   overflow: hidden;
-  width: 350px;
+  width: 100%;
   text-align: center;
   letter-spacing: 1px;
+  font-size: 0.8rem;
   color: #614ad3;
   position: relative;
-  padding-right: 160px;
-  position: relative;
+  padding-right: 50%;
 
   &:before {
     content: attr(cont);
@@ -36,7 +36,7 @@
     z-index: 2;
 
     &:checked + .switch_button_label:before {
-      transform: translateX(180px);
+      transform: translateX(100%);
       transition: transform 250ms linear;
     }
 
