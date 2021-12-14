@@ -1,4 +1,4 @@
 const de = {
-  test: "german",
+  test: "test - german",
 };
 export default de;
