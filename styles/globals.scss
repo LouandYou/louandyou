@@ -1,12 +1,18 @@
 @import "~bulma/bulma";
 @import url("https://fonts.googleapis.com/css2?family=Maitree&family=Roboto:wght@100;400&display=swap");
 
+:root {
+  --size-font: 1em;
+}
+
 html,
 body {
   font-family: "Maitree", serif;
   letter-spacing: 0.5px;
   padding: 0;
   margin: 0;
+
+  font-size: var(--size-font);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: linear-gradient(
