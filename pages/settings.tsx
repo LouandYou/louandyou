@@ -26,6 +26,21 @@ const settings: NextPage = () => {
     const fontSize = e.target.checked ? "1.25em" : "1em";
     document.documentElement.style.setProperty("--size-font", fontSize);
   };
+
+  const contrastMode = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const backgroundColor = e.target.checked ? "white" : "";
+    const borderStyle = e.target.checked ? "black 1px solid" : "";
+    const louColorText = e.target.checked ? "black" : "";
+    document.documentElement.style.setProperty(
+      "--color-background",
+      backgroundColor
+    );
+    document.documentElement.style.setProperty("--style-border", borderStyle);
+    document.documentElement.style.setProperty(
+      "--lou-color-text",
+      louColorText
+    );
+  };
   return (
     <>
       <Link href={"/"} passHref>
@@ -37,7 +52,11 @@ const settings: NextPage = () => {
           cont={"Deutsch"}
           label={"English"}
         ></Slider>
-        <Slider cont={"Contrast"} label={"No Contrast"}></Slider>
+        <Slider
+          onChange={contrastMode}
+          cont={"Contrast"}
+          label={"No Contrast"}
+        ></Slider>
         <Slider
           onChange={setFontSize}
           cont={"Big Font"}
