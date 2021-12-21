@@ -39,7 +39,7 @@ const SafetyCheck = () => {
   };
 
   return (
-    <>
+    <div>
       <div className="card-content">
         <p className="py-2">Are you in physical danger?</p>
         <Checkbox
@@ -62,9 +62,8 @@ const SafetyCheck = () => {
           onChange={onClickThree}
         />
       </div>
-
-      {isOpen && <SafetyPopup onClick={toggleIsOpen} safety={safety} />}
-    </>
+      <SafetyPopup isOpen={isOpen} onClose={toggleIsOpen} safety={safety} />
+    </div>
   );
 };
 
