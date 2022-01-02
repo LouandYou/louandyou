@@ -58,11 +58,11 @@ export async function getStaticProps({
   let slug = "home";
 
   let sbParams: any = {
-    version: "draft", // or "published"
+    version: "published",
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
     language: locale
   };
-
+  console.debug('preview', preview);
   if (preview) {
     sbParams.version = "draft";
     sbParams.cv = Date.now();
