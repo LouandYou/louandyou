@@ -1,70 +1,84 @@
-import type { NextPage } from "next";
-import Image from "next/image";
-import logo from "../public/logo.png";
-import GetHelp from "../components/GetHelp";
 import React from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
-import en from "../locales/en";
-import de from "../locales/de";
-import SafetyPopup from "../components/SafetyPopup";
+import {Layout} from "../src/components/static/Layout";
+import Storyblok, { useStoryblok } from "../src/lib/storyblok";
+import {GetHelp} from "../src/components/static";
 
-const Home: NextPage = () => {
-  const router = useRouter();
-  const { locale } = router;
-  const t = locale === "en" ? en : de;
+import styles from "./index.module.scss";
+import { PageSection } from "../src/components/dynamic";
 
-  const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const locale = e.target.value;
-    router.push(router.pathname, router.asPath, { locale });
-  };
+export default function Page({
+                               story,
+                               preview,
+                               locale
+                             }) {
+  const enableBridge = true; // load the storyblok bridge everywhere
+  // use the preview variable to enable the bridge only in preview mode
+  // const enableBridge = preview;
+  story = useStoryblok(story, enableBridge, locale);
 
   return (
-    <>
-      <Image src={logo} width="210" height="110" alt="logo" />
-      <div className="select is-rounded is-small lang">
-        <select onChange={changeLanguage} defaultValue={locale}>
-          <option value="en">EN</option>
-          <option value="de">DE</option>
-        </select>
-      </div>
-
-      <div className="block py-2">
-        <p>{t.test}</p>
-        <p>Hi, my name is Lou,</p>
-        <br />
-        <p>
-          I’m the first digital companion for people affected by gender-based
-          violence. Whatever you might go through, I am here to support you on
-          your journey towards a self-determined life.
-          <br />
-          <br />
-          Tell me a little about what your situation and I’ll show you what
-          might be helpful for you.{" "}
+    <Layout locale={locale}>
+      <div className={styles.wrapper}>
+        <div className="block py-2">
+          <PageSection blok={story.content} name="description" />
+        </div>
+        <GetHelp />
+        <p className="block pt-5">
+          Learn more about
+          <Link href="/sexual_general" passHref>
+            {" sexual"}
+          </Link>
+          {" or"}
+          <Link href="/domestic_general" passHref>
+            {" domestic"}
+          </Link>
+          {""} violence.
+        </p>
+        <p className="block">
+          You’d like to know more about me?
+          <br /> Let me <a>introduce myself to you.</a>
+          <br /> And if you’d like to stay in touch, sign up to my newsletter{" "}
+          <a>here</a>. One thing is for sure: together,{" "}
+          <a>we can change a lot.</a>
         </p>
       </div>
-      <GetHelp />
-      <p className="block pt-5">
-        Learn more about
-        <Link href="/sexual_general" passHref>
-          {" sexual"}
-        </Link>
-        {" or"}
-        <Link href="/domestic_general" passHref>
-          {" domestic"}
-        </Link>
-        {""} violence.
-      </p>
-      <p className="block">
-        You’d like to know more about me?
-        <br /> Let me <a>introduce myself to you.</a>
-        <br /> And if you’d like to stay in touch, sign up to my newsletter{" "}
-        <a>here</a>. One thing is for sure: together,{" "}
-        <a>we can change a lot.</a>
-      </p>
-    </>
+    </Layout>
   );
-};
 
-export default Home;
+}
+
+export async function getStaticProps({
+                                       locale,
+                                       locales,
+                                       defaultLocale,
+                                       preview = false
+                                     }) {
+  let slug = "home";
+
+  let sbParams: any = {
+    version: "draft", // or "published"
+    resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
+    language: locale
+  };
+
+  if (preview) {
+    sbParams.version = "draft";
+    sbParams.cv = Date.now();
+  }
+
+  let { data } = await Storyblok.get(`cdn/stories/${slug}`, sbParams);
+
+  return {
+    props: {
+      story: data ? data.story : false,
+      preview,
+      locale,
+      locales,
+      defaultLocale
+    },
+    revalidate: 3600 // revalidate every hour
+  };
+}
+

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Slider.module.scss";
+import styles from "./Slider.module.scss";
 
 interface Props {
   cont: string;
@@ -7,7 +7,7 @@ interface Props {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Slider = React.forwardRef(
+export const Slider = React.forwardRef(
   ({ cont, label, onChange }: Props, ref: any) => {
     return (
       <div className="block py-1">
@@ -18,7 +18,7 @@ const Slider = React.forwardRef(
             ref={ref}
             className={styles.switch_button_checkbox}
             type="checkbox"
-          ></input>
+          />
           <label className={styles.switch_button_label} htmlFor="">
             <span className={styles.switch_button_label_span}>{label}</span>
           </label>
@@ -29,4 +29,3 @@ const Slider = React.forwardRef(
 );
 
 Slider.displayName = "Slider";
-export default Slider;

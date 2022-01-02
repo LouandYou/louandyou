@@ -1,0 +1,12 @@
+
+.exit_bt {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(180deg, #db0606 0%, #ff922e 88.54%);
+  backdrop-filter: blur(14px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 40px;
+  bottom: 15px;
+  position: fixed;
+}
+

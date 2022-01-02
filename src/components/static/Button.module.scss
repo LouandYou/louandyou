@@ -1,0 +1,13 @@
+.button {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  width: 100%;
+  border: var(--style-border);
+  color: var(--lou-color-text);
+  font-size: 0.8rem;
+  padding: 15px;
+
+  &:active {
+    background: white;
+  }
+}

@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react";
-import Checkbox from "./Checkbox";
-import SafetyPopup from "./SafetyPopup";
-import styles from "../styles/Home.module.scss";
+import {Checkbox} from "./Checkbox";
+import {SafetyPopup} from "./SafetyPopup";
 
-const SafetyCheck = () => {
+export const SafetyCheck = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [safety, setSafety] = useState<string>("");
 
@@ -56,7 +55,7 @@ const SafetyCheck = () => {
         />
 
         <Checkbox
-          className="checkbox px-2 "
+          className="checkbox px-2"
           label="Not sure"
           ref={checkbox3}
           onChange={onClickThree}
@@ -66,5 +65,3 @@ const SafetyCheck = () => {
     </div>
   );
 };
-
-export default SafetyCheck;

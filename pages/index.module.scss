@@ -1,8 +1,5 @@
-.container {
+.wrapper {
   padding: 0 2rem;
-}
-
-.main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,20 +23,6 @@
   margin-top: 20px;
 }
 
-.lou_button {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 30px;
-  width: 100%;
-  border: var(--style-border);
-  color: var(--lou-color-text);
-  font-size: 0.8rem;
-  padding: 15px;
-
-  &:active {
-    background: white;
-  }
-}
-
 .footer {
   display: flex;
   flex: 1;
@@ -58,7 +41,6 @@
 
 .title a {
   color: #0070f3;
-  text-decoration: none;
 }
 
 .title a:hover,
@@ -87,17 +69,6 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
-}
-
-.exit_bt {
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(180deg, #db0606 0%, #ff922e 88.54%);
-  backdrop-filter: blur(14px);
-  /* Note: backdrop-filter has minimal browser support */
-  border-radius: 40px;
-  bottom: 15px;
-  position: fixed;
 }
 
 @media (max-width: 600px) {

@@ -7,7 +7,7 @@ interface Props {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox = React.forwardRef(
+export const Checkbox = React.forwardRef(
     ({ className, label, value, onChange }: Props, ref: any) => {
         return (
             <label className={className}>
@@ -25,4 +25,3 @@ const Checkbox = React.forwardRef(
 );
 
 Checkbox.displayName = "Checkbox";
-export default Checkbox;

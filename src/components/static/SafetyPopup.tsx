@@ -1,7 +1,7 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
 import Modal from "react-modal";
-import styles from "../styles/SafetyPopup.module.scss";
-import phone from "../public/phone.png";
+import styles from "./SafetyPopup.module.scss";
+import phone from "../../../public/phone.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ interface Props {
   onClose: (event: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const SafetyPopup = ({ isOpen, safety, onClose }: Props): ReactElement => {
+export const SafetyPopup = ({ isOpen, safety, onClose }: Props): ReactElement => {
   return (
     <Modal
       isOpen={isOpen}
@@ -57,5 +57,3 @@ const SafetyPopup = ({ isOpen, safety, onClose }: Props): ReactElement => {
     </Modal>
   );
 };
-
-export default SafetyPopup;

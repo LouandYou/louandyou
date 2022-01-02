@@ -1,10 +1,10 @@
 import React, { ReactElement, useRef, useState } from "react";
-import Checkbox from "./Checkbox";
-import styles from "../styles/GetHelp.module.scss";
+import {Checkbox} from "./Checkbox";
+import styles from "./GetHelp.module.scss";
 import Link from "next/link";
-import SafetyCheck from "./SafetyCheck";
+import {SafetyCheck} from "./SafetyCheck";
 
-function GetHelp(): ReactElement {
+export function GetHelp(): ReactElement {
   const [isSexual, setIsSexual] = useState<boolean>();
   const [isLongAgo, setIsLongAgo] = useState<boolean>();
 
@@ -98,5 +98,3 @@ function GetHelp(): ReactElement {
     </div>
   );
 }
-
-export default GetHelp;
