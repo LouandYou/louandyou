@@ -1,12 +1,13 @@
-
 .exit_bt {
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(180deg, #db0606 0%, #ff922e 88.54%);
-  backdrop-filter: blur(14px);
-  /* Note: backdrop-filter has minimal browser support */
+  width: 50px;
+  height: 50px;
+  background: #9ebe38;
+  border: hidden;
   border-radius: 40px;
-  bottom: 15px;
+  bottom: 30px;
+  right: 30px;
+  color: white;
   position: fixed;
+  font-size: 25px;
+  filter: drop-shadow(2px 2px 6px rgba(104, 160, 5, 0.2));
 }
-

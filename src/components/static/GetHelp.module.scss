@@ -1,16 +1,30 @@
-.get_help {
-  background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(300px);
-  /* Note: backdrop-filter has minimal browser support */
-  border: var(--style-border);
+// @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Maitree&display=swap");
+
+.headline {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 38px;
+  line-height: 40px;
+  padding-top: 25px;
+}
+
+.button {
+  background: transparent;
+  border: 2px solid #000000;
   border-radius: 40px;
-  display: block;
-  height: 100%;
-  left: 0;
-  top: 0;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 9px 17px 10px 22px;
+  cursor: pointer;
+}
+
+.button_container {
+  padding-top: 35px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: flex-end;
+  & :active {
+    background: #8d8bf4;
+  }
 }

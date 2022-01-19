@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Maitree&display=swap");
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  padding-right: 30px;
+  font-size: 12px;
+  line-height: 17px;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: black 2px solid;
+  border-radius: 50%;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #8d8bf4;
+}

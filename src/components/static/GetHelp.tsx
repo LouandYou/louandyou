@@ -1,8 +1,8 @@
 import React, { ReactElement, useRef, useState } from "react";
-import {Checkbox} from "./Checkbox";
+import { Checkbox } from "./Checkbox";
 import styles from "./GetHelp.module.scss";
 import Link from "next/link";
-import {SafetyCheck} from "./SafetyCheck";
+import { SafetyCheck } from "./SafetyCheck";
 
 export function GetHelp(): ReactElement {
   const [isSexual, setIsSexual] = useState<boolean>();
@@ -50,31 +50,50 @@ export function GetHelp(): ReactElement {
   const canSubmit = () => isSexual !== undefined && isLongAgo !== undefined;
 
   return (
-    <div className={styles.get_help}>
+    <>
       <SafetyCheck />
-      <div className="card-content">
-        <p className="py-2">What type of violence did you experience?</p>
-        <Checkbox
-          className="checkbox"
-          label="Sexual"
-          ref={checkbox1}
-          onChange={onClickOne}
-        />
-        <Checkbox
-          className="checkbox px-2"
-          label="Domestic"
-          ref={checkbox2}
-          onChange={onClickTwo}
-        />
-        <Checkbox
-          className="checkbox px-2"
-          label="Both"
-          ref={checkbox3}
-          onChange={onClickThree}
-        />
+      <h2 className={styles.headline}>
+        what type of
+        <br /> violence did you
+        <br /> experience?
+      </h2>
+      <div className="py-5 ">
+        <div className="is-flex is-flex-direction-row">
+          <Checkbox
+            className="checkbox"
+            label="sexual"
+            ref={checkbox1}
+            onChange={onClickOne}
+          />
+          <Checkbox
+            className="checkbox px-2"
+            label="domestic"
+            ref={checkbox2}
+            onChange={onClickTwo}
+          />
+          <Checkbox
+            className="checkbox px-2"
+            label="both"
+            ref={checkbox3}
+            onChange={onClickThree}
+          />
+        </div>
+        <div className="pt-5">
+          <Checkbox
+            className="checkbox px-2"
+            label="not sure or would rather not say
+          "
+            ref={checkbox3}
+            onChange={onClickThree}
+          />
+        </div>
       </div>
-      <div className="card-content">
-        <p className="py-2 ">How long ago did it happen?</p>
+
+      <h2 className={styles.headline}>
+        how long ago did
+        <br /> it happen?
+      </h2>
+      <div className="py-5 is-flex is-flex-direction-row">
         <Checkbox
           className="checkbox px-2"
           label="Last 7 days"
@@ -88,13 +107,13 @@ export function GetHelp(): ReactElement {
           onChange={() => setIsLongAgo(true)}
         />
       </div>
-      <div className="card-content">
+      <div className={styles.button_container}>
         {canSubmit() && (
           <Link href={getHref()} passHref>
-            <button className="button is-fullwidth">Submit</button>
+            <button className={styles.button}>find support</button>
           </Link>
         )}
       </div>
-    </div>
+    </>
   );
 }

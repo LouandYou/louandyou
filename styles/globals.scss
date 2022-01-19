@@ -5,7 +5,7 @@
 :root {
   --size-font: 1em;
   --style-border: none;
-  --lou-color-text: #614ad3;
+  --lou-color-text: #8d8bf4;
   --color-background: linear-gradient(
       87.49deg,
       rgba(125, 104, 254, 0.09) 16.34%,
@@ -28,7 +28,7 @@ body {
   font-size: var(--size-font);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: var(--color-background);
+  background: white;
 }
 
 * {

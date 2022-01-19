@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import {Checkbox} from "./Checkbox";
-import {SafetyPopup} from "./SafetyPopup";
+import { Checkbox } from "./Checkbox";
+import { SafetyPopup } from "./SafetyPopup";
+import styles from "./SafetyPopup.module.scss";
 
 export const SafetyCheck = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -39,28 +40,17 @@ export const SafetyCheck = () => {
 
   return (
     <div>
-      <div className="card-content">
-        <p className="py-2">Are you in physical danger?</p>
-        <Checkbox
-          className="checkbox px-2"
-          label="No"
-          ref={checkbox1}
-          onChange={onClickOne}
-        />
-        <Checkbox
-          className="checkbox"
-          ref={checkbox2}
-          label="Yes"
-          onChange={onClickTwo}
-        />
-
-        <Checkbox
-          className="checkbox px-2"
-          label="Not sure"
-          ref={checkbox3}
-          onChange={onClickThree}
-        />
+      <p className={styles.headline}>
+        are you in
+        <br /> physical danger
+        <br /> right now?
+      </p>
+      <div className="py-5 is-flex is-flex-direction-row">
+        <Checkbox ref={checkbox2} label="Yes" onChange={onClickTwo} />
+        <Checkbox label="No" ref={checkbox1} onChange={onClickOne} />
+        <Checkbox label="Not sure" ref={checkbox3} onChange={onClickThree} />
       </div>
+
       <SafetyPopup isOpen={isOpen} onClose={toggleIsOpen} safety={safety} />
     </div>
   );
