@@ -31,12 +31,14 @@
   width: 100%;
   justify-content: space-between;
   display: flex;
+  align-items: center;
 }
 
 .icons_container {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  height: 36px;
 }
 
 .last_row {
@@ -47,4 +49,8 @@
     font-size: 8px !important;
     font-weight: normal !important;
   }
+}
+
+.invert_color {
+  filter: brightness(0) invert(1);
 }

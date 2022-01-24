@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 
 import { Layout } from "../src/components/static/Layout";
@@ -17,75 +17,51 @@ export default function Page({ story, preview, locale }) {
   const [iconsClass, setIconsClass] = useState(styles.icons);
   story = useStoryblok(story, enableBridge, locale);
 
-  const section = useRef<HTMLElement>(null);
-  const container = useRef<HTMLDivElement>(null);
-
-  const handleScroll = () => {
-    if (!container.current) {
-      return;
-    }
-    let scroll = container.current.scrollTop;
-    console.log(scroll);
-    if (scroll >= 643) {
-      setIconsClass(styles.icons_scrolled);
-    } else {
-      setIconsClass(styles.icons);
-    }
-  };
-
-  useEffect(() => {
-    container.current?.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
   return (
     <Layout locale={locale}>
-      <div className={styles.icons}>
-        <Image
-          src={"/../public/logo-white.png"}
-          layout="fixed"
-          width="80"
-          height="80"
-          alt="logo"
-        />
-
-        <Image
-          src={"/../public/3844473_hamburger_menu_more_navigation_icon.png"}
-          layout="fixed"
-          width="40"
-          height="36"
-          alt="logo"
-          className={styles.hamburger}
-        />
-      </div>
       <div className={styles.page_wraper}>
-        <section ref={section} className={styles.landing_page}>
+        <section
+          data-dark-bg="true"
+          id="section_1"
+          className={styles.landing_page}
+        >
           <Image
             src={"/../public/full-logo-white.png"}
             layout="fixed"
             width="320"
             height="170"
             alt="logo"
+            priority
           />
           <PageSection blok={story.content} name="description" />
+          <div className={styles.language_wraper}>
+            <div className={styles.language_switch}>
+              <div className="px-1">DE</div>|<div className="px-1">EN</div>
+            </div>
+            <div>⌄</div>
+          </div>
         </section>
       </div>
       <div className={styles.page_wraper}>
-        <section className={styles.white_page_long}>
-          <h1 className={styles.title}>
-            find help <br />& support
-          </h1>
+        <section
+          data-dark-bg="false"
+          id="section_2"
+          className={styles.white_page_long}
+        >
+          <h1 className={styles.title}>let’s find out how I can help you</h1>
           <p className={styles.description}>
-            Tell me a little about what your
-            <br /> situation is and I’ll show you what
-            <br /> might be helpful for you.
+            together, we’ll figure out what you need & what feels right for you
           </p>
           <GetHelp />
         </section>
 
-        <section className={styles.color_page}>
+        <section
+          data-dark-bg="true"
+          id="section_3"
+          className={styles.color_page}
+        >
           <h1 className={styles.title_white}>
-            here you can also find some general information on violence
+            here you find some helpful things to know about violence.
           </h1>
           <div className={styles.btn_container}>
             <button className={styles.white_btn}>
@@ -101,26 +77,19 @@ export default function Page({ story, preview, locale }) {
           </div>
         </section>
 
-        <section className={styles.white_page}>
-          <h1 className={styles.subtitle}>
-            would you like to know more about me?
-          </h1>
+        <section
+          data-dark-bg="false"
+          id="section_4"
+          className={styles.white_page}
+        >
+          <h1 className={styles.subtitle}>let me introduce myself to you</h1>
           <p className={styles.description}>
-            I’m the first digital companion for
-            <br />
-            people affected by gender-based violence. You can read{" "}
+            I’m the first digital companion for people who experienced sexual
+            and domestic violence. I have quite ambitious plans for the future.{" "}
             <Link passHref href={""}>
-              more about me here.
+              Come along & find out how we can create a better future for
+              everyone.
             </Link>
-            <br /> <br /> And if you’d like to stay in touch, sign up to my{" "}
-            <Link passHref href={""}>
-              newsletter
-            </Link>{" "}
-            . Because one thing is for sure: together, we can{" "}
-            <Link passHref href={""}>
-              change alot
-            </Link>
-            .
           </p>
         </section>
         <Footer />
@@ -138,7 +107,7 @@ export async function getStaticProps({
   let slug = "home";
 
   let sbParams: any = {
-    version: "draft",
+    version: "preview",
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
     language: locale,
   };

@@ -1,12 +1,15 @@
 import { NextPage } from "next";
-import Image from "next/image";
-import and_logo from "../public/and_logo.png";
+import { Layout } from "../src/components/static";
+
+import styles from "./index.module.scss";
 
 const sexual_general: NextPage = () => {
   return (
-    <>
-      <h1> Sexual Violance</h1>
-    </>
+    <Layout>
+      <div className={styles.color_page}>
+        <h1> Sexual Violance</h1>
+      </div>
+    </Layout>
   );
 };
 

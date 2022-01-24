@@ -37,9 +37,28 @@ export function Footer(): ReactElement {
           <Link href="/">newsletter</Link>
         </div>
         <div className={styles.icons_container}>
-          <Link href="/">link</Link>
-          <Link href="/">link</Link>
-          <Link href="/">link</Link>
+          <div className={styles.invert_color}>
+            <Image
+              src={"/../public/glyph-logo_May2016.png"}
+              width="36"
+              height="36"
+              alt="instagram logo"
+            />
+          </div>
+          <Image
+            src={"/../public/f_logo_RGB-White_512.png"}
+            width="36"
+            height="36"
+            alt="facebook logo"
+          />
+          <div className={styles.invert_color}>
+            <Image
+              src={"/../public/LI-In-Bug.png"}
+              width="42"
+              height="36"
+              alt="linkedin logo"
+            />
+          </div>
         </div>
       </div>
       <div className={styles.row_container}>
@@ -60,9 +79,25 @@ export function Footer(): ReactElement {
         </div>
       </div>
       <div className={styles.row_container}>
-        <Link href="/">link</Link>
-        <Link href="/">link</Link>
-        <Link href="/">link</Link>
+        <Image
+          src="/../public/pp-acceptance-small.png"
+          width="40"
+          height="26"
+          layout="fixed"
+          alt="Donate now with PayPal"
+        />
+        <Image
+          src="https://x.klarnacdn.net/payment-method/assets/badges/generic/white/klarna.svg"
+          width="42"
+          height="36"
+          alt="Donate now with Klarna"
+        />
+        <Image
+          src="/../public/Apple_Pay_Mark_RGB_041619.svg"
+          width="42"
+          height="36"
+          alt="Donate now with Apple Pay"
+        />
       </div>
       <div className={styles.row_container}>
         <p>

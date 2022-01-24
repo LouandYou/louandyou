@@ -3,18 +3,20 @@
 .headline {
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  font-size: 38px;
-  line-height: 40px;
+  font-size: 28px;
+  line-height: 38px;
   padding-top: 25px;
 }
 
 .button {
   background: transparent;
+  width: 140px;
   border: 2px solid #000000;
   border-radius: 40px;
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  font-size: 18px;
+  color: #f40808;
+  font-size: 13px;
   padding: 9px 17px 10px 22px;
   cursor: pointer;
 }

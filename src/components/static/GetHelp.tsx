@@ -53,9 +53,7 @@ export function GetHelp(): ReactElement {
     <>
       <SafetyCheck />
       <h2 className={styles.headline}>
-        what type of
-        <br /> violence did you
-        <br /> experience?
+        what kind of violence did you experience?
       </h2>
       <div className="py-5 ">
         <div className="is-flex is-flex-direction-row">
@@ -81,28 +79,26 @@ export function GetHelp(): ReactElement {
         <div className="pt-5">
           <Checkbox
             className="checkbox px-2"
-            label="not sure or would rather not say
-          "
+            label="I’m not sure or would rather not say"
             ref={checkbox3}
             onChange={onClickThree}
           />
         </div>
       </div>
 
-      <h2 className={styles.headline}>
-        how long ago did
-        <br /> it happen?
-      </h2>
-      <div className="py-5 is-flex is-flex-direction-row">
+      <h2 className={styles.headline}>how long ago did it happen?</h2>
+      <div className="pt-5">
         <Checkbox
           className="checkbox px-2"
-          label="Last 7 days"
+          label="less than a month ago"
           value={isLongAgo === false}
           onChange={() => setIsLongAgo(false)}
         />
+      </div>
+      <div className="pt-5">
         <Checkbox
           className="checkbox"
-          label="Long ago"
+          label="more than a month ago"
           value={isLongAgo === true}
           onChange={() => setIsLongAgo(true)}
         />
@@ -110,7 +106,7 @@ export function GetHelp(): ReactElement {
       <div className={styles.button_container}>
         {canSubmit() && (
           <Link href={getHref()} passHref>
-            <button className={styles.button}>find support</button>
+            <button className={styles.button}>get started</button>
           </Link>
         )}
       </div>
