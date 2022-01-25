@@ -26,7 +26,7 @@ export default function Page({ story, preview, locale }) {
           className={styles.landing_page}
         >
           <Image
-            src={"/../public/full-logo-white.png"}
+            src={"/../public/lou&you_logo_white.png"}
             layout="fixed"
             width="320"
             height="170"

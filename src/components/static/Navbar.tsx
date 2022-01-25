@@ -36,7 +36,7 @@ export function Navbar(props: IProps): ReactElement {
           }
         >
           <Image
-            src={"/../public/logo-white.png"}
+            src={"/../public/&_logo_white.png"}
             layout="fixed"
             width="80"
             height="80"

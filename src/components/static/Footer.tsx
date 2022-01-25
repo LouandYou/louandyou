@@ -9,7 +9,7 @@ export function Footer(): ReactElement {
   return (
     <section className={styles.footer}>
       <Image
-        src={"/../public/full-logo-white.png"}
+        src={"/../public/lou&you_logo_white.png"}
         layout="fixed"
         width="320"
         height="170"
@@ -39,21 +39,21 @@ export function Footer(): ReactElement {
         <div className={styles.icons_container}>
           <div className={styles.invert_color}>
             <Image
-              src={"/../public/glyph-logo_May2016.png"}
+              src={"/../public/instagram.png"}
               width="36"
               height="36"
               alt="instagram logo"
             />
           </div>
           <Image
-            src={"/../public/f_logo_RGB-White_512.png"}
+            src={"/../public/facebook.png"}
             width="36"
             height="36"
             alt="facebook logo"
           />
           <div className={styles.invert_color}>
             <Image
-              src={"/../public/LI-In-Bug.png"}
+              src={"/../public/linkedin.png"}
               width="42"
               height="36"
               alt="linkedin logo"
@@ -80,7 +80,7 @@ export function Footer(): ReactElement {
       </div>
       <div className={styles.row_container}>
         <Image
-          src="/../public/pp-acceptance-small.png"
+          src="/../public/paypal.png"
           width="40"
           height="26"
           layout="fixed"
@@ -93,7 +93,7 @@ export function Footer(): ReactElement {
           alt="Donate now with Klarna"
         />
         <Image
-          src="/../public/Apple_Pay_Mark_RGB_041619.svg"
+          src="/../public/apple_pay.svg"
           width="42"
           height="36"
           alt="Donate now with Apple Pay"
