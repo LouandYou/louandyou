@@ -11,8 +11,6 @@ export default function useScrollingBackgroundColor(props: IProps) {
     new Map()
   );
 
-  console.log(elementMap);
-
   const isDarkBgColor = React.useMemo(() => {
     let isDarkBgColor = true;
     for (const [sectionId, isVisible] of elementMap.entries()) {
