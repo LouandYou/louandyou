@@ -1,9 +1,25 @@
 .nav_container {
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 62px;
+  display: block;
+  position: relative;
+  height: 80px;
+}
+
+.header_bg {
+  position: absolute;
+  top: 0;
+  backdrop-filter: blur(3px);
+  -webkit-mask: -webkit-gradient(
+    linear,
+    top,
+    bottom,
+    from(black),
+    color-stop(60%, transparent)
+  );
+  -webkit-mask: linear-gradient(black 60%, transparent 90%);
+  mask: url(#mask-linear);
+  filter: url(#filtre2);
+  height: 150px;
+  width: 100vw;
 }
 
 .invert_color {
@@ -38,19 +54,13 @@
   font-weight: bolder;
 }
 
-.nav_container {
-  display: block;
-  position: relative;
-  height: 60px;
-}
-
 .nav_container .checkbox {
   position: absolute;
   display: block;
   height: 32px;
   width: 32px;
-  top: 32px;
-  right: 23px;
+  top: 60px;
+  right: 45px;
   z-index: 5;
   opacity: 0;
   cursor: pointer;
@@ -61,12 +71,27 @@
   height: 22px;
   width: 27px;
   position: absolute;
-  top: 30px;
-  right: 23px;
+  top: 60px;
+  right: 45px;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.logo {
+  position: absolute;
+  top: 29px;
+  left: 25px;
+  z-index: 1;
+}
+
+.logo_black {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
 }
 
 .nav_container .hamburger_lines .line {
@@ -107,21 +132,6 @@
   margin-bottom: 1.2rem;
   font-size: 1.5rem;
   font-weight: 500;
-}
-
-.logo {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
-}
-
-.logo_black {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  filter: invert(100%);
-  -webkit-filter: invert(100%);
 }
 
 .nav_container input[type="checkbox"]:checked ~ .menu_items {

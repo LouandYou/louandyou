@@ -15,8 +15,7 @@ export function Navbar(props: IProps): ReactElement {
 
   const isDarkBgColor = useScrollingBackgroundColor({
     elements: () => Array.from(document.querySelectorAll("main section")),
-    // root: document && document.querySelector(".App"),
-    offset: 23,
+    offset: 70,
   });
 
   const handleCheckbox = () => {
@@ -28,6 +27,7 @@ export function Navbar(props: IProps): ReactElement {
   return (
     <nav className={styles.navbar}>
       <div className={styles.nav_container}>
+        <div className={styles.header_bg} />
         <div
           className={
             isDarkBgColor
