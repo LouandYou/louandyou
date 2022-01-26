@@ -92,6 +92,23 @@ export default function Page({ story, preview, locale }) {
             </Link>
           </p>
         </section>
+        <section
+          data-dark-bg="true"
+          id="section_5"
+          className={styles.color_page}
+        >
+          <h1 className={styles.title_white}>
+            join me on my journey & let me share when big things are happening
+            for me
+          </h1>
+          <div className={styles.btn_container}>
+            <button className={styles.white_btn}>
+              <Link href="/" passHref>
+                sign up to my newsletter
+              </Link>
+            </button>
+          </div>
+        </section>
         <Footer />
       </div>
     </Layout>
