@@ -9,9 +9,9 @@ export function Footer(): ReactElement {
   return (
     <section className={styles.footer}>
       <Image
-        src={"/../public/lou&you_logo_white.png"}
+        src={"/../public/L&Y_logo_white.png"}
         width="280"
-        height="170"
+        height="195"
         alt="logo"
         quality={100}
       />
