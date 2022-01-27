@@ -11,11 +11,11 @@
 .button {
   background: transparent;
   width: 140px;
-  border: 2px solid #000000;
+  border: 2px solid #101223;
   border-radius: 40px;
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  color: #f40808;
+  color: #101223;
   font-size: 13px;
   padding: 9px 17px 10px 22px;
   cursor: pointer;
@@ -27,6 +27,6 @@
   display: flex;
   justify-content: flex-end;
   & :active {
-    background: #8d8bf4;
+    background: #8b8bf4;
   }
 }
