@@ -4,9 +4,6 @@ import React, { useRef, useState } from "react";
 import { Checkbox, Layout, Slider } from "../src/components/static";
 import { useRouter } from "next/router";
 
-import en from "../locales/en";
-import de from "../locales/de";
-
 import styles from "./settings.module.scss";
 import { Footer } from "../src/components/static/Footer";
 
@@ -24,7 +21,6 @@ const Settings: NextPage = () => {
 
   const router = useRouter();
   const { locale } = router;
-  const t = locale === "en" ? en : de;
 
   // const setLanguage = () => {
   //   const locale = checkbox1.current!.value ? "de" : "en";
@@ -38,7 +34,6 @@ const Settings: NextPage = () => {
       checkbox2.current!.checked = true;
     }
     setLocal("de");
-    // setLanguage();
   };
 
   const handleChange2 = () => {
@@ -49,7 +44,6 @@ const Settings: NextPage = () => {
     }
 
     setLocal("en");
-    // setLanguage();
   };
   const handleChange5 = () => {
     if (checkbox5.current!.checked) {
@@ -70,20 +64,7 @@ const Settings: NextPage = () => {
     }
   };
 
-  // const contrastMode = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const backgroundColor = e.target.checked ? "white" : "";
-  //   const borderStyle = e.target.checked ? "black 1px solid" : "";
-  //   const louColorText = e.target.checked ? "black" : "";
-  //   document.documentElement.style.setProperty(
-  //     "--color-background",
-  //     backgroundColor
-  //   );
-  //   document.documentElement.style.setProperty("--style-border", borderStyle);
-  //   document.documentElement.style.setProperty(
-  //     "--lou-color-text",
-  //     louColorText
-  //   );
-  // };
+
   return (
     <>
       <Layout>
@@ -111,15 +92,7 @@ const Settings: NextPage = () => {
               />
             </div>
           </div>
-          {/* <div className={styles.checkbox_wraper}>
-            <p>mode</p>
-            <div>
-              <Checkbox ref={checkbox3} label="no contrast" />
-            </div>
-            <div>
-              <Checkbox ref={checkbox4} label="contrast" />
-            </div>
-          </div> */}
+
           <div className={styles.checkbox_wraper}>
             <p>font size</p>
             <div>
