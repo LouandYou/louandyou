@@ -4,10 +4,9 @@ import styles from "./Dropdown.module.scss";
 interface IProps {
   label: string;
   content: string;
-  id: string;
 }
 
-export function Dropdown(props: IProps): ReactElement {
+export function DropdownBlack(props: IProps): ReactElement {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [rotate, setRotate] = useState<boolean>(false);
 
@@ -22,7 +21,7 @@ export function Dropdown(props: IProps): ReactElement {
   };
 
   return (
-    <section className={styles.section} data-dark-bg="false" id={props.id}>
+    <section className={styles.section}>
       <div className={styles.dropdown_wrapper}>
         <p className={styles.label}>{props.label}</p>
         <button

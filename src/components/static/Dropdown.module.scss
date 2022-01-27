@@ -1,5 +1,6 @@
+// Black Dropdown
+
 .section {
-  padding: 54px 42px 0px 45px;
   font-family: "Maitree", serif;
   font-size: 16px;
   line-height: 29px;
@@ -10,7 +11,6 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding-bottom: 110px;
 }
 
 .label {
@@ -19,10 +19,10 @@
 
 .dropdown_button {
   background: transparent;
-  background-image: url("../../../public/arrow-dropdown.svg");
+  background-image: url("../../../public/unfold_button_black.svg");
   border: none;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   z-index: 2;
   border-radius: 40px;
   margin-bottom: 27px;
@@ -35,6 +35,50 @@
 }
 
 .content {
+  transform: translateX(0%);
+  transition: transform 1s ease-in-out;
+  padding: 100px 0 100px 0;
+}
+
+// Purple Dropdown
+
+.section_purple {
+  font-family: "Maitree", serif;
+  font-size: 16px;
+  line-height: 29px;
+  color: #101223;
+}
+
+.dropdown_wrapper_purple {
+  display: flex;
+  align-items: flex-end;
+  align-items: center;
+  margin-top: 22px;
+}
+
+.label_purple {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  color: #8b8de5;
+  font-size: 28px;
+  line-height: 27px;
+}
+
+.dropdown_button_purple {
+  background: transparent;
+  background-image: url("../../../public/unfold_button_purple.svg");
+  border: none;
+  width: 21px;
+  height: 21px;
+  z-index: 2;
+  margin-left: 14px;
+  margin-top: 5px;
+  border-radius: 40px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.content_purple {
+  margin-top: 37px;
   transform: translateX(0%);
   transition: transform 1s ease-in-out;
   padding-bottom: 100px;
