@@ -7,4 +7,5 @@ export * from "./Slider";
 export * from "./Layout";
 export * from "./Button";
 export * from "./Navbar";
-export * from "./Dropdown";
+export * from "./DropdownBlack";
+export * from "./DropdownPurple";
