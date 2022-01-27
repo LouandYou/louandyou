@@ -36,10 +36,10 @@ export function Navbar(props: IProps): ReactElement {
           }
         >
           <Image
-            src={"/../public/&_logo_white.png"}
+            src={"/../public/L&Y_ampersand_white.svg"}
             layout="fixed"
-            width="80"
-            height="80"
+            width="32"
+            height="32"
             alt="logo"
             priority
           />

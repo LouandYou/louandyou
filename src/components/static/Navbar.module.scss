@@ -59,7 +59,7 @@
   display: block;
   height: 32px;
   width: 32px;
-  top: 60px;
+  top: 50px;
   right: 45px;
   z-index: 5;
   opacity: 0;
@@ -71,7 +71,7 @@
   height: 22px;
   width: 27px;
   position: absolute;
-  top: 60px;
+  top: 50px;
   right: 45px;
   z-index: 2;
   display: flex;
@@ -81,17 +81,9 @@
 
 .logo {
   position: absolute;
-  top: 29px;
-  left: 25px;
+  top: 44px;
+  left: 45px;
   z-index: 1;
-}
-
-.logo_black {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  filter: invert(100%);
-  -webkit-filter: invert(100%);
 }
 
 .nav_container .hamburger_lines .line {
