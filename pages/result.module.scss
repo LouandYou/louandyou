@@ -1,0 +1,138 @@
+.landing_page {
+  background-color: #8b8bf4;
+  height: 100vh;
+  padding: 50px 30px 80px 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-family: "Maitree", serif;
+  color: white;
+  & h1 {
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 46px;
+  }
+  & a {
+    color: white;
+    text-decoration: underline;
+  }
+  & p {
+    line-height: 27px;
+    padding-right: 15px;
+  }
+}
+
+.white_page {
+  padding: 50px 45px 100px 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Maitree", serif;
+  color: #101223;
+  line-height: 29px;
+
+  & h1 {
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 46px;
+  }
+}
+
+.color_page {
+  height: 100vh;
+  padding: 50px 45px 110px 45px;
+  background-image: url("../public/background.jpeg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-family: "Lato", sans-serif;
+  & h2 {
+    font-weight: bold;
+    font-size: 38px;
+  }
+  & p {
+    line-height: 25px;
+  }
+  & a {
+    padding: 5px;
+    color: white;
+    text-decoration: underline;
+  }
+}
+.button {
+  background: transparent;
+  width: 140px;
+  border: 2px solid #101223;
+  border-radius: 40px;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  color: #101223;
+  font-size: 13px;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+
+  &:active {
+    background: #8b8bf4;
+  }
+
+  & a {
+    color: #101223;
+  }
+}
+
+.headline_page {
+  height: 90vh;
+  padding: 50px 45px 50px 45px;
+  background-image: url("../public/background.jpeg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  font-family: "Lato", sans-serif;
+  & h2 {
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 42px;
+  }
+}
+
+.dropdown_wrapper {
+  margin-top: 90px;
+}
+
+.warning {
+  margin-top: 50px;
+  color: #8b8bf4;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+
+  & h2 {
+    font-size: 37px;
+    font-weight: bold;
+  }
+
+  & p {
+    margin-bottom: 10px;
+  }
+}
+
+.button_warning {
+  background: transparent;
+  width: 140px;
+  border: 2px solid #8b8bf4;
+  border-radius: 40px;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  color: #8b8bf4;
+}
