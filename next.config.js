@@ -8,5 +8,4 @@ module.exports = {
   images: {
     domains: ["x.klarnacdn.net", "https://www.paypalobjects.com"],
   },
-  target: "serverless",
 };
