@@ -8,7 +8,7 @@ type PageSectionProps = {
 };
 
 export const PageSection = ({ blok, name }: PageSectionProps) => (
-  <main {...sbEditable(blok)} key={blok.uuid}>
+  <main {...sbEditable(blok as any)} key={blok.uuid}>
     {blok[name]
       ? blok[name].map((blok) => (
         <DynamicComponent blok={blok} key={blok._uid} />
