@@ -8,14 +8,15 @@ import Link from "next/link";
 export function Footer(): ReactElement {
   return (
     <section className={styles.footer}>
-      <Image
-        src={"/../public/L&Y_logo_white.png"}
-        width="280"
-        height="195"
-        alt="logo"
-        quality={100}
-      />
-
+      <div className={styles.logo}>
+        <Image
+          src={"/../public/L&Y_Logo_full_white.svg"}
+          width="220"
+          height="70"
+          alt="logo"
+          quality={100}
+        />
+      </div>
       <div className={styles.wrapper}>
         <div className={styles.row_container}>
           <div className={styles.links_container}>

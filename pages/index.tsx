@@ -25,14 +25,16 @@ export default function Page({ story, preview, locale }) {
           id="section_1"
           className={styles.landing_page}
         >
-          <Image
-            src={"/../public/lou&you_logo_white.png"}
-            layout="fixed"
-            width="320"
-            height="170"
-            alt="logo"
-            priority
-          />
+          <div className="py-4">
+            <Image
+              src={"/../public/L&Y_Logo_full_white.svg"}
+              layout="fixed"
+              width="220"
+              height="70"
+              alt="logo"
+              priority
+            />
+          </div>
           <PageSection blok={story.content} name="description" />
           <div className={styles.language_wraper}>
             <div className={styles.language_switch}>
@@ -66,12 +68,12 @@ export default function Page({ story, preview, locale }) {
           <div className={styles.btn_container}>
             <button className={styles.white_btn}>
               <Link href="/domestic_general" passHref>
-                domestic violance
+                domestic violence
               </Link>
             </button>
             <button className={styles.white_btn}>
               <Link href="/sexual_general" passHref>
-                sexual violance
+                sexual violence
               </Link>
             </button>
           </div>
