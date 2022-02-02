@@ -1,4 +1,4 @@
 export * from './DynamicComponent';
-export * from './PageSection';
+export * from './PageContent';
 export * from "./Placeholder";
 export * from "./Text";

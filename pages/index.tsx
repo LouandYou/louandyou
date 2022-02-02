@@ -7,11 +7,14 @@ import { GetHelp } from "../src/components/static";
 
 import Image from "next/image";
 import styles from "./index.module.scss";
-import { PageSection } from "../src/components/dynamic";
+import { PageContent } from "../src/components/dynamic";
 import { Footer } from "../src/components/static";
+import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
 export default function Page({ story, preview, locales, locale, defaultLocale }) {
   story = useStoryblok(story, preview, locale);
+  console.debug('story', story);
+  console.debug('description', story.content.description);
   return (
     <Layout locale={locale}>
       <div className={styles.page_wrapper}>
@@ -30,7 +33,7 @@ export default function Page({ story, preview, locales, locale, defaultLocale })
               priority
             />
           </div>
-          <PageSection blok={story.content} name="description" />
+          <PageContent blok={story.content} name="description" />
           <div className={styles.language_wrapper}>
             <div className={styles.language_switch}>
               {
@@ -118,35 +121,9 @@ export default function Page({ story, preview, locales, locale, defaultLocale })
   );
 }
 
-export async function getStaticProps({
-                                       locale,
-                                       locales,
-                                       defaultLocale,
-                                       preview = false
-                                     }) {
-  let slug = "home";
-
-  let sbParams: any = {
-    version: "published",
-    resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
-    language: locale
-  };
-
-  if (preview) {
-    sbParams.version = "draft";
-    sbParams.cv = Date.now();
-  }
-
-  let { data } = await Storyblok.get(`cdn/stories/${slug}`, sbParams);
-
-  return {
-    props: {
-      story: data ? data.story : false,
-      preview,
-      locale,
-      locales,
-      defaultLocale
-    },
-    revalidate: 3600 // revalidate every hour
-  };
+export async function getStaticProps(props) {
+  return pageGetStaticProps({
+    ...props,
+    slug: "home",
+  })
 }

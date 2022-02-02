@@ -1,15 +1,20 @@
-import { NextPage } from "next";
 import Link from "next/link";
 import {
   DropdownBlack,
   DropdownPurple,
-  Layout,
+  Layout
 } from "../src/components/static";
-import { Footer } from "../src/components/static/Footer";
+import { Footer } from "../src/components/static";
 
 import styles from "./result.module.scss";
+import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
+import { useStoryblok } from "../src/lib/storyblok";
+import { PageContent, Text } from "../src/components/dynamic";
 
-const result_1: NextPage = () => {
+export default function Page({ story, preview, locale }) {
+  const { content } = useStoryblok(story, preview, locale);
+  console.debug("story", story);
+  console.debug("story.content.body", content.body);
   return (
     <Layout>
       <section
@@ -17,34 +22,17 @@ const result_1: NextPage = () => {
         id="section_1"
         className={styles.landing_page}
       >
-        <h1>
-          everything is easier with someone by your side. I’m here to support
-          you.
-        </h1>
+        <h1>{content.headline}</h1>
         <p className="pt-3">
-          The questions below help you find what you need. Before we start,
-          let’s make sure you’re safe. If in doubt, check out my{" "}
-          <Link href={"/safety_tips"}>safety tips</Link> to make sure your phone
-          or computer is safe for you to use. You can also set{" "}
-          <Link href={"/safety_tips"}>
-            your personal preferences regarding safety & accessibility.
-          </Link>
+          <Text blok={content} attribute={'subline'} />
         </p>
       </section>
-      <section
+      <PageContent
         data-dark-bg="false"
         id="section_2"
-        className={styles.white_page}
-      >
-        <p>
-          Most importantly: <b>I believe you </b>and I’m there for you because
-          you deserve to be supported - whatever you’re going through.
-          <br />
-          <br /> Feel free to read what feels right for you & take your time.
-          When it comes to healing and finding help there is no ‘right’ or
-          ‘wrong’ way, just the way that feels right for you.
-        </p>
-      </section>
+        blok={content}
+        name={'body'}
+      />
       <section data-dark-bg="true" id="section_3" className={styles.color_page}>
         <h2>overview</h2>
         <Link href={"#section_5"}>are you injured?</Link>
@@ -327,4 +315,9 @@ const result_1: NextPage = () => {
   );
 };
 
-export default result_1;
+export async function getStaticProps(props) {
+  return pageGetStaticProps({
+    ...props,
+    slug: "result_1"
+  });
+}
