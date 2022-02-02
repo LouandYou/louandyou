@@ -26,8 +26,6 @@ export default function Page({ story, preview, locale }) {
         </p>
       </section>
       <PageContent
-        data-dark-bg="false"
-        id="section_2"
         blok={content}
         name={'body'}
       />

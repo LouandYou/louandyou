@@ -9,7 +9,6 @@ type PageSectionProps = {
 
 
 export const PageContent = ({ blok, name }: PageSectionProps) => {
-  console.debug('blok', blok);
   return (
     <section {...sbEditable(blok as any)} key={blok.uuid}>
       {blok[name]
