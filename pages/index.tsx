@@ -2,17 +2,16 @@ import React from "react";
 import Link from "next/link";
 
 import { Layout } from "../src/components/static";
-import Storyblok, { useStoryblok } from "../src/lib/storyblok";
+import { Storyblok, useStoryblok } from "../src/lib/storyblok";
 import { GetHelp } from "../src/components/static";
 
 import Image from "next/image";
 import styles from "./index.module.scss";
 import { PageSection } from "../src/components/dynamic";
-import { Footer } from "../src/components/static/Footer";
+import { Footer } from "../src/components/static";
 
-export default function Page({ story, preview, locale }) {
+export default function Page({ story, preview, locales, locale, defaultLocale }) {
   story = useStoryblok(story, preview, locale);
-
   return (
     <Layout locale={locale}>
       <div className={styles.page_wrapper}>
@@ -32,9 +31,16 @@ export default function Page({ story, preview, locale }) {
             />
           </div>
           <PageSection blok={story.content} name="description" />
-          <div className={styles.language_wraper}>
+          <div className={styles.language_wrapper}>
             <div className={styles.language_switch}>
-              <Link href={'/de'}><div className="px-1">DE</div></Link>|<Link href={'/en'}><div className="px-1">EN</div></Link>
+              {
+                locales.map((loc) =>
+                  <Link key={loc} href={`/${loc === defaultLocale ? "" : loc}`}
+                        locale={false} passHref>
+                    <div className="px-1">{loc.toUpperCase()}</div>
+                  </Link>
+                ).reduce((prev, curr) => [prev, '|', curr])
+              }
             </div>
           </div>
         </section>
@@ -113,17 +119,17 @@ export default function Page({ story, preview, locale }) {
 }
 
 export async function getStaticProps({
-  locale,
-  locales,
-  defaultLocale,
-  preview = false,
-}) {
+                                       locale,
+                                       locales,
+                                       defaultLocale,
+                                       preview = false
+                                     }) {
   let slug = "home";
 
   let sbParams: any = {
     version: "published",
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
-    language: locale,
+    language: locale
   };
 
   if (preview) {
@@ -139,8 +145,8 @@ export async function getStaticProps({
       preview,
       locale,
       locales,
-      defaultLocale,
+      defaultLocale
     },
-    revalidate: 3600, // revalidate every hour
+    revalidate: 3600 // revalidate every hour
   };
 }

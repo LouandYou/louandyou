@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import StoryblokClient from "storyblok-js-client";
 
-const Storyblok = new StoryblokClient({
+export const Storyblok = new StoryblokClient({
     accessToken: process.env.STORYBLOK_TOKEN,
     cache: {
         clear: "auto",
@@ -78,6 +78,7 @@ export function useStoryblok(originalStory, preview, locale) {
             // first load the bridge, then initialize the event listeners
             addBridge(initEventListeners);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -86,5 +87,3 @@ export function useStoryblok(originalStory, preview, locale) {
 
     return story;
 }
-
-export default Storyblok;
