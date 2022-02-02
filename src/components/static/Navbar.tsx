@@ -36,7 +36,7 @@ export function Navbar(props: IProps): ReactElement {
           }
         >
           <Image
-            src={"/../public/L&Y_ampersand_white.svg"}
+            src={"/ampersand_white.svg"}
             layout="fixed"
             width="32"
             height="32"
@@ -59,9 +59,9 @@ export function Navbar(props: IProps): ReactElement {
               : `${styles.hamburger_lines} ${styles.invert_color}`
           }
         >
-          <span className={`${styles.line} ${styles.line1}`}></span>
-          <span className={`${styles.line} ${styles.line2}`}></span>
-          <span className={`${styles.line} ${styles.line3}`}></span>
+          <span className={`${styles.line} ${styles.line1}`}/>
+          <span className={`${styles.line} ${styles.line2}`}/>
+          <span className={`${styles.line} ${styles.line3}`}/>
         </div>
         <div className={styles.menu_items}>
           <li>

@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import Link from "next/link";
 
-import { Layout } from "../src/components/static/Layout";
+import { Layout } from "../src/components/static";
 import Storyblok, { useStoryblok } from "../src/lib/storyblok";
 import { GetHelp } from "../src/components/static";
 
@@ -11,15 +11,11 @@ import { PageSection } from "../src/components/dynamic";
 import { Footer } from "../src/components/static/Footer";
 
 export default function Page({ story, preview, locale }) {
-  const enableBridge = true; // load the storyblok bridge everywhere
-  // use the preview variable to enable the bridge only in preview mode
-  // const enableBridge = preview;
-  const [iconsClass, setIconsClass] = useState(styles.icons);
-  story = useStoryblok(story, enableBridge, locale);
+  story = useStoryblok(story, preview, locale);
 
   return (
     <Layout locale={locale}>
-      <div className={styles.page_wraper}>
+      <div className={styles.page_wrapper}>
         <section
           data-dark-bg="true"
           id="section_1"
@@ -27,7 +23,7 @@ export default function Page({ story, preview, locale }) {
         >
           <div className="py-4">
             <Image
-              src={"/../public/L&Y_Logo_full_white.svg"}
+              src={"/logo_full_white.svg"}
               layout="fixed"
               width="220"
               height="70"
@@ -38,13 +34,12 @@ export default function Page({ story, preview, locale }) {
           <PageSection blok={story.content} name="description" />
           <div className={styles.language_wraper}>
             <div className={styles.language_switch}>
-              <div className="px-1">DE</div>|<div className="px-1">EN</div>
+              <Link href={'/de'}><div className="px-1">DE</div></Link>|<Link href={'/en'}><div className="px-1">EN</div></Link>
             </div>
-            <div>⌄</div>
           </div>
         </section>
       </div>
-      <div className={styles.page_wraper}>
+      <div className={styles.page_wrapper}>
         <section
           data-dark-bg="false"
           id="section_2"
@@ -126,7 +121,7 @@ export async function getStaticProps({
   let slug = "home";
 
   let sbParams: any = {
-    version: "preview",
+    version: "published",
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
     language: locale,
   };

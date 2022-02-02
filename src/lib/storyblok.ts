@@ -47,7 +47,7 @@ export function useStoryblok(originalStory, preview, locale) {
                         }
                     })
                     .catch((error) => {
-                        console.log(error);
+                        console.error(error);
                     });
             });
         }
