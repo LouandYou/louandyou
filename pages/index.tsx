@@ -13,8 +13,6 @@ import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
 export default function Page({ story, preview, locales, locale, defaultLocale }) {
   story = useStoryblok(story, preview, locale);
-  console.debug('story', story);
-  console.debug('description', story.content.description);
   return (
     <Layout locale={locale}>
       <div className={styles.page_wrapper}>

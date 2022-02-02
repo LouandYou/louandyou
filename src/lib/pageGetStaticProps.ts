@@ -12,7 +12,7 @@ export const pageGetStaticProps = async ({
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
     language: locale
   };
-  console.debug('preview', preview);
+
   if (preview) {
     sbParams.version = "draft";
     sbParams.cv = Date.now();

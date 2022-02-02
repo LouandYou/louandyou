@@ -13,8 +13,6 @@ import { PageContent, Text } from "../src/components/dynamic";
 
 export default function Page({ story, preview, locale }) {
   const { content } = useStoryblok(story, preview, locale);
-  console.debug("story", story);
-  console.debug("story.content.body", content.body);
   return (
     <Layout>
       <section
