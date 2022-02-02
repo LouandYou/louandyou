@@ -29,24 +29,6 @@ export default function Page({ story, preview, locale }) {
         blok={content}
         name={'body'}
       />
-      <section data-dark-bg="true" id="section_3" className={styles.color_page}>
-        <h2>overview</h2>
-        <Link href={"#section_5"}>are you injured?</Link>
-        <Link href={"#section_7"}>would you like to collect evidence?</Link>
-        <Link href={"#section_9"}>
-          are you worried about STIs or a possible pregnancy?
-        </Link>
-        <Link href={"#section_11"}>
-          would you like to talk to someone who can give you advice or listen?
-        </Link>
-        <Link href={"#section_13"}>could you use emotional support?</Link>
-        <Link href={"#trigger-warning"}>
-          would you like to report what happened to the police?
-        </Link>
-        <Link href={"#section_17"}>
-          would you like to talk to someone about your rights or legal options?
-        </Link>
-      </section>
       <section
         data-dark-bg="false"
         id="section_4"

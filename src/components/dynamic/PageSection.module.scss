@@ -16,4 +16,24 @@
   &.white {
     background-color: #fff;
   }
+
+  &.gradient {
+    height: 100vh;
+    background-image: url("/gradient.jpeg");
+    background-size: cover;
+    color: white;
+
+    & h2 {
+      font-weight: bold;
+      font-size: 38px;
+    }
+    & p {
+      line-height: 25px;
+    }
+    & a {
+      padding: 5px;
+      color: white;
+      text-decoration: underline;
+    }
+  }
 }

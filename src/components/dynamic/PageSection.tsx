@@ -9,13 +9,19 @@ const variants = {
     props: {
       "data-dark-bg": false
     }
+  },
+  gradient: {
+    className: styles.gradient,
+    props: {
+      "data-dark-bg": true
+    }
   }
 };
 
 export const PageSection = ({ blok }) => {
   const { className, props } = variants[blok.config || "white"] || {};
   return (
-    <section {...sbEditable(blok as any)} {...props} id={blok._uid} key={blok._uid}
+    <section {...sbEditable(blok as any)} {...props} id={blok.id || blok._uid} key={blok._uid}
              className={`${styles.container} ${className}`}>
       {blok.body
         ? blok.body.map((blok) => (
