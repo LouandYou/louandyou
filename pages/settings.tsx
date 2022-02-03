@@ -1,8 +1,9 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Checkbox, Layout, Slider } from "../src/components/static";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 import styles from "./settings.module.scss";
 import { Footer } from "../src/components/static/Footer";
@@ -26,6 +27,12 @@ const Settings: NextPage = () => {
   //   const locale = checkbox1.current!.value ? "de" : "en";
   //   router.push(router.pathname, router.asPath, { locale });
   // };
+  useEffect(() => {
+    if (Cookies.get("size")) {
+      checkbox6.current!.checked = true;
+      checkbox5.current!.checked = false;
+    }
+  }, []);
 
   const handleChange1 = () => {
     if (checkbox1.current!.checked) {
@@ -49,21 +56,32 @@ const Settings: NextPage = () => {
     if (checkbox5.current!.checked) {
       checkbox6.current!.checked = false;
       document.documentElement.style.setProperty("--size-font", "1em");
-    } else {
-      checkbox6.current!.checked = true;
-      document.documentElement.style.setProperty("--size-font", "1.25em");
+      document.documentElement.style.setProperty(
+        "--size-font-checkbox",
+        "12px"
+      );
+      Cookies.remove("size");
     }
   };
   const handleChange6 = () => {
     if (checkbox6.current!.checked) {
       checkbox5.current!.checked = false;
       document.documentElement.style.setProperty("--size-font", "1.25em");
-    } else {
-      checkbox5.current!.checked = true;
-      document.documentElement.style.setProperty("--size-font", "1em");
+      document.documentElement.style.setProperty(
+        "--size-font-checkbox",
+        "18px"
+      );
+      Cookies.set("size", "big");
     }
   };
 
+  const handleExitButton = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      Cookies.set("disableExitButton", true);
+    } else {
+      Cookies.remove("disableExitButton");
+    }
+  };
 
   return (
     <>
@@ -78,6 +96,7 @@ const Settings: NextPage = () => {
             <p>language</p>
             <div>
               <Checkbox
+                type="radio"
                 ref={checkbox1}
                 label="deutsch"
                 onChange={handleChange1}
@@ -85,6 +104,7 @@ const Settings: NextPage = () => {
             </div>
             <div>
               <Checkbox
+                type="radio"
                 defaultChecked={true}
                 ref={checkbox2}
                 label="english"
@@ -97,14 +117,22 @@ const Settings: NextPage = () => {
             <p>font size</p>
             <div>
               <Checkbox
+                type="radio"
                 defaultChecked={true}
                 ref={checkbox5}
                 label="normal"
+                value="normal"
                 onChange={handleChange5}
               />
             </div>
             <div>
-              <Checkbox ref={checkbox6} label="big" onChange={handleChange6} />
+              <Checkbox
+                type="radio"
+                ref={checkbox6}
+                label="big"
+                value="big"
+                onChange={handleChange6}
+              />
             </div>
           </div>
         </section>
@@ -132,7 +160,7 @@ const Settings: NextPage = () => {
             <p className={styles.white_lable}>
               disable exit button permanently
             </p>
-            <Slider blackBorder={false} />
+            <Slider onChange={handleExitButton} blackBorder={false} />
           </div>
         </section>
         <section
