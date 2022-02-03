@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Checkbox, Layout, Slider } from "../src/components/static";
 import { Storyblok, useStoryblok } from "../src/lib/storyblok";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
@@ -9,9 +9,11 @@ import Cookies from "js-cookie";
 import styles from "./settings.module.scss";
 import { Footer } from "../src/components/static/Footer";
 import { useRouter } from "next/dist/client/router";
+import { ExitButtonContext } from "../src/components/static/ExitButton/ExitButtonContext";
 
 const Settings = ({ story, locale, preview, defaultLocale }) => {
   const [fontSize, setFontSize] = useState<string>("normal");
+  const { toggleIsVisible } = useContext(ExitButtonContext);
 
   story = useStoryblok(story, preview, locale);
   const router = useRouter();
@@ -50,11 +52,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   };
 
   const handleExitButton = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      Cookies.set("disableExitButton", true);
-    } else {
-      Cookies.remove("disableExitButton");
-    }
+    toggleIsVisible!();
   };
 
   return (

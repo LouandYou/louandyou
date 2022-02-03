@@ -2,6 +2,7 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
+import { ExitButtonProvider } from "../src/components/static/ExitButton/ExitButtonProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -14,7 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <ExitButtonProvider>
+      <Component {...pageProps} />;
+    </ExitButtonProvider>
+  );
 }
 
 export default MyApp;

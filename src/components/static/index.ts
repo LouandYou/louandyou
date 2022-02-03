@@ -1,5 +1,5 @@
 export * from "./Checkbox";
-export * from "./ExitButton";
+export * from "./ExitButton/ExitButton";
 export * from "./GetHelp";
 export * from "./SafetyCheck";
 export * from "./SafetyPopup";
