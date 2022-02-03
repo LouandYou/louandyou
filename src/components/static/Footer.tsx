@@ -10,7 +10,7 @@ export function Footer(): ReactElement {
     <section className={styles.footer}>
       <div className={styles.logo}>
         <Image
-          src={"/../public/L&Y_Logo_full_white.svg"}
+          src={"/logo_full_white.svg"}
           width="220"
           height="70"
           alt="logo"
@@ -41,21 +41,21 @@ export function Footer(): ReactElement {
           <div className={styles.icons_container}>
             <div className={styles.invert_color}>
               <Image
-                src={"/../public/instagram.png"}
+                src={"/instagram.png"}
                 width="36"
                 height="36"
                 alt="instagram logo"
               />
             </div>
             <Image
-              src={"/../public/facebook.png"}
+              src={"/social/facebook.png"}
               width="36"
               height="36"
               alt="facebook logo"
             />
             <div className={styles.invert_color}>
               <Image
-                src={"/../public/linkedin.png"}
+                src={"/social/linkedin.png"}
                 width="42"
                 height="36"
                 alt="linkedin logo"
@@ -80,7 +80,7 @@ export function Footer(): ReactElement {
         </div>
         <div className={styles.row_container}>
           <Image
-            src="/../public/paypal.png"
+            src="/social/paypal.png"
             width="40"
             height="26"
             layout="fixed"
@@ -93,7 +93,7 @@ export function Footer(): ReactElement {
             alt="Donate now with Klarna"
           />
           <Image
-            src="/../public/apple_pay.svg"
+            src="/social/apple_pay.svg"
             width="42"
             height="36"
             alt="Donate now with Apple Pay"

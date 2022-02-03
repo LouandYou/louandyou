@@ -1,8 +1,10 @@
 import { Placeholder } from "./Placeholder";
 import { Text } from "./Text";
+import { PageSection } from "./PageSection";
 
 const Components = {
-  "text": Text
+  "text": Text,
+  "section": PageSection,
 };
 
 export const DynamicComponent = ({ blok }) => {

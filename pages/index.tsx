@@ -1,25 +1,21 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import Link from "next/link";
 
-import { Layout } from "../src/components/static/Layout";
-import Storyblok, { useStoryblok } from "../src/lib/storyblok";
+import { Layout } from "../src/components/static";
+import { Storyblok, useStoryblok } from "../src/lib/storyblok";
 import { GetHelp } from "../src/components/static";
 
 import Image from "next/image";
 import styles from "./index.module.scss";
-import { PageSection } from "../src/components/dynamic";
-import { Footer } from "../src/components/static/Footer";
+import { PageContent } from "../src/components/dynamic";
+import { Footer } from "../src/components/static";
+import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
-export default function Page({ story, preview, locale }) {
-  const enableBridge = true; // load the storyblok bridge everywhere
-  // use the preview variable to enable the bridge only in preview mode
-  // const enableBridge = preview;
-  const [iconsClass, setIconsClass] = useState(styles.icons);
-  story = useStoryblok(story, enableBridge, locale);
-
+export default function Page({ story, preview, locales, locale, defaultLocale }) {
+  story = useStoryblok(story, preview, locale);
   return (
     <Layout locale={locale}>
-      <div className={styles.page_wraper}>
+      <div className={styles.page_wrapper}>
         <section
           data-dark-bg="true"
           id="section_1"
@@ -27,7 +23,7 @@ export default function Page({ story, preview, locale }) {
         >
           <div className="py-4">
             <Image
-              src={"/../public/L&Y_Logo_full_white.svg"}
+              src={"/logo_full_white.svg"}
               layout="fixed"
               width="220"
               height="70"
@@ -35,16 +31,22 @@ export default function Page({ story, preview, locale }) {
               priority
             />
           </div>
-          <PageSection blok={story.content} name="description" />
-          <div className={styles.language_wraper}>
+          <PageContent blok={story.content} name="description" />
+          <div className={styles.language_wrapper}>
             <div className={styles.language_switch}>
-              <div className="px-1">DE</div>|<div className="px-1">EN</div>
+              {
+                locales.map((loc) =>
+                  <Link key={loc} href={`/${loc === defaultLocale ? "" : loc}`}
+                        locale={false} passHref>
+                    <div className="px-1">{loc.toUpperCase()}</div>
+                  </Link>
+                ).reduce((prev, curr) => [prev, '|', curr])
+              }
             </div>
-            <div>⌄</div>
           </div>
         </section>
       </div>
-      <div className={styles.page_wraper}>
+      <div className={styles.page_wrapper}>
         <section
           data-dark-bg="false"
           id="section_2"
@@ -117,35 +119,9 @@ export default function Page({ story, preview, locale }) {
   );
 }
 
-export async function getStaticProps({
-  locale,
-  locales,
-  defaultLocale,
-  preview = false,
-}) {
-  let slug = "home";
-
-  let sbParams: any = {
-    version: "preview",
-    resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
-    language: locale,
-  };
-
-  if (preview) {
-    sbParams.version = "draft";
-    sbParams.cv = Date.now();
-  }
-
-  let { data } = await Storyblok.get(`cdn/stories/${slug}`, sbParams);
-
-  return {
-    props: {
-      story: data ? data.story : false,
-      preview,
-      locale,
-      locales,
-      defaultLocale,
-    },
-    revalidate: 3600, // revalidate every hour
-  };
+export async function getStaticProps(props) {
+  return pageGetStaticProps({
+    ...props,
+    slug: "home",
+  })
 }
