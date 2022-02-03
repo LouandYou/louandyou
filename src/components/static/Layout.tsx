@@ -19,19 +19,6 @@ export function Layout({ locale, children }: Props): ReactElement {
 
       <main className={styles.main}>
         <Navbar />
-        {/* <div
-          className="select is-rounded is-small"
-          style={{
-            position: "absolute",
-            top: "110px",
-            right: "30px",
-          }}
-        >
-          <select defaultValue={locale}>
-            <option value="en">EN</option>
-            <option value="de">DE</option>
-          </select>
-        </div> */}
 
         {children}
 
