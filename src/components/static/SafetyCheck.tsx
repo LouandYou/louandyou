@@ -42,9 +42,24 @@ export const SafetyCheck = () => {
     <div>
       <p className={styles.headline}>are you in physical danger right now?</p>
       <div className="py-5 is-flex is-flex-direction-row">
-        <Checkbox ref={checkbox2} label="Yes" onChange={onClickTwo} />
-        <Checkbox label="No" ref={checkbox1} onChange={onClickOne} />
-        <Checkbox label="Not sure" ref={checkbox3} onChange={onClickThree} />
+        <Checkbox
+          type="checkbox"
+          ref={checkbox2}
+          label="Yes"
+          onChange={onClickTwo}
+        />
+        <Checkbox
+          type="checkbox"
+          label="No"
+          ref={checkbox1}
+          onChange={onClickOne}
+        />
+        <Checkbox
+          type="checkbox"
+          label="Not sure"
+          ref={checkbox3}
+          onChange={onClickThree}
+        />
       </div>
       <SafetyPopup isOpen={isOpen} onClose={toggleIsOpen} safety={safety} />
     </div>

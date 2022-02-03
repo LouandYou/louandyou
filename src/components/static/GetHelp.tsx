@@ -58,19 +58,19 @@ export function GetHelp(): ReactElement {
       <div className="py-5 ">
         <div className="is-flex is-flex-direction-row">
           <Checkbox
-            className="checkbox"
+            type="checkbox"
             label="sexual"
             ref={checkbox1}
             onChange={onClickOne}
           />
           <Checkbox
-            className="checkbox px-2"
+            type="checkbox"
             label="domestic"
             ref={checkbox2}
             onChange={onClickTwo}
           />
           <Checkbox
-            className="checkbox px-2"
+            type="checkbox"
             label="both"
             ref={checkbox3}
             onChange={onClickThree}
@@ -78,7 +78,7 @@ export function GetHelp(): ReactElement {
         </div>
         <div className="pt-5">
           <Checkbox
-            className="checkbox px-2"
+            type="checkbox"
             label="I’m not sure or would rather not say"
             ref={checkbox3}
             onChange={onClickThree}
@@ -89,17 +89,17 @@ export function GetHelp(): ReactElement {
       <h2 className={styles.headline}>how long ago did it happen?</h2>
       <div className="pt-5">
         <Checkbox
-          className="checkbox px-2"
+          type="checkbox"
           label="less than a month ago"
-          value={isLongAgo === false}
+          checked={isLongAgo === false}
           onChange={() => setIsLongAgo(false)}
         />
       </div>
       <div className="pt-5">
         <Checkbox
-          className="checkbox"
+          type="checkbox"
           label="more than a month ago"
-          value={isLongAgo === true}
+          checked={isLongAgo === true}
           onChange={() => setIsLongAgo(true)}
         />
       </div>

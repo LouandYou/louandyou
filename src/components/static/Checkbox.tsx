@@ -2,22 +2,27 @@ import React from "react";
 import styles from "./Checkbox.module.scss";
 
 interface Props {
-  className?: string;
   defaultChecked?: boolean;
   label: string;
-  value?: boolean;
+  checked?: boolean;
+  type: string;
+  value?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Checkbox = React.forwardRef(
-  ({ className, label, value, onChange, defaultChecked }: Props, ref: any) => {
+  (
+    { type, label, value, checked, onChange, defaultChecked }: Props,
+    ref: any
+  ) => {
     return (
       <label className={styles.container}>
         <input
           defaultChecked={defaultChecked}
-          type="checkbox"
+          type={type}
+          value={value}
           ref={ref}
-          checked={value}
+          checked={checked}
           onChange={onChange}
         />
         {label}
