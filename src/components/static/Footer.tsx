@@ -41,7 +41,7 @@ export function Footer(): ReactElement {
           <div className={styles.icons_container}>
             <div className={styles.invert_color}>
               <Image
-                src={"/instagram.png"}
+                src={"/social/instagram.png"}
                 width="36"
                 height="36"
                 alt="instagram logo"
@@ -80,7 +80,7 @@ export function Footer(): ReactElement {
         </div>
         <div className={styles.row_container}>
           <Image
-            src="/social/paypal.png"
+            src="/payment/paypal.png"
             width="40"
             height="26"
             layout="fixed"
@@ -93,7 +93,7 @@ export function Footer(): ReactElement {
             alt="Donate now with Klarna"
           />
           <Image
-            src="/social/apple_pay.svg"
+            src="/payment/apple_pay.svg"
             width="42"
             height="36"
             alt="Donate now with Apple Pay"
