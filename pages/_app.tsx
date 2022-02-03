@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    if (Cookies.get("size")) {
+    if (Cookies.get("font_big")) {
       document.documentElement.style.setProperty("--size-font", "1.25em");
       document.documentElement.style.setProperty(
         "--size-font-checkbox",

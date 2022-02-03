@@ -2,76 +2,50 @@ import { NextPage } from "next";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { Checkbox, Layout, Slider } from "../src/components/static";
-import { useRouter } from "next/router";
+import { Storyblok, useStoryblok } from "../src/lib/storyblok";
+import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 import Cookies from "js-cookie";
 
 import styles from "./settings.module.scss";
 import { Footer } from "../src/components/static/Footer";
+import { useRouter } from "next/dist/client/router";
 
-const Settings: NextPage = () => {
-  const checkbox1 = useRef<HTMLInputElement>();
-  const checkbox2 = useRef<HTMLInputElement>();
+const Settings = ({ story, locale, preview, defaultLocale }) => {
+  const [fontSize, setFontSize] = useState<string>("normal");
 
-  const checkbox3 = useRef<HTMLInputElement>();
-  const checkbox4 = useRef<HTMLInputElement>();
-
-  const checkbox5 = useRef<HTMLInputElement>();
-  const checkbox6 = useRef<HTMLInputElement>();
-
-  const [local, setLocal] = useState<string>("en");
-
+  story = useStoryblok(story, preview, locale);
   const router = useRouter();
-  const { locale } = router;
 
-  // const setLanguage = () => {
-  //   const locale = checkbox1.current!.value ? "de" : "en";
-  //   router.push(router.pathname, router.asPath, { locale });
-  // };
   useEffect(() => {
-    if (Cookies.get("size")) {
-      checkbox6.current!.checked = true;
-      checkbox5.current!.checked = false;
+    if (Cookies.get("font_big")) {
+      setFontSize("big");
     }
   }, []);
 
-  const handleChange1 = () => {
-    if (checkbox1.current!.checked) {
-      checkbox2.current!.checked = false;
-    } else {
-      checkbox2.current!.checked = true;
-    }
-    setLocal("de");
+  const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {
+    Cookies.set("NEXT_LOCALE", e.target.value);
+    e.target.value === defaultLocale
+      ? router.push("/settings", "/settings", { locale: "de" })
+      : router.push("/en/settings");
   };
 
-  const handleChange2 = () => {
-    if (checkbox2.current!.checked) {
-      checkbox1.current!.checked = false;
-    } else {
-      checkbox1.current!.checked = true;
-    }
-
-    setLocal("en");
-  };
-  const handleChange5 = () => {
-    if (checkbox5.current!.checked) {
-      checkbox6.current!.checked = false;
+  const handleFontSize = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === "normal") {
       document.documentElement.style.setProperty("--size-font", "1em");
       document.documentElement.style.setProperty(
         "--size-font-checkbox",
         "12px"
       );
-      Cookies.remove("size");
-    }
-  };
-  const handleChange6 = () => {
-    if (checkbox6.current!.checked) {
-      checkbox5.current!.checked = false;
+      setFontSize(e.target.value);
+      Cookies.remove("font_big");
+    } else {
       document.documentElement.style.setProperty("--size-font", "1.25em");
       document.documentElement.style.setProperty(
         "--size-font-checkbox",
         "18px"
       );
-      Cookies.set("size", "big");
+      setFontSize(e.target.value);
+      Cookies.set("font_big", true);
     }
   };
 
@@ -97,18 +71,19 @@ const Settings: NextPage = () => {
             <div>
               <Checkbox
                 type="radio"
-                ref={checkbox1}
+                value="de"
+                checked={locale === "de"}
                 label="deutsch"
-                onChange={handleChange1}
+                onChange={handleLocale}
               />
             </div>
             <div>
               <Checkbox
                 type="radio"
-                defaultChecked={true}
-                ref={checkbox2}
+                value="en"
+                checked={locale === "en"}
                 label="english"
-                onChange={handleChange2}
+                onChange={handleLocale}
               />
             </div>
           </div>
@@ -118,20 +93,19 @@ const Settings: NextPage = () => {
             <div>
               <Checkbox
                 type="radio"
-                defaultChecked={true}
-                ref={checkbox5}
+                checked={fontSize === "normal"}
                 label="normal"
                 value="normal"
-                onChange={handleChange5}
+                onChange={handleFontSize}
               />
             </div>
             <div>
               <Checkbox
                 type="radio"
-                ref={checkbox6}
+                checked={fontSize === "big"}
                 label="big"
                 value="big"
-                onChange={handleChange6}
+                onChange={handleFontSize}
               />
             </div>
           </div>
@@ -202,5 +176,12 @@ const Settings: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps(props) {
+  return pageGetStaticProps({
+    ...props,
+    slug: "home",
+  });
+}
 
 export default Settings;
