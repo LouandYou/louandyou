@@ -38,7 +38,7 @@ export default function Page({ story, preview, locales, locale, defaultLocale })
                 locales.map((loc) =>
                   <Link key={loc} href={`/${loc === defaultLocale ? "" : loc}`}
                         locale={false} passHref>
-                    <div className="px-1">{loc.toUpperCase()}</div>
+                    <div className={`px-1 ${loc === locale ? "is-underlined" : ''}`}>{loc.toUpperCase()}</div>
                   </Link>
                 ).reduce((prev, curr) => [prev, '|', curr])
               }
