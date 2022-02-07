@@ -6,7 +6,7 @@ import { ExitButtonProvider } from "../src/components/static/ExitButton/ExitButt
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    if (Cookies.get("font_big")) {
+    if (Cookies.get("FONT_BIG")) {
       document.documentElement.style.setProperty("--size-font", "1.25em");
       document.documentElement.style.setProperty(
         "--size-font-checkbox",
