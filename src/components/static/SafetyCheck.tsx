@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Checkbox } from "./Checkbox";
 import { SafetyPopup } from "./SafetyPopup";
-import styles from "./SafetyPopup.module.scss";
+import styles from "./SafetyCheck.module.scss";
 
 export const SafetyCheck = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -39,29 +39,31 @@ export const SafetyCheck = () => {
   };
 
   return (
-    <div>
+    <>
       <p className={styles.headline}>are you in physical danger right now?</p>
-      <div className="py-5 is-flex is-flex-direction-row">
+      <div className="pt-5 is-flex">
         <Checkbox
           type="checkbox"
           ref={checkbox2}
-          label="Yes"
+          label="yes"
           onChange={onClickTwo}
         />
         <Checkbox
           type="checkbox"
-          label="No"
+          label="no"
           ref={checkbox1}
           onChange={onClickOne}
         />
+      </div>
+      <div className="pt-4">
         <Checkbox
           type="checkbox"
-          label="Not sure"
+          label="I’m not sure"
           ref={checkbox3}
           onChange={onClickThree}
         />
       </div>
       <SafetyPopup isOpen={isOpen} onClose={toggleIsOpen} safety={safety} />
-    </div>
+    </>
   );
 };

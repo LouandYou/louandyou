@@ -1,9 +1,8 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import Modal from "react-modal";
 import styles from "./SafetyPopup.module.scss";
-import phone from "../../../public/phone.png";
-import Image from "next/image";
 import Link from "next/link";
+import { DropdownBlack } from ".";
 
 interface Props {
   isOpen: boolean;
@@ -16,49 +15,68 @@ export const SafetyPopup = ({
   safety,
   onClose,
 }: Props): ReactElement => {
+  useEffect(() => {
+    Modal.setAppElement("#__next");
+  }, []);
+
   return (
-    <Modal isOpen={isOpen}>
-      <div className={styles.popup}>
-        <div className={styles.close_bt} onClick={onClose}>
-          <p>X</p>
+    <Modal
+      style={{
+        overlay: {
+          zIndex: 2,
+        },
+        content: {
+          boxShadow: "2px 2px 2px #8D8BF4",
+          borderRadius: "35px",
+          inset: "30px",
+          padding: "38px",
+          // height: "fit-content",
+        },
+      }}
+      isOpen={isOpen}
+    >
+      <div className={styles.container}>
+        <div className={styles.close_btn} onClick={onClose}>
+          ✕
         </div>
         {safety === "yes" && (
           <>
-            <p className="block">
-              Do you need an ambulance? (free in Germany){" "}
+            <Link href="tel:112" passHref>
+              <button className={styles.call_btn}>call the ambulance</button>
+            </Link>
+            <p className="pt-3 pb-5">
+              if you’re in physical danger and hurt, an ambulance will treat you
+              for free
             </p>
-            <div className={styles.call_bt}>
-              <Link href="tel:112" passHref>
-                <Image src={phone} alt="phone" width="25" height="25" />
-              </Link>
-            </div>
-            <p className="block">Do you need police?</p>
-            <div className={styles.call_bt}>
-              <Link href="tel:110" passHref>
-                <Image src={phone} alt="phone" width="25" height="25" />
-              </Link>
-            </div>
-            <p className="block is-size-7">
-              If you don’t know what to say, tell them your location first and
-              then what has happened. More about that here
-            </p>
+            <Link href="tel:110" passHref>
+              <button className={styles.call_btn}>call the police</button>
+            </Link>
+            <p className="mt-3">what to say:</p>
+            <ol className={styles.list}>
+              <li>your location</li>
+              <li>what has happend</li>
+              <li>other infos</li>
+            </ol>
+            <DropdownBlack label={""} content={""} />
           </>
         )}
         {(safety === "unsure" || safety === "yes") && (
           <>
-            <p className="block is-size-7">
-              If you’d like to talk to somebody or just not be alone right now,
-              you can call the national helpline.
+            <Link href="tel:08000116116" passHref>
+              <button className={styles.call_btn}>
+                call a support hotline
+              </button>
+            </Link>
+            <p className="pt-3 pb-5">
+              If you’d like someone to talk to, you can call a support hotline
+              for free
             </p>
-            <div className={styles.call_bt}>
-              <Link href="tel:08000116116" passHref>
-                <Image src={phone} alt="phone" width="25" height="25" />
+            <div className={styles.colored_paragraph}>
+              <b>Can’t talk right now?</b>
+              <Link href={"/"}>
+                Here’s what to do if you need help but can’t speak right now
               </Link>
             </div>
-            <p className="block is-size-7">
-              Here’s what to do if you need help but can’t speak on the phone
-              right now
-            </p>
           </>
         )}
       </div>
