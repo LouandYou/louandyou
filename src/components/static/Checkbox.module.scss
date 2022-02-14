@@ -3,11 +3,14 @@
 .container {
   display: block;
   position: relative;
-  padding-left: 25px;
-  padding-right: 30px;
+  color: #101223;
+  width: 45%;
+  white-space: nowrap;
+  padding-left: 40px;
+  line-height: 20px;
   font-size: var(--size-font-checkbox);
-  font-weight: normal;
-  line-height: 17px;
+  font-weight: 400;
+  font-size: 17px;
   font-family: "Lato", sans-serif;
   cursor: pointer;
   -webkit-user-select: none;
@@ -28,9 +31,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 20px;
-  width: 20px;
-  border: black 2px solid;
+  height: 25px;
+  width: 25px;
+  border: #8d8bf4 2px solid;
   border-radius: 50%;
 }
 

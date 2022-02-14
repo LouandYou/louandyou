@@ -1,5 +1,4 @@
 import React, { ReactElement } from "react";
-
 import Image from "next/image";
 
 import styles from "./Footer.module.scss";
@@ -11,120 +10,74 @@ export function Footer(): ReactElement {
       <div className={styles.logo}>
         <Image
           src={"/logo_full_white.svg"}
-          width="220"
-          height="70"
+          width="210"
+          height="60"
           alt="logo"
           quality={100}
         />
       </div>
-      <div className={styles.wrapper}>
-        <div className={styles.row_container}>
-          <div className={styles.links_container}>
-            {" "}
-            <Link href="/">about us</Link>
-            <Link href="/">about Lou</Link>
-          </div>
-          <div className={styles.links_container}>
-            <Link href="/">feedback</Link>
-            <Link href="/">impact</Link>
-          </div>
-          <div className={styles.links_container}>
-            <Link href="/">what we do</Link>
-            <Link href="/">our partners</Link>
-          </div>
+      <div className={styles.links_container1}>
+        <div className={styles.column_container}>
+          <Link href="/">about us</Link>
+          <Link href="/">about Lou</Link>
+          <Link href="/">feedback</Link>
+          <Link href="/">impact</Link>
         </div>
-        <div className={styles.row_container}>
-          <div className={styles.links_container}>
-            <Link href="/">follow us</Link>
-            <Link href="/">newsletter</Link>
-          </div>
-          <div className={styles.icons_container}>
-            <div className={styles.invert_color}>
-              <Image
-                src={"/social/instagram.png"}
-                width="36"
-                height="36"
-                alt="instagram logo"
-              />
-            </div>
-            <Image
-              src={"/social/facebook.png"}
-              width="36"
-              height="36"
-              alt="facebook logo"
-            />
-            <div className={styles.invert_color}>
-              <Image
-                src={"/social/linkedin.png"}
-                width="42"
-                height="36"
-                alt="linkedin logo"
-              />
-            </div>
-          </div>
+        <div className={styles.column_container}>
+          <Link href="/">what we do</Link>
+          <Link href="/">our partners</Link>
+          <Link href="/">support us</Link>
+          <Link href="/">newsletter</Link>
         </div>
-        <div className={styles.row_container}>
-          <div className={styles.links_container}>
-            <Link href="/">support us</Link>
-            <p>
-              become <br /> a supporter
-            </p>
-          </div>
-          <p className={styles.paragraph}>
-            Spendenkonto:
-            <br /> SIGE e.V.
-            <br /> Berliner Sparkasse
-            <br /> IBAN DE30400501500136131356<br></br> Verwendungszweck:
-            <br /> Spende SIGE e.V. from [name], [adress]
-          </p>
-        </div>
-        <div className={styles.row_container}>
+      </div>
+      <div className={styles.icons_container}>
+        <div className={styles.invert_color}>
           <Image
-            src="/payment/paypal.png"
+            src={"/social/instagram.png"}
+            width="34"
+            height="34"
+            alt="instagram logo"
+          />
+        </div>
+        <div>
+          <Image
+            src={"/social/facebook.png"}
+            width="34"
+            height="34"
+            alt="facebook logo"
+          />
+        </div>
+        <div className={styles.invert_color}>
+          <Image
+            src={"/social/linkedin.png"}
             width="40"
-            height="26"
-            layout="fixed"
-            alt="Donate now with PayPal"
+            height="34"
+            alt="linkedin logo"
           />
-          <Image
-            src="https://x.klarnacdn.net/payment-method/assets/badges/generic/white/klarna.svg"
-            width="42"
-            height="36"
-            alt="Donate now with Klarna"
-          />
-          <Image
-            src="/payment/apple_pay.svg"
-            width="42"
-            height="36"
-            alt="Donate now with Apple Pay"
-          />
+        </div>
+      </div>
+      <div className={styles.links_container2}>
+        <div className={styles.row_container}>
+          <b>for donors</b>
+          <b>for partners</b>
+          <b>for the press</b>
         </div>
         <div className={styles.row_container}>
-          <p>
-            Wir stellen dir gerne eine Spendenbescheinigungen aus. <br />{" "}
-            Schreib uns dazu einfach eine Mail an spende@louandyou.org
-          </p>
+          <Link href="/">one pager</Link>
+          <Link href="/">one pager</Link>
+          <Link href="/">press kit</Link>
         </div>
         <div className={styles.row_container}>
-          <div className={styles.links_container}>
-            {" "}
-            <Link href="/">for donors</Link>
-            <p>one pager</p>
-            <p>pitch deck</p>
-          </div>
-          <div className={styles.links_container}>
-            <Link href="/">for partners</Link>
-            <p>one pager</p>
-          </div>
-          <div className={styles.links_container}>
-            <Link href="/">for the press</Link>
-            <p>press kit</p>
-          </div>
+          <Link href="/">pitch deck</Link>
         </div>
-        <div className={styles.last_row}>
+      </div>
+      <div className={styles.links_container2}>
+        <div className={styles.row_container}>
           <Link href="/">data protection</Link>
-          <Link href="/">imprint</Link>
           <Link href="/">disclaimer of liability</Link>
+        </div>
+        <div className={styles.row_container}>
+          <Link href="/">imprint</Link>
           <Link href="/">bylaws</Link>
         </div>
       </div>

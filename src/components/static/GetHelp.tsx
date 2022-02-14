@@ -55,37 +55,29 @@ export function GetHelp(): ReactElement {
       <h2 className={styles.headline}>
         what kind of violence did you experience?
       </h2>
-      <div className="py-5 ">
-        <div className="is-flex is-flex-direction-row">
-          <Checkbox
-            type="checkbox"
-            label="sexual"
-            ref={checkbox1}
-            onChange={onClickOne}
-          />
-          <Checkbox
-            type="checkbox"
-            label="domestic"
-            ref={checkbox2}
-            onChange={onClickTwo}
-          />
-          <Checkbox
-            type="checkbox"
-            label="both"
-            ref={checkbox3}
-            onChange={onClickThree}
-          />
-        </div>
-        <div className="pt-5">
-          <Checkbox
-            type="checkbox"
-            label="I’m not sure or would rather not say"
-            ref={checkbox3}
-            onChange={onClickThree}
-          />
-        </div>
-      </div>
 
+      <div className="pt-5 is-flex">
+        <Checkbox
+          type="checkbox"
+          label="sexual"
+          ref={checkbox1}
+          onChange={onClickOne}
+        />
+        <Checkbox
+          type="checkbox"
+          label="domestic"
+          ref={checkbox2}
+          onChange={onClickTwo}
+        />
+      </div>
+      <div className="pt-4">
+        <Checkbox
+          type="checkbox"
+          label="I’m not sure / I’d rather not say"
+          ref={checkbox3}
+          onChange={onClickThree}
+        />
+      </div>
       <h2 className={styles.headline}>how long ago did it happen?</h2>
       <div className="pt-5">
         <Checkbox
@@ -95,7 +87,7 @@ export function GetHelp(): ReactElement {
           onChange={() => setIsLongAgo(false)}
         />
       </div>
-      <div className="pt-5">
+      <div className="pt-4">
         <Checkbox
           type="checkbox"
           label="more than a month ago"
@@ -106,7 +98,7 @@ export function GetHelp(): ReactElement {
       <div className={styles.button_container}>
         {canSubmit() && (
           <Link href={getHref()} passHref>
-            <button className={styles.button}>get started</button>
+            <button className={styles.button}>find out how I can help</button>
           </Link>
         )}
       </div>
