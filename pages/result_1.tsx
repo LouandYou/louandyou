@@ -2,7 +2,7 @@ import Link from "next/link";
 import {
   DropdownBlack,
   DropdownPurple,
-  Layout
+  Layout,
 } from "../src/components/static";
 import { Footer } from "../src/components/static";
 
@@ -15,20 +15,13 @@ export default function Page({ story, preview, locale }) {
   const { content } = useStoryblok(story, preview, locale);
   return (
     <Layout>
-      <section
-        data-dark-bg="true"
-        id="section_1"
-        className={styles.landing_page}
-      >
+      <section className={styles.landing_page}>
         <h1>{content.headline}</h1>
         <p className="pt-3">
-          <Text blok={content} attribute={'subline'} />
+          <Text blok={content} attribute={"subline"} />
         </p>
       </section>
-      <PageContent
-        blok={content}
-        name={'body'}
-      />
+      <PageContent blok={content} name={"body"} />
       <section
         data-dark-bg="false"
         id="section_4"
@@ -291,11 +284,11 @@ export default function Page({ story, preview, locale }) {
       <Footer />
     </Layout>
   );
-};
+}
 
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "result_1"
+    slug: "result_1",
   });
 }

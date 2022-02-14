@@ -1,25 +1,24 @@
 .landing_page {
   background-color: #8b8bf4;
   height: 100vh;
-  padding: 50px 30px 80px 45px;
+  padding: 300px 45px 108px 45px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   font-family: "Maitree", serif;
   color: white;
   & h1 {
     font-family: "Lato", sans-serif;
     font-weight: bold;
-    font-size: 38px;
-    line-height: 46px;
+    font-size: 33px;
+    line-height: 43px;
   }
   & a {
     color: white;
     text-decoration: underline;
   }
   & p {
-    line-height: 27px;
-    padding-right: 15px;
+    line-height: 30px;
+    font-size: 18px;
   }
 }
 
