@@ -108,7 +108,9 @@ export default function Page({
             </button>
           </div>
         </section>
-        {/* <Footer /> */}
+        <section className={styles.footer_wrapper}>
+          <Footer />
+        </section>
       </div>
     </Layout>
   );
