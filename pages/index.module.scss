@@ -13,16 +13,6 @@
   scroll-snap-align: start;
 }
 
-.icons {
-  position: fixed;
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  filter: invert(100%);
-  -webkit-filter: invert(100%);
-}
-
 .language_switch {
   display: flex;
   & div {
@@ -60,85 +50,81 @@
 }
 
 .color_page {
-  padding: 0 3rem 0 3rem;
-  height: 80vh;
+  padding: 100px 45px 170px 45px;
   background-image: url("/gradient.jpeg");
-  background-size: cover;
+  background-position: 161% 73%;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: "Maitree", serif;
 }
 
 .white_page_long {
-  padding: 0 3rem 0 3rem;
-  align-items: center;
-  font-family: "Maitree", serif;
-  color: black;
+  padding: 76px 45px 0 45px;
 }
 
 .white_page {
-  height: 80vh;
-  padding: 0 3rem 0 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: "Maitree", serif;
-  color: black;
+  padding: 100px 45px 170px 45px;
+  color: #101223;
   & a {
     text-decoration: underline;
   }
 }
 
 .white_btn {
-  min-width: 134px;
+  width: 250px;
   background-color: transparent;
   border-radius: 40px;
-  padding: 10px;
+  padding: 12.5px;
   border: 2px solid white;
+  margin-bottom: 15px;
 
   & a {
     color: white !important;
-    font-size: 13px;
+    font-size: 17px;
     font-family: "Lato", sans-serif;
+    font-weight: 700;
   }
 }
 
 .btn_container {
-  padding-top: 25px;
+  padding-top: 35px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  & :active {
+    background-color: white;
+    color: #8b8bf4 !important;
+  }
 }
 
 .title {
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  font-size: 58px;
-  line-height: 76px;
+  letter-spacing: 0.5px;
+  font-size: 33px;
+  line-height: 43px;
   color: black;
-  padding-top: 80px;
+  padding: 80px 0 40px 0;
 }
 
 .title_white {
   font-family: "Lato", sans-serif;
-  font-style: normal;
   font-weight: bold;
-  font-size: 38px;
-  line-height: 40px;
+  font-size: 33px;
+  line-height: 43px;
   text-align: left;
 }
 
 .subtitle {
   font-family: "Lato", sans-serif;
-  font-weight: bold;
-  font-size: 37px;
-  line-height: 46px;
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 43px;
+  color: #101223;
 }
 
 .description {
-  padding: 24px 0 24px 0;
+  font-size: 18px;
+  padding-top: 25px;
   line-height: 29px;
 }
 
