@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import Head from "next/head";
 import styles from "../../../pages/index.module.scss";
-import { ExitButton, Navbar } from ".";
+import { ExitButton, Footer, Navbar } from ".";
 
 interface Props {
   locale?: string;
@@ -23,6 +23,7 @@ export function Layout({ locale, children }: Props): ReactElement {
         {children}
 
         <ExitButton />
+        <Footer />
       </main>
     </>
   );
