@@ -1,10 +1,11 @@
 .container {
-  padding: 50px 45px 100px 45px;
+  padding: 155px 45px 128px 45px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #101223;
   line-height: 29px;
+  font-size: 18px;
 
   & h1 {
     font-family: "Lato", sans-serif;
@@ -18,22 +19,26 @@
   }
 
   &.gradient {
-    height: 100vh;
+    padding: 80px 45px 120px 45px;
     background-image: url("/gradient.jpeg");
     background-size: cover;
     color: white;
+    font-family: "Lato", sans-serif;
 
     & h2 {
       font-weight: bold;
-      font-size: 38px;
+      font-size: 33px;
+      padding-bottom: 15px;
     }
     & p {
       line-height: 25px;
+      padding-bottom: 15px;
     }
     & a {
-      padding: 5px;
-      color: white;
       text-decoration: underline;
+      & :hover {
+        color: white;
+      }
     }
   }
 }

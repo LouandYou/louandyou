@@ -25,14 +25,16 @@ export function Navbar(props: IProps): ReactElement {
     <nav className={styles.navbar}>
       <div className={styles.nav_container}>
         <div className={styles.logo}>
-          <Image
-            src={"/ampersand_white.svg"}
-            layout="fixed"
-            width="23"
-            height="23"
-            alt="logo"
-            priority
-          />
+          <Link passHref href="/">
+            <Image
+              src={"/ampersand_white.svg"}
+              layout="fixed"
+              width="23"
+              height="23"
+              alt="logo"
+              priority
+            />
+          </Link>
         </div>
         <input className={styles.checkbox} type="checkbox" />
         <div className={styles.hamburger_lines}>

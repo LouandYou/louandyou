@@ -22,18 +22,16 @@ export default function Page({ story, preview, locale }) {
         </p>
       </section>
       <PageContent blok={content} name={"body"} />
-      <section
-        data-dark-bg="false"
-        id="section_4"
-        className={styles.white_page}
-      >
-        <h1>
-          if you’d like to find out more about domestic violence before diving
-          into help & support, this guide might be helpful
-        </h1>
+      <section className={styles.white_page}>
+        <p>
+          if you’re not sure if these options are for you, you can find out
+          about domestic violence here.
+        </p>
 
         <Link passHref href={"/"}>
-          <button className={styles.button}>sounds good</button>
+          <button className={`${styles.button} ${styles.purple}`}>
+            show me more
+          </button>
         </Link>
       </section>
       <section

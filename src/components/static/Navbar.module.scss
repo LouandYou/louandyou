@@ -1,7 +1,7 @@
 .nav_container {
   position: fixed;
   height: 76px;
-  background-color: #8b8bf4;
+  background-color: #a1bbff;
   filter: drop-shadow(0px 1px 0.5px rgba(0, 0, 0, 0.1));
 }
 
@@ -61,6 +61,7 @@
   top: 31px;
   left: 45px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .nav_container .hamburger_lines .line {
