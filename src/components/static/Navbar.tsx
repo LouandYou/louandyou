@@ -1,29 +1,24 @@
 import Link from "next/link";
-import React, { ReactElement, useRef, useState } from "react";
+import React, { ReactElement } from "react";
 import Image from "next/image";
 
-// import useScrollingBackgroundColor from "../../utils/useScrollingBackgroundColor";
+import useScrollingBackgroundColor from "../../utils/useScrollingBackgroundColor";
 import styles from "./Navbar.module.scss";
 
-interface IProps {
-  isColorWhite?: boolean;
-}
-
-export function Navbar(props: IProps): ReactElement {
-  // const isDarkBgColor = useScrollingBackgroundColor({
-  //   elements: () => Array.from(document.querySelectorAll("main section")),
-  //   offset: 70,
-  // });
-
-  // const handleCheckbox = () => {
-  //   checkbox.current!.checked && isDarkBgColor
-  //     ? setInvertColor(`${styles.invert_color}`)
-  //     : setInvertColor("");
-  // };
+export function Navbar(): ReactElement {
+  const isLandingPage = useScrollingBackgroundColor({
+    elements: () =>
+      Array.from(document.querySelectorAll("#section_1, #section_2")),
+    offset: 60,
+  });
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.nav_container}>
+      <div
+        className={`${styles.nav_container} ${
+          isLandingPage ? "" : styles.nav_background
+        }`}
+      >
         <div className={styles.logo}>
           <Link passHref href="/">
             <Image
