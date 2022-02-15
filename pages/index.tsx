@@ -71,16 +71,17 @@ export default function Page({
             here you find some helpful things to know about violence:
           </h1>
           <div className={styles.btn_container}>
-            <button className={styles.white_btn}>
-              <Link href="/domestic_general" passHref>
+            <Link href="/domestic_general" passHref>
+              <button className={`${styles.button} ${styles.white}`}>
                 domestic violence
-              </Link>
-            </button>
-            <button className={styles.white_btn}>
-              <Link href="/sexual_general" passHref>
+              </button>
+            </Link>
+
+            <Link href="/sexual_general" passHref>
+              <button className={`${styles.button} ${styles.white}`}>
                 sexual violence
-              </Link>
-            </button>
+              </button>
+            </Link>
           </div>
         </section>
 
@@ -101,11 +102,11 @@ export default function Page({
             for me
           </h1>
           <div className={styles.btn_container}>
-            <button className={styles.white_btn}>
-              <Link href="/" passHref>
+            <Link href="/" passHref>
+              <button className={`${styles.button} ${styles.white}`}>
                 sign up to my newsletter
-              </Link>
-            </button>
+              </button>
+            </Link>
           </div>
         </section>
         <section className={styles.footer_wrapper}>

@@ -3,6 +3,7 @@ import { Checkbox } from "./Checkbox";
 import styles from "./GetHelp.module.scss";
 import Link from "next/link";
 import { SafetyCheck } from "./SafetyCheck";
+import { Button } from ".";
 
 export function GetHelp(): ReactElement {
   const [isSexual, setIsSexual] = useState<boolean>();
@@ -98,7 +99,9 @@ export function GetHelp(): ReactElement {
       <div className={styles.button_container}>
         {canSubmit() && (
           <Link href={getHref()} passHref>
-            <button className={styles.button}>find out how I can help</button>
+            <button className={`${styles.button} ${styles.purple}`}>
+              find out how I can help
+            </button>
           </Link>
         )}
       </div>

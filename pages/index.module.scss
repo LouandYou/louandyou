@@ -1,3 +1,5 @@
+@use "../src/components/static/Button.module.scss";
+
 @import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Maitree&display=swap");
 
@@ -40,6 +42,8 @@
   background-image: url("/gradient.jpeg");
   background-size: cover;
   color: white;
+  font-size: 22px;
+  line-height: 30px;
   text-align: center;
   font-family: "Maitree", serif;
   display: flex;
@@ -68,32 +72,13 @@
   }
 }
 
-.white_btn {
-  width: 250px;
-  background-color: transparent;
-  border-radius: 40px;
-  padding: 12.5px;
-  border: 2px solid white;
-  margin-bottom: 15px;
-
-  & a {
-    color: white !important;
-    font-size: 17px;
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-  }
-}
-
 .btn_container {
   padding-top: 35px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  & :active {
-    background-color: white;
-    color: #8b8bf4 !important;
-  }
+  gap: 15px;
 }
 
 .title {
