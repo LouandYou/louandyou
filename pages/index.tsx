@@ -19,10 +19,15 @@ export default function Page({
   defaultLocale,
 }) {
   story = useStoryblok(story, preview, locale);
+
   return (
     <Layout locale={locale}>
       <div className={styles.page_wrapper}>
-        <section className={styles.landing_page}>
+        <section
+          is-landing-page="true"
+          id="section_1"
+          className={styles.landing_page}
+        >
           <div className="py-4">
             <Image
               src={"/logo_full_white.svg"}
