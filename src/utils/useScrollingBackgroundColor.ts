@@ -11,18 +11,18 @@ export default function useScrollingBackgroundColor(props: IProps) {
     new Map()
   );
 
-  const isDarkBgColor = React.useMemo(() => {
-    let isDarkBgColor = true;
+  const isLandingPage = React.useMemo(() => {
+    let isLandingPage = false;
     for (const [sectionId, isVisible] of elementMap.entries()) {
       if (isVisible) {
         const element = document.getElementById(sectionId);
         if (element) {
-          isDarkBgColor = element.getAttribute("data-dark-bg") === "true";
+          isLandingPage = element.getAttribute("is-landing-page") === "true";
           break;
         }
       }
     }
-    return isDarkBgColor;
+    return isLandingPage;
   }, [elementMap]);
 
   const checkScrolledToTop = React.useCallback(
@@ -64,5 +64,5 @@ export default function useScrollingBackgroundColor(props: IProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return isDarkBgColor;
+  return isLandingPage;
 }
