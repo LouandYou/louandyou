@@ -28,9 +28,8 @@ export const SafetyPopup = ({
         content: {
           boxShadow: "2px 2px 2px #8D8BF4",
           borderRadius: "35px",
-          inset: "30px",
+          inset: "20px",
           padding: "38px",
-          // height: "fit-content",
         },
       }}
       isOpen={isOpen}
