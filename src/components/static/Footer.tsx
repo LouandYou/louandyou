@@ -1,10 +1,13 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import Image from "next/image";
 
 import styles from "./Footer.module.scss";
 import Link from "next/link";
+import { Feedback } from "./Feedback";
 
 export function Footer(): ReactElement {
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
+
   return (
     <section className={styles.footer}>
       <div className={styles.logo}>
@@ -20,7 +23,7 @@ export function Footer(): ReactElement {
         <div className={styles.column_container}>
           <Link href="/">about us</Link>
           <Link href="/">about Lou</Link>
-          <Link href="/">feedback</Link>
+          <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
           <Link href="/">impact</Link>
         </div>
         <div className={styles.column_container}>
@@ -81,6 +84,12 @@ export function Footer(): ReactElement {
           <Link href="/">bylaws</Link>
         </div>
       </div>
+      {isFeedbackOpen && (
+        <Feedback
+          isOpen={isFeedbackOpen}
+          onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
+        />
+      )}
     </section>
   );
 }

@@ -26,3 +26,22 @@
     color: #8b8bf4;
   }
 }
+
+.close_btn {
+  margin: 0 !important;
+  position: relative;
+  top: -20px;
+  right: -238px;
+  background-color: white;
+  color: #8d8bf4;
+  filter: drop-shadow(2px 2px 2px #8d8bf4);
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  z-index: 3;
+  cursor: pointer;
+}
