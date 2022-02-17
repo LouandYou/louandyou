@@ -8,7 +8,7 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-export function Layout({ locale, children }: Props): ReactElement {
+export function Layout({ children }: Props): ReactElement {
   return (
     <>
       <Head>

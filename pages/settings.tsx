@@ -20,11 +20,8 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
   useEffect(() => {
-    if (Cookies.get("FONT_BIG")) {
-      setFontSize("big");
-    } else if (Cookies.get("DISABLE_COOKIES")) {
-      setIsCookies(false);
-    }
+    Cookies.get("FONT_BIG") ? setFontSize("big") : null;
+    Cookies.get("DISABLE_COOKIES") ? setIsCookies(false) : null;
   }, []);
 
   const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {

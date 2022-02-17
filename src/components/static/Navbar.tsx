@@ -21,14 +21,16 @@ export function Navbar(): ReactElement {
       >
         <div className={styles.logo}>
           <Link passHref href="/">
-            <Image
-              src={"/ampersand_white.svg"}
-              layout="fixed"
-              width="23"
-              height="23"
-              alt="logo"
-              priority
-            />
+            <a>
+              <Image
+                src={"/ampersand_white.svg"}
+                layout="fixed"
+                width="23"
+                height="23"
+                alt="logo"
+                priority
+              />
+            </a>
           </Link>
         </div>
         <input className={styles.checkbox} type="checkbox" />
