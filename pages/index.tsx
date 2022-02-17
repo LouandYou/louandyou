@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { Layout } from "../src/components/static";
+import { CookiesPopup, Layout } from "../src/components/static";
 import { Storyblok, useStoryblok } from "../src/lib/storyblok";
 import { GetHelp } from "../src/components/static";
 
@@ -21,19 +21,19 @@ export default function Page({
   story = useStoryblok(story, preview, locale);
 
   return (
-    <Layout locale={locale}>
+    <Layout>
       <div className={styles.page_wrapper}>
         <section
           is-landing-page="true"
           id="section_1"
           className={styles.landing_page}
         >
-          <div className="py-4">
+          <div className="pb-3">
             <Image
               src={"/logo_full_white.svg"}
               layout="fixed"
-              width="220"
-              height="70"
+              width="250"
+              height="100"
               alt="logo"
               priority
             />
@@ -61,6 +61,13 @@ export default function Page({
                 .reduce((prev, curr) => [prev, "|", curr])}
             </div>
           </div>
+          <CookiesPopup
+            locales={locales}
+            locale={locale}
+            defaultLocale={defaultLocale}
+            story={story}
+            preview={preview}
+          />
         </section>
       </div>
       <div className={styles.page_wrapper}>

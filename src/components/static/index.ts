@@ -10,3 +10,4 @@ export * from "./Button";
 export * from "./Navbar";
 export * from "./DropdownBlack";
 export * from "./DropdownPurple";
+export * from "./CookiesPopup";
