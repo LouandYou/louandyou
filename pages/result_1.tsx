@@ -14,7 +14,11 @@ export default function Page({ story, preview, locale }) {
   const { content } = useStoryblok(story, preview, locale);
   return (
     <Layout>
-      <section className={styles.landing_page}>
+      <section
+        is-landing-page="true"
+        id="section_1"
+        className={styles.landing_page}
+      >
         <h1>{content.headline}</h1>
         <p className="pt-3">
           <Text blok={content} attribute={"subline"} />
@@ -33,18 +37,10 @@ export default function Page({ story, preview, locale }) {
           </button>
         </Link>
       </section>
-      <section
-        data-dark-bg="true"
-        id="section_5"
-        className={styles.headline_page}
-      >
+      <section id="section_5" className={styles.headline_page}>
         <h2>are you injured?</h2>
       </section>
-      <section
-        data-dark-bg="false"
-        id="section_6"
-        className={styles.white_page}
-      >
+      <section id="section_6" className={styles.white_page}>
         <p>
           if you have injuries or are in pain or suspect someone might have
           given you drugs, these information about emergency care could be
@@ -56,19 +52,11 @@ export default function Page({ story, preview, locale }) {
           }
         />
       </section>
-      <section
-        data-dark-bg="true"
-        id="section_7"
-        className={styles.headline_page}
-      >
+      <section id="section_7" className={styles.headline_page}>
         <h2 className="pb-3">would you like to collect evidence?</h2>
         <b>(without getting the police involved)</b>
       </section>
-      <section
-        data-dark-bg="false"
-        id={"section_8"}
-        className={styles.white_page}
-      >
+      <section id={"section_8"} className={styles.white_page}>
         <div className="mb-5">
           <p>
             you can have injuries documented and evidence collected
@@ -95,36 +83,20 @@ export default function Page({ story, preview, locale }) {
           }
         />
       </section>
-      <section
-        data-dark-bg="true"
-        id="section_9"
-        className={styles.headline_page}
-      >
+      <section id="section_9" className={styles.headline_page}>
         <h2>are you worried about STIs or a possible pregnancy?</h2>
       </section>
-      <section
-        data-dark-bg="false"
-        id={"section_10"}
-        className={styles.white_page}
-      >
+      <section id={"section_10"} className={styles.white_page}>
         <p>
           so you don’t have to worry about your health on top of everything
           else, you can get tested & treated and get the morning after pill{" "}
         </p>
         <DropdownBlack content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" />
       </section>
-      <section
-        data-dark-bg="true"
-        id="section_11"
-        className={styles.headline_page}
-      >
+      <section id="section_11" className={styles.headline_page}>
         <h2>would you like to talk to someone who can give advice?</h2>
       </section>
-      <section
-        className={styles.white_page}
-        data-dark-bg="true"
-        id="section_12"
-      >
+      <section className={styles.white_page} id="section_12">
         <p>
           there are people who are experts in helping you with all kinds of
           information & support - whether in person, by phone or in a chat{" "}
@@ -148,18 +120,10 @@ export default function Page({ story, preview, locale }) {
           <DropdownBlack label="where to find help" content={""} />
         </div>
       </section>
-      <section
-        data-dark-bg="true"
-        id="section_13"
-        className={styles.headline_page}
-      >
+      <section id="section_13" className={styles.headline_page}>
         <h2>could you use emotional support?</h2>
       </section>
-      <section
-        className={styles.white_page}
-        data-dark-bg="true"
-        id="section_14"
-      >
+      <section className={styles.white_page} id="section_14">
         <p>
           it’s so valuable to know there are people who listen and help you deal
           with your experiences. Whether it’s therapy, other survivors or the
@@ -206,18 +170,10 @@ export default function Page({ story, preview, locale }) {
           </Link>
         </div>
       </section>
-      <section
-        data-dark-bg="true"
-        id="section_15"
-        className={styles.headline_page}
-      >
+      <section id="section_15" className={styles.headline_page}>
         <h2>would you like to report what happened to the police?</h2>
       </section>
-      <section
-        className={styles.white_page}
-        data-dark-bg="true"
-        id="section_16"
-      >
+      <section className={styles.white_page} id="section_16">
         <p>
           it isn’t always easy to find out if reporting is right for you. Here’s
           what might help you decide and how reporting works in Germany.
@@ -236,20 +192,12 @@ export default function Page({ story, preview, locale }) {
           <DropdownBlack label={"where to find help"} content={""} />
         </div>
       </section>
-      <section
-        data-dark-bg="true"
-        id="section_17"
-        className={styles.headline_page}
-      >
+      <section id="section_17" className={styles.headline_page}>
         <h2>
           would you like to talk to someone about your rights & legal options?
         </h2>
       </section>
-      <section
-        className={styles.white_page}
-        data-dark-bg="true"
-        id="section_18"
-      >
+      <section className={styles.white_page} id="section_18">
         <p>
           if you’re wondering about your legal situation or aren’t safe at home,
           I’ll show you where you find help - even for free
