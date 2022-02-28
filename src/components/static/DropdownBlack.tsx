@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from "react";
 import styles from "./Dropdown.module.scss";
 
 interface IProps {
-  label: string;
+  label?: string;
   content: string;
 }
 
@@ -21,15 +21,15 @@ export function DropdownBlack(props: IProps): ReactElement {
   };
 
   return (
-    <section className={styles.section}>
+    <>
       <div className={styles.dropdown_wrapper}>
-        <p className={styles.label}>{props.label}</p>
+        <p>{props.label}</p>
         <button
           onClick={handleClick}
           className={`${styles.dropdown_button} ${rotate ? styles.rotate : ""}`}
         ></button>
       </div>
       {isVisible && <div className={styles.content}>{props.content}</div>}
-    </section>
+    </>
   );
 }
