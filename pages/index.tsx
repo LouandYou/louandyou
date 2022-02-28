@@ -99,8 +99,8 @@ export default function Page({
 
         <section className={styles.white_page}>
           <h1 className={styles.subtitle}>
-            come along & <br /> find out how we <br /> can create a better
-            future for everyone.
+            come along & find out how we can create a better future for
+            everyone.
           </h1>
           <p className={styles.description}>
             Let me introduce myself to you: <br /> I’m the first digital
