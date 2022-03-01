@@ -6,7 +6,7 @@ import styles from "./result.module.scss";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 import { useStoryblok } from "../src/lib/storyblok";
 import { PageContent, Text } from "../src/components/dynamic";
-import { Feedback } from "../src/components/static/Feedback";
+import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
 
 export default function Page({ story, preview, locale }) {

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import styles from "./Footer.module.scss";
 import Link from "next/link";
-import { Feedback } from "./Feedback";
+import { Feedback } from "./Popups/Feedback";
 
 export function Footer(): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);

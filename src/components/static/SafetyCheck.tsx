@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Checkbox } from "./Checkbox";
-import { SafetyPopup } from "./SafetyPopup";
+import { SafetyPopup } from "./Popups/SafetyPopup";
 import styles from "./SafetyCheck.module.scss";
 
 export const SafetyCheck = () => {
