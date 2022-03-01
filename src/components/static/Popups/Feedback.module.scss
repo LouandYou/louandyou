@@ -1,0 +1,64 @@
+@use "../Button.module.scss";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  z-index: 2;
+  padding: 21px;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  padding: 0 30px 30px 30px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 2px 2px 2px #8d8bf4;
+  border-radius: 35px;
+  text-align: left;
+  color: #101223;
+  font-family: "Lato", sans-serif !important;
+
+  & h2 {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  & p {
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  & input[type="radio"] {
+    display: none;
+  }
+
+  & textarea {
+    padding: 10px 13px;
+    border: 2px solid #8d8bf4;
+    border-radius: 13px;
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+    font-size: 13px;
+  }
+}
+
+.star {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+.empty {
+  background-image: url("../../../../public/star_empty.svg");
+}
+
+.full {
+  background-image: url("../../../../public/star_full.svg");
+}
