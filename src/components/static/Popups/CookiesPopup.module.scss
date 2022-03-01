@@ -1,0 +1,68 @@
+.container {
+  padding: 29px 30px 20px 30px;
+  border-radius: 35px;
+  bottom: 15px;
+  position: fixed;
+  width: 95%;
+  background-color: white;
+  z-index: 10;
+  color: #101223;
+  box-shadow: 2px 2px 2px #8d8bf4;
+  text-align: left;
+  line-height: 27px;
+  font-family: "Lato", sans-serif !important;
+  -webkit-animation: fadein 1s;
+  animation: fadein 1s;
+
+  & h2 {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  & p {
+    padding: 15px 0;
+    font-size: 17px;
+    letter-spacing: 0.02em;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 48.3%;
+  height: 50px;
+  border: none;
+  background-color: #8b8bf4;
+  color: white;
+  border-radius: 40px;
+  font-size: 17px;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+}
+
+.language_switch {
+  color: #979c9e;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  display: flex;
+  & div {
+    cursor: pointer;
+  }
+}
+
+.purple {
+  color: #8b8bf4;
+}
