@@ -1,16 +1,13 @@
 import React, { ReactElement, useState } from "react";
 
-import Link from "next/link";
-
 import styles from "./Feedback.module.scss";
 import { Checkbox } from "..";
 
 interface Props {
-  isOpen: boolean;
   onClose: (event: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-export function Feedback({ isOpen, onClose }: Props): ReactElement {
+export function Feedback({ onClose }: Props): ReactElement {
   const [rating, setRating] = useState<number | null>(null);
   const [hover, setHover] = useState<number | null>(null);
   const [checkboxValue, setcheckboxValue] = useState<string>("");

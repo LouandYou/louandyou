@@ -85,10 +85,7 @@ export function Footer(): ReactElement {
         </div>
       </div>
       {isFeedbackOpen && (
-        <Feedback
-          isOpen={isFeedbackOpen}
-          onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
-        />
+        <Feedback onClose={() => setIsFeedbackOpen(!isFeedbackOpen)} />
       )}
     </section>
   );
