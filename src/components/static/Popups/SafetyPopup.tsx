@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { ReactElement, useEffect } from "react";
-import Modal from "react-modal";
+import React, { ReactElement } from "react";
 import styles from "./SafetyPopup.module.scss";
 import Link from "next/link";
 
@@ -10,10 +9,6 @@ interface Props {
 }
 
 export const SafetyPopup = ({ safety, onClose }: Props): ReactElement => {
-  useEffect(() => {
-    Modal.setAppElement("#__next");
-  }, []);
-
   return (
     <div className={styles.overlay}>
       <div className={styles.content}>
