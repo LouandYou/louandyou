@@ -20,50 +20,99 @@ export function Footer(): ReactElement {
         />
       </div>
       <div className={styles.links_container1}>
-        <div className={styles.column_container}>
+        <div className={styles.row_container}>
           <Link href="/">about us</Link>
-          <Link href="/">about Lou</Link>
           <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
-          <Link href="/">impact</Link>
-        </div>
-        <div className={styles.column_container}>
           <Link href="/">what we do</Link>
+        </div>
+        <div className={`mb-3 ${styles.row_container}`}>
+          <Link href="/">about Lou</Link>
+          <Link href="/">impact</Link>
           <Link href="/">our partners</Link>
-          <Link href="/">support us</Link>
-          <Link href="/">newsletter</Link>
+        </div>
+        <div className={styles.row_container}>
+          <div className="is-flex is-flex-direction-column">
+            <b>follow us</b>
+            <Link href="/">newsletter</Link>
+          </div>
+          <span className={styles.icons_container}>
+            <div className={styles.invert_color}>
+              <Image
+                src={"/social/instagram.png"}
+                width="34"
+                height="34"
+                alt="instagram logo"
+              />
+            </div>
+            <div>
+              <Image
+                src={"/social/facebook.png"}
+                width="34"
+                height="34"
+                alt="facebook logo"
+              />
+            </div>
+            <div className={styles.invert_color}>
+              <Image
+                src={"/social/linkedin.png"}
+                width="40"
+                height="34"
+                alt="linkedin logo"
+              />
+            </div>
+          </span>
         </div>
       </div>
-      <div className={styles.icons_container}>
-        <div className={styles.invert_color}>
-          <Image
-            src={"/social/instagram.png"}
-            width="34"
-            height="34"
-            alt="instagram logo"
-          />
+
+      <div className={styles.support}>
+        <div className={styles.row_container}>
+          <b>
+            support <br /> Lou
+          </b>
+          <p>
+            Spendenkonto:
+            <br />
+            SIGE e.V.
+            <br />
+            Berliner Sparkasse
+            <br />
+            IBAN DE30400501500136131356
+            <br />
+            Verwendungszweck: <br />
+            Spende SIGE e.V. from [name],
+            <br /> [adress]
+          </p>
         </div>
-        <div>
+        <span className="is-flex is-justify-content-space-between my-5">
           <Image
-            src={"/social/facebook.png"}
-            width="34"
-            height="34"
-            alt="facebook logo"
+            src={"/payment/apple.svg"}
+            width="50"
+            height="21"
+            alt="apple pay logo"
           />
-        </div>
-        <div className={styles.invert_color}>
           <Image
-            src={"/social/linkedin.png"}
-            width="40"
-            height="34"
-            alt="linkedin logo"
+            src={"/payment/visa.svg"}
+            width="100"
+            height="40"
+            alt="visa logo"
           />
-        </div>
+          <Image
+            src={"/payment/paypal.svg"}
+            width="60"
+            height="21"
+            alt="paypal logo"
+          />
+        </span>
+        <p>
+          Wir stellen dir gerne eine Spendenbescheinigungen aus. Schreib uns
+          dazu einfach eine Mail an spende@louandyou.org
+        </p>
       </div>
       <div className={styles.links_container2}>
         <div className={styles.row_container}>
-          <b>for donors</b>
-          <b>for partners</b>
-          <b>for the press</b>
+          <p>for donors</p>
+          <p>for partners</p>
+          <p>for the press</p>
         </div>
         <div className={styles.row_container}>
           <Link href="/">one pager</Link>
@@ -74,15 +123,11 @@ export function Footer(): ReactElement {
           <Link href="/">pitch deck</Link>
         </div>
       </div>
-      <div className={styles.links_container2}>
-        <div className={styles.row_container}>
-          <Link href="/">data protection</Link>
-          <Link href="/">disclaimer of liability</Link>
-        </div>
-        <div className={styles.row_container}>
-          <Link href="/">imprint</Link>
-          <Link href="/">bylaws</Link>
-        </div>
+      <div className={styles.last_row}>
+        <Link href="/">data protection</Link>
+        <Link href="/">imprint</Link>
+        <Link href="/">disclaimer of liability</Link>
+        <Link href="/">bylaws</Link>
       </div>
       {isFeedbackOpen && (
         <Feedback onClose={() => setIsFeedbackOpen(!isFeedbackOpen)} />

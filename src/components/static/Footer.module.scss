@@ -1,23 +1,19 @@
 .footer {
-  background-color: #8d8bf4;
-  padding: 100px 44px 63px 44px;
+  background-color: #a1bbff;
+  padding: 50px 20px 20px 20px;
   display: flex;
-  font-size: 15px;
+  font-size: 17px;
   flex-direction: column;
   align-items: center;
   color: white;
-
-  & a {
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-    line-height: 18px;
-  }
+  font-family: "Lato", sans-serif;
 }
 
 .links_container1 {
+  font-weight: bold;
   display: flex;
+  flex-direction: column;
   width: 100%;
-  gap: 60px;
   justify-content: center;
   padding-top: 30px;
 }
@@ -26,40 +22,67 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding-bottom: 1px;
+  font-weight: bold;
   & a {
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 17px;
     width: 30%;
+    font-weight: bold;
   }
-  & b {
-    width: 30%;
-  }
-}
 
-.column_container {
-  gap: 16px;
-  justify-content: space-between;
-  display: flex;
-  flex-direction: column;
+  & span {
+    flex: 1;
+  }
 }
 
 .icons_container {
-  padding-top: 37px;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  align-items: center;
+  gap: 20px;
 }
 
 .invert_color {
   filter: brightness(0) invert(1);
 }
 
-.links_container2 {
-  padding-top: 30px;
+.support {
+  margin: 40px 0;
+  padding: 17px;
+  background-color: #cfddfcbd;
+  border-radius: 20px;
+  color: black;
   width: 100%;
-  & a {
-    width: 50%;
+
+  & p {
     font-family: "Maitree", serif;
+    font-weight: 400;
+    font-size: 13px;
   }
+  & :nth-child(3) {
+    font-size: 11px;
+  }
+}
+
+.links_container2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 40px;
+  & a {
+    width: 30%;
+    font-weight: 400;
+  }
+
+  & p {
+    width: 30%;
+  }
+}
+
+.last_row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 12px;
+  font-family: "Maitree", serif;
 }
