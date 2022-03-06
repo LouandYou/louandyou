@@ -8,37 +8,61 @@ interface Props {
 }
 
 export function Feedback({ onClose }: Props): ReactElement {
-  const [rating, setRating] = useState<number | null>(null);
   const [hover, setHover] = useState<number | null>(null);
-  const [checkboxValue, setcheckboxValue] = useState<string>("");
-  const [textareaValue, setTextareaValue] = useState<string>("");
+  const [isSent, setIsSent] = useState<boolean | null>(null);
+  const [buttonContent, setButtonContent] = useState<any>("submit");
+  const [isEmptyForm, setIsEmptyForm] = useState<boolean | null>(false);
+
+  const [rating, setRating] = useState<number | null>(null);
+  const [checkboxValue, setcheckboxValue] = useState<string | null>(null);
+  const [textareaValue, setTextareaValue] = useState<string | null>(null);
 
   const handleSubmit = async () => {
-    const res = await fetch("/api/sendgrid", {
-      body: JSON.stringify({
-        rating: rating,
-        checkboxValue: checkboxValue,
-        textareaValue: textareaValue,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    });
+    if (
+      (rating !== null || checkboxValue !== null || textareaValue !== null) &&
+      isSent !== true
+    ) {
+      setButtonContent(
+        <div className={styles.container}>
+          <div className={styles.loader} />
+        </div>
+      );
+      setIsEmptyForm(false);
 
-    const { error } = await res.json();
-    if (error) {
-      console.log(error);
-      return;
+      const res = await fetch("/api/sendgrid", {
+        body: JSON.stringify({
+          rating: rating,
+          checkboxValue: checkboxValue,
+          textareaValue: textareaValue,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+
+      const { sent } = await res.json();
+
+      if (sent) {
+        setIsSent(true);
+        setButtonContent("thank you for helping me help you better!");
+      } else {
+        setIsSent(false);
+      }
+    } else {
+      setIsEmptyForm(true);
     }
   };
 
   return (
     <div className={styles.overlay}>
       <div className={styles.content}>
-        <div className={styles.close_btn} onClick={onClose}>
+        <b
+          className="is-size-5 is-flex is-justify-content-flex-end"
+          onClick={onClose}
+        >
           ✕
-        </div>
+        </b>
         <h2>How can I help you even better?</h2>
         <p className="py-3">How helpful have these information been?</p>
         <div className="is-flex is-justify-content-space-evenly">
@@ -98,14 +122,19 @@ export function Feedback({ onClose }: Props): ReactElement {
           className="my-4"
           onChange={(e) => setTextareaValue(e.target.value)}
         />
-        <div className="pt-5 is-flex is-justify-content-center">
+        <div className="is-flex is-justify-content-center">
           <button
             onClick={handleSubmit}
-            className={`${styles.button} ${styles.purple}`}
+            className={`${styles.button} ${
+              isSent ? styles.green_full : styles.purple_full
+            }`}
           >
-            submit
+            {buttonContent}
           </button>
         </div>
+        {isEmptyForm && (
+          <p className={styles.error}>please fill at least one field</p>
+        )}
       </div>
     </div>
   );
