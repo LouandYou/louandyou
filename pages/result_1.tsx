@@ -286,7 +286,6 @@ export default function Page({ story, preview, locale }) {
         </div>
         {isFeedbackOpen && (
           <Feedback
-            isOpen={isFeedbackOpen}
             onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
           />
         )}
