@@ -15,12 +15,12 @@ function sendEmail(req, res) {
     })
     .then(() => {
       console.log("Email sent");
+      res.status(200).json({ sent: true });
     })
     .catch((error) => {
-      console.error(error);
+      console.log(error);
+      res.json({ sent: false });
     });
-
-  return res.status(200).json({ error: "" });
 }
 
 export default sendEmail;
