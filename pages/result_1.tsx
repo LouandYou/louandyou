@@ -12,6 +12,7 @@ import { useState } from "react";
 export default function Page({ story, preview, locale }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
   const { content } = useStoryblok(story, preview, locale);
+  console.debug('content', content);
   return (
     <Layout>
       <section
@@ -25,18 +26,6 @@ export default function Page({ story, preview, locale }) {
         </p>
       </section>
       <PageContent blok={content} name={"body"} />
-      <section className={styles.white_page}>
-        <p className="mb-5">
-          if you’re not sure if these options are for you, you can find out
-          about domestic violence here.
-        </p>
-
-        <Link passHref href={"/"}>
-          <button className={`${styles.button} ${styles.purple}`}>
-            show me more
-          </button>
-        </Link>
-      </section>
       <section id="section_5" className={styles.headline_page}>
         <h2>are you injured?</h2>
       </section>

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { CookiesPopup, Layout } from "../src/components/static";
+import { LinkButton, CookiesPopup, Layout } from "../src/components/static";
 import { Storyblok, useStoryblok } from "../src/lib/storyblok";
 import { GetHelp } from "../src/components/static";
 
@@ -12,14 +12,14 @@ import { Footer } from "../src/components/static";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
 export default function Page({
-  story,
-  preview,
-  locales,
-  locale,
-  defaultLocale,
-}) {
+                               story,
+                               preview,
+                               locales,
+                               locale,
+                               defaultLocale
+                             }) {
   story = useStoryblok(story, preview, locale);
-
+  console.debug('story', story);
   return (
     <Layout>
       <div className={styles.page_wrapper}>
@@ -83,17 +83,12 @@ export default function Page({
             here you find some helpful things to know about violence:
           </h1>
           <div className={styles.btn_container}>
-            <Link href="/domestic_general" passHref>
-              <button className={`${styles.button} ${styles.white}`}>
-                domestic violence
-              </button>
-            </Link>
-
-            <Link href="/sexual_general" passHref>
-              <button className={`${styles.button} ${styles.white}`}>
-                sexual violence
-              </button>
-            </Link>
+            <LinkButton href="/domestic_general" style="white">
+              domestic violence
+            </LinkButton>
+            <LinkButton href="/sexual_general" style="white">
+              sexual violence
+            </LinkButton>
           </div>
         </section>
 
@@ -132,6 +127,6 @@ export default function Page({
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "home",
+    slug: "home"
   });
 }

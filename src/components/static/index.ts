@@ -6,7 +6,7 @@ export * from "./Popups/SafetyPopup";
 export * from "./Slider";
 export * from "./Layout";
 export * from "./Footer";
-export * from "./Button";
+export * from "./LinkButton";
 export * from "./Navbar";
 export * from "./DropdownBlack";
 export * from "./Popups/CookiesPopup";

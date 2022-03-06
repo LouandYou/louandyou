@@ -1,10 +1,12 @@
 import { Placeholder } from "./Placeholder";
 import { Text } from "./Text";
 import { PageSection } from "./PageSection";
+import { LinkButton } from "./LinkButton";
 
 const Components = {
   "text": Text,
   "section": PageSection,
+  "LinkButton": LinkButton,
 };
 
 export const DynamicComponent = ({ blok }) => {
