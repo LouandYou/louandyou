@@ -5,7 +5,7 @@ import styles from "./ExitButton.module.scss";
 import { ExitButtonContext } from "./ExitButtonContext";
 import Cookies from "js-cookie";
 
-export function ExitButton(): ReactElement {
+export function ExitButton({ content }): ReactElement {
   const { isVisible } = useContext(ExitButtonContext);
 
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(true);
@@ -29,7 +29,10 @@ export function ExitButton(): ReactElement {
       {isVisible && !isLandingPage && (
         <>
           {isPopupOpen && (
-            <ExitButtonPopup onClose={() => setIsPopupOpen(false)} />
+            <ExitButtonPopup
+              content={content}
+              onClose={() => setIsPopupOpen(false)}
+            />
           )}
 
           <button

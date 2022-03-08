@@ -3,7 +3,7 @@ import { Checkbox } from "./Checkbox";
 import { SafetyPopup } from "./Popups/SafetyPopup";
 import styles from "./SafetyCheck.module.scss";
 
-export const SafetyCheck = () => {
+export const SafetyCheck = ({ content }) => {
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [safety, setSafety] = useState<string>("");
 
@@ -14,19 +14,19 @@ export const SafetyCheck = () => {
 
   return (
     <>
-      <p className={styles.headline}>are you in physical danger right now?</p>
+      <p className={styles.headline}>{content.physical_question}</p>
       <div className="pt-5 is-flex">
         <Checkbox
           type="radio"
           checked={safety === "yes"}
-          label="yes"
+          label={content.yes}
           value="yes"
           onChange={handleChange}
         />
         <Checkbox
           type="radio"
           checked={safety === "no"}
-          label="no"
+          label={content.no}
           onChange={() => setSafety("no")}
         />
       </div>
@@ -34,13 +34,17 @@ export const SafetyCheck = () => {
         <Checkbox
           type="radio"
           checked={safety === "unsure"}
-          label="I’m not sure"
+          label={content.unsure}
           value="unsure"
           onChange={handleChange}
         />
       </div>
       {isPopupOpen && (
-        <SafetyPopup onClose={() => setIsPopupOpen(false)} safety={safety} />
+        <SafetyPopup
+          content={content}
+          onClose={() => setIsPopupOpen(false)}
+          safety={safety}
+        />
       )}
     </>
   );

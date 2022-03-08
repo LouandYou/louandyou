@@ -4,7 +4,7 @@ import styles from "./GetHelp.module.scss";
 import Link from "next/link";
 import { SafetyCheck } from "./SafetyCheck";
 
-export function GetHelp(): ReactElement {
+export function GetHelp({ content }): ReactElement {
   const [violanceType, setViolanceType] = useState<string>();
   const [isLongAgo, setIsLongAgo] = useState<boolean>();
 
@@ -23,21 +23,19 @@ export function GetHelp(): ReactElement {
 
   return (
     <>
-      <SafetyCheck />
-      <h2 className={styles.headline}>
-        what kind of violence did you experience?
-      </h2>
+      <SafetyCheck content={content} />
+      <h2 className={styles.headline}>{content.violence_question}</h2>
 
       <div className="pt-5 is-flex">
         <Checkbox
           type="radio"
-          label="sexual"
+          label={content.sexual}
           checked={violanceType === "sexual"}
           onChange={() => setViolanceType("sexual")}
         />
         <Checkbox
           type="radio"
-          label="domestic"
+          label={content.domestic}
           checked={violanceType === "domestic"}
           onChange={() => setViolanceType("domestic")}
         />
@@ -45,7 +43,7 @@ export function GetHelp(): ReactElement {
       <div className="pt-4">
         <Checkbox
           type="radio"
-          label="both"
+          label={content.both}
           checked={violanceType === "both"}
           onChange={() => setViolanceType("both")}
         />
@@ -53,7 +51,7 @@ export function GetHelp(): ReactElement {
       <div className="pt-4">
         <Checkbox
           type="radio"
-          label="I’m not sure / I’d rather not say"
+          label={content.not_say}
           checked={violanceType === "not sure"}
           onChange={() => setViolanceType("not sure")}
         />
@@ -62,7 +60,7 @@ export function GetHelp(): ReactElement {
       <div className="pt-5">
         <Checkbox
           type="checkbox"
-          label="less than a month ago"
+          label={content.less}
           checked={isLongAgo === false}
           onChange={() => setIsLongAgo(false)}
         />
@@ -70,7 +68,7 @@ export function GetHelp(): ReactElement {
       <div className="pt-4">
         <Checkbox
           type="checkbox"
-          label="more than a month ago"
+          label={content.more}
           checked={isLongAgo === true}
           onChange={() => setIsLongAgo(true)}
         />
@@ -79,7 +77,7 @@ export function GetHelp(): ReactElement {
         {canSubmit() && (
           <Link href={getHref()} passHref>
             <button className={`${styles.button} ${styles.purple}`}>
-              get started
+              {content.start}
             </button>
           </Link>
         )}

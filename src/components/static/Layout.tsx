@@ -2,13 +2,15 @@ import React, { ReactElement } from "react";
 import Head from "next/head";
 import styles from "../../../pages/index.module.scss";
 import { ExitButton, Navbar } from ".";
+import { pageGetStaticProps } from "../../lib/pageGetStaticProps";
 
 interface Props {
   locale?: string;
   children: JSX.Element | JSX.Element[];
+  content: any;
 }
 
-export function Layout({ children }: Props): ReactElement {
+export function Layout({ children, content }: Props): ReactElement {
   return (
     <>
       <Head>
@@ -18,7 +20,7 @@ export function Layout({ children }: Props): ReactElement {
       </Head>
       <Navbar />
       <main className={styles.main}>{children}</main>
-      <ExitButton />
+      <ExitButton content={content} />
     </>
   );
 }

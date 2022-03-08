@@ -12,16 +12,16 @@ import { Footer } from "../src/components/static";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
 export default function Page({
-                               story,
-                               preview,
-                               locales,
-                               locale,
-                               defaultLocale
-                             }) {
+  story,
+  preview,
+  locales,
+  locale,
+  defaultLocale,
+}) {
   story = useStoryblok(story, preview, locale);
-  console.debug('story', story);
+  console.debug("story", story);
   return (
-    <Layout>
+    <Layout content={story.content}>
       <div className={styles.page_wrapper}>
         <section
           is-landing-page="true"
@@ -39,6 +39,7 @@ export default function Page({
             />
           </div>
           <PageContent blok={story.content} name="description" />
+
           <div className={styles.language_wrapper}>
             <div className={styles.language_switch}>
               {locales
@@ -72,48 +73,32 @@ export default function Page({
       </div>
       <div className={styles.page_wrapper}>
         <section className={styles.white_page_long}>
-          <h1 className={styles.title}>
-            let’s find out how <br /> I can help you
-          </h1>
-          <GetHelp />
+          <h1 className={styles.title}>{story.content.question_headline}</h1>
+          <GetHelp content={story.content} />
         </section>
 
         <section className={styles.color_page}>
-          <h1 className={styles.title_white}>
-            here you find some helpful things to know about violence:
-          </h1>
+          <h1 className={styles.title_white}>{story.content.title1}</h1>
           <div className={styles.btn_container}>
-            <LinkButton href="/domestic_general" style="white">
-              domestic violence
+            <LinkButton href="/domestic_general" variant="white">
+              {story.content.domestic_violence}
             </LinkButton>
-            <LinkButton href="/sexual_general" style="white">
-              sexual violence
+            <LinkButton href="/sexual_general" variant="white">
+              {story.content.sexual_violence}
             </LinkButton>
           </div>
         </section>
 
         <section className={styles.white_page}>
-          <h1 className={styles.subtitle}>
-            come along & find out how we can create a better future for
-            everyone.
-          </h1>
-          <p className={styles.description}>
-            Let me introduce myself to you: <br /> I’m the first digital
-            companion for people who experienced sexual and domestic violence. I
-            have quite ambitious plans for the future.
-          </p>
+          <h1 className={styles.subtitle}>{story.content.title2}</h1>
+          <p className={styles.description}>{story.content.title2_p}</p>
         </section>
         <section className={styles.color_page}>
-          <h1 className={styles.title_white}>
-            join me on my journey & let me share when big things are happening
-            for me
-          </h1>
+          <h1 className={styles.title_white}>{story.content.title3}</h1>
           <div className={styles.btn_container}>
-            <Link href="/" passHref>
-              <button className={`${styles.button} ${styles.white}`}>
-                sign up to my newsletter
-              </button>
-            </Link>
+            <LinkButton href={"./"} variant="white">
+              {story.content.newsletter}
+            </LinkButton>
           </div>
         </section>
         <section className={styles.footer_wrapper}>
@@ -127,6 +112,6 @@ export default function Page({
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "home"
+    slug: "home",
   });
 }

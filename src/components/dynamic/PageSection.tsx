@@ -10,6 +10,9 @@ const variants = {
   gradient: {
     className: styles.gradient,
   },
+  headline: {
+    className: styles.headline,
+  },
 };
 
 export const PageSection = ({ blok }) => {

@@ -50,17 +50,15 @@ export function CookiesPopup({
                 .reduce((prev, curr) => [prev, "|", curr])}
             </div>
           </div>
-          <p className="pr-2">
-            I am using cookies to show you only things that are actually helpful
-            for you and analyse usage. By clicking on “ok, cool”, you allow me
-            to do so.
-          </p>
+          <p className="pr-2">{story.content.cookies_paragraph}</p>
           <div className={styles.wrapper}>
             <button onClick={handleOnClick} className={styles.button}>
-              okay, cool{" "}
+              okay, cool
             </button>
             <Link href="/settings" passHref>
-              <button className={styles.button}>go to settings</button>
+              <button className={styles.button}>
+                {story.content.cookies_link}
+              </button>
             </Link>
           </div>
         </div>
