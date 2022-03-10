@@ -4,13 +4,14 @@ import Image from "next/image";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 import { Feedback } from "./Popups/Feedback";
+import Cookies from "js-cookie";
 
 export function Footer(): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
 
   return (
     <section className={styles.footer}>
-      <div className={styles.logo}>
+      <div className={`${Cookies.get("CONTRAST") ? styles.black : ""}`}>
         <Image
           src={"/logo_full_white.svg"}
           width="210"
@@ -35,8 +36,12 @@ export function Footer(): ReactElement {
             <b>follow us</b>
             <Link href="/">newsletter</Link>
           </div>
-          <span className={styles.icons_container}>
-            <div className={styles.invert_color}>
+          <span
+            className={`${styles.icons_container} ${
+              Cookies.get("CONTRAST") ? styles.black : ""
+            }`}
+          >
+            <div>
               <Image
                 src={"/social/instagram.png"}
                 width="34"
@@ -52,7 +57,7 @@ export function Footer(): ReactElement {
                 alt="facebook logo"
               />
             </div>
-            <div className={styles.invert_color}>
+            <div>
               <Image
                 src={"/social/linkedin.png"}
                 width="40"
