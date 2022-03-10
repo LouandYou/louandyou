@@ -11,7 +11,6 @@ import { useState } from "react";
 export default function Page({ story, preview, locale }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
   const { content } = useStoryblok(story, preview, locale);
-  console.debug("story", story);
   return (
     <Layout content={content}>
       <section className={styles.landing_page}>
