@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import { LinkButton, CookiesPopup, Layout } from "../src/components/static";
-import { Storyblok, useStoryblok } from "../src/lib/storyblok";
+import { useStoryblok } from "../src/lib/storyblok";
 import { GetHelp } from "../src/components/static";
 
 import Image from "next/image";
@@ -19,7 +19,6 @@ export default function Page({
   defaultLocale,
 }) {
   story = useStoryblok(story, preview, locale);
-  console.debug("story", story);
   return (
     <Layout content={story.content}>
       <div className={styles.page_wrapper}>
@@ -72,12 +71,12 @@ export default function Page({
         </section>
       </div>
       <div className={styles.page_wrapper}>
-        <section className={styles.white_page_long}>
-          <h1 className={styles.title}>{story.content.question_headline}</h1>
+        <section className={styles.white_page}>
+          <h1>{story.content.question_headline}</h1>
           <GetHelp content={story.content} />
         </section>
 
-        <section className={styles.color_page}>
+        <section className={styles.landing_page}>
           <h1 className={styles.title_white}>{story.content.title1}</h1>
           <div className={styles.btn_container}>
             <LinkButton href="/domestic_general" variant="white">

@@ -8,15 +8,9 @@
   white-space: nowrap;
   padding-left: 40px;
   line-height: 20px;
-  font-size: var(--size-font-checkbox);
   font-weight: 400;
-  font-size: 17px;
   font-family: "Lato", sans-serif;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 
   & input {
     position: absolute;

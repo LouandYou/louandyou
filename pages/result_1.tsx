@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { DropdownBlack, Layout, LinkButton } from "../src/components/static";
+import { Layout, LinkButton } from "../src/components/static";
 import { Footer } from "../src/components/static";
 
 import styles from "./result.module.scss";
@@ -22,7 +21,6 @@ export default function Page({ story, preview, locale }) {
         </p>
       </section>
       <PageContent blok={content} name={"body"} />
-
       <section className={styles.warning} id="section_14">
         <h1 className="mb-5">{content.warning_title}</h1>
         <p id="trigger-warning">{content.warning_p}</p>
