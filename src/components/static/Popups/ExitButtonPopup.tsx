@@ -31,7 +31,6 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
     toggleIsVisible!();
     Cookies.set("EXIT_BUTTON_POPUP", true);
   };
-  console.log("content", content);
 
   const popupOne = () => {
     return (
