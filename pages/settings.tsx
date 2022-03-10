@@ -146,7 +146,9 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
 
       <section className={styles.color_page}>
         <h1>{content.section2_title}</h1>
+
         <Text blok={content} attribute={"section2_p"} />
+
         <div className={styles.switch_wraper1}>
           <p className={styles.white_lable}>exit button</p>
           <Slider onChange={handleExitButton} blackBorder={false} />
@@ -157,7 +159,9 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         <p className="pb-4">
           <b>{content.section3_subtitle1}</b>
         </p>
-        <Text blok={content} attribute={"section3_p1"} />
+        <div style={{ fontFamily: "Maitree" }}>
+          <Text blok={content} attribute={"section3_p1"} />
+        </div>
         <div className={styles.switch_wraper2}>
           <Slider
             onChange={handleCookies}
@@ -168,7 +172,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         <p className="pb-4">
           <b>{content.section3_suptitle2}</b>
         </p>
-        <p>{content.section3_p2}</p>
+        <p style={{ fontFamily: "Maitree" }}>{content.section3_p2}</p>
         <div className={styles.switch_wraper2}>
           <Slider blackBorder={true} />
         </div>
