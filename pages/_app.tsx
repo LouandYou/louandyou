@@ -7,12 +7,18 @@ import { ExitButtonProvider } from "../src/components/static/ExitButton/ExitButt
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (Cookies.get("FONT_BIG")) {
-      document.documentElement.style.setProperty("--size-font", "1.25em");
       document.documentElement.style.setProperty(
-        "--size-font-checkbox",
-        "18px"
+        "--size-font-paragraph",
+        "24px"
+      );
+      document.documentElement.style.setProperty(
+        "--size-font-paragraph-title",
+        "25px"
       );
     }
+    Cookies.get("CONTRAST")
+      ? document.documentElement.style.setProperty("--color-font", "#101223")
+      : null;
   }, []);
 
   return (
