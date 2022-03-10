@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Checkbox } from "./Checkbox";
 import { SafetyPopup } from "./Popups/SafetyPopup";
-import styles from "./SafetyCheck.module.scss";
+import styles from "./GetHelp.module.scss";
 
 export const SafetyCheck = ({ content }) => {
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
