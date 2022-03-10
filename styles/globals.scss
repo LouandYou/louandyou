@@ -13,10 +13,11 @@
 // $orange: #ed6b06;
 
 :root {
-  --size-font: 1em;
+  --size-font-paragraph: 17px;
+  --size-font-paragraph-title: 18px;
   --border-color: none;
   --style-border: none;
-  --size-font-checkbox: 12px;
+  --color-font: white;
 }
 
 html,
@@ -24,7 +25,7 @@ body {
   font-family: "Maitree", serif;
   padding: 0;
   margin: 0;
-  font-size: var(--size-font);
+  font-size: var(--size-font-paragraph);
   background: white;
 }
 

@@ -2,12 +2,12 @@
 
 .landing_page {
   background-color: #8b8bf4;
-  height: 100vh;
+  min-height: 100vh;
   padding: 212px 45px 101px 45px;
   display: flex;
   flex-direction: column;
   font-family: "Maitree", serif;
-  font-size: 18px;
+  font-size: var(--size-font-paragraph-title);
   line-height: 30px;
   color: white;
   & h1 {
@@ -27,7 +27,6 @@
 .white_page {
   padding: 50px 45px 85px 45px;
   display: flex;
-  font-size: 18px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -102,7 +101,7 @@
 .white_page {
   padding: 100px 45px 160px 45px;
   background-color: #fff;
-  font-size: 17px;
+
   & h2 {
     font-size: 48px;
     line-height: 55px;
@@ -136,7 +135,7 @@
   }
   & p {
     font-family: "Maitree", serif;
-    font-size: 18px;
+    font-size: var(--size-font-paragraph-title);
     line-height: 30px;
   }
   & div {
