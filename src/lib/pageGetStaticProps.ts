@@ -1,12 +1,13 @@
 import { Storyblok } from "./storyblok";
 
 export const pageGetStaticProps = async ({
-                                       slug,
-                                       locale,
-                                       locales,
-                                       defaultLocale,
-                                       preview = false
-                                     }) => {
+                                           slug,
+                                           locale,
+                                           locales,
+                                           defaultLocale,
+                                           preview = false,
+                                           withLayout = true
+                                         }) => {
   let sbParams: any = {
     version: "draft",
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
@@ -23,6 +24,7 @@ export const pageGetStaticProps = async ({
   return {
     props: {
       story: data ? data.story : false,
+      layoutStory: withLayout ? await loadLayoutStory({locale, preview}) : false,
       preview,
       locale,
       locales,
@@ -31,3 +33,21 @@ export const pageGetStaticProps = async ({
     revalidate: 3600 // revalidate every hour
   };
 };
+
+export const loadLayoutStory = async ({
+  locale,
+  preview = false}) => {
+  let sbParams: any = {
+    version: "draft",
+    language: locale
+  };
+
+  if (preview) {
+    sbParams.version = "draft";
+    sbParams.cv = Date.now();
+  }
+
+  let { data } = await Storyblok.get(`cdn/stories/layout`, sbParams);
+
+  return data ? data.story : false;
+}

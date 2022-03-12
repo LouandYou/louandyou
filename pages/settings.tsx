@@ -88,7 +88,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   };
 
   return (
-    <Layout content={story.content}>
+    <>
       <section className={styles.landing_page}>
         <h1>{content.section1_title}</h1>
         <p className="mb-5">{content.language}</p>
@@ -177,8 +177,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
           <Slider blackBorder={true} />
         </div>
       </section>
-      <Footer />
-    </Layout>
+    </>
   );
 };
 

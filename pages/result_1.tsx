@@ -8,18 +8,17 @@ import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
 
-export default function Page({ story, preview, locale }) {
+export default function Page({ story }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
-  const { content } = useStoryblok(story, preview, locale);
-  return (
-    <Layout content={content}>
+  const { content } = story;
+  return <>
       <section className={styles.landing_page}>
         <h1>{content.headline}</h1>
         <p className="pt-3">
           <Text blok={content} attribute={"subline"} />
         </p>
       </section>
-      <PageContent blok={content} name={"body"} />
+      <PageContent blok={content} name={"body"} />;
       <section className={styles.warning} id="section_14">
         <h1 className="mb-5">{content.warning_title}</h1>
         <p id="trigger-warning">{content.warning_p}</p>
@@ -28,12 +27,12 @@ export default function Page({ story, preview, locale }) {
             {content.warning_button}
           </LinkButton>
         </div>
-      </section>
-      <PageContent blok={content} name={"body2"} />
+      </section>;
+      <PageContent blok={content} name={"body2"} />;
       <section className={styles.color_page}>
         <h1 className="mb-5">{content.where_to_title}</h1>
         <Text blok={content} attribute={"where_to_p"} />
-      </section>
+      </section>;
       <section className={styles.white_page}>
         <h2>{content.lets_build_title1}</h2>
         <p className="mb-5">{content.lets_build_p3}</p>
@@ -53,14 +52,12 @@ export default function Page({ story, preview, locale }) {
           <Feedback onClose={() => setIsFeedbackOpen(!isFeedbackOpen)} />
         )}
       </section>
-      <Footer />
-    </Layout>
-  );
+    </>;
 }
 
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "result_1",
+    slug: "result_1"
   });
 }

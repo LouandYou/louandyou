@@ -4,16 +4,26 @@ import useScrollingBackgroundColor from "../../../utils/useScrollingBackgroundCo
 import styles from "./ExitButton.module.scss";
 import { ExitButtonContext } from "./ExitButtonContext";
 import Cookies from "js-cookie";
+import { useRouter } from "next/dist/client/router";
+import { Simulate } from "react-dom/test-utils";
+import load = Simulate.load;
+
+let loadPathname;
 
 export function ExitButton({ content }): ReactElement {
   const { isVisible } = useContext(ExitButtonContext);
+  let router = useRouter();
+  if (!loadPathname) {
+    // TODO reset page history
+    loadPathname = router.pathname;
+  }
 
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(true);
 
   const isLandingPage = useScrollingBackgroundColor({
     elements: () =>
       Array.from(document.querySelectorAll("#section_1, #section_2")),
-    offset: 70,
+    offset: 70
   });
 
   useEffect(() => {

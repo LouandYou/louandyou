@@ -1,13 +1,16 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { DropdownBlack, Layout } from "../src/components/static";
-import { Footer } from "../src/components/static/Footer";
+import { Footer } from "../src/components/static";
 
 import styles from "./general.module.scss";
+import { useStoryblok } from "../src/lib/storyblok";
+import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
-const domestic_general: NextPage = () => {
+export default function DomesticGeneral({ story, preview, locale }) {
+  const { content } = useStoryblok(story, preview, locale);
   return (
-    <Layout>
+    <Layout content={content}>
       <section
         data-dark-bg="true"
         id="section_1"
@@ -141,4 +144,12 @@ const domestic_general: NextPage = () => {
   );
 };
 
-export default domestic_general;
+
+export async function getStaticProps(props) {
+  return pageGetStaticProps({
+    ...props,
+    // TODO replace with content
+    slug: "result_1",
+  });
+}
+

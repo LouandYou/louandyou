@@ -6,11 +6,10 @@ import { pageGetStaticProps } from "../../lib/pageGetStaticProps";
 
 interface Props {
   locale?: string;
-  children: JSX.Element | JSX.Element[];
   content: any;
 }
 
-export function Layout({ children, content }: Props): ReactElement {
+export function Layout({ children, content }: React.PropsWithChildren<Props>): ReactElement {
   return (
     <>
       <Head>

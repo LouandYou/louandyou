@@ -8,11 +8,11 @@ import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
 
-export default function Page({ story, preview, locale }) {
+export default function Page({ story }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
-  const { content } = useStoryblok(story, preview, locale);
+  const { content } = story;
   return (
-    <Layout content={content}>
+    <>
       <section className={styles.landing_page}>
         <h1>{content.headline}</h1>
         <p className="pt-3">
@@ -53,8 +53,7 @@ export default function Page({ story, preview, locale }) {
           <Feedback onClose={() => setIsFeedbackOpen(!isFeedbackOpen)} />
         )}
       </section>
-      <Footer />
-    </Layout>
+    </>
   );
 }
 
