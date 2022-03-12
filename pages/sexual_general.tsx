@@ -4,10 +4,11 @@ import { DropdownBlack, Layout } from "../src/components/static";
 import { Footer } from "../src/components/static/Footer";
 
 import styles from "./general.module.scss";
+import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
-const sexual_general: NextPage = () => {
+const SexualGeneral: NextPage = () => {
   return (
-    <Layout>
+    <>
       <section
         data-dark-bg="true"
         id="section_1"
@@ -135,9 +136,18 @@ const sexual_general: NextPage = () => {
           <Link href="/">yes, that might help</Link>
         </button>
       </section>
-      <Footer />
-    </Layout>
+    </>
   );
 };
 
-export default sexual_general;
+
+export async function getStaticProps(props) {
+  return pageGetStaticProps({
+    ...props,
+    // TODO change
+    slug: "result_1"
+  });
+}
+
+
+export default SexualGeneral;
