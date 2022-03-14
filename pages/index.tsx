@@ -8,7 +8,6 @@ import { GetHelp } from "../src/components/static";
 import Image from "next/image";
 import styles from "./index.module.scss";
 import { Text } from "../src/components/dynamic";
-import { Footer } from "../src/components/static";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
 export default function Page({
@@ -98,9 +97,6 @@ export default function Page({
               {content.newsletter}
             </LinkButton>
           </div>
-        </section>
-        <section className={styles.footer_wrapper}>
-          <Footer />
         </section>
       </div>
     </>

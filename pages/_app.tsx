@@ -8,10 +8,8 @@ import { useStoryblok } from "../src/lib/storyblok";
 
 if (process.env.NODE_ENV === "production") {
   // Disable these log types for production
-  console.warn = () => {
-  };
-  console.debug = () => {
-  };
+  console.warn = () => {};
+  console.debug = () => {};
 }
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -31,21 +29,31 @@ export default function App({ Component, pageProps }: AppProps) {
       : null;
   }, []);
 
-  let story = useStoryblok(pageProps.story, pageProps.preview, pageProps.locale);
-  let layoutStory = useStoryblok(pageProps.layoutStory, pageProps.preview, pageProps.locale);
+  let story = useStoryblok(
+    pageProps.story,
+    pageProps.preview,
+    pageProps.locale
+  );
+  let layoutStory = useStoryblok(
+    pageProps.layoutStory,
+    pageProps.preview,
+    pageProps.locale
+  );
 
   if (!layoutStory) {
     console.warn("Layout story is missing on this page");
-    return <ExitButtonProvider>
-      <Component {...pageProps} />
-    </ExitButtonProvider>;
+    return (
+      <ExitButtonProvider>
+        <Component {...pageProps} />
+      </ExitButtonProvider>
+    );
   }
 
   return (
     <Layout content={layoutStory?.content}>
       <ExitButtonProvider>
         <Component {...{ ...pageProps, story, layoutStory }} />
-        <Footer />
+        {/* <Footer /> */}
       </ExitButtonProvider>
     </Layout>
   );
