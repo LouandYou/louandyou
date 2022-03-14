@@ -18,8 +18,7 @@ export default function Page({
   locale,
   defaultLocale,
 }) {
-  story = useStoryblok(story, preview, locale);
-  console.log(story.content);
+  const { content } = useStoryblok(story, preview, locale);
 
   return (
     <>
@@ -37,7 +36,7 @@ export default function Page({
             alt="logo"
             priority
           />
-          <Text blok={story.content} attribute={"description"} />
+          <Text blok={content} attribute={"description"} />
 
           <div className={styles.language_wrapper}>
             <div className={styles.language_switch}>
@@ -72,31 +71,31 @@ export default function Page({
       </div>
       <div className={styles.page_wrapper}>
         <section className={styles.find_help}>
-          <h1>{story.content.question_headline}</h1>
-          <GetHelp content={story.content} />
+          <h1>{content.question_headline}</h1>
+          <GetHelp content={content} />
         </section>
 
         <section className={styles.gradient_page}>
-          <h1>{story.content.title1}</h1>
+          <h1>{content.title1}</h1>
           <div className={styles.btn_container}>
             <LinkButton href="/domestic_general" variant="white">
-              {story.content.domestic_violence}
+              {content.domestic_violence}
             </LinkButton>
             <LinkButton href="/sexual_general" variant="white">
-              {story.content.sexual_violence}
+              {content.sexual_violence}
             </LinkButton>
           </div>
         </section>
 
         <section className={styles.white_page}>
-          <h1>{story.content.title2}</h1>
-          <p>{story.content.title2_p}</p>
+          <h1>{content.title2}</h1>
+          <p>{content.title2_p}</p>
         </section>
         <section className={styles.gradient_page}>
-          <h1>{story.content.title3}</h1>
+          <h1>{content.title3}</h1>
           <div className={styles.btn_container}>
             <LinkButton href={"./"} variant="white">
-              {story.content.newsletter}
+              {content.newsletter}
             </LinkButton>
           </div>
         </section>
