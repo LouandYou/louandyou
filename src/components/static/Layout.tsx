@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import Head from "next/head";
 import styles from "../../../pages/index.module.scss";
-import { ExitButton, Navbar } from ".";
+import { ExitButton, Footer, Navbar } from ".";
 
 interface Props {
   locale?: string;
@@ -20,7 +20,8 @@ export function Layout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
+      <Footer />
       <ExitButton content={content} />
     </>
   );
