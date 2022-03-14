@@ -1,4 +1,4 @@
-import { Layout, Footer } from "../src/components/static";
+import { Layout } from "../src/components/static";
 
 import styles from "./result.module.scss";
 import { useStoryblok } from "../src/lib/storyblok";
@@ -17,7 +17,6 @@ export default function LayoutPage({ layoutStory, preview, locale }) {
         <h1 className={styles.main_title}>Layout test page</h1>
         <h2>(only visible on dev)</h2>
       </section>
-      {/* <Footer /> */}
     </Layout>
   );
 }

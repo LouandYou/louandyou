@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { ExitButtonProvider } from "../src/components/static/ExitButton/ExitButtonProvider";
-import { Footer, Layout } from "../src/components/static";
+import { Layout } from "../src/components/static";
 import { useStoryblok } from "../src/lib/storyblok";
 
 if (process.env.NODE_ENV === "production") {

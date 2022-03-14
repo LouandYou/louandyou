@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react";
 import Head from "next/head";
-import styles from "../../../pages/index.module.scss";
 import { ExitButton, Footer, Navbar } from ".";
 
 interface Props {
