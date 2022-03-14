@@ -1,5 +1,4 @@
 import React, { ReactElement, useContext, useEffect, useState } from "react";
-import Image from "next/image";
 import Cookies from "js-cookie";
 
 import styles from "./ExitButtonPopup.module.scss";
@@ -35,7 +34,7 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
   const popupOne = () => {
     return (
       <div className={styles.container}>
-        <p className="mb-5">
+        <p className="mb-4">
           <PageContent blok={content} name="exitButton_popup1_paragraph" />
         </p>
         <div className="is-flex is-justify-content-center">
@@ -57,7 +56,7 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
         <div className="is-flex is-justify-content-center">
           <Link passHref href={"/settings#section_2"}>
             <button onClick={handleClickOne} className={`${styles.button}`}>
-              ok, cool
+              {content.exitButton_popup2_button}
             </button>
           </Link>
         </div>
