@@ -2,14 +2,16 @@ import React, { ReactElement } from "react";
 import Head from "next/head";
 import styles from "../../../pages/index.module.scss";
 import { ExitButton, Navbar } from ".";
-import { pageGetStaticProps } from "../../lib/pageGetStaticProps";
 
 interface Props {
   locale?: string;
   content: any;
 }
 
-export function Layout({ children, content }: React.PropsWithChildren<Props>): ReactElement {
+export function Layout({
+  children,
+  content,
+}: React.PropsWithChildren<Props>): ReactElement {
   return (
     <>
       <Head>

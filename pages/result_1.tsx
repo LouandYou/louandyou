@@ -1,9 +1,6 @@
-import { Layout, LinkButton } from "../src/components/static";
-import { Footer } from "../src/components/static";
-
+import { LinkButton } from "../src/components/static";
 import styles from "./result.module.scss";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
-import { useStoryblok } from "../src/lib/storyblok";
 import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
@@ -11,12 +8,12 @@ import { useState } from "react";
 export default function Page({ story }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
   const { content } = story;
-  return <>
+  return (
+    <>
       <section className={styles.landing_page}>
         <h1>{content.headline}</h1>
-        <p className="pt-3">
-          <Text blok={content} attribute={"subline"} />
-        </p>
+
+        <Text blok={content} attribute={"subline"} />
       </section>
       <PageContent blok={content} name={"body"} />;
       <section className={styles.warning} id="section_14">
@@ -27,12 +24,14 @@ export default function Page({ story }) {
             {content.warning_button}
           </LinkButton>
         </div>
-      </section>;
+      </section>
+      ;
       <PageContent blok={content} name={"body2"} />;
       <section className={styles.color_page}>
         <h1 className="mb-5">{content.where_to_title}</h1>
         <Text blok={content} attribute={"where_to_p"} />
-      </section>;
+      </section>
+      ;
       <section className={styles.white_page}>
         <h2>{content.lets_build_title1}</h2>
         <p className="mb-5">{content.lets_build_p3}</p>
@@ -52,12 +51,13 @@ export default function Page({ story }) {
           <Feedback onClose={() => setIsFeedbackOpen(!isFeedbackOpen)} />
         )}
       </section>
-    </>;
+    </>
+  );
 }
 
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "result_1"
+    slug: "result_1",
   });
 }
