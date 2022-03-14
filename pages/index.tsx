@@ -93,7 +93,10 @@ export default function Page({
         <section className={styles.gradient_page}>
           <h1>{content.title3}</h1>
           <div className={styles.btn_container}>
-            <LinkButton href={"./"} variant="white">
+            <LinkButton
+              href={"https://seu2.cleverreach.com/f/314808-318550/"}
+              variant="white"
+            >
               {content.newsletter}
             </LinkButton>
           </div>
