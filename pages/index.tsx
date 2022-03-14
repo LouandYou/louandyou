@@ -18,9 +18,9 @@ export default function Page({
   locale,
   defaultLocale,
 }) {
-  story = useStoryblok(story, preview, locale);
+  const { content } = useStoryblok(story, preview, locale);
   return (
-    <Layout content={story.content}>
+    <Layout content={content}>
       <div className={styles.page_wrapper}>
         <section
           is-landing-page="true"
@@ -37,7 +37,7 @@ export default function Page({
               priority
             />
           </div>
-          <PageContent blok={story.content} name="description" />
+          <PageContent blok={content} name="description" />
 
           <div className={styles.language_wrapper}>
             <div className={styles.language_switch}>
@@ -72,31 +72,31 @@ export default function Page({
       </div>
       <div className={styles.page_wrapper}>
         <section className={styles.white_page}>
-          <h1>{story.content.question_headline}</h1>
-          <GetHelp content={story.content} />
+          <h1>{content.question_headline}</h1>
+          <GetHelp content={content} />
         </section>
 
         <section className={styles.landing_page}>
-          <h1 className={styles.title_white}>{story.content.title1}</h1>
+          <h1 className={styles.title_white}>{content.title1}</h1>
           <div className={styles.btn_container}>
             <LinkButton href="/domestic_general" variant="white">
-              {story.content.domestic_violence}
+              {content.domestic_violence}
             </LinkButton>
             <LinkButton href="/sexual_general" variant="white">
-              {story.content.sexual_violence}
+              {content.sexual_violence}
             </LinkButton>
           </div>
         </section>
 
         <section className={styles.white_page}>
-          <h1 className={styles.subtitle}>{story.content.title2}</h1>
-          <p className={styles.description}>{story.content.title2_p}</p>
+          <h1 className={styles.subtitle}>{content.title2}</h1>
+          <p className={styles.description}>{content.title2_p}</p>
         </section>
         <section className={styles.color_page}>
-          <h1 className={styles.title_white}>{story.content.title3}</h1>
+          <h1 className={styles.title_white}>{content.title3}</h1>
           <div className={styles.btn_container}>
             <LinkButton href={"./"} variant="white">
-              {story.content.newsletter}
+              {content.newsletter}
             </LinkButton>
           </div>
         </section>
