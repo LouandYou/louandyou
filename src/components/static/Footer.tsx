@@ -21,51 +21,15 @@ export function Footer(): ReactElement {
         />
       </div>
       <div className={styles.links_container1}>
-        <div className={styles.row_container}>
+        <div className={`mb-2 pl-4 ${styles.row_container}`}>
           <Link href="/">about us</Link>
           <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
           <Link href="/">what we do</Link>
         </div>
-        <div className={`mb-3 ${styles.row_container}`}>
+        <div className={`pl-4 ${styles.row_container}`}>
           <Link href="/">about Lou</Link>
           <Link href="/">impact</Link>
           <Link href="/">our partners</Link>
-        </div>
-        <div className={styles.row_container}>
-          <div className="is-flex is-flex-direction-column">
-            <b>follow us</b>
-            <Link href="/">newsletter</Link>
-          </div>
-          <span
-            className={`${styles.icons_container} ${
-              Cookies.get("CONTRAST") ? styles.black : ""
-            }`}
-          >
-            <div>
-              <Image
-                src={"/social/instagram.png"}
-                width="34"
-                height="34"
-                alt="instagram logo"
-              />
-            </div>
-            <div>
-              <Image
-                src={"/social/facebook.png"}
-                width="34"
-                height="34"
-                alt="facebook logo"
-              />
-            </div>
-            <div>
-              <Image
-                src={"/social/linkedin.png"}
-                width="40"
-                height="34"
-                alt="linkedin logo"
-              />
-            </div>
-          </span>
         </div>
       </div>
 
@@ -84,27 +48,26 @@ export function Footer(): ReactElement {
             IBAN DE30400501500136131356
             <br />
             Verwendungszweck: <br />
-            Spende SIGE e.V. from [name],
-            <br /> [adress]
+            Spende SIGE e.V. from [name], [adress]
           </p>
         </div>
-        <span className="is-flex is-justify-content-space-between my-5">
+        <span className="is-flex is-justify-content-space-between my-4">
           <Image
             src={"/payment/apple.svg"}
-            width="50"
-            height="21"
+            width="43"
+            height="16"
             alt="apple pay logo"
           />
           <Image
             src={"/payment/visa.svg"}
-            width="100"
-            height="40"
+            width="90"
+            height="30"
             alt="visa logo"
           />
           <Image
             src={"/payment/paypal.svg"}
-            width="60"
-            height="21"
+            width="56"
+            height="20"
             alt="paypal logo"
           />
         </span>
@@ -112,6 +75,42 @@ export function Footer(): ReactElement {
           Wir stellen dir gerne eine Spendenbescheinigungen aus. Schreib uns
           dazu einfach eine Mail an spende@louandyou.org
         </p>
+      </div>
+      <div className={`mb-5 ${styles.row_container}`}>
+        <div className="is-flex is-flex-direction-column">
+          <b>follow us</b>
+          <Link href="/">newsletter</Link>
+        </div>
+        <span
+          className={`${styles.icons_container} ${
+            Cookies.get("CONTRAST") ? styles.black : ""
+          }`}
+        >
+          <div>
+            <Image
+              src={"/social/instagram.png"}
+              width="34"
+              height="34"
+              alt="instagram logo"
+            />
+          </div>
+          <div>
+            <Image
+              src={"/social/facebook.png"}
+              width="34"
+              height="34"
+              alt="facebook logo"
+            />
+          </div>
+          <div>
+            <Image
+              src={"/social/linkedin.png"}
+              width="40"
+              height="34"
+              alt="linkedin logo"
+            />
+          </div>
+        </span>
       </div>
       <div className={styles.links_container2}>
         <div className={styles.row_container}>

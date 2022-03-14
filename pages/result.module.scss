@@ -3,20 +3,18 @@
 .landing_page {
   background-color: #8b8bf4;
   min-height: 100vh;
-  padding: 212px 45px 101px 45px;
+  padding: 220px 45px 101px 45px;
   display: flex;
   flex-direction: column;
-  font-family: "Maitree", serif;
   font-size: var(--size-font-paragraph-title);
-  line-height: 30px;
+  line-height: 37px;
+  font-weight: 400;
   color: white;
   & h1 {
-    text-align: center;
     font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 48px;
-    margin-bottom: 35px;
+    font-size: 32px;
+    line-height: 43px;
+    margin-bottom: 30px;
   }
   & a {
     color: white;
@@ -54,6 +52,10 @@
     font-size: 41px;
     line-height: 51px;
   }
+}
+
+.full_height {
+  height: 100vh;
 }
 
 .headline_page {

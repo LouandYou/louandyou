@@ -13,10 +13,30 @@
   scroll-snap-align: start;
 }
 
-.language_switch {
+.gradient_page {
+  padding: 0 45px;
+  scroll-snap-align: start;
+  height: 100vh;
+  background-image: url("/gradient.jpeg");
+  background-size: cover;
+  color: white;
+  line-height: 30px;
+  text-align: center;
   display: flex;
-  & div {
-    cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  & h1 {
+    font-size: 41px;
+    line-height: 55px;
+    letter-spacing: 0.02em;
+    font-family: "Lato", sans-serif;
+    text-align: left;
+  }
+  & span {
+    margin-bottom: 40px !important;
   }
 }
 
@@ -28,43 +48,45 @@
   font-family: "Lato", sans-serif;
 }
 
-.landing_page {
-  padding: 0 45px;
-  scroll-snap-align: start;
-  height: 100vh;
-  background-image: url("/gradient.jpeg");
-  background-size: cover;
-  color: white;
-  font-size: 22px;
-  line-height: 30px;
-  text-align: center;
-  font-family: "Maitree", serif;
+.language_switch {
+  color: #afafb1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  & div {
+    cursor: pointer;
+    color: white;
+  }
 }
 
-.color_page {
-  padding: 100px 45px 140px 45px;
-  background-image: url("/gradient.jpeg");
-  background-position: 161% 73%;
-  color: white;
+.underlined {
+  border-bottom: 1.5px solid white;
+  padding-bottom: 3px;
+}
+
+.find_help {
+  padding: 110px 35px 110px 35px;
+  color: #101223;
+
+  & h1 {
+    font-family: "Lato", sans-serif;
+    font-size: 32px;
+    line-height: 43px;
+    letter-spacing: 0.02em;
+  }
 }
 
 .white_page {
-  padding: 110px 45px 110px 45px;
+  padding: 202px 45px 110px 45px;
+  height: 100vh;
   color: #101223;
+  line-height: 37px;
+
   & h1 {
-    font-family: "Lato", sans-serif;
-    font-size: 36px;
-    line-height: 48px;
-    font-weight: 500;
+    margin-bottom: 72px;
+    font-size: 41px;
+    line-height: 55px;
     letter-spacing: 0.02em;
-  }
-  & a {
-    text-decoration: underline;
+    font-family: "Lato", sans-serif;
+    text-align: left;
   }
 }
 
@@ -75,27 +97,6 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
-}
-
-.title_white {
-  font-family: "Lato", sans-serif;
-  font-size: 36px;
-  line-height: 48px;
-  text-align: center;
-  letter-spacing: 0.02em;
-}
-
-.subtitle {
-  font-family: "Lato", sans-serif;
-  font-size: 41px;
-  line-height: 51px;
-  letter-spacing: 0.02em;
-  text-align: center;
-}
-
-.description {
-  padding-top: 50px;
-  line-height: 29px;
 }
 
 .footer_wrapper {
