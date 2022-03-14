@@ -50,11 +50,10 @@ export default function App({ Component, pageProps }: AppProps) {
   }
 
   return (
-    <Layout content={layoutStory?.content}>
-      <ExitButtonProvider>
+    <ExitButtonProvider>
+      <Layout content={layoutStory?.content}>
         <Component {...{ ...pageProps, story, layoutStory }} />
-        {/* <Footer /> */}
-      </ExitButtonProvider>
-    </Layout>
+      </Layout>
+    </ExitButtonProvider>
   );
 }
