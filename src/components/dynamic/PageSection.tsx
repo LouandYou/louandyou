@@ -7,6 +7,9 @@ const variants = {
   white: {
     className: styles.white,
   },
+  white2: {
+    className: styles.white2,
+  },
   gradient: {
     className: styles.gradient,
   },

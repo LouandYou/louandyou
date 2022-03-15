@@ -3,7 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  font-family: "Lato", sans-serif;
+  margin-top: 10px;
 }
 
 .dropdown_button {
@@ -11,8 +12,8 @@
   background-image: url("../../../public/unfold_button_black.svg");
   background-repeat: no-repeat;
   border: none;
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   z-index: 1;
   border-radius: 40px;
   transition: transform 0.4s ease-in-out;
@@ -24,10 +25,7 @@
 }
 
 .content {
-  margin-top: 15px;
-  margin-bottom: 20px;
-  font-family: "Maitree", serif;
-  line-height: 30px;
+  line-height: 37px;
   color: #101223;
   visibility: hidden;
   opacity: 0;
@@ -36,8 +34,9 @@
 }
 
 .active {
+  margin-top: 10px;
   opacity: 1;
-  max-height: 800px;
+  max-height: 1200px;
   transition: max-height 0.7s, opacity 1s, visibility 1s ease;
   height: auto;
   visibility: visible;
