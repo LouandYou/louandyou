@@ -12,10 +12,12 @@ export default function Page({ story }) {
     <>
       <section className={styles.landing_page}>
         <h1>{content.headline}</h1>
-
         <Text blok={content} attribute={"subline"} />
       </section>
-      <PageContent blok={content} name={"body"} />;
+      <section className={styles.white_page_full}>
+        <Text blok={content} attribute={"most_importantly"} />
+      </section>
+      <PageContent blok={content} name={"body"} />
       <section className={styles.warning} id="section_14">
         <h1 className="mb-5">{content.warning_title}</h1>
         <p id="trigger-warning">{content.warning_p}</p>
@@ -25,13 +27,11 @@ export default function Page({ story }) {
           </LinkButton>
         </div>
       </section>
-      ;
-      <PageContent blok={content} name={"body2"} />;
-      <section className={styles.color_page}>
-        <h1 className="mb-5">{content.where_to_title}</h1>
+      <PageContent blok={content} name={"body2"} />
+      <section className={styles.landing_page}>
+        <h2 className="mb-5">{content.where_to_title}</h2>
         <Text blok={content} attribute={"where_to_p"} />
       </section>
-      ;
       <section className={styles.white_page}>
         <h2>{content.lets_build_title1}</h2>
         <p className="mb-5">{content.lets_build_p3}</p>

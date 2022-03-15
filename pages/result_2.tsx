@@ -1,9 +1,6 @@
-import { Layout, LinkButton } from "../src/components/static";
-import { Footer } from "../src/components/static";
-
+import { LinkButton } from "../src/components/static";
 import styles from "./result.module.scss";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
-import { useStoryblok } from "../src/lib/storyblok";
 import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
@@ -15,9 +12,10 @@ export default function Page({ story }) {
     <>
       <section className={styles.landing_page}>
         <h1>{content.headline}</h1>
-        <p className="pt-3">
-          <Text blok={content} attribute={"subline"} />
-        </p>
+        <Text blok={content} attribute={"subline"} />
+      </section>
+      <section className={styles.white_page_full}>
+        <Text blok={content} attribute={"most_importantly"} />
       </section>
       <PageContent blok={content} name={"body"} />
       <section className={styles.warning} id="section_14">
@@ -30,8 +28,8 @@ export default function Page({ story }) {
         </div>
       </section>
       <PageContent blok={content} name={"body2"} />
-      <section className={styles.color_page}>
-        <h1 className="mb-5">{content.where_to_title}</h1>
+      <section className={styles.landing_page}>
+        <h2 className="mb-5">{content.where_to_title}</h2>
         <Text blok={content} attribute={"where_to_p"} />
       </section>
       <section className={styles.white_page}>
