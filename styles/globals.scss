@@ -25,6 +25,7 @@
   --border-color: none;
   --style-border: none;
   --color-font: white;
+  --color-invert: 1;
 }
 
 html,
@@ -35,19 +36,9 @@ body {
   font-size: var(--size-font-paragraph);
   background: white;
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 * {
   box-sizing: border-box;
-}
-
-span,
-label,
-input,
-textarea,
-button,
-select,
-p,
-a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
