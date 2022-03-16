@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { ExitButtonProvider } from "../src/components/static/ExitButton/ExitButtonProvider";
 import { Layout } from "../src/components/static";
 import { useStoryblok } from "../src/lib/storyblok";
+import { setBigFont } from "../src/utils/cookies";
 
 if (process.env.NODE_ENV === "production") {
   // Disable these log types for production
@@ -15,14 +16,7 @@ if (process.env.NODE_ENV === "production") {
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (Cookies.get("FONT_BIG")) {
-      document.documentElement.style.setProperty(
-        "--size-font-paragraph",
-        "24px"
-      );
-      document.documentElement.style.setProperty(
-        "--size-font-paragraph-title",
-        "25px"
-      );
+      setBigFont();
     }
     Cookies.get("CONTRAST")
       ? document.documentElement.style.setProperty("--color-font", "#101223")
