@@ -37,14 +37,10 @@
   filter: brightness(0) invert(1);
 }
 
-.black {
-  filter: brightness(0) invert(0);
-}
-
 .support {
   margin-top: 30px;
   margin-bottom: 35px;
-  padding: 15px 24px;
+  padding: 15px 15px;
   background-color: #86aaff;
   border-radius: 20px;
   width: 100%;

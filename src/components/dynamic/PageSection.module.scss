@@ -54,7 +54,7 @@
     padding: 100px 45px 100px 45px;
     background-color: #8d8bf4;
     color: white;
-    height: 100vh;
+    min-height: 100vh;
     font-family: "Lato", sans-serif;
 
     & h1 {
@@ -74,13 +74,14 @@
       text-decoration: underline;
       & :hover {
         color: white;
+        text-decoration-color: white;
       }
     }
   }
 
   &.headline {
-    height: 100vh;
-    padding: 0 50px 120px 40px;
+    min-height: 100vh;
+    padding: 130px 50px 120px 40px;
     background-image: url("/gradient.jpeg");
     background-size: cover;
     color: white;

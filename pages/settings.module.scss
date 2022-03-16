@@ -1,13 +1,13 @@
 .landing_page {
-  padding: 120px 45px 120px 45px;
+  padding: 162px 45px 120px 45px;
+  min-height: 100vh;
   color: #101223;
   font-family: "Lato", sans-serif;
 
   & h1 {
-    font-weight: 400;
     font-size: 32px;
     line-height: 48px;
-    margin-bottom: 40px;
+    margin-bottom: 74px;
   }
   & p {
     font-weight: 500;
@@ -40,14 +40,8 @@
     margin-bottom: 80px;
   }
   & p {
-    line-height: 31px;
+    line-height: 37px;
   }
-}
-
-.white_lable {
-  font-family: "Lato", sans-serif !important;
-  font-weight: bold;
-  line-height: 16px !important ;
 }
 
 .switch_wraper1 {
@@ -59,7 +53,26 @@
 }
 
 .switch_wraper2 {
-  margin-top: 25px;
-  margin-bottom: 60px;
+  margin-top: 39px;
+  margin-bottom: 75px;
   text-align: end;
+}
+
+.white_page {
+  padding: 105px 45px 64px 45px;
+  color: #101223;
+
+  & h1 {
+    font-family: "Lato", sans-serif;
+    font-size: 32px;
+    line-height: 48px;
+    margin-bottom: 74px;
+  }
+
+  & b {
+    font-family: "Lato", sans-serif;
+  }
+  & p {
+    line-height: 37px;
+  }
 }

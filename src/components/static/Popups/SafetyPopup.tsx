@@ -19,7 +19,7 @@ export const SafetyPopup = ({
     <div className={styles.overlay}>
       <div className={styles.content}>
         <b
-          className="is-size-5 mb-2 is-flex is-justify-content-flex-end"
+          className="mb-2 is-flex is-justify-content-flex-end"
           onClick={onClose}
         >
           ✕
@@ -48,13 +48,7 @@ export const SafetyPopup = ({
               </Link>
               <p className="mb-5">{content.safety_p1}</p>
             </div>
-            {/* <p className="mb-4">
-              When you make a call, you'll be asked these questions:
-            </p>
-            <p>1. Where are you?</p>
-            <p>2. What happened?</p>
-            <p>3. Who is calling?</p>
-            <p>4. Other info</p> */}
+            <p className="mb-3">{content.safety_p3}</p>
             <Text blok={content} attribute={"safety_p2"} />
           </>
         )}

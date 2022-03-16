@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Checkbox, Layout, Slider } from "../src/components/static";
+import { Checkbox, Slider } from "../src/components/static";
 import { useStoryblok } from "../src/lib/storyblok";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 import { Text } from "../src/components/dynamic";
 import Cookies from "js-cookie";
+import { setBigFont, setSmallFont } from "../src/utils/cookies";
 
 import styles from "./settings.module.scss";
-import { Footer } from "../src/components/static/Footer";
 import { useRouter } from "next/dist/client/router";
 import { ExitButtonContext } from "../src/components/static/ExitButton/ExitButtonContext";
 
@@ -38,8 +38,10 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       setContrast(e.target.value);
       Cookies.remove("CONTRAST");
       document.documentElement.style.setProperty("--color-font", "white");
+      document.documentElement.style.setProperty("--color-invert", "1");
     } else {
       document.documentElement.style.setProperty("--color-font", "#101223");
+      document.documentElement.style.setProperty("--color-invert", "0");
       Cookies.set("CONTRAST", true);
       setContrast(e.target.value);
     }
@@ -47,25 +49,11 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
 
   const handleFontSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "normal") {
-      document.documentElement.style.setProperty(
-        "--size-font-paragraph",
-        "17px"
-      );
-      document.documentElement.style.setProperty(
-        "--size-font-paragraph-title",
-        "18px"
-      );
+      setSmallFont();
       setFontSize(e.target.value);
       Cookies.remove("FONT_BIG");
     } else {
-      document.documentElement.style.setProperty(
-        "--size-font-paragraph",
-        "24px"
-      );
-      document.documentElement.style.setProperty(
-        "--size-font-paragraph-title",
-        "25px"
-      );
+      setBigFont();
       setFontSize(e.target.value);
       isCookies && Cookies.set("FONT_BIG", true);
     }
@@ -86,6 +74,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       setIsCookies(false);
     }
   };
+  console.log(content);
 
   return (
     <>
@@ -150,16 +139,16 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         <Text blok={content} attribute={"section2_p"} />
 
         <div className={styles.switch_wraper1}>
-          <p className={styles.white_lable}>exit button</p>
+          <p style={{ fontFamily: "Lato" }}>exit button</p>
           <Slider onChange={handleExitButton} blackBorder={false} />
         </div>
       </section>
-      <section className={styles.landing_page}>
+      <section className={styles.white_page}>
         <h1>{content.section3_title}</h1>
         <p className="pb-4">
           <b>{content.section3_subtitle1}</b>
         </p>
-        <div style={{ fontFamily: "Maitree" }}>
+        <div>
           <Text blok={content} attribute={"section3_p1"} />
         </div>
         <div className={styles.switch_wraper2}>
@@ -170,9 +159,9 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
           />
         </div>
         <p className="pb-4">
-          <b>{content.section3_suptitle2}</b>
+          <b>{content.section3_subtitle2}</b>
         </p>
-        <p style={{ fontFamily: "Maitree" }}>{content.section3_p2}</p>
+        <p>{content.section3_p2}</p>
         <div className={styles.switch_wraper2}>
           <Slider blackBorder={true} />
         </div>
