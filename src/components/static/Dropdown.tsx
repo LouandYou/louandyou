@@ -3,7 +3,7 @@ import styles from "./Dropdown.module.scss";
 
 interface IProps {
   label?: string;
-  content: string;
+  content: string | ReactElement;
 }
 
 export function Dropdown(props: IProps): ReactElement {
