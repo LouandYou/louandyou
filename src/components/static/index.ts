@@ -8,7 +8,7 @@ export * from "./Layout";
 export * from "./Footer";
 export * from "./LinkButton";
 export * from "./Navbar";
-export * from "./DropdownBlack";
+export * from "./Dropdown";
 export * from "./Popups/CookiesPopup";
 export * from "./Footer";
 export * from "./Popups/ExitButtonPopup";

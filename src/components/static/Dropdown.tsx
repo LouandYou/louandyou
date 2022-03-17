@@ -6,7 +6,7 @@ interface IProps {
   content: string;
 }
 
-export function DropdownBlack(props: IProps): ReactElement {
+export function Dropdown(props: IProps): ReactElement {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   return (

@@ -1,4 +1,4 @@
-import { DropdownBlack as StaticDropdown } from "../static";
+import { Dropdown as StaticDropdown } from "../static";
 
 export const Dropdown = ({ blok }) => {
   const { label, content } = blok;
