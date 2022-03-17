@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   font-family: "Lato", sans-serif;
-  margin-top: 10px;
 }
 
 .dropdown_button {
@@ -12,6 +11,7 @@
   background-image: url("../../../public/unfold_button_black.svg");
   background-repeat: no-repeat;
   border: none;
+  cursor: pointer;
   width: 25px;
   height: 25px;
   z-index: 1;
@@ -39,4 +39,8 @@
   transition: max-height 0.7s, opacity 1s, visibility 1s ease;
   height: auto;
   visibility: visible;
+}
+
+.purple {
+  color: #8b8de5;
 }

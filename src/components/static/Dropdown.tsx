@@ -12,7 +12,7 @@ export function Dropdown(props: IProps): ReactElement {
   return (
     <>
       <div className={styles.dropdown_wrapper}>
-        <p>{props.label}</p>
+        <p className={isVisible ? styles.purple : ""}>{props.label}</p>
         <button
           onClick={() => setIsVisible(!isVisible)}
           className={`${styles.dropdown_button} ${
