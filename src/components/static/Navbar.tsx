@@ -8,17 +8,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "./Dropdown";
 import { Text } from "../dynamic/Text";
+import { useRouter } from "next/dist/client/router";
 
 export function Navbar({ content }): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const router = useRouter();
 
   const isLandingPage = useScrollingBackgroundColor({
     elements: () =>
       Array.from(document.querySelectorAll("#section_1, #section_2")),
     offset: 60,
   });
-  console.log(content);
 
+  const handleOnClick = (path: string) => {
+    setIsOpen(false);
+    router.push(path);
+  };
   return (
     <nav className={styles.navbar}>
       <div
@@ -58,52 +63,52 @@ export function Navbar({ content }): ReactElement {
               <FontAwesomeIcon icon={faSearch} />
             </span>
           </p>
-          <li style={{ marginTop: "55px" }}>
-            <Link href="/">home</Link>
-          </li>
-          <li>{content.find_support}</li>
-          <div className="mb-3">
+          <h3 onClick={() => handleOnClick("/")} style={{ marginTop: "55px" }}>
+            home
+          </h3>
+          <h2>{content.find_support}</h2>
+          <div className={styles.dropdown_wrapper}>
             <Dropdown
-              content={<Text blok={content} attribute={"subline"} />}
+              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
               label={"about domestic violence"}
             />
           </div>
-          <div style={{ marginBottom: "25px" }}>
+          <div
+            className={styles.dropdown_wrapper}
+            style={{ marginBottom: "25px" }}
+          >
             <Dropdown
               content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
               label={"about sexual violence"}
             />
           </div>
-          <li>
-            <Link href="#">what’s good to know</Link>
-          </li>
-          <div className="mb-3">
+          <h2>what’s good to know</h2>
+          <div className={styles.dropdown_wrapper}>
             <Dropdown
-              content={<Text blok={content} attribute={"subline"} />}
+              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
               label={"about domestic violence"}
             />
           </div>
-          <div style={{ marginBottom: "25px" }}>
-            <Dropdown content={""} label={"about sexual violence"} />
+          <div
+            className={styles.dropdown_wrapper}
+            style={{ marginBottom: "25px" }}
+          >
+            <Dropdown
+              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
+              label={"about sexual violence"}
+            />
           </div>
-          <li>
-            <Link href="#">safety tips</Link>
-          </li>
-          <li>
-            <Link href="#">settings</Link>
-          </li>
-          <li>
-            <Link href="#">Lou’s impact</Link>
-          </li>
-          <li>
-            <Link href="#">about</Link>
-          </li>
-          <li>
-            <Link href="#">support Lou</Link>
-          </li>
-          <li>
-            <Link href="#">get in touch</Link>
-          </li>
+          <h3 onClick={() => handleOnClick("/safety_tips")}>safety tips</h3>
+          <h3
+            style={{ marginBottom: "75px" }}
+            onClick={() => handleOnClick("/settings")}
+          >
+            settings
+          </h3>
+          <h3 onClick={() => handleOnClick("/")}>Lou’s impact</h3>
+          <h3 onClick={() => handleOnClick("/")}>about</h3>
+          <h3 onClick={() => handleOnClick("/")}>support Lou</h3>
+          <h3 onClick={() => handleOnClick("/")}>get in touch</h3>
         </div>
       </div>
     </nav>
