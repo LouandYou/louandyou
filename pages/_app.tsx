@@ -6,6 +6,9 @@ import { ExitButtonProvider } from "../src/components/static/ExitButton/ExitButt
 import { Layout } from "../src/components/static";
 import { useStoryblok } from "../src/lib/storyblok";
 import { setBigFont } from "../src/utils/cookies";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 if (process.env.NODE_ENV === "production") {
   // Disable these log types for production
