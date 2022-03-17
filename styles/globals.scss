@@ -22,6 +22,7 @@
   --size-font-footer3: 12px;
   --size-font-footer4: 11px;
 
+  --content-margin-top: 0;
   --border-color: none;
   --style-border: none;
   --color-font: white;
@@ -35,6 +36,7 @@ body {
   margin: 0;
   font-size: var(--size-font-paragraph);
   background: white;
+  color: #101223;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

@@ -74,7 +74,6 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       setIsCookies(false);
     }
   };
-  console.log(content);
 
   return (
     <>
