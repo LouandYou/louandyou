@@ -2,6 +2,7 @@ import { DynamicComponent } from "./DynamicComponent";
 import { sbEditable } from "@storyblok/storyblok-editable";
 
 import styles from "./PageSection.module.scss";
+import Blobs from "../static/Popups/Blobs";
 
 const variants = {
   white: {
@@ -28,11 +29,14 @@ export const PageSection = ({ blok }) => {
       key={blok._uid}
       className={`${styles.container} ${className}`}
     >
-      {blok.body
-        ? blok.body.map((blok) => (
-            <DynamicComponent blok={blok} key={blok._uid} />
-          ))
-        : null}
+      <div style={{ zIndex: 2 }}>
+        {blok.body
+          ? blok.body.map((blok) => (
+              <DynamicComponent blok={blok} key={blok._uid} />
+            ))
+          : null}
+      </div>
+      {className === styles.headline && <Blobs />}
     </section>
   );
 };
