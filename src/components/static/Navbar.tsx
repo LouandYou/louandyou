@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import Image from "next/image";
 
 import useScrollingBackgroundColor from "../../utils/useScrollingBackgroundColor";
@@ -9,6 +9,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "./Dropdown";
 import { Text } from "../dynamic/Text";
 import { useRouter } from "next/dist/client/router";
+import { Storyblok } from "../../lib/storyblok";
 
 export function Navbar({ content }): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,6 +20,25 @@ export function Navbar({ content }): ReactElement {
       Array.from(document.querySelectorAll("#section_1, #section_2")),
     offset: 60,
   });
+
+  useEffect(() => {
+    const params = {
+      token: process.env.STORYBLOK_TOKEN_SEARCH,
+      search_term: "online",
+    };
+
+    Storyblok.get("cdn/stories", params)
+      .then(({ data }) => {
+        let content = data.stories.map((story) => {
+          return story.content;
+        });
+
+        console.log(content);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const handleOnClick = (path: string) => {
     setIsOpen(false);
