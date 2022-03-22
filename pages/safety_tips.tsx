@@ -1,11 +1,15 @@
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
-import { PageContent } from "../src/components/dynamic";
+import { PageContent, Text } from "../src/components/dynamic";
+import styles from "./result.module.scss";
 
 export default function Page({ story }) {
   const { content } = story;
   return (
     <>
-      <PageContent blok={content} name={"section_1"} />
+      <section className={`${styles.landing_page} is-justify-content-flex-end`}>
+        <Text blok={content} attribute={"landing_page"} />
+      </section>
+
       <PageContent blok={content} name={"body"} />
     </>
   );
