@@ -65,6 +65,14 @@
       margin-bottom: 55px;
     }
 
+    & h2 {
+      font-size: 32px;
+      line-height: 43px;
+    }
+    & button {
+      margin-top: 118px;
+    }
+
     & p {
       line-height: 33px;
       padding-bottom: 15px;
@@ -81,9 +89,7 @@
 
   &.headline {
     min-height: 100vh;
-    padding: 130px 50px 120px 40px;
-    background-image: url("/gradient.jpeg");
-    background-size: cover;
+    background-color: #8d8bf4;
     color: white;
     justify-content: flex-end;
     font-weight: 500;
@@ -91,18 +97,7 @@
     & h1 {
       text-align: left;
       font-size: 41px;
-    }
-    & h2 {
-      font-size: 32px;
-      line-height: 43px;
-    }
-    & button {
-      margin-top: 118px;
-    }
-
-    & p {
-      margin-top: 30px;
-      line-height: 37px;
+      padding: 130px 50px 120px 40px;
     }
   }
 }
