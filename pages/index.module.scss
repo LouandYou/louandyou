@@ -17,8 +17,7 @@
   padding: 0 45px;
   scroll-snap-align: start;
   height: 100vh;
-  background-image: url("/gradient.jpeg");
-  background-size: cover;
+  background-color: #8d8bf4;
   color: white;
   line-height: 30px;
   text-align: center;
@@ -46,6 +45,7 @@
   font-size: 18px;
   font-weight: bold;
   font-family: "Lato", sans-serif;
+  z-index: 2;
 }
 
 .language_switch {
@@ -101,11 +101,4 @@
 
 .footer_wrapper {
   scroll-snap-align: end;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
 }
