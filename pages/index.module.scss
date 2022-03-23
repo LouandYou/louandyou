@@ -108,8 +108,12 @@
   }
 
   @include tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 150px 400px 110px 400px;
+    padding: 150px 400px;
   }
 }
 
