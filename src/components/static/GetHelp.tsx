@@ -20,19 +20,26 @@ export function GetHelp({ content }): ReactElement {
   };
 
   const canSubmit = () => violanceType !== undefined && isLongAgo !== undefined;
+  console.log("string", content.sexual.length);
 
   return (
     <>
       <SafetyCheck content={content} />
       <h2 className={styles.headline}>{content.violence_question}</h2>
 
-      <div className="pt-5 is-flex">
+      <div
+        style={{ gap: "4rem" }}
+        className={`pt-5 is-flex ${
+          content.sexual.length > 7 ? styles.long_label : ""
+        } `}
+      >
         <Checkbox
           type="radio"
           label={content.sexual}
           checked={violanceType === "sexual"}
           onChange={() => setViolanceType("sexual")}
         />
+
         <Checkbox
           type="radio"
           label={content.domestic}
@@ -48,7 +55,7 @@ export function GetHelp({ content }): ReactElement {
           onChange={() => setViolanceType("both")}
         />
       </div>
-      <div className="pt-4">
+      <div className={`pt-4 `}>
         <Checkbox
           type="radio"
           label={content.not_say}
@@ -56,7 +63,7 @@ export function GetHelp({ content }): ReactElement {
           onChange={() => setViolanceType("not sure")}
         />
       </div>
-      <h2 className={styles.headline}>how long ago did it happen?</h2>
+      <h2 className={styles.headline}>{content.how_long_ago}</h2>
       <div className="pt-5">
         <Checkbox
           type="checkbox"

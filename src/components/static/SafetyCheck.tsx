@@ -15,7 +15,7 @@ export const SafetyCheck = ({ content }) => {
   return (
     <>
       <p className={styles.headline}>{content.physical_question}</p>
-      <div className="pt-5 is-flex">
+      <div style={{ gap: "5rem" }} className="pt-5 is-flex">
         <Checkbox
           type="radio"
           checked={safety === "yes"}

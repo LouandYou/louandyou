@@ -24,3 +24,8 @@
   padding-top: 25px;
   display: flex;
 }
+
+.long_label {
+  flex-direction: column;
+  gap: 1rem !important;
+}
