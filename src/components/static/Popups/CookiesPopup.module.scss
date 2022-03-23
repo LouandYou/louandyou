@@ -1,3 +1,5 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
 .container {
   padding: 29px 30px 20px 30px;
   border-radius: 35px;
@@ -23,6 +25,11 @@
     padding: 15px 0;
     font-size: 17px;
     letter-spacing: 0.02em;
+  }
+
+  @include tablet {
+    width: 40%;
+    right: 20px;
   }
 }
 
