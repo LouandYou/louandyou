@@ -48,7 +48,12 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ExitButtonProvider>
-      <Layout content={layoutStory?.content}>
+      <Layout
+        content={layoutStory?.content}
+        locales={pageProps.locales}
+        locale={pageProps.locale}
+        defaultLocale={pageProps.defaultLocale}
+      >
         <Component {...{ ...pageProps, story, layoutStory }} />
       </Layout>
     </ExitButtonProvider>

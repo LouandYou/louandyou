@@ -4,11 +4,22 @@ import styles from "./result.module.scss";
 import { useStoryblok } from "../src/lib/storyblok";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
-export default function LayoutPage({ layoutStory, preview, locale }) {
+export default function LayoutPage({
+  layoutStory,
+  preview,
+  locale,
+  locales,
+  defaultLocale,
+}) {
   const { content } = useStoryblok(layoutStory, preview, locale);
 
   return (
-    <Layout content={content}>
+    <Layout
+      content={content}
+      locale={locale}
+      locales={locales}
+      defaultLocale={defaultLocale}
+    >
       <section
         data-dark-bg="true"
         id="section_1"

@@ -11,7 +11,12 @@ import { Text } from "../dynamic/Text";
 import { useRouter } from "next/dist/client/router";
 import { Storyblok } from "../../lib/storyblok";
 
-export function Navbar({ content }): ReactElement {
+export function Navbar({
+  content,
+  locale,
+  locales,
+  defaultLocale,
+}): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const router = useRouter();
 
@@ -44,6 +49,7 @@ export function Navbar({ content }): ReactElement {
     setIsOpen(false);
     router.push(path);
   };
+
   return (
     <nav className={styles.navbar}>
       <div
@@ -75,6 +81,28 @@ export function Navbar({ content }): ReactElement {
           <span className={`${styles.line} ${styles.line1}`} />
           <span className={`${styles.line} ${styles.line2}`} />
           <span className={`${styles.line} ${styles.line3}`} />
+        </div>
+        <div className={`is-hidden-mobile ${styles.language_wrapper}`}>
+          <div className={styles.language_switch}>
+            {locales
+              .map((loc) => (
+                <Link
+                  key={loc}
+                  href={`/${loc === defaultLocale ? "" : loc}`}
+                  locale={false}
+                  passHref
+                >
+                  <div
+                    className={`mx-1 ${
+                      loc === locale ? styles.underlined : ""
+                    }`}
+                  >
+                    {loc.toUpperCase()}
+                  </div>
+                </Link>
+              ))
+              .reduce((prev, curr) => [prev, "|", curr])}
+          </div>
         </div>
         <div className={styles.menu_items}>
           <p className="control has-icons-right">
