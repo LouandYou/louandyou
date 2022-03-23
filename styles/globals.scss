@@ -1,5 +1,6 @@
 @import "~bulma/bulma";
 @import "typography";
+@import "~bulma/sass/utilities/mixins.sass";
 
 // Lou&You colors
 
@@ -27,6 +28,17 @@
   --style-border: none;
   --color-font: white;
   --color-invert: 1;
+
+  @include tablet {
+    --size-font-paragraph: 22px;
+    --size-font-checkbox-title: 20px;
+    --size-font-checkbox: 19px;
+
+    --size-font-footer1: 18px;
+    --size-font-footer2: 16px;
+    --size-font-footer3: 14px;
+    --size-font-footer4: 13px;
+  }
 }
 
 html,

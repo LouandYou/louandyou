@@ -20,118 +20,239 @@ export function Footer(): ReactElement {
           quality={100}
         />
       </div>
-      <div className={styles.links_container1}>
-        <div className={`mb-2 pl-4 ${styles.row_container}`}>
-          <Link href="/">about us</Link>
-          <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
-          <Link href="/">what we do</Link>
+      <div className="is-hidden-tablet">
+        <div className={styles.links_container1}>
+          <div className={`mb-2 pl-4 ${styles.row_container}`}>
+            <Link href="/">about us</Link>
+            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
+            <Link href="/">what we do</Link>
+          </div>
+          <div className={`pl-4 ${styles.row_container}`}>
+            <Link href="/">about Lou</Link>
+            <Link href="/">impact</Link>
+            <Link href="/">our partners</Link>
+          </div>
         </div>
-        <div className={`pl-4 ${styles.row_container}`}>
-          <Link href="/">about Lou</Link>
-          <Link href="/">impact</Link>
-          <Link href="/">our partners</Link>
-        </div>
-      </div>
 
-      <div className={styles.support}>
-        <div className={styles.row_container}>
-          <b>
-            support <br /> Lou
-          </b>
+        <div className={styles.support}>
+          <div className={styles.row_container}>
+            <b>
+              support <br /> Lou
+            </b>
+            <p>
+              Spendenkonto:
+              <br />
+              SIGE e.V.
+              <br />
+              Berliner Sparkasse
+              <br />
+              IBAN DE30400501500136131356
+              <br />
+              Verwendungszweck: <br />
+              Spende SIGE e.V. from [name], [adress]
+            </p>
+          </div>
+          <span className="is-flex is-justify-content-space-between my-4">
+            <Image
+              src={"/payment/apple.svg"}
+              width="43"
+              height="16"
+              alt="apple pay logo"
+            />
+            <Image
+              src={"/payment/visa.svg"}
+              width="90"
+              height="30"
+              alt="visa logo"
+            />
+            <Image
+              src={"/payment/paypal.svg"}
+              width="56"
+              height="20"
+              alt="paypal logo"
+            />
+          </span>
           <p>
-            Spendenkonto:
-            <br />
-            SIGE e.V.
-            <br />
-            Berliner Sparkasse
-            <br />
-            IBAN DE30400501500136131356
-            <br />
-            Verwendungszweck: <br />
-            Spende SIGE e.V. from [name], [adress]
+            Wir stellen dir gerne eine Spendenbescheinigungen aus. Schreib uns
+            dazu einfach eine Mail an spende@louandyou.org
           </p>
         </div>
-        <span className="is-flex is-justify-content-space-between my-4">
-          <Image
-            src={"/payment/apple.svg"}
-            width="43"
-            height="16"
-            alt="apple pay logo"
-          />
-          <Image
-            src={"/payment/visa.svg"}
-            width="90"
-            height="30"
-            alt="visa logo"
-          />
-          <Image
-            src={"/payment/paypal.svg"}
-            width="56"
-            height="20"
-            alt="paypal logo"
-          />
-        </span>
-        <p>
-          Wir stellen dir gerne eine Spendenbescheinigungen aus. Schreib uns
-          dazu einfach eine Mail an spende@louandyou.org
-        </p>
-      </div>
-      <div className={`mb-5 ${styles.row_container}`}>
-        <div className="is-flex is-flex-direction-column">
-          <b>follow us</b>
-          <Link href="/">newsletter</Link>
-        </div>
-        <span
-          className={`${styles.icons_container} ${
-            Cookies.get("CONTRAST") ? styles.black : ""
-          }`}
-        >
-          <div>
-            <Image
-              src={"/social/instagram.png"}
-              width="34"
-              height="34"
-              alt="instagram logo"
-            />
+        <div className={`mb-5 ${styles.row_container}`}>
+          <div className="is-flex is-flex-direction-column">
+            <b>follow us</b>
+            <Link href="/">newsletter</Link>
           </div>
-          <div>
-            <Image
-              src={"/social/facebook.png"}
-              width="34"
-              height="34"
-              alt="facebook logo"
-            />
-          </div>
-          <div>
-            <Image
-              src={"/social/linkedin.png"}
-              width="40"
-              height="34"
-              alt="linkedin logo"
-            />
-          </div>
-        </span>
-      </div>
-      <div className={styles.links_container2}>
-        <div className={styles.row_container}>
-          <p>for donors</p>
-          <p>for partners</p>
-          <p>for the press</p>
+          <span
+            className={`${styles.icons_container} ${
+              Cookies.get("CONTRAST") ? styles.black : ""
+            }`}
+          >
+            <div>
+              <Image
+                src={"/social/instagram.png"}
+                width="34"
+                height="34"
+                alt="instagram logo"
+              />
+            </div>
+            <div>
+              <Image
+                src={"/social/facebook.png"}
+                width="34"
+                height="34"
+                alt="facebook logo"
+              />
+            </div>
+            <div>
+              <Image
+                src={"/social/linkedin.png"}
+                width="40"
+                height="34"
+                alt="linkedin logo"
+              />
+            </div>
+          </span>
         </div>
-        <div className={styles.row_container}>
-          <Link href="/">one pager</Link>
-          <Link href="/">one pager</Link>
-          <Link href="/">press kit</Link>
+        <div className={styles.links_container2}>
+          <div className={styles.row_container}>
+            <p>for donors</p>
+            <p>for partners</p>
+            <p>for the press</p>
+          </div>
+          <div className={styles.row_container}>
+            <Link href="/">one pager</Link>
+            <Link href="/">one pager</Link>
+            <Link href="/">press kit</Link>
+          </div>
+          <div className={styles.row_container}>
+            <Link href="/">pitch deck</Link>
+          </div>
         </div>
-        <div className={styles.row_container}>
-          <Link href="/">pitch deck</Link>
+        <div className={styles.last_row}>
+          <Link href="/">data protection</Link>
+          <Link href="/">imprint</Link>
+          <Link href="/">disclaimer of liability</Link>
+          <Link href="/">bylaws</Link>
         </div>
       </div>
-      <div className={styles.last_row}>
-        <Link href="/">data protection</Link>
-        <Link href="/">imprint</Link>
-        <Link href="/">disclaimer of liability</Link>
-        <Link href="/">bylaws</Link>
+      <div className={`is-hidden-mobile ${styles.desktop_container}`}>
+        <div>
+          <h1>About</h1>
+          <div className={styles.column_desktop}>
+            <Link href="/">What we do</Link>
+            <Link href="/">About Lou</Link>
+            <Link href="/">About us</Link>
+            <Link href="/">Our partners</Link>
+            <Link href="/">Impact</Link>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h1>For donors</h1>
+            <div className={styles.column_desktop}>
+              <Link href="/">One Pager</Link>
+              <Link href="/">Pitch Deck</Link>
+            </div>
+          </div>
+          <div>
+            <h1 style={{ marginTop: "40px" }}>For press</h1>
+            <Link href="/">Press Kit</Link>
+          </div>
+          <div>
+            <h1 style={{ marginTop: "40px" }}>For partners</h1>
+            <Link href="/">One Pager</Link>
+          </div>
+        </div>
+        <div>
+          <h1>Legal</h1>
+          <div className={styles.column_desktop}>
+            <Link href="/">imprint</Link>
+            <Link href="/">Data Protection</Link>
+            <Link href="/">Disclaimer Of Liability</Link>
+            <Link href="/">Bylaws</Link>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div className={styles.column_desktop}>
+              <h1>Follow us</h1>
+              <Link href="/">Newsletter</Link>
+              <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
+            </div>
+          </div>
+          <span
+            style={{ marginTop: "32px" }}
+            className={`${styles.icons_container} ${
+              Cookies.get("CONTRAST") ? styles.black : ""
+            }`}
+          >
+            <div>
+              <Image
+                src={"/social/instagram.png"}
+                width="34"
+                height="34"
+                alt="instagram logo"
+              />
+            </div>
+            <div>
+              <Image
+                src={"/social/facebook.png"}
+                width="34"
+                height="34"
+                alt="facebook logo"
+              />
+            </div>
+            <div>
+              <Image
+                src={"/social/linkedin.png"}
+                width="40"
+                height="34"
+                alt="linkedin logo"
+              />
+            </div>
+          </span>
+        </div>
+        <div style={{ width: "500px", margin: 0 }} className={styles.support}>
+          <div style={{ textAlign: "center" }}>
+            <b>Support Lou</b>
+            <p style={{ textAlign: "left" }}>
+              Spendenkonto:
+              <br />
+              SIGE e.V.
+              <br />
+              Berliner Sparkasse
+              <br />
+              IBAN DE30400501500136131356
+              <br />
+              Verwendungszweck: <br />
+              Spende SIGE e.V. from [name], [adress]
+            </p>
+          </div>
+          <span className="is-flex is-justify-content-space-around my-4">
+            <Image
+              src={"/payment/apple.svg"}
+              width="43"
+              height="16"
+              alt="apple pay logo"
+            />
+            <Image
+              src={"/payment/visa.svg"}
+              width="90"
+              height="30"
+              alt="visa logo"
+            />
+            <Image
+              src={"/payment/paypal.svg"}
+              width="56"
+              height="20"
+              alt="paypal logo"
+            />
+          </span>
+          <p>
+            Wir stellen dir gerne eine Spendenbescheinigungen aus. Schreib uns
+            dazu einfach eine Mail an spende@louandyou.org
+          </p>
+        </div>
       </div>
       {isFeedbackOpen && (
         <Feedback onClose={() => setIsFeedbackOpen(!isFeedbackOpen)} />

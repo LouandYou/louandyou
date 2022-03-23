@@ -16,12 +16,20 @@
     background: #8b8bf4;
     color: white;
   }
+  &:hover {
+    background: #8b8bf4;
+    color: white;
+  }
 }
 
 .white {
   border: 1.5px solid white;
   color: white;
   &:active {
+    background: white;
+    color: #8b8bf4;
+  }
+  &:hover {
     background: white;
     color: #8b8bf4;
   }

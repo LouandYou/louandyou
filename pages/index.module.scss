@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Maitree&display=swap");
+@import "~bulma/sass/utilities/mixins.sass";
 
 .main {
   scroll-snap-type: y mandatory;
@@ -33,9 +34,15 @@
     letter-spacing: 0.02em;
     font-family: "Lato", sans-serif;
     text-align: left;
+    @include tablet {
+      width: 700px;
+      text-align: center;
+      font-size: 46px;
+      line-height: 65px;
+    }
   }
   & span {
-    margin-bottom: 40px !important;
+    margin-bottom: 20px !important;
   }
 }
 
@@ -70,6 +77,14 @@
     font-size: 32px;
     line-height: 43px;
     letter-spacing: 0.02em;
+    @include tablet {
+      font-size: 42px;
+    }
+  }
+
+  @include tablet {
+    padding: 110px 0;
+    padding-left: calc(100vw / 3);
   }
 }
 
@@ -86,6 +101,16 @@
     letter-spacing: 0.02em;
     font-family: "Lato", sans-serif;
     text-align: left;
+    @include tablet {
+      text-align: center;
+      font-size: 46px;
+      line-height: 65px;
+    }
+  }
+
+  @include tablet {
+    text-align: center;
+    padding: 150px 400px 110px 400px;
   }
 }
 
@@ -96,6 +121,12 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+  }
 }
 
 .footer_wrapper {

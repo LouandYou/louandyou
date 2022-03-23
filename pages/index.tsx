@@ -28,10 +28,11 @@ export default function Page({
           id="section_1"
           className={styles.gradient_page}
         >
-          <div style={{ zIndex: 2 }}>
+          <div style={{ zIndex: 2, maxWidth: "500px" }}>
             <Image
               src={"/logo_full_white.svg"}
-              layout="fixed"
+              layout="responsive"
+              sizes="80vw"
               width="250"
               height="100"
               alt="logo"
