@@ -26,59 +26,60 @@ export function GetHelp({ content }): ReactElement {
     <>
       <SafetyCheck content={content} />
       <h2 className={styles.headline}>{content.violence_question}</h2>
+      <div style={{ columnGap: "4rem" }} className="is-flex is-flex-wrap-wrap">
+        <div className="pt-5">
+          <Checkbox
+            type="radio"
+            label={content.sexual}
+            checked={violanceType === "sexual"}
+            onChange={() => setViolanceType("sexual")}
+          />
+        </div>
+        <div className="pt-5">
+          <Checkbox
+            type="radio"
+            label={content.domestic}
+            checked={violanceType === "domestic"}
+            onChange={() => setViolanceType("domestic")}
+          />
+        </div>
 
-      <div
-        style={{ gap: "4rem" }}
-        className={`pt-5 is-flex ${
-          content.sexual.length > 7 ? styles.long_label : ""
-        } `}
-      >
-        <Checkbox
-          type="radio"
-          label={content.sexual}
-          checked={violanceType === "sexual"}
-          onChange={() => setViolanceType("sexual")}
-        />
-
-        <Checkbox
-          type="radio"
-          label={content.domestic}
-          checked={violanceType === "domestic"}
-          onChange={() => setViolanceType("domestic")}
-        />
-      </div>
-      <div className="pt-4">
-        <Checkbox
-          type="radio"
-          label={content.both}
-          checked={violanceType === "both"}
-          onChange={() => setViolanceType("both")}
-        />
-      </div>
-      <div className={`pt-4 `}>
-        <Checkbox
-          type="radio"
-          label={content.not_say}
-          checked={violanceType === "not sure"}
-          onChange={() => setViolanceType("not sure")}
-        />
+        <div className="pt-5">
+          <Checkbox
+            type="radio"
+            label={content.both}
+            checked={violanceType === "both"}
+            onChange={() => setViolanceType("both")}
+          />
+        </div>
+        <div className={`pt-5`}>
+          <Checkbox
+            type="radio"
+            label={content.not_say}
+            checked={violanceType === "not sure"}
+            onChange={() => setViolanceType("not sure")}
+          />
+        </div>
       </div>
       <h2 className={styles.headline}>{content.how_long_ago}</h2>
-      <div className="pt-5">
-        <Checkbox
-          type="checkbox"
-          label={content.less}
-          checked={isLongAgo === false}
-          onChange={() => setIsLongAgo(false)}
-        />
-      </div>
-      <div className="pt-4">
-        <Checkbox
-          type="checkbox"
-          label={content.more}
-          checked={isLongAgo === true}
-          onChange={() => setIsLongAgo(true)}
-        />
+
+      <div style={{ columnGap: "4rem" }} className="is-flex is-flex-wrap-wrap">
+        <div className="pt-5">
+          <Checkbox
+            type="checkbox"
+            label={content.less}
+            checked={isLongAgo === false}
+            onChange={() => setIsLongAgo(false)}
+          />
+        </div>
+        <div className="pt-5">
+          <Checkbox
+            type="checkbox"
+            label={content.more}
+            checked={isLongAgo === true}
+            onChange={() => setIsLongAgo(true)}
+          />
+        </div>
       </div>
       <div className={styles.button_container}>
         {canSubmit() && (

@@ -79,11 +79,12 @@
     letter-spacing: 0.02em;
     @include tablet {
       font-size: 42px;
+      margin-bottom: 25px;
     }
   }
 
   @include tablet {
-    padding: 150px 400px;
+    padding: 120px 160px 120px 400px;
   }
 }
 

@@ -28,8 +28,6 @@
 
 .content {
   line-height: 37px;
-  margin-top: 15px;
-
   visibility: hidden;
   opacity: 0;
   max-height: 0px;
@@ -42,6 +40,8 @@
 
 .active {
   opacity: 1;
+  margin-top: 15px;
+
   max-height: 2500px;
   transition: max-height 0.7s, opacity 1s, visibility 1s ease;
   height: auto;

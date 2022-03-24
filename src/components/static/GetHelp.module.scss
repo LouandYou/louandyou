@@ -8,6 +8,9 @@
   line-height: 24px;
   padding-top: 37px;
   letter-spacing: 0.02em;
+  @include tablet {
+    margin-top: 18px;
+  }
 }
 
 .button_container {
@@ -15,8 +18,7 @@
   display: flex;
   justify-content: center;
   @include tablet {
-    padding-top: 100px;
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
 

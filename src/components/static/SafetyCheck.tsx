@@ -15,29 +15,33 @@ export const SafetyCheck = ({ content }) => {
   return (
     <>
       <p className={styles.headline}>{content.physical_question}</p>
-      <div style={{ gap: "5rem" }} className="pt-5 is-flex">
-        <Checkbox
-          type="radio"
-          checked={safety === "yes"}
-          label={content.yes}
-          value="yes"
-          onChange={handleChange}
-        />
-        <Checkbox
-          type="radio"
-          checked={safety === "no"}
-          label={content.no}
-          onChange={() => setSafety("no")}
-        />
-      </div>
-      <div className="pt-4">
-        <Checkbox
-          type="radio"
-          checked={safety === "unsure"}
-          label={content.unsure}
-          value="unsure"
-          onChange={handleChange}
-        />
+      <div style={{ columnGap: "5rem" }} className="is-flex is-flex-wrap-wrap">
+        <div className="mt-5">
+          <Checkbox
+            type="radio"
+            checked={safety === "yes"}
+            label={content.yes}
+            value="yes"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mt-5">
+          <Checkbox
+            type="radio"
+            checked={safety === "no"}
+            label={content.no}
+            onChange={() => setSafety("no")}
+          />
+        </div>
+        <div className="mt-5">
+          <Checkbox
+            type="radio"
+            checked={safety === "unsure"}
+            label={content.unsure}
+            value="unsure"
+            onChange={handleChange}
+          />
+        </div>
       </div>
       {isPopupOpen && (
         <SafetyPopup
