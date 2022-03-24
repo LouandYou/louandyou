@@ -3,10 +3,11 @@ import Image from "next/image";
 
 import styles from "./Footer.module.scss";
 import Link from "next/link";
+import { Text } from "../dynamic";
 import { Feedback } from "./Popups/Feedback";
 import Cookies from "js-cookie";
 
-export function Footer(): ReactElement {
+export function Footer({ content }): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
 
   return (
@@ -23,34 +24,21 @@ export function Footer(): ReactElement {
       <div className="is-hidden-tablet">
         <div className={styles.links_container1}>
           <div className={`mb-2 pl-4 ${styles.row_container}`}>
-            <Link href="/">about us</Link>
+            <Link href="/">{content.about_us}</Link>
             <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
-            <Link href="/">what we do</Link>
+            <Link href="/">{content.what_we_do}</Link>
           </div>
           <div className={`pl-4 ${styles.row_container}`}>
-            <Link href="/">about Lou</Link>
+            <Link href="/">{content.about_lou}</Link>
             <Link href="/">impact</Link>
-            <Link href="/">our partners</Link>
+            <Link href="/">{content.partners}</Link>
           </div>
         </div>
 
         <div className={styles.support}>
-          <div className={styles.row_container}>
-            <b>
-              support <br /> Lou
-            </b>
-            <p>
-              Spendenkonto:
-              <br />
-              SIGE e.V.
-              <br />
-              Berliner Sparkasse
-              <br />
-              IBAN DE30400501500136131356
-              <br />
-              Verwendungszweck: <br />
-              Spende SIGE e.V. from [name], [adress]
-            </p>
+          <div>
+            <b className="mb-1">{content.support}</b>
+            <Text blok={content} attribute={"spende1"} />
           </div>
           <span className="is-flex is-justify-content-space-between my-4">
             <Image
@@ -72,14 +60,11 @@ export function Footer(): ReactElement {
               alt="paypal logo"
             />
           </span>
-          <p>
-            Wir stellen dir gerne eine Spendenbescheinigungen aus. Schreib uns
-            dazu einfach eine Mail an spende@louandyou.org
-          </p>
+          <p>{content.spende2}</p>
         </div>
         <div className={`mb-5 ${styles.row_container}`}>
           <div className="is-flex is-flex-direction-column">
-            <b>follow us</b>
+            <b>{content.follow}</b>
             <Link href="/">newsletter</Link>
           </div>
           <span
@@ -115,9 +100,9 @@ export function Footer(): ReactElement {
         </div>
         <div className={styles.links_container2}>
           <div className={styles.row_container}>
-            <p>for donors</p>
-            <p>for partners</p>
-            <p>for the press</p>
+            <p>{content.donors}</p>
+            <p>{content.for_partners}</p>
+            <p>{content.press}</p>
           </div>
           <div className={styles.row_container}>
             <Link href="/">one pager</Link>
@@ -129,53 +114,53 @@ export function Footer(): ReactElement {
           </div>
         </div>
         <div className={styles.last_row}>
-          <Link href="/">data protection</Link>
-          <Link href="/">imprint</Link>
-          <Link href="/">disclaimer of liability</Link>
-          <Link href="/">bylaws</Link>
+          <Link href="/">{content.data}</Link>
+          <Link href="/">{content.imprint}</Link>
+          <Link href="/">{content.disclaimer}</Link>
+          <Link href="/">{content.bylaws}</Link>
         </div>
       </div>
       <div className={`is-hidden-mobile ${styles.desktop_container}`}>
         <div>
-          <h1>About</h1>
+          <h1>{content.about}</h1>
           <div className={styles.column_desktop}>
-            <Link href="/">What we do</Link>
-            <Link href="/">About Lou</Link>
-            <Link href="/">About us</Link>
-            <Link href="/">Our partners</Link>
+            <Link href="/">{content.what_we_do}</Link>
+            <Link href="/">{content.about_lou}</Link>
+            <Link href="/">{content.about_us}</Link>
+            <Link href="/">{content.partners}</Link>
             <Link href="/">Impact</Link>
           </div>
         </div>
         <div>
           <div>
-            <h1>For donors</h1>
+            <h1>{content.donors}</h1>
             <div className={styles.column_desktop}>
               <Link href="/">One Pager</Link>
               <Link href="/">Pitch Deck</Link>
             </div>
           </div>
           <div>
-            <h1 style={{ marginTop: "40px" }}>For press</h1>
+            <h1 style={{ marginTop: "40px" }}>{content.press}</h1>
             <Link href="/">Press Kit</Link>
           </div>
           <div>
-            <h1 style={{ marginTop: "40px" }}>For partners</h1>
+            <h1 style={{ marginTop: "40px" }}>{content.for_partners}</h1>
             <Link href="/">One Pager</Link>
           </div>
         </div>
         <div>
-          <h1>Legal</h1>
+          <h1>{content.legal}</h1>
           <div className={styles.column_desktop}>
-            <Link href="/">imprint</Link>
-            <Link href="/">Data Protection</Link>
-            <Link href="/">Disclaimer Of Liability</Link>
-            <Link href="/">Bylaws</Link>
+            <Link href="/">{content.imprint}</Link>
+            <Link href="/">{content.data}</Link>
+            <Link href="/">{content.disclaimer}</Link>
+            <Link href="/">{content.bylaws}</Link>
           </div>
         </div>
         <div>
           <div>
             <div className={styles.column_desktop}>
-              <h1>Follow us</h1>
+              <h1>{content.follow}</h1>
               <Link href="/">Newsletter</Link>
               <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
             </div>
@@ -186,47 +171,38 @@ export function Footer(): ReactElement {
               Cookies.get("CONTRAST") ? styles.black : ""
             }`}
           >
-            <div>
+            <Link href={"https://www.instagram.com/louandyouapp/"} passHref>
               <Image
                 src={"/social/instagram.png"}
                 width="34"
                 height="34"
                 alt="instagram logo"
               />
-            </div>
-            <div>
+            </Link>
+            <Link href={"https://www.facebook.com/louandyou.org"} passHref>
               <Image
                 src={"/social/facebook.png"}
                 width="34"
                 height="34"
                 alt="facebook logo"
               />
-            </div>
-            <div>
+            </Link>
+            <Link href={"https://www.linkedin.com/company/louandyou/"} passHref>
               <Image
                 src={"/social/linkedin.png"}
                 width="40"
                 height="34"
                 alt="linkedin logo"
               />
-            </div>
+            </Link>
           </span>
         </div>
         <div style={{ width: "500px", margin: 0 }} className={styles.support}>
           <div style={{ textAlign: "center" }}>
-            <b>Support Lou</b>
-            <p style={{ textAlign: "left" }}>
-              Spendenkonto:
-              <br />
-              SIGE e.V.
-              <br />
-              Berliner Sparkasse
-              <br />
-              IBAN DE30400501500136131356
-              <br />
-              Verwendungszweck: <br />
-              Spende SIGE e.V. from [name], [adress]
-            </p>
+            <b>{content.support}</b>
+            <div style={{ textAlign: "left" }}>
+              <Text blok={content} attribute={"spende1"} />
+            </div>
           </div>
           <span className="is-flex is-justify-content-space-around my-4">
             <Image
@@ -248,10 +224,7 @@ export function Footer(): ReactElement {
               alt="paypal logo"
             />
           </span>
-          <p>
-            Wir stellen dir gerne eine Spendenbescheinigungen aus. Schreib uns
-            dazu einfach eine Mail an spende@louandyou.org
-          </p>
+          <p>{content.spende2}</p>
         </div>
       </div>
       {isFeedbackOpen && (

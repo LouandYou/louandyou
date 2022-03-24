@@ -30,7 +30,7 @@ export function Layout({
         content={content}
       />
       <main>{children}</main>
-      <Footer />
+      <Footer content={content} />
       <ExitButton content={content} />
     </>
   );
