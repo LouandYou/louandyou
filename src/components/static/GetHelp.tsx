@@ -20,7 +20,7 @@ export function GetHelp({ content }): ReactElement {
   };
 
   const canSubmit = () => violanceType !== undefined && isLongAgo !== undefined;
-  console.log("string", content.sexual.length);
+  console.debug("string", content.sexual);
 
   return (
     <>
