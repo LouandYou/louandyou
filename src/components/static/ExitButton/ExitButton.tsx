@@ -12,13 +12,17 @@ import exit from "../../../../pages/api/exit-preview";
 let paths: string[] = [];
 let exiting = false;
 
+function exitPage() {
+  window.location.replace("https://www.google.de/");
+}
+
 export function ExitButton({ content }): ReactElement {
   const { isVisible } = useContext(ExitButtonContext);
   let router = useRouter();
   const pathname = router.pathname;
   const stepToBeginning = () => {
     if (paths.length === 1) {
-      window.location.replace("https://www.google.de/");
+      exitPage()
       return;
     }
     paths.pop();
@@ -40,6 +44,13 @@ export function ExitButton({ content }): ReactElement {
 
   const onClick = () => {
     exiting = true;
+
+    // If the history is too long recursing packwards could take too much time
+    // so exiting immediately is safer
+    if(paths.length > 12) {
+      exitPage();
+      return;
+    }
     stepToBeginning();
   };
 

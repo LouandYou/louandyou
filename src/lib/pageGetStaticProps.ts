@@ -24,7 +24,26 @@ export const pageGetStaticProps = async ({
   return {
     props: {
       story: data ? data.story : false,
-      layoutStory: withLayout ? await loadLayoutStory({locale, preview}) : false,
+      layoutStory: withLayout ? await loadLayoutStory({ locale, preview }) : false,
+      preview,
+      locale,
+      locales,
+      defaultLocale
+    },
+    revalidate: 3600 // revalidate every hour
+  };
+};
+
+export const pageGetPropsLayoutOnly = async ({
+                                               locale,
+                                               locales,
+                                               defaultLocale,
+                                               preview = false,
+                                               withLayout = true
+                                             }) => {
+  return {
+    props: {
+      layoutStory: withLayout ? await loadLayoutStory({ locale, preview }) : false,
       preview,
       locale,
       locales,
@@ -35,8 +54,9 @@ export const pageGetStaticProps = async ({
 };
 
 export const loadLayoutStory = async ({
-  locale,
-  preview = false}) => {
+                                        locale,
+                                        preview = false
+                                      }) => {
   let sbParams: any = {
     version: "draft",
     language: locale
@@ -50,4 +70,4 @@ export const loadLayoutStory = async ({
   let { data } = await Storyblok.get(`cdn/stories/layout`, sbParams);
 
   return data ? data.story : false;
-}
+};
