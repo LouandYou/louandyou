@@ -2,6 +2,7 @@
 
 .dropdown_wrapper {
   width: 100%;
+  margin: 6px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,6 +28,7 @@
 }
 
 .content {
+  padding: 6px 0;
   line-height: 37px;
   visibility: hidden;
   opacity: 0;
@@ -40,8 +42,6 @@
 
 .active {
   opacity: 1;
-  margin-top: 15px;
-
   max-height: 2500px;
   transition: max-height 0.7s, opacity 1s, visibility 1s ease;
   height: auto;
