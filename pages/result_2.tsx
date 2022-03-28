@@ -44,7 +44,7 @@ export default function Page({ story }) {
             onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}
             className={`${styles.button} ${styles.purple}`}
           >
-            give feedback
+            {content.feedback}
           </button>
         </div>
         {isFeedbackOpen && (
