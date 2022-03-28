@@ -1,4 +1,5 @@
 @use "../Button.module.scss";
+@import "~bulma/sass/utilities/mixins.sass";
 
 .overlay {
   position: fixed;
@@ -7,10 +8,14 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  z-index: 3;
   padding: 21px;
   display: flex;
   align-items: center;
+
+  @include tablet {
+    justify-content: center;
+  }
 }
 
 .content {
@@ -28,12 +33,27 @@
     font-weight: 600;
   }
 
-  & p {
-    font-size: 17px;
-  }
-
   & button {
     width: 250px !important;
+  }
+
+  @include tablet {
+    width: 23%;
+    text-align: left;
+    font-size: var(--size-font-footer1);
+  }
+}
+
+#safety_p1 {
+  font-size: var(--size-font-footer4);
+  color: #979797;
+}
+
+.numbers_desktop {
+  display: flex;
+
+  & div {
+    flex: 1;
   }
 }
 
