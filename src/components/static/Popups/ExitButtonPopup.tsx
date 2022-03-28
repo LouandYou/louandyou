@@ -34,9 +34,9 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
   const popupOne = () => {
     return (
       <div className={styles.container}>
-        <p className="mb-4">
+        <div className="mb-4">
           <PageContent blok={content} name="exitButton_popup1_paragraph" />
-        </p>
+        </div>
         <div className="is-flex is-justify-content-center">
           <button onClick={handleClickOne} className={`${styles.button}`}>
             okay, cool

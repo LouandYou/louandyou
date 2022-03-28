@@ -10,44 +10,33 @@ import { Dropdown } from "./Dropdown";
 import { Text } from "../dynamic/Text";
 import { useRouter } from "next/dist/client/router";
 import { Storyblok } from "../../lib/storyblok";
+import { pageGetStaticProps } from "../../lib/pageGetStaticProps";
 
 export function Navbar({
-  content,
-  locale,
-  locales,
-  defaultLocale,
-}): ReactElement {
+                         content,
+                         locale,
+                         locales,
+                         defaultLocale
+                       }): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [searchInput, setSearchInput] = useState<string>("");
   const router = useRouter();
 
   const isLandingPage = useScrollingBackgroundColor({
     elements: () =>
       Array.from(document.querySelectorAll("#section_1, #section_2")),
-    offset: 60,
+    offset: 60
   });
-
-  useEffect(() => {
-    const params = {
-      token: process.env.STORYBLOK_TOKEN_SEARCH,
-      search_term: "online",
-    };
-
-    Storyblok.get("cdn/stories", params)
-      .then(({ data }) => {
-        let content = data.stories.map((story) => {
-          return story.content;
-        });
-
-        console.log(content);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   const handleOnClick = (path: string) => {
     setIsOpen(false);
     router.push(path);
+  };
+
+  const search = () => {
+    if (searchInput.length > 0) {
+      router.push(`/search?q=${searchInput}`);
+    }
   };
 
   return (
@@ -106,8 +95,15 @@ export function Navbar({
         </div>
         <div className={styles.menu_items}>
           <p className="control has-icons-right">
-            <input className="input is-rounded" placeholder="search" />
-            <span className="icon is-small is-right">
+            <input className="input is-rounded" placeholder="search" value={searchInput}
+                   onChange={(event => setSearchInput(event.target.value))}
+                   onKeyPress={(event) => {
+                     if (event.key === "Enter") {
+                       search();
+                     }
+                   }}
+            />
+            <span className="icon is-small is-right is-clickable" onClick={search}>
               <FontAwesomeIcon icon={faSearch} />
             </span>
           </p>
@@ -161,4 +157,11 @@ export function Navbar({
       </div>
     </nav>
   );
+}
+
+export async function getStaticProps(props) {
+  return pageGetStaticProps({
+    ...props,
+    slug: "home",
+  });
 }

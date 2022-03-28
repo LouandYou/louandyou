@@ -2,7 +2,7 @@ const mail = require("@sendgrid/mail");
 mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 function sendEmail(req, res) {
-  console.log("REQ.BODY", req.body);
+  console.debug("REQ.BODY", req.body);
   mail
     .send({
       to: "saturdaysyouth@gmail.com",
@@ -14,11 +14,11 @@ function sendEmail(req, res) {
       `,
     })
     .then(() => {
-      console.log("Email sent");
+      console.debug("Email sent");
       res.status(200).json({ sent: true });
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
       res.json({ sent: false });
     });
 }

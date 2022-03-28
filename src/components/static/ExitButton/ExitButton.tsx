@@ -7,18 +7,55 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/dist/client/router";
 import { Simulate } from "react-dom/test-utils";
 import load = Simulate.load;
+import exit from "../../../../pages/api/exit-preview";
 
-let loadPathname;
+let paths: string[] = [];
+let exiting = false;
+
+function exitPage() {
+  window.location.replace("https://www.google.de/");
+}
 
 export function ExitButton({ content }): ReactElement {
   const { isVisible } = useContext(ExitButtonContext);
   let router = useRouter();
-  if (!loadPathname) {
-    // TODO reset page history
-    loadPathname = router.pathname;
-  }
+  const pathname = router.pathname;
+  const stepToBeginning = () => {
+    if (paths.length === 1) {
+      exitPage()
+      return;
+    }
+    paths.pop();
+    router.back();
+  };
+
+  useEffect(() => {
+    if (exiting) {
+      stepToBeginning();
+      return;
+    }
+
+    if (pathname.length === 0 || pathname !== paths[paths.length - 1]) {
+      paths.push(pathname);
+    }
+  }, [pathname]);
+
+
+
+  const onClick = () => {
+    exiting = true;
+
+    // If the history is too long recursing packwards could take too much time
+    // so exiting immediately is safer
+    if(paths.length > 12) {
+      exitPage();
+      return;
+    }
+    stepToBeginning();
+  };
 
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(true);
+
 
   const isLandingPage = useScrollingBackgroundColor({
     elements: () =>
@@ -29,10 +66,6 @@ export function ExitButton({ content }): ReactElement {
   useEffect(() => {
     Cookies.get("EXIT_BUTTON_POPUP") ? setIsPopupOpen(false) : null;
   }, []);
-
-  const onClick = () => {
-    window.location.replace("https://www.google.de/");
-  };
 
   return (
     <>

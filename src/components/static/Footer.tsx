@@ -171,30 +171,30 @@ export function Footer({ content }): ReactElement {
               Cookies.get("CONTRAST") ? styles.black : ""
             }`}
           >
-            <Link href={"https://www.instagram.com/louandyouapp/"} passHref>
+            <a href={"https://www.instagram.com/louandyouapp/"}>
               <Image
                 src={"/social/instagram.png"}
                 width="34"
                 height="34"
                 alt="instagram logo"
               />
-            </Link>
-            <Link href={"https://www.facebook.com/louandyou.org"} passHref>
+            </a>
+            <a href={"https://www.facebook.com/louandyou.org"}>
               <Image
                 src={"/social/facebook.png"}
                 width="34"
                 height="34"
                 alt="facebook logo"
               />
-            </Link>
-            <Link href={"https://www.linkedin.com/company/louandyou/"} passHref>
+            </a>
+            <a href={"https://www.linkedin.com/company/louandyou/"}>
               <Image
                 src={"/social/linkedin.png"}
                 width="40"
                 height="34"
                 alt="linkedin logo"
               />
-            </Link>
+            </a>
           </span>
         </div>
         <div style={{ width: "500px", margin: 0 }} className={styles.support}>
