@@ -61,7 +61,7 @@ export function CookiesPopup({
 
             <button className={styles.button}>
               <Link href="/settings" passHref>
-                {story.content.cookies_link}
+                settings
               </Link>
             </button>
           </div>
