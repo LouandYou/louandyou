@@ -15,6 +15,10 @@
   @include tablet {
     padding: 0px 350px;
     justify-content: center !important;
+
+    & p {
+      text-align: center;
+    }
   }
 
   & h1 {
@@ -28,6 +32,7 @@
       text-align: center;
       font-size: 46px;
       line-height: 65px;
+      margin-top: 50px;
     }
   }
 

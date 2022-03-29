@@ -29,7 +29,7 @@ export function Layout({
         locales={locales}
         content={content}
       />
-      <main style={{marginTop: "63px"}}>{children}</main>
+      <main>{children}</main>
       <Footer content={content} />
       <ExitButton content={content} />
     </>
