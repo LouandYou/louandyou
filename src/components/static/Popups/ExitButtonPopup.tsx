@@ -54,11 +54,11 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
       <div className={styles.container}>
         <p className="mb-5">{content.exitButton_popup2_paragraph}</p>
         <div className="is-flex is-justify-content-center">
-          <Link passHref href={"/settings#section_2"}>
-            <button onClick={handleClickOne} className={`${styles.button}`}>
+          <button onClick={handleClickOne} className={`${styles.button}`}>
+            <Link passHref href={"/settings#section_2"}>
               {content.exitButton_popup2_button}
-            </button>
-          </Link>
+            </Link>
+          </button>
         </div>
         <p onClick={handleClickTwo} className={styles.purple_p}>
           {content.exitButton_popup2_link}
