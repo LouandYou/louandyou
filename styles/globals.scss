@@ -14,9 +14,9 @@
 // $orange: #ed6b06;
 
 :root {
-  --size-font-paragraph: 20px;
+  --size-font-paragraph: 18pt;
   --size-font-checkbox-title: 18px;
-  --size-font-checkbox: 17px;
+  --size-font-checkbox: 18px;
 
   --size-font-footer1: 16px;
   --size-font-footer2: 14px;
@@ -30,9 +30,9 @@
   --color-invert: 1;
 
   @include tablet {
-    --size-font-paragraph: 22px;
+    --size-font-paragraph: 20px;
     --size-font-checkbox-title: 20px;
-    --size-font-checkbox: 19px;
+    --size-font-checkbox: 20px;
 
     --size-font-footer1: 18px;
     --size-font-footer2: 16px;

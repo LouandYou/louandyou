@@ -9,15 +9,14 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "./Dropdown";
 import { Text } from "../dynamic/Text";
 import { useRouter } from "next/dist/client/router";
-import { Storyblok } from "../../lib/storyblok";
 import { pageGetStaticProps } from "../../lib/pageGetStaticProps";
 
 export function Navbar({
-                         content,
-                         locale,
-                         locales,
-                         defaultLocale
-                       }): ReactElement {
+  content,
+  locale,
+  locales,
+  defaultLocale,
+}): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const router = useRouter();
@@ -25,7 +24,7 @@ export function Navbar({
   const isLandingPage = useScrollingBackgroundColor({
     elements: () =>
       Array.from(document.querySelectorAll("#section_1, #section_2")),
-    offset: 60
+    offset: 60,
   });
 
   const handleOnClick = (path: string) => {
@@ -77,7 +76,9 @@ export function Navbar({
               .map((loc) => (
                 <Link
                   key={loc}
-                  href={`/${loc === defaultLocale ? "" : loc}`}
+                  href={`/${loc === defaultLocale ? "" : loc}/${
+                    router.pathname
+                  }`}
                   locale={false}
                   passHref
                 >
@@ -95,15 +96,21 @@ export function Navbar({
         </div>
         <div className={styles.menu_items}>
           <p className="control has-icons-right">
-            <input className="input is-rounded" placeholder="search" value={searchInput}
-                   onChange={(event => setSearchInput(event.target.value))}
-                   onKeyPress={(event) => {
-                     if (event.key === "Enter") {
-                       search();
-                     }
-                   }}
+            <input
+              className="input is-rounded"
+              placeholder="search"
+              value={searchInput}
+              onChange={(event) => setSearchInput(event.target.value)}
+              onKeyPress={(event) => {
+                if (event.key === "Enter") {
+                  search();
+                }
+              }}
             />
-            <span className="icon is-small is-right is-clickable" onClick={search}>
+            <span
+              className="icon is-small is-right is-clickable"
+              onClick={search}
+            >
               <FontAwesomeIcon icon={faSearch} />
             </span>
           </p>

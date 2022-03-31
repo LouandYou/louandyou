@@ -11,7 +11,14 @@ export function Dropdown(props: IProps): ReactElement {
 
   return (
     <>
-      <div className={styles.dropdown_wrapper}>
+      {props.label === "" && (
+        <p className="is-hidden-mobile">{props.content}</p>
+      )}
+      <div
+        className={`${styles.dropdown_wrapper} ${
+          props.label === "" ? "is-hidden-tablet" : ""
+        }`}
+      >
         <p className={isVisible ? styles.purple : ""}>{props.label}</p>
         <button
           onClick={() => setIsVisible(!isVisible)}
