@@ -7,8 +7,8 @@ export default function Page({ story }) {
   return (
     <>
       <PageContent blok={content} name={"section_1"} />
-      <section className={styles.white_page_full}>
-        <Text blok={content} attribute={"most_importantly"} />
+      <section className={`${styles.white_page_full} is-hidden-tablet`}>
+        <Text blok={content} attribute={"section_2"} />
       </section>
       <PageContent blok={content} name={"body"} />
     </>
