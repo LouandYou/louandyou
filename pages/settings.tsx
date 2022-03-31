@@ -137,7 +137,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
 
         <Text blok={content} attribute={"section2_p"} />
 
-        <div className={styles.switch_wraper1}>
+        <div className={styles.switch_wraper}>
           <p style={{ fontFamily: "Lato" }}>exit button</p>
           <Slider onChange={handleExitButton} blackBorder={false} />
         </div>
@@ -150,7 +150,8 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         <div>
           <Text blok={content} attribute={"section3_p1"} />
         </div>
-        <div className={styles.switch_wraper2}>
+        <div style={{ marginBottom: "75px" }} className={styles.switch_wraper}>
+          <b>{content.section3_subtitle1}</b>
           <Slider
             onChange={handleCookies}
             checked={isCookies}
@@ -160,8 +161,9 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         <p className="pb-4">
           <b>{content.section3_subtitle2}</b>
         </p>
-        <p>{content.section3_p2}</p>
-        <div className={styles.switch_wraper2}>
+        <Text blok={content} attribute={"section3_p2"} />
+        <div className={styles.switch_wraper}>
+          <b>{content.usage_data}</b>
           <Slider blackBorder={true} />
         </div>
       </section>
