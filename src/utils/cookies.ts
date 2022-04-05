@@ -1,10 +1,10 @@
 export function setBigFont() {
-  document.documentElement.style.setProperty("--size-font-paragraph", "25px");
+  document.documentElement.style.setProperty("--size-font-paragraph", "24px");
   document.documentElement.style.setProperty(
-    "--size-font-checkbox-title",
-    "23px"
+    "--size-font-paragraph-desktop",
+    "26px"
   );
-  document.documentElement.style.setProperty("--size-font-checkbox", "22px");
+
   document.documentElement.style.setProperty("--size-font-footer1", "21px");
   document.documentElement.style.setProperty("--size-font-footer2", "19px");
   document.documentElement.style.setProperty("--size-font-footer3", "17px");
@@ -12,12 +12,12 @@ export function setBigFont() {
 }
 
 export function setSmallFont() {
-  document.documentElement.style.setProperty("--size-font-paragraph", "20px");
+  document.documentElement.style.setProperty("--size-font-paragraph", "18px");
   document.documentElement.style.setProperty(
-    "--size-font-checkbox-title",
-    "18px"
+    "--size-font-paragraph-desktop",
+    "20px"
   );
-  document.documentElement.style.setProperty("--size-font-checkbox", "17px");
+
   document.documentElement.style.setProperty("--size-font-footer1", "16px");
   document.documentElement.style.setProperty("--size-font-footer2", "14px");
   document.documentElement.style.setProperty("--size-font-footer3", "12px");

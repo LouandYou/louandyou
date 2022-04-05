@@ -15,8 +15,7 @@
 
 :root {
   --size-font-paragraph: 18pt;
-  --size-font-checkbox-title: 18px;
-  --size-font-checkbox: 18px;
+  --size-font-paragraph-desktop: 20px;
 
   --size-font-footer1: 16px;
   --size-font-footer2: 14px;
@@ -30,10 +29,6 @@
   --color-invert: 1;
 
   @include tablet {
-    --size-font-paragraph: 20px;
-    --size-font-checkbox-title: 20px;
-    --size-font-checkbox: 20px;
-
     --size-font-footer1: 18px;
     --size-font-footer2: 16px;
     --size-font-footer3: 14px;
@@ -51,6 +46,9 @@ body {
   color: #101223;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  @include tablet {
+    font-size: var(--size-font-paragraph-desktop);
+  }
 }
 
 * {

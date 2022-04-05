@@ -7,7 +7,6 @@
   padding: 105px 45px 101px 45px;
   display: flex;
   flex-direction: column;
-  font-size: var(--size-font-checkbox-title);
   line-height: 37px;
   font-weight: 400;
   color: white;
@@ -137,8 +136,7 @@
 .white_page {
   padding: 100px 45px 160px 45px;
   background-color: #fff;
-  line-height: 30px;
-  font-size: var(--size-font-checkbox-title);
+  line-height: 37px;
 
   & h2 {
     font-family: "Lato", sans-serif;
