@@ -1,7 +1,7 @@
 import { Storyblok } from "../../src/lib/storyblok";
 
 export default async function search(req, res) {
-  const { query } = req.body;
+  const { query, language } = req.body;
 
   if (!query) {
     return res.status(200).json({
@@ -12,7 +12,8 @@ export default async function search(req, res) {
   console.debug("query", query);
   const params = {
     version: "draft",
-    search_term: query
+    search_term: query,
+    language: language || "en"
   };
 
   try {

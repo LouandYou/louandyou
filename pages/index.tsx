@@ -18,8 +18,8 @@ export default function Page({
   locale,
   defaultLocale,
 }) {
-  const { content } = useStoryblok(story, preview, locale);
-
+  console.debug('story', story);
+  const content = story.content;
   return (
     <>
       <div className={styles.page_wrapper}>

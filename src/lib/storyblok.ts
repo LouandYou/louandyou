@@ -11,7 +11,6 @@ export const Storyblok = new StoryblokClient({
 
 export function useStoryblok(originalStory, preview, locale) {
     let [story, setStory] = useState(originalStory);
-
     // adds the events for updating the visual editor
     // see https://www.storyblok.com/docs/guide/essentials/visual-editor#initializing-the-storyblok-js-bridge
     function initEventListeners() {
@@ -85,5 +84,5 @@ export function useStoryblok(originalStory, preview, locale) {
         setStory(originalStory);
     }, [originalStory]);
 
-    return story;
+    return story || originalStory;
 }

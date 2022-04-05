@@ -21,18 +21,20 @@ const variants = {
 
 export const PageSection = ({ blok }) => {
   const { className, props } = variants[blok.config || "white"] || {};
+
   return (
     <section
       {...sbEditable(blok as any)}
       {...props}
       id={blok.id || blok._uid}
-      key={blok._uid}
+      key={blok.id || blok._uid}
       className={`${styles.container} ${className}`}
     >
       <div style={{ zIndex: 2 }}>
         {blok.body
-          ? blok.body.map((blok) => (
-              <DynamicComponent blok={blok} key={blok._uid} />
+          ? blok.body.map((blok) =>
+            (
+              <DynamicComponent blok={blok} key={blok._editable} />
             ))
           : null}
       </div>

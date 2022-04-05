@@ -11,6 +11,8 @@ import { Text } from "../dynamic/Text";
 import { useRouter } from "next/dist/client/router";
 import { pageGetStaticProps } from "../../lib/pageGetStaticProps";
 
+const prependSlash = (path: string) => (path.charAt(0) === "/" ? path : `/${path}`);
+
 export function Navbar({
   content,
   locale,
@@ -76,9 +78,7 @@ export function Navbar({
               .map((loc) => (
                 <Link
                   key={loc}
-                  href={`/${loc === defaultLocale ? "" : loc}/${
-                    router.pathname
-                  }`}
+                  href={prependSlash(`${loc === defaultLocale ? "" : loc}${router.pathname}`)}
                   locale={false}
                   passHref
                 >

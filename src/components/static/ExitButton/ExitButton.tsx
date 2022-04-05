@@ -26,7 +26,7 @@ export function ExitButton({ content }): ReactElement {
       return;
     }
     paths.pop();
-    router.back();
+    history.back();
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export function ExitButton({ content }): ReactElement {
   const onClick = () => {
     exiting = true;
 
-    // If the history is too long recursing packwards could take too much time
+    // If the history is too long recursing backwards could take too much time
     // so exiting immediately is safer
     if(paths.length > 12) {
       exitPage();
@@ -55,7 +55,6 @@ export function ExitButton({ content }): ReactElement {
   };
 
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(true);
-
 
   const isLandingPage = useScrollingBackgroundColor({
     elements: () =>

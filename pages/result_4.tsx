@@ -58,6 +58,6 @@ export default function Page({ story }) {
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "result_4",
+    slug: "result_1",
   });
 }

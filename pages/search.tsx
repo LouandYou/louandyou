@@ -4,12 +4,12 @@ import styles from "./search.module.scss";
 import { pageGetPropsLayoutOnly } from "../src/lib/pageGetStaticProps";
 import { useRouter } from "next/dist/client/router";
 
-const queryStories = (query: string) => fetch("/api/search", {
+const queryStories = (query: string, locale: string) => fetch("/api/search", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
   },
-  body: JSON.stringify({ query })
+  body: JSON.stringify({ query, language: locale })
 }).then(res => res.json())
   .then(({ data }) => {
     return data.reduce((stories, story) => stories.concat({
@@ -86,12 +86,11 @@ export default function SearchPage({ stories, ...props }) {
   useEffect(() => {
     if (query) {
       setSearchInput(query);
-      queryStories(query).then(stories => {
-        console.debug("stories", stories);
+      queryStories(query, props.locale).then(stories => {
         setResults(stories);
       });
     }
-  }, [query]);
+  }, [props.locale, query]);
 
   const onQuery = () => {
     if (searchInput.length > 0) {

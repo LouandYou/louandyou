@@ -17,9 +17,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <AppWrapper Component={Component} pageProps={pageProps} />;
-}
-export function AppWrapper({pageProps, Component}) {
   useEffect(() => {
     if (Cookies.get("FONT_BIG")) {
       setBigFont();
@@ -52,7 +49,7 @@ export function AppWrapper({pageProps, Component}) {
   return (
     <ExitButtonProvider>
       <Layout
-        content={layoutStory?.content}
+        content={layoutStory.content}
         locales={pageProps.locales}
         locale={pageProps.locale}
         defaultLocale={pageProps.defaultLocale}
