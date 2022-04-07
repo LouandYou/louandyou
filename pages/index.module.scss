@@ -19,7 +19,7 @@
   scroll-snap-align: start;
   height: 100vh;
   background-color: #8d8bf4;
-  color: white;
+  color: var(--color-font);
   line-height: 30px;
   text-align: center;
   display: flex;
@@ -59,12 +59,12 @@
   display: flex;
   & div {
     cursor: pointer;
-    color: white;
+    color: var(--color-font);
   }
 }
 
 .underlined {
-  border-bottom: 1.5px solid white;
+  border-bottom: 1.5px solid var(--color-font);
   padding-bottom: 3px;
 }
 
@@ -133,4 +133,8 @@
 
 .footer_wrapper {
   scroll-snap-align: end;
+}
+
+.color {
+  filter: var(--filter);
 }

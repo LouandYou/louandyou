@@ -4,7 +4,12 @@ import { useStoryblok } from "../src/lib/storyblok";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 import { Text } from "../src/components/dynamic";
 import Cookies from "js-cookie";
-import { setBigFont, setSmallFont } from "../src/utils/cookies";
+import {
+  setBigFont,
+  setSmallFont,
+  setContrast,
+  removeContrast,
+} from "../src/utils/cookies";
 
 import styles from "./settings.module.scss";
 import { useRouter } from "next/dist/client/router";
@@ -16,14 +21,14 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
 
   const [fontSize, setFontSize] = useState<string>("normal");
   const [isCookies, setIsCookies] = useState<boolean>(true);
-  const [contrast, setContrast] = useState<string>("no contrast");
+  const [contrast, setContrastState] = useState<string>("no contrast");
 
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
   useEffect(() => {
     Cookies.get("FONT_BIG") ? setFontSize("big") : null;
     Cookies.get("DISABLE_COOKIES") ? setIsCookies(false) : null;
-    Cookies.get("CONTRAST") ? setContrast("contrast") : null;
+    Cookies.get("CONTRAST") ? setContrastState("contrast") : null;
   }, []);
 
   const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,15 +40,13 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
 
   const handleContrast = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "no contrast") {
-      setContrast(e.target.value);
+      setContrastState(e.target.value);
+      removeContrast();
       Cookies.remove("CONTRAST");
-      document.documentElement.style.setProperty("--color-font", "white");
-      document.documentElement.style.setProperty("--color-invert", "1");
     } else {
-      document.documentElement.style.setProperty("--color-font", "#101223");
-      document.documentElement.style.setProperty("--color-invert", "0");
+      setContrastState(e.target.value);
+      setContrast();
       Cookies.set("CONTRAST", true);
-      setContrast(e.target.value);
     }
   };
 

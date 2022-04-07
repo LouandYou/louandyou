@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import { LinkButton, CookiesPopup } from "../src/components/static";
-import { useStoryblok } from "../src/lib/storyblok";
+import Cookies from "js-cookie";
 import { GetHelp } from "../src/components/static";
 
 import Image from "next/image";
@@ -18,7 +18,7 @@ export default function Page({
   locale,
   defaultLocale,
 }) {
-  console.debug('story', story);
+  console.debug("story", story);
   const content = story.content;
   return (
     <>
@@ -30,14 +30,15 @@ export default function Page({
         >
           <div style={{ zIndex: 2, maxWidth: "500px" }}>
             <Image
+              className={styles.color}
               src={"/logo_full_white.svg"}
               layout="responsive"
-              sizes="80vw"
               width="250"
               height="100"
               alt="logo"
               priority
             />
+
             <Text blok={content} attribute={"description"} />
           </div>
           <div className={`is-hidden-tablet ${styles.language_wrapper}`}>

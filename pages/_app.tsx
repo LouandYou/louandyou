@@ -5,7 +5,12 @@ import Cookies from "js-cookie";
 import { ExitButtonProvider } from "../src/components/static/ExitButton/ExitButtonProvider";
 import { Layout } from "../src/components/static";
 import { useStoryblok } from "../src/lib/storyblok";
-import { setBigFont } from "../src/utils/cookies";
+import {
+  setBigFont,
+  setSmallFont,
+  setContrast,
+  removeContrast,
+} from "../src/utils/cookies";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
@@ -18,12 +23,8 @@ if (process.env.NODE_ENV === "production") {
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    if (Cookies.get("FONT_BIG")) {
-      setBigFont();
-    }
-    Cookies.get("CONTRAST")
-      ? document.documentElement.style.setProperty("--color-font", "#101223")
-      : null;
+    Cookies.get("FONT_BIG") ? setBigFont() : setSmallFont();
+    Cookies.get("CONTRAST") ? setContrast() : removeContrast();
   }, []);
 
   let story = useStoryblok(
