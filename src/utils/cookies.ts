@@ -23,3 +23,19 @@ export function setSmallFont() {
   document.documentElement.style.setProperty("--size-font-footer3", "12px");
   document.documentElement.style.setProperty("--size-font-footer4", "11px");
 }
+
+export function setContrast() {
+  document.documentElement.style.setProperty("--color-font", "#101223");
+  document.documentElement.style.setProperty(
+    "--filter",
+    `brightness(0) invert(0)`
+  );
+}
+
+export function removeContrast() {
+  document.documentElement.style.setProperty("--color-font", "white");
+  document.documentElement.style.setProperty(
+    "--filter",
+    `brightness(0) invert(1)`
+  );
+}
