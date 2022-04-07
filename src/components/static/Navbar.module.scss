@@ -100,16 +100,16 @@
 }
 
 .language_switch {
-  color: white;
+  color: var(--color-font);
   display: flex;
   & div {
     cursor: pointer;
-    color: white;
+    color: var(--color-font);
   }
 }
 
 .underlined {
-  border-bottom: 1.5px solid white;
+  border-bottom: 1.5px solid var(--color-font);
   padding-bottom: 1px;
 }
 
@@ -160,4 +160,8 @@
   padding-left: 10px;
   line-height: 45px;
   margin-bottom: 15px;
+}
+
+.color {
+  filter: var(--filter);
 }

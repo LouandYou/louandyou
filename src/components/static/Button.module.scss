@@ -23,8 +23,8 @@
 }
 
 .white {
-  border: 1.5px solid white;
-  color: white;
+  border: 1.5px solid var(--color-font);
+  color: var(--color-font);
   &:active {
     background: white;
     color: #8b8bf4;
@@ -39,14 +39,14 @@
   min-height: 50px;
   border: none;
   background: #8b8bf4;
-  color: white;
+  color: var(--color-font);
 }
 
 .green_full {
   min-height: 50px;
   border: none;
   background: #68a005;
-  color: white;
+  color: var(--color-font);
   font-size: 13px !important;
   letter-spacing: 0.02rem;
   padding: 12px 22px 12px 27px;

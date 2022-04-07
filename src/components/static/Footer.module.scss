@@ -41,7 +41,6 @@
   padding-right: 10px;
   gap: 20px;
   cursor: pointer;
-  filter: brightness(0) invert(1);
 }
 
 .support {
@@ -51,8 +50,9 @@
   background-color: #86aaff;
   border-radius: 20px;
   width: 100%;
-  & img {
-    filter: brightness(0) invert(1);
+
+  img {
+    filter: var(--filter);
   }
 
   & b {
@@ -104,4 +104,8 @@
   flex-direction: column;
   align-items: space-between;
   gap: 7px;
+}
+
+.color {
+  filter: var(--filter);
 }

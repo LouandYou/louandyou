@@ -11,7 +11,8 @@ import { Text } from "../dynamic/Text";
 import { useRouter } from "next/dist/client/router";
 import { pageGetStaticProps } from "../../lib/pageGetStaticProps";
 
-const prependSlash = (path: string) => (path.charAt(0) === "/" ? path : `/${path}`);
+const prependSlash = (path: string) =>
+  path.charAt(0) === "/" ? path : `/${path}`;
 
 export function Navbar({
   content,
@@ -49,16 +50,15 @@ export function Navbar({
       >
         <div className={styles.logo}>
           <Link passHref href="/">
-            <a>
-              <Image
-                src={"/ampersand_white.svg"}
-                layout="fixed"
-                width="23"
-                height="23"
-                alt="logo"
-                priority
-              />
-            </a>
+            <Image
+              className={styles.color}
+              src={"/ampersand_white.svg"}
+              layout="fixed"
+              width="23"
+              height="23"
+              alt="logo"
+              priority
+            />
           </Link>
         </div>
         <input
@@ -67,7 +67,7 @@ export function Navbar({
           className={styles.checkbox}
           type="checkbox"
         />
-        <div className={styles.hamburger_lines}>
+        <div className={`${styles.hamburger_lines} ${styles.color}`}>
           <span className={`${styles.line} ${styles.line1}`} />
           <span className={`${styles.line} ${styles.line2}`} />
           <span className={`${styles.line} ${styles.line3}`} />
@@ -78,7 +78,9 @@ export function Navbar({
               .map((loc) => (
                 <Link
                   key={loc}
-                  href={prependSlash(`${loc === defaultLocale ? "" : loc}${router.pathname}`)}
+                  href={prependSlash(
+                    `${loc === defaultLocale ? "" : loc}${router.pathname}`
+                  )}
                   locale={false}
                   passHref
                 >

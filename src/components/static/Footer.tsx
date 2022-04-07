@@ -14,6 +14,7 @@ export function Footer({ content }): ReactElement {
     <section className={styles.footer}>
       <div className={`${Cookies.get("CONTRAST") ? styles.black : ""}`}>
         <Image
+          className={styles.color}
           src={"/logo_full_white.svg"}
           width="210"
           height="60"
@@ -67,13 +68,10 @@ export function Footer({ content }): ReactElement {
             <b>{content.follow}</b>
             <Link href="/">newsletter</Link>
           </div>
-          <span
-            className={`${styles.icons_container} ${
-              Cookies.get("CONTRAST") ? styles.black : ""
-            }`}
-          >
+          <span className={styles.icons_container}>
             <div>
               <Image
+                className={styles.color}
                 src={"/social/instagram.png"}
                 width="34"
                 height="34"
@@ -82,6 +80,7 @@ export function Footer({ content }): ReactElement {
             </div>
             <div>
               <Image
+                className={styles.color}
                 src={"/social/facebook.png"}
                 width="34"
                 height="34"
@@ -90,6 +89,7 @@ export function Footer({ content }): ReactElement {
             </div>
             <div>
               <Image
+                className={styles.color}
                 src={"/social/linkedin.png"}
                 width="40"
                 height="34"
@@ -167,12 +167,11 @@ export function Footer({ content }): ReactElement {
           </div>
           <span
             style={{ marginTop: "32px" }}
-            className={`${styles.icons_container} ${
-              Cookies.get("CONTRAST") ? styles.black : ""
-            }`}
+            className={styles.icons_container}
           >
             <a href={"https://www.instagram.com/louandyouapp/"}>
               <Image
+                className={styles.color}
                 src={"/social/instagram.png"}
                 width="34"
                 height="34"
@@ -181,6 +180,7 @@ export function Footer({ content }): ReactElement {
             </a>
             <a href={"https://www.facebook.com/louandyou.org"}>
               <Image
+                className={styles.color}
                 src={"/social/facebook.png"}
                 width="34"
                 height="34"
@@ -189,6 +189,7 @@ export function Footer({ content }): ReactElement {
             </a>
             <a href={"https://www.linkedin.com/company/louandyou/"}>
               <Image
+                className={styles.color}
                 src={"/social/linkedin.png"}
                 width="40"
                 height="34"

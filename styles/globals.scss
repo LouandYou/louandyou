@@ -26,7 +26,7 @@
   --border-color: none;
   --style-border: none;
   --color-font: white;
-  --color-invert: 1;
+  --filter: brightness(0) invert(1);
 
   @include tablet {
     --size-font-footer1: 18px;
