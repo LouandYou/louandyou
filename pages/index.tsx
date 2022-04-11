@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 
 import { LinkButton, CookiesPopup } from "../src/components/static";
-import Cookies from "js-cookie";
 import { GetHelp } from "../src/components/static";
 
 import Image from "next/image";
@@ -28,7 +27,7 @@ export default function Page({
           id="section_1"
           className={styles.gradient_page}
         >
-          <div style={{ zIndex: 2, maxWidth: "500px" }}>
+          <div style={{ zIndex: 2, maxWidth: "550px" }}>
             <Image
               className={styles.color}
               src={"/logo_full_white.svg"}

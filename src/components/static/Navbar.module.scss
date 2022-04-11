@@ -5,7 +5,6 @@
   right: 0;
   z-index: 3;
   overflow-y: scroll;
-  font-size: 17px;
   height: 63px;
 }
 
@@ -118,9 +117,8 @@
   overflow-y: auto;
   font-family: "Lato", sans-serif;
   margin-top: 63px;
-  padding: 50px 45px;
+  padding: 40px 45px;
   background-color: white;
-  width: 100vw;
   z-index: 10;
   transform: translate(-150%);
   display: flex;
@@ -132,6 +130,10 @@
     margin-bottom: 25px;
     font-size: 26px;
     line-height: 28px;
+  }
+
+  & p {
+    margin-bottom: 12px;
   }
 
   & h3:hover {
@@ -156,10 +158,11 @@
   transform: rotate(-44deg);
 }
 
-.dropdown_wrapper div div {
-  padding-left: 10px;
-  line-height: 45px;
-  margin-bottom: 15px;
+.wrapper {
+  & h3 {
+    position: absolute;
+    padding-top: 2px;
+  }
 }
 
 .color {

@@ -15,7 +15,7 @@
 }
 
 .gradient_page {
-  padding: 0 45px;
+  padding: 0 65px;
   scroll-snap-align: start;
   height: 100vh;
   background-color: #8d8bf4;
@@ -35,9 +35,9 @@
     font-family: "Lato", sans-serif;
     text-align: left;
     @include tablet {
-      width: 700px;
+      width: 750px;
       text-align: center;
-      font-size: 46px;
+      font-size: 42px;
       line-height: 65px;
     }
   }
@@ -83,7 +83,7 @@
   }
 
   @include tablet {
-    padding: 120px 160px 120px 400px;
+    padding: 160px 0px 100px 300px;
   }
 }
 

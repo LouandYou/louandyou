@@ -48,7 +48,7 @@ export function Navbar({
           isLandingPage ? "" : styles.nav_background
         }`}
       >
-        <div className={styles.logo}>
+        <div onClick={() => setIsOpen(false)} className={styles.logo}>
           <Link passHref href="/">
             <Image
               className={styles.color}
@@ -99,69 +99,59 @@ export function Navbar({
         <div className={styles.menu_items}>
           <p className="control has-icons-right">
             <input
-              className="input is-rounded"
+              style={{ height: "50px", borderWidth: "2px" }}
+              className="input is-rounded is-dark"
               placeholder="search"
               value={searchInput}
               onChange={(event) => setSearchInput(event.target.value)}
               onKeyPress={(event) => {
                 if (event.key === "Enter") {
                   search();
+                  setIsOpen(false);
                 }
               }}
             />
             <span
-              className="icon is-small is-right is-clickable"
-              onClick={search}
+              className="icon is-right is-clickable"
+              onClick={() => {
+                search();
+                setIsOpen(false);
+              }}
             >
-              <FontAwesomeIcon icon={faSearch} />
+              <FontAwesomeIcon color="#363636" icon={faSearch} />
             </span>
           </p>
-          <h3 onClick={() => handleOnClick("/")} style={{ marginTop: "55px" }}>
-            home
+          <h3
+            onClick={() => handleOnClick("/")}
+            style={{ marginTop: "40px", marginBottom: "40px" }}
+          >
+            Home
           </h3>
           <h2>{content.find_support}</h2>
-          <div className={styles.dropdown_wrapper}>
-            <Dropdown
-              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
-              label={"about domestic violence"}
-            />
-          </div>
-          <div
-            className={styles.dropdown_wrapper}
-            style={{ marginBottom: "25px" }}
-          >
-            <Dropdown
-              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
-              label={"about sexual violence"}
-            />
-          </div>
+          <p>about domestic violence</p>
+          <p style={{ marginBottom: "40px" }}>about sexual violence</p>
           <h2>what’s good to know</h2>
-          <div className={styles.dropdown_wrapper}>
-            <Dropdown
-              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
-              label={"about domestic violence"}
-            />
-          </div>
-          <div
-            className={styles.dropdown_wrapper}
-            style={{ marginBottom: "25px" }}
-          >
-            <Dropdown
-              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
-              label={"about sexual violence"}
-            />
-          </div>
+          <p> about domestic violence</p>
+          <p style={{ marginBottom: "40px" }}> about sexual violence</p>
           <h3 onClick={() => handleOnClick("/safety_tips")}>safety tips</h3>
           <h3
-            style={{ marginBottom: "75px" }}
+            style={{ marginBottom: "50px" }}
             onClick={() => handleOnClick("/settings")}
           >
             settings
           </h3>
-          <h3 onClick={() => handleOnClick("/")}>Lou’s impact</h3>
-          <h3 onClick={() => handleOnClick("/")}>about</h3>
-          <h3 onClick={() => handleOnClick("/")}>support Lou</h3>
-          <h3 onClick={() => handleOnClick("/")}>get in touch</h3>
+          <div className={styles.wrapper}>
+            <h3>Über Lou&You</h3>
+            <Dropdown
+              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
+            />
+          </div>
+          <div className={styles.wrapper}>
+            <h3>Contact</h3>
+            <Dropdown
+              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
+            />
+          </div>
         </div>
       </div>
     </nav>
