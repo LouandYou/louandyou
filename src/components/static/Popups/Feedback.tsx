@@ -58,7 +58,7 @@ export function Feedback({ onClose }: Props): ReactElement {
     <div className={styles.overlay}>
       <div className={styles.content}>
         <b
-          className="is-size-5 is-flex is-justify-content-flex-end"
+          className="is-size-5 is-flex is-justify-content-flex-end is-clickable"
           onClick={onClose}
         >
           ✕

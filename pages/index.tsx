@@ -21,97 +21,94 @@ export default function Page({
   const content = story.content;
   return (
     <>
-      <div className={styles.page_wrapper}>
-        <section
-          is-landing-page="true"
-          id="section_1"
-          className={styles.gradient_page}
-        >
-          <div style={{ zIndex: 2, maxWidth: "550px" }}>
-            <Image
-              className={styles.color}
-              src={"/logo_full_white.svg"}
-              layout="responsive"
-              width="250"
-              height="100"
-              alt="logo"
-              priority
-            />
-
-            <Text blok={content} attribute={"description"} />
-          </div>
-          <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
-            <div className={styles.language_switch}>
-              {locales
-                .map((loc) => (
-                  <Link
-                    key={loc}
-                    href={`/${loc === defaultLocale ? "" : loc}`}
-                    locale={false}
-                    passHref
-                  >
-                    <div
-                      className={`px-1 mx-1 ${
-                        loc === locale ? styles.underlined : ""
-                      }`}
-                    >
-                      {loc.toUpperCase()}
-                    </div>
-                  </Link>
-                ))
-                .reduce((prev, curr) => [prev, "|", curr])}
-            </div>
-          </div>
-          <CookiesPopup
-            locales={locales}
-            locale={locale}
-            defaultLocale={defaultLocale}
-            story={story}
-            preview={preview}
+      <section
+        is-landing-page="true"
+        id="section_1"
+        className={styles.gradient_page}
+      >
+        <div style={{ zIndex: 2, maxWidth: "550px" }}>
+          <Image
+            className={styles.color}
+            src={"/logo_full_white.svg"}
+            layout="responsive"
+            width="250"
+            height="100"
+            alt="logo"
+            priority
           />
-          <Blobs />
-        </section>
-      </div>
-      <div className={styles.page_wrapper}>
-        <section className={styles.find_help}>
-          <h1>{content.question_headline}</h1>
-          <GetHelp content={content} />
-        </section>
 
-        <section className={styles.gradient_page}>
-          <div style={{ zIndex: 2 }}>
-            <h1>{content.title1}</h1>
-            <div className={styles.btn_container}>
-              <LinkButton href="/domestic_general" variant="white">
-                {content.domestic_violence}
-              </LinkButton>
-              <LinkButton href="/sexual_general" variant="white">
-                {content.sexual_violence}
-              </LinkButton>
-            </div>
+          <Text blok={content} attribute={"description"} />
+        </div>
+        <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
+          <div className={styles.language_switch}>
+            {locales
+              .map((loc) => (
+                <Link
+                  key={loc}
+                  href={`/${loc === defaultLocale ? "" : loc}`}
+                  locale={false}
+                  passHref
+                >
+                  <div
+                    className={`px-1 mx-1 ${
+                      loc === locale ? styles.underlined : ""
+                    }`}
+                  >
+                    {loc.toUpperCase()}
+                  </div>
+                </Link>
+              ))
+              .reduce((prev, curr) => [prev, "|", curr])}
           </div>
-          <Blobs />
-        </section>
+        </div>
+        <CookiesPopup
+          locales={locales}
+          locale={locale}
+          defaultLocale={defaultLocale}
+          story={story}
+          preview={preview}
+        />
+        <Blobs />
+      </section>
 
-        <section className={styles.white_page}>
-          <h1>{content.title2}</h1>
-          <p>{content.title2_p}</p>
-        </section>
-        <section className={styles.gradient_page}>
-          <div style={{ zIndex: 2 }}>
-            <h1>{content.title3}</h1>
-            <div className={styles.btn_container}>
-              <LinkButton
-                href={"https://seu2.cleverreach.com/f/314808-318550/"}
-                variant="white"
-              >
-                {content.newsletter}
-              </LinkButton>
-            </div>
+      <section className={styles.find_help}>
+        <h1>{content.question_headline}</h1>
+        <GetHelp content={content} />
+      </section>
+
+      <section className={styles.gradient_page}>
+        <div style={{ zIndex: 2 }}>
+          <h1>{content.title1}</h1>
+          <div className={styles.btn_container}>
+            <LinkButton href="/domestic_general" variant="white">
+              {content.domestic_violence}
+            </LinkButton>
+            <LinkButton href="/sexual_general" variant="white">
+              {content.sexual_violence}
+            </LinkButton>
           </div>
-          <Blobs />
-        </section>
-      </div>
+        </div>
+        <Blobs />
+      </section>
+
+      <section className={styles.white_page}>
+        <h1>{content.title2}</h1>
+        <p>{content.title2_p}</p>
+      </section>
+      <section className={styles.gradient_page}>
+        <div style={{ zIndex: 2 }}>
+          <h1>{content.title3}</h1>
+          <div className={styles.btn_container}>
+            <LinkButton
+              href={"https://seu2.cleverreach.com/f/314808-318550/"}
+              variant="white"
+            >
+              {content.newsletter}
+            </LinkButton>
+          </div>
+        </div>
+        <Blobs />
+      </section>
     </>
   );
 }
