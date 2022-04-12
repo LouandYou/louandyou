@@ -51,9 +51,9 @@ export function CookiesPopup({
                 .reduce((prev, curr) => [prev, "|", curr])}
             </div>
           </div>
-          <p className="py-3">
+          <div className="py-3">
             <Text blok={story.content} attribute={"cookies_paragraph"} />
-          </p>
+          </div>
           <div className="is-flex is-justify-content-space-between">
             <button onClick={handleOnClick} className={styles.button}>
               okay, cool
