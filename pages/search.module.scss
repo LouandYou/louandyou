@@ -6,9 +6,10 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-flow: column;
-  padding: 45px;
+  margin-top: 63px;
+
+  padding: 40px 45px;
   @include tablet {
-    padding: 0 350px;
     text-align: center;
   }
 }

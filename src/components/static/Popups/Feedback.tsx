@@ -92,7 +92,7 @@ export function Feedback({ onClose }: Props): ReactElement {
         <p className="pt-5 pr-2">
           Did I address your personal needs this time?
         </p>
-        <div className="py-2 is-flex">
+        <div style={{ gap: "20px" }} className="py-2 is-flex">
           <Checkbox
             type="radio"
             value="yes"
