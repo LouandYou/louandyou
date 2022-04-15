@@ -49,7 +49,7 @@ export function Navbar({
         }`}
       >
         <div onClick={() => setIsOpen(false)} className={styles.logo}>
-          <Link passHref href="/">
+          <Link href="/">
             <Image
               className={styles.color}
               src={"/ampersand_white.svg"}
