@@ -83,6 +83,7 @@ const trimMatches = (query: string, matches: string[]) => {
 
 const Highlight = ({ text, query }: { text: string; query: string }) => {
   const parts = text.split(new RegExp(`(${query})`, "gi"));
+
   return (
     <span>
       ...
@@ -150,17 +151,38 @@ export default function SearchPage({ stories, ...props }) {
           <FontAwesomeIcon color="#363636" icon={faSearch} />
         </span>
       </div>
-      <div className="control has-icons-right mt-3">
+      <div className="control has-icons-right mt-4">
+        {results.length > 0 && (
+          <p>
+            Ich habe <b>{results.length}</b> Ergebnisse gefunden.
+          </p>
+        )}
         {results.map((story) => (
-          <div className="mt-5" key={story.id}>
-            <h3 className="has-text-weight-bold">{story.name}</h3>
-            <p className="mt-1">
-              {story.matches.map((match) => (
-                <Highlight key={match} query={query} text={match} />
-              ))}
-            </p>
-          </div>
+          <>
+            <div
+              onClick={() => router.push(story.full_slug)}
+              style={{ marginTop: "50px", overflowWrap: "anywhere" }}
+              className="is-clickable"
+              key={story.id}
+            >
+              <h3>{story.name}</h3>
+              <p style={{ lineHeight: "30px" }} className="mt-2">
+                {story.matches.map((match) => (
+                  <Highlight key={match} query={query} text={match} />
+                ))}
+              </p>
+            </div>
+          </>
         ))}
+        {results.length === 0 && (
+          <p style={{ marginTop: "110px" }}>
+            Leider habe ich noch keine Artikel gefunden, die zu deinem
+            Such-begriff passen. Ich würde mich freuen, wenn du mir kurz über
+            das Feedback-Formular mitteilst, was du hier noch nicht finden
+            konntest. Dann kann ich es auf meine Liste mit Themen setzen, die
+            ich dir bald zur Verfügung stellen will.
+          </p>
+        )}
       </div>
     </div>
   );

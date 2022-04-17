@@ -7,8 +7,13 @@
   align-items: flex-start;
   flex-flow: column;
   margin-top: 63px;
-
   padding: 40px 45px;
+
+  & h3 {
+    font-size: 24px;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+  }
   @include tablet {
     text-align: center;
   }
