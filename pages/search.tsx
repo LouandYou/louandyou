@@ -10,9 +10,9 @@ const queryStories = (query: string, locale: string) =>
   fetch("/api/search", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify({ query, language: locale }),
+    body: JSON.stringify({ query, language: locale })
   })
     .then((res) => res.json())
     .then(({ data }) => {
@@ -20,21 +20,24 @@ const queryStories = (query: string, locale: string) =>
         (stories, story) =>
           stories.concat({
             ...story,
-            matches: trimMatches(query, getMatches(query, story.content)),
+            matches: trimMatches(query, getMatches(query, story.content))
           }),
         []
-      );
+      )// Filter out document keys irrelevant to the search
+        .filter((story) => story.matches.length > 0);
     });
 
 // Recursively walk through the story contents and extract any
 // content nodes that match the original text query
+const nonSearchableKeys = ["_uid", "_editable", "id", "href", "component"];
 const getMatches = (query: string, story: any) => {
   if (!story) return [];
   return Object.keys(story).reduce<string[]>((matches, key) => {
     const node = story[key];
+    if (nonSearchableKeys.indexOf(key) > -1) return matches;
+
     if (
-      typeof node === "string" &&
-      !story.hasOwnProperty("_uid", "_editable")
+      typeof node === "string"
     ) {
       if (node.toLowerCase().includes(query.toLowerCase())) {
         matches.push(node);
@@ -177,7 +180,7 @@ export default function SearchPage({ stories, ...props }) {
         {results.length === 0 && (
           <p style={{ marginTop: "110px" }}>
             Leider habe ich noch keine Artikel gefunden, die zu deinem
-            Such-begriff passen. Ich würde mich freuen, wenn du mir kurz über
+            Suchbegriff passen. Ich würde mich freuen, wenn du mir kurz über
             das Feedback-Formular mitteilst, was du hier noch nicht finden
             konntest. Dann kann ich es auf meine Liste mit Themen setzen, die
             ich dir bald zur Verfügung stellen will.

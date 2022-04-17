@@ -19,7 +19,6 @@ export default async function search(req, res) {
   try {
     const stories = await Storyblok.get("cdn/stories", params).then(
       ({ data }) => {
-        console.debug("data", data);
         return (
           data.stories
             // Filter out the layout story

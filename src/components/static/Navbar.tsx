@@ -15,11 +15,11 @@ const prependSlash = (path: string) =>
   path.charAt(0) === "/" ? path : `/${path}`;
 
 export function Navbar({
-  content,
-  locale,
-  locales,
-  defaultLocale,
-}): ReactElement {
+                         content,
+                         locale,
+                         locales,
+                         defaultLocale
+                       }): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const router = useRouter();
@@ -27,7 +27,7 @@ export function Navbar({
   const isLandingPage = useScrollingBackgroundColor({
     elements: () =>
       Array.from(document.querySelectorAll("#section_1, #section_2")),
-    offset: 60,
+    offset: 60
   });
 
   const handleOnClick = (path: string) => {
@@ -48,17 +48,21 @@ export function Navbar({
           isLandingPage ? "" : styles.nav_background
         }`}
       >
-        <div tabIndex={0} className={styles.logo}>
-          <Image
-            className={styles.color}
-            src={"/ampersand_white.svg"}
-            layout="fixed"
-            width="23"
-            height="23"
-            alt="logo"
-            priority
-            onClick={() => handleOnClick("/")}
-          />
+        <div className={styles.logo}>
+          <Link passHref href="/">
+            <a>
+              <Image
+                className={styles.color}
+                src={"/ampersand_white.svg"}
+                layout="fixed"
+                width="23"
+                height="23"
+                alt="logo"
+                tabIndex={0}
+                priority
+              />
+            </a>
+          </Link>
         </div>
         <input
           checked={isOpen}
@@ -164,6 +168,6 @@ export function Navbar({
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "home",
+    slug: "home"
   });
 }
