@@ -17,7 +17,6 @@ export default function Page({
   locale,
   defaultLocale,
 }) {
-  console.debug("story", story);
   const content = story.content;
   return (
     <>
