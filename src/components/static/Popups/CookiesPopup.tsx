@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { Text } from "../../dynamic";
 
 import styles from "./CookiesPopup.module.scss";
+import router from "next/dist/client/router";
 
 export function CookiesPopup({
   locales,
@@ -42,6 +43,7 @@ export function CookiesPopup({
                     passHref
                   >
                     <div
+                      tabIndex={0}
                       className={`px-1 ${loc === locale ? styles.purple : ""}`}
                     >
                       {loc.toUpperCase()}
@@ -59,10 +61,11 @@ export function CookiesPopup({
               okay, cool
             </button>
 
-            <button className={styles.button}>
-              <Link href="/settings" passHref>
-                settings
-              </Link>
+            <button
+              onClick={() => router.push("/settings")}
+              className={styles.button}
+            >
+              settings
             </button>
           </div>
         </div>

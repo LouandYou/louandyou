@@ -48,18 +48,17 @@ export function Navbar({
           isLandingPage ? "" : styles.nav_background
         }`}
       >
-        <div onClick={() => setIsOpen(false)} className={styles.logo}>
-          <Link passHref href="/">
-            <Image
-              className={styles.color}
-              src={"/ampersand_white.svg"}
-              layout="fixed"
-              width="23"
-              height="23"
-              alt="logo"
-              priority
-            />
-          </Link>
+        <div tabIndex={0} className={styles.logo}>
+          <Image
+            className={styles.color}
+            src={"/ampersand_white.svg"}
+            layout="fixed"
+            width="23"
+            height="23"
+            alt="logo"
+            priority
+            onClick={() => handleOnClick("/")}
+          />
         </div>
         <input
           checked={isOpen}
@@ -67,7 +66,10 @@ export function Navbar({
           className={styles.checkbox}
           type="checkbox"
         />
-        <div className={`${styles.hamburger_lines} ${styles.color}`}>
+        <div
+          tabIndex={0}
+          className={`${styles.hamburger_lines} ${styles.color}`}
+        >
           <span className={`${styles.line} ${styles.line1}`} />
           <span className={`${styles.line} ${styles.line2}`} />
           <span className={`${styles.line} ${styles.line3}`} />
@@ -85,6 +87,7 @@ export function Navbar({
                   passHref
                 >
                   <div
+                    tabIndex={0}
                     className={`mx-1 ${
                       loc === locale ? styles.underlined : ""
                     }`}

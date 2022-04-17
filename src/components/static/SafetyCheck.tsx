@@ -9,7 +9,15 @@ export const SafetyCheck = ({ content }) => {
 
   const handleChange = (e) => {
     setSafety(e.target.value);
-    safety === "yes" || "unsure" ? setIsPopupOpen(true) : null;
+    safety !== "no" ? setIsPopupOpen(true) : "";
+  };
+
+  const handleOnKeyDown = (e) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      const checkboxValue = e.target.previousElementSibling.defaultValue;
+      setSafety(checkboxValue);
+      checkboxValue !== "no" ? setIsPopupOpen(true) : "";
+    }
   };
 
   return (
@@ -18,6 +26,7 @@ export const SafetyCheck = ({ content }) => {
       <div style={{ columnGap: "5rem" }} className="is-flex is-flex-wrap-wrap">
         <div className="mt-5">
           <Checkbox
+            onKeyDown={handleOnKeyDown}
             type="radio"
             checked={safety === "yes"}
             label={content.yes}
@@ -27,14 +36,17 @@ export const SafetyCheck = ({ content }) => {
         </div>
         <div className="mt-5">
           <Checkbox
+            onKeyDown={handleOnKeyDown}
             type="radio"
             checked={safety === "no"}
+            value="no"
             label={content.no}
             onChange={() => setSafety("no")}
           />
         </div>
         <div className="mt-5">
           <Checkbox
+            onKeyDown={handleOnKeyDown}
             type="radio"
             checked={safety === "unsure"}
             label={content.unsure}
