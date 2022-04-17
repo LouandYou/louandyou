@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/dist/client/router";
 
 interface IProps {
   elements: () => HTMLElement[];
@@ -7,6 +8,8 @@ interface IProps {
 }
 
 export default function useScrollingBackgroundColor(props: IProps) {
+  const router = useRouter();
+
   const [elementMap, setElementMap] = React.useState<Map<string, boolean>>(
     new Map()
   );
@@ -62,7 +65,7 @@ export default function useScrollingBackgroundColor(props: IProps) {
     });
     return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router.pathname]);
 
   return isLandingPage;
 }
