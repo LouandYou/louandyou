@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import styles from "./ExitButtonPopup.module.scss";
 import Link from "next/link";
 import { ExitButtonContext } from "../ExitButton/ExitButtonContext";
-import { PageContent } from "../../dynamic";
+import { Text } from "../../dynamic";
 
 interface Props {
   onClose: () => void;
@@ -14,6 +14,7 @@ interface Props {
 export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
   const [togglePopup, setTogglePopup] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(true);
+  console.log(content);
 
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
@@ -35,15 +36,15 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
     return (
       <div className={styles.container}>
         <div className="mb-4">
-          <PageContent blok={content} name="exitButton_popup1_paragraph" />
+          <Text blok={content} attribute="Exit_Button_Popup1_Paragraph" />
         </div>
         <div className="is-flex is-justify-content-center">
           <button onClick={handleClickOne} className={`${styles.button}`}>
-            okay, cool
+            {content.Exit_Button_Popup1_Button}
           </button>
         </div>
         <p onClick={() => setTogglePopup(true)} className={styles.purple_p}>
-          {content.exitButton_popup1_link}
+          {content.Exit_Button_Popup2_Link}
         </p>
       </div>
     );
@@ -52,16 +53,16 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
   const popupTwo = () => {
     return (
       <div className={styles.container}>
-        <p className="mb-5">{content.exitButton_popup2_paragraph}</p>
+        <p className="mb-5">{content.Exit_Button_Popup2_Paragraph}</p>
         <div className="is-flex is-justify-content-center">
           <button onClick={handleClickOne} className={`${styles.button}`}>
             <Link passHref href={"/settings#section_2"}>
-              {content.exitButton_popup2_button}
+              {content.Exit_Button_Popup2_Button}
             </Link>
           </button>
         </div>
         <p onClick={handleClickTwo} className={styles.purple_p}>
-          {content.exitButton_popup2_link}
+          {content.Exit_Button_Popup2_Link}
         </p>
       </div>
     );
