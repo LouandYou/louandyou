@@ -14,7 +14,6 @@ interface Props {
 export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
   const [togglePopup, setTogglePopup] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(true);
-  console.log(content);
 
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
