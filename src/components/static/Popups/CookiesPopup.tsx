@@ -42,12 +42,15 @@ export function CookiesPopup({
                     locale={false}
                     passHref
                   >
-                    <div
-                      tabIndex={0}
-                      className={`px-1 ${loc === locale ? styles.purple : ""}`}
-                    >
-                      {loc.toUpperCase()}
-                    </div>
+                    <a>
+                      <div
+                        className={`px-1 ${
+                          loc === locale ? styles.purple : ""
+                        }`}
+                      >
+                        {loc.toUpperCase()}
+                      </div>
+                    </a>
                   </Link>
                 ))
                 .reduce((prev, curr) => [prev, "|", curr])}

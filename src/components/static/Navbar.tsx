@@ -15,11 +15,11 @@ const prependSlash = (path: string) =>
   path.charAt(0) === "/" ? path : `/${path}`;
 
 export function Navbar({
-                         content,
-                         locale,
-                         locales,
-                         defaultLocale
-                       }): ReactElement {
+  content,
+  locale,
+  locales,
+  defaultLocale,
+}): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const router = useRouter();
@@ -27,7 +27,7 @@ export function Navbar({
   const isLandingPage = useScrollingBackgroundColor({
     elements: () =>
       Array.from(document.querySelectorAll("#section_1, #section_2")),
-    offset: 60
+    offset: 60,
   });
 
   const handleOnClick = (path: string) => {
@@ -58,8 +58,8 @@ export function Navbar({
                 width="23"
                 height="23"
                 alt="logo"
-                tabIndex={0}
                 priority
+                onClick={() => setIsOpen(false)}
               />
             </a>
           </Link>
@@ -71,6 +71,7 @@ export function Navbar({
           type="checkbox"
         />
         <div
+          onKeyDown={({ code }) => (code === "Enter" ? setIsOpen(!isOpen) : "")}
           tabIndex={0}
           className={`${styles.hamburger_lines} ${styles.color}`}
         >
@@ -90,14 +91,15 @@ export function Navbar({
                   locale={false}
                   passHref
                 >
-                  <div
-                    tabIndex={0}
-                    className={`mx-1 ${
-                      loc === locale ? styles.underlined : ""
-                    }`}
-                  >
-                    {loc.toUpperCase()}
-                  </div>
+                  <a>
+                    <div
+                      className={`mx-1 ${
+                        loc === locale ? styles.underlined : ""
+                      }`}
+                    >
+                      {loc.toUpperCase()}
+                    </div>
+                  </a>
                 </Link>
               ))
               .reduce((prev, curr) => [prev, "|", curr])}
@@ -168,6 +170,6 @@ export function Navbar({
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "home"
+    slug: "home",
   });
 }

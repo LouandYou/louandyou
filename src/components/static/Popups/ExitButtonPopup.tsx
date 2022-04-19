@@ -42,7 +42,14 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
             {content.Exit_Button_Popup1_Button}
           </button>
         </div>
-        <p onClick={() => setTogglePopup(true)} className={styles.purple_p}>
+        <p
+          tabIndex={0}
+          onKeyDown={({ code }) =>
+            code === "Enter" ? setTogglePopup(true) : ""
+          }
+          onClick={() => setTogglePopup(true)}
+          className={styles.purple_p}
+        >
           {content.Exit_Button_Popup2_Link}
         </p>
       </div>
@@ -60,7 +67,12 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
             </Link>
           </button>
         </div>
-        <p onClick={handleClickTwo} className={styles.purple_p}>
+        <p
+          tabIndex={0}
+          onKeyDown={({ code }) => (code === "Enter" ? handleClickTwo() : "")}
+          onClick={handleClickTwo}
+          className={styles.purple_p}
+        >
           {content.Exit_Button_Popup2_Link}
         </p>
       </div>
