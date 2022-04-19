@@ -7,7 +7,7 @@ interface Props {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Slider = ({ blackBorder, checked, onChange }: Props, ref: any) => {
+export const Slider = ({ blackBorder, checked, onChange }: Props) => {
   return (
     <>
       <label className={styles.switch}>
