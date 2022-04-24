@@ -30,9 +30,10 @@ export const Checkbox = ({
         onChange={onChange}
         role="checkbox"
         aria-checked={checked}
+        tabIndex={-1}
       />
       {label}
-      <span tabIndex={0} className={styles.checkmark}></span>
+      <span aria-label={label} tabIndex={1} className={styles.checkmark}></span>
     </label>
   );
 };

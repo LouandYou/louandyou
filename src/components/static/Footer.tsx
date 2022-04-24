@@ -11,7 +11,7 @@ export function Footer({ content }): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
 
   return (
-    <section className={styles.footer}>
+    <section aria-label="Footer" className={styles.footer}>
       <div className={`${Cookies.get("CONTRAST") ? styles.black : ""}`}>
         <Image
           className={styles.color}
@@ -229,7 +229,10 @@ export function Footer({ content }): ReactElement {
         </div>
       </div>
       {isFeedbackOpen && (
-        <Feedback onClose={() => setIsFeedbackOpen(!isFeedbackOpen)} />
+        <Feedback
+          content={content}
+          onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
+        />
       )}
     </section>
   );
