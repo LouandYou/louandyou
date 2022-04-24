@@ -2,20 +2,26 @@ import React, { ReactElement, useState } from "react";
 
 import styles from "./Feedback.module.scss";
 import { Checkbox } from "..";
+import { pageGetPropsLayoutOnly } from "../../../lib/pageGetStaticProps";
 
 interface Props {
   onClose: (event: React.MouseEvent<HTMLInputElement>) => void;
+  content: any;
 }
 
-export function Feedback({ onClose }: Props): ReactElement {
+export function Feedback({ onClose, content, ...props }: Props): ReactElement {
   const [hover, setHover] = useState<number | null>(null);
   const [isSent, setIsSent] = useState<boolean | null>(null);
-  const [buttonContent, setButtonContent] = useState<any>("submit");
+  const [buttonContent, setButtonContent] = useState<any>(
+    content.feedback_submit
+  );
   const [isEmptyForm, setIsEmptyForm] = useState<boolean | null>(false);
 
   const [rating, setRating] = useState<number | null>(null);
   const [checkboxValue, setcheckboxValue] = useState<string | null>(null);
   const [textareaValue, setTextareaValue] = useState<string | null>(null);
+
+  console.log(props);
 
   const handleSubmit = async () => {
     if (
@@ -45,7 +51,7 @@ export function Feedback({ onClose }: Props): ReactElement {
 
       if (sent) {
         setIsSent(true);
-        setButtonContent("thank you for helping me help you better!");
+        setButtonContent(content.feedback_success);
       } else {
         setIsSent(false);
       }
@@ -63,8 +69,8 @@ export function Feedback({ onClose }: Props): ReactElement {
         >
           ✕
         </b>
-        <h2>How can I help you even better?</h2>
-        <p className="py-3">How helpful have these information been?</p>
+        <h2>{content.feedback_title}</h2>
+        <p className="py-3">{content.feedback_question1}</p>
         <div className="is-flex is-justify-content-space-evenly">
           {[...Array(5)].map((star, index) => {
             const ratingValue = index + 1;
@@ -89,9 +95,7 @@ export function Feedback({ onClose }: Props): ReactElement {
             );
           })}
         </div>
-        <p className="pt-5 pr-2">
-          Did I address your personal needs this time?
-        </p>
+        <p className="pt-5 pr-2">{content.feedback_question2}</p>
         <div style={{ gap: "20px" }} className="py-2 is-flex">
           <Checkbox
             type="radio"
@@ -115,9 +119,7 @@ export function Feedback({ onClose }: Props): ReactElement {
             onChange={(e) => setcheckboxValue(e.target.value)}
           />
         </div>
-        <p className="pt-5 pr-2">
-          What else would you like me to know or to help you with in the future?
-        </p>
+        <p className="pt-5 pr-2">{content.feedback_question3}</p>
         <textarea
           className="my-4"
           onChange={(e) => setTextareaValue(e.target.value)}
@@ -133,9 +135,13 @@ export function Feedback({ onClose }: Props): ReactElement {
           </button>
         </div>
         {isEmptyForm && (
-          <p className={styles.error}>please fill at least one field</p>
+          <p className={styles.error}> {content.feedback_error}</p>
         )}
       </div>
     </div>
   );
+}
+
+export async function getStaticProps(props) {
+  return await pageGetPropsLayoutOnly(props);
 }
