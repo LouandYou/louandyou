@@ -22,6 +22,7 @@ export function Navbar({
 }): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
+
   const router = useRouter();
 
   const isLandingPage = useScrollingBackgroundColor({
@@ -44,11 +45,12 @@ export function Navbar({
   return (
     <nav className={styles.navbar}>
       <div
+        aria-label="Navbar Header"
         className={`${styles.header} ${
           isLandingPage ? "" : styles.nav_background
         }`}
       >
-        <div className={styles.logo}>
+        <div aria-label="logo-home" className={styles.logo}>
           <Link passHref href="/">
             <a>
               <Image
@@ -57,7 +59,7 @@ export function Navbar({
                 layout="fixed"
                 width="23"
                 height="23"
-                alt="logo"
+                alt="logo-home"
                 priority
                 onClick={() => setIsOpen(false)}
               />
@@ -69,11 +71,14 @@ export function Navbar({
           onChange={() => setIsOpen(!isOpen)}
           className={styles.checkbox}
           type="checkbox"
+          tabIndex={-1}
+          aria-label={!isOpen ? "Open Navbar" : "Close Navbar"}
         />
         <div
           onKeyDown={({ code }) => (code === "Enter" ? setIsOpen(!isOpen) : "")}
           tabIndex={0}
           className={`${styles.hamburger_lines} ${styles.color}`}
+          aria-label={!isOpen ? "Open Navbar" : "Close Navbar"}
         >
           <span className={`${styles.line} ${styles.line1}`} />
           <span className={`${styles.line} ${styles.line2}`} />
@@ -93,6 +98,7 @@ export function Navbar({
                 >
                   <a>
                     <div
+                      aria-label={loc === "de" ? "Deutsch" : "English"}
                       className={`mx-1 ${
                         loc === locale ? styles.underlined : ""
                       }`}
@@ -132,33 +138,38 @@ export function Navbar({
           </p>
           <h3
             onClick={() => handleOnClick("/")}
-            style={{ marginTop: "40px", marginBottom: "40px" }}
+            style={{ marginTop: "35px", marginBottom: "30px" }}
           >
             Home
           </h3>
           <h2>{content.find_support}</h2>
-          <p>about domestic violence</p>
-          <p style={{ marginBottom: "40px" }}>about sexual violence</p>
-          <h2>what’s good to know</h2>
-          <p> about domestic violence</p>
-          <p style={{ marginBottom: "40px" }}> about sexual violence</p>
-          <h3 onClick={() => handleOnClick("/safety_tips")}>safety tips</h3>
+          <p>{content.about_domestic}</p>
+          <p style={{ marginBottom: "30px" }}>{content.about_sexual}</p>
+          <h2>{content.good_to_know}</h2>
+          <p>{content.about_domestic}</p>
+          <p style={{ marginBottom: "30px" }}> {content.about_sexual}</p>
+          <h3
+            style={{ marginBottom: "30px" }}
+            onClick={() => handleOnClick("/safety_tips")}
+          >
+            {content.safety_tips}
+          </h3>
           <h3
             style={{ marginBottom: "50px" }}
             onClick={() => handleOnClick("/settings")}
           >
-            settings
+            {content.settings}
           </h3>
           <div className={styles.wrapper}>
-            <h3>Über Lou&You</h3>
+            <h3>{content.about_louandyou}</h3>
             <Dropdown
-              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
+              content={<Text blok={content} attribute={"navbar_dropdown1"} />}
             />
           </div>
           <div className={styles.wrapper}>
-            <h3>Contact</h3>
+            <h3>{content.contact}</h3>
             <Dropdown
-              content={<Text blok={content} attribute={"dropdown_sexual_2"} />}
+              content={<Text blok={content} attribute={"navbar_dropdown2"} />}
             />
           </div>
         </div>
