@@ -90,56 +90,127 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
     }
   };
 
+  const handleOnKeyDown1 = (e) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      const checked = e.target.previousElementSibling.checked;
+      if (!checked) {
+        setIsContrastState(true);
+        setContrast();
+        Cookies.set("CONTRAST", true);
+      } else {
+        setIsContrastState(false);
+        removeContrast();
+        Cookies.remove("CONTRAST");
+      }
+    }
+  };
+
+  const handleOnKeyDown2 = (e) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      const checked = e.target.previousElementSibling.checked;
+      if (!checked) {
+        setBigFont();
+        setIsBigFont(true);
+        isCookies && Cookies.set("FONT_BIG", true);
+      } else {
+        setSmallFont();
+        setIsBigFont(false);
+        Cookies.remove("FONT_BIG");
+      }
+    }
+  };
+
+  const handleOnKeyDown3 = (e) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      const checked = e.target.previousElementSibling.checked;
+      if (!checked) {
+        setIsExitButton(true);
+        isCookies && Cookies.set("EXIT_BUTTON", true);
+        toggleIsVisible!();
+      } else {
+        setIsExitButton(false);
+        Cookies.remove("EXIT_BUTTON");
+        toggleIsVisible!();
+      }
+    }
+  };
+
+  const handleOnKeyDown4 = (e) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      const checked = e.target.previousElementSibling.checked;
+      if (!checked) {
+        Cookies.remove("DISABLE_COOKIES");
+        setIsCookies(true);
+      } else {
+        Cookies.set("DISABLE_COOKIES", true);
+        Cookies.remove("FONT_BIG");
+        Cookies.remove("NEXT_LOCALE");
+        setIsCookies(false);
+      }
+    }
+  };
+
   return (
     <>
       <section className={styles.landing_page}>
         <h1>{content.section1_title}</h1>
         <h2 className="mb-4">{content.contrast}</h2>
-        <div className="is-flex is-justify-content-space-between">
+        <div className={styles.settings_wrapper}>
           <p>{content.higher_contrast}</p>
           <Slider
+            onKeyDown={handleOnKeyDown1}
             onChange={handleContrast}
             checked={isContrast}
             blackBorder={true}
+            ariaLabel={content.higher_contrast}
           />
         </div>
         <h2 className="mb-4"> {content.font_size}</h2>
-        <div className="is-flex is-justify-content-space-between">
+        <div className={styles.settings_wrapper}>
           <p>{content.big}</p>
           <Slider
             onChange={handleFontSize}
+            onKeyDown={handleOnKeyDown2}
             checked={isBigFont}
             blackBorder={true}
+            ariaLabel={content.big}
           />
         </div>
-        <h2 className="mb-4">{content.language}</h2>
-        <div className={styles.checkbox_wraper}>
-          <Checkbox
-            type="radio"
-            value="de"
-            checked={locale === "de"}
-            label="deutsch"
-            onChange={handleLocale}
-          />
-          <Checkbox
-            type="radio"
-            value="en"
-            checked={locale === "en"}
-            label="english"
-            onChange={handleLocale}
-          />
+        <div className="is-hidden-desktop">
+          <h2 className="mb-4">{content.language}</h2>
+          <div className={styles.checkbox_wraper}>
+            <Checkbox
+              type="radio"
+              value="de"
+              checked={locale === "de"}
+              label="deutsch"
+              onChange={handleLocale}
+            />
+            <Checkbox
+              type="radio"
+              value="en"
+              checked={locale === "en"}
+              label="english"
+              onChange={handleLocale}
+            />
+          </div>
         </div>
       </section>
 
       <section className={styles.color_page}>
         <h1>{content.section2_title}</h1>
         <Text blok={content} attribute={"section2_p"} />
-        <div className={styles.switch_wraper}>
-          <p style={{ fontFamily: "Lato" }}>{content.exit_button}</p>
+        <div
+          style={{ fontFamily: "Lato", marginTop: "48px" }}
+          className={styles.settings_wrapper}
+        >
+          <p>{content.exit_button}</p>
           <Slider
+            onKeyDown={handleOnKeyDown3}
             onChange={handleExitButton}
             checked={isExitButton}
             blackBorder={false}
+            ariaLabel={content.exit_button}
           />
         </div>
       </section>
@@ -149,12 +220,15 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         <Text blok={content} attribute={"section3_p1"} />
         <div
           style={{ marginBottom: "110px", marginTop: "48px" }}
-          className="is-flex is-justify-content-flex-end"
+          className={styles.settings_wrapper}
         >
+          <p style={{ fontFamily: "Lato" }}>{content.section3_subtitle1}</p>
           <Slider
+            onKeyDown={handleOnKeyDown4}
             onChange={handleCookies}
             checked={isCookies}
             blackBorder={true}
+            ariaLabel={"cookies"}
           />
         </div>
         <h2>{content.section3_subtitle2}</h2>
@@ -163,7 +237,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
           style={{ marginTop: "35px" }}
           className="is-flex is-justify-content-flex-end"
         >
-          <Slider blackBorder={true} />
+          {/* <Slider blackBorder={true} /> */}
         </div>
       </section>
     </>

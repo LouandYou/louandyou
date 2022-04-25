@@ -24,6 +24,7 @@
   opacity: 1;
   -webkit-animation: fadein 1s;
   animation: fadein 1s;
+  font-size: 20px;
 }
 
 @keyframes fadein {
@@ -101,6 +102,7 @@
 }
 
 .language_switch {
+  font-size: 17px;
   color: var(--color-font);
   display: flex;
   & div {

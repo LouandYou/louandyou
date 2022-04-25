@@ -100,10 +100,9 @@ export function Navbar({
                 >
                   <a>
                     <div
+                      style={{ margin: "0 5px", fontSize: "17px" }}
                       aria-label={loc === "de" ? "Deutsch" : "English"}
-                      className={`mx-1 ${
-                        loc === locale ? styles.underlined : ""
-                      }`}
+                      className={loc === locale ? styles.underlined : ""}
                     >
                       {loc.toUpperCase()}
                     </div>
@@ -129,6 +128,7 @@ export function Navbar({
               }}
             />
             <span
+              style={{ height: "50px", width: "50px" }}
               className="icon is-right is-clickable"
               onClick={() => {
                 search();
