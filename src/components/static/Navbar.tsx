@@ -174,10 +174,12 @@ export function Navbar({
               <h3>{content.contact}</h3>
               <Dropdown
                 content={
-                  <p onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+                  <>
                     <Text blok={content} attribute={"navbar_dropdown2"} />
-                    Feedback
-                  </p>
+                    <p onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+                      Feedback
+                    </p>
+                  </>
                 }
               />
             </div>

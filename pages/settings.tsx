@@ -19,16 +19,20 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   const { content } = useStoryblok(story, preview, locale);
   const router = useRouter();
 
-  const [fontSize, setFontSize] = useState<string>("normal");
+  const [isBigFont, setIsBigFont] = useState<boolean>(false);
   const [isCookies, setIsCookies] = useState<boolean>(true);
-  const [contrast, setContrastState] = useState<string>("no contrast");
+  const [isContrast, setIsContrastState] = useState<boolean>(false);
+  const [isExitButton, setIsExitButton] = useState<boolean>(true);
 
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
   useEffect(() => {
-    Cookies.get("FONT_BIG") ? setFontSize("big") : null;
-    Cookies.get("DISABLE_COOKIES") ? setIsCookies(false) : null;
-    Cookies.get("CONTRAST") ? setContrastState("contrast") : null;
+    Cookies.get("FONT_BIG") ? setIsBigFont(true) : setIsBigFont(false);
+    Cookies.get("DISABLE_COOKIES") ? setIsCookies(false) : setIsCookies(true);
+    Cookies.get("CONTRAST")
+      ? setIsContrastState(true)
+      : setIsContrastState(false);
+    Cookies.get("EXIT_BUTTON") ? setIsExitButton(false) : setIsExitButton(true);
   }, []);
 
   const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,31 +43,39 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   };
 
   const handleContrast = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "no contrast") {
-      setContrastState(e.target.value);
-      removeContrast();
-      Cookies.remove("CONTRAST");
-    } else {
-      setContrastState(e.target.value);
+    if (e.target.checked) {
+      setIsContrastState(true);
       setContrast();
       Cookies.set("CONTRAST", true);
+    } else {
+      setIsContrastState(false);
+      removeContrast();
+      Cookies.remove("CONTRAST");
     }
   };
 
   const handleFontSize = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "normal") {
-      setSmallFont();
-      setFontSize(e.target.value);
-      Cookies.remove("FONT_BIG");
-    } else {
+    if (e.target.checked) {
       setBigFont();
-      setFontSize(e.target.value);
+      setIsBigFont(true);
       isCookies && Cookies.set("FONT_BIG", true);
+    } else {
+      setSmallFont();
+      setIsBigFont(false);
+      Cookies.remove("FONT_BIG");
     }
   };
 
-  const handleExitButton = () => {
-    toggleIsVisible!();
+  const handleExitButton = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setIsExitButton(true);
+      isCookies && Cookies.set("EXIT_BUTTON", true);
+      toggleIsVisible!();
+    } else {
+      setIsExitButton(false);
+      Cookies.remove("EXIT_BUTTON");
+      toggleIsVisible!();
+    }
   };
 
   const handleCookies = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,7 +94,25 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
     <>
       <section className={styles.landing_page}>
         <h1>{content.section1_title}</h1>
-        <p className="mb-5">{content.language}</p>
+        <h2 className="mb-4">{content.contrast}</h2>
+        <div className="is-flex is-justify-content-space-between">
+          <p>{content.higher_contrast}</p>
+          <Slider
+            onChange={handleContrast}
+            checked={isContrast}
+            blackBorder={true}
+          />
+        </div>
+        <h2 className="mb-4"> {content.font_size}</h2>
+        <div className="is-flex is-justify-content-space-between">
+          <p>{content.big}</p>
+          <Slider
+            onChange={handleFontSize}
+            checked={isBigFont}
+            blackBorder={true}
+          />
+        </div>
+        <h2 className="mb-4">{content.language}</h2>
         <div className={styles.checkbox_wraper}>
           <Checkbox
             type="radio"
@@ -99,74 +129,40 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
             onChange={handleLocale}
           />
         </div>
-        <p className="mb-5">{content.contrast}</p>
-        <div className={styles.checkbox_wraper}>
-          <Checkbox
-            type="radio"
-            value="no contrast"
-            checked={contrast === "no contrast"}
-            label={content.no_contrast}
-            onChange={handleContrast}
-          />
-          <Checkbox
-            type="radio"
-            value="contrast"
-            checked={contrast === "contrast"}
-            label={content.contrast}
-            onChange={handleContrast}
-          />
-        </div>
-        <p className="mb-5">{content.font_size}</p>
-        <div className={styles.checkbox_wraper}>
-          <Checkbox
-            type="radio"
-            checked={fontSize === "normal"}
-            label="normal"
-            value="normal"
-            onChange={handleFontSize}
-          />
-          <Checkbox
-            type="radio"
-            checked={fontSize === "big"}
-            label="big"
-            value={content.big}
-            onChange={handleFontSize}
-          />
-        </div>
       </section>
 
       <section className={styles.color_page}>
         <h1>{content.section2_title}</h1>
-
         <Text blok={content} attribute={"section2_p"} />
-
         <div className={styles.switch_wraper}>
-          <p style={{ fontFamily: "Lato" }}>exit button</p>
-          <Slider onChange={handleExitButton} blackBorder={false} />
+          <p style={{ fontFamily: "Lato" }}>{content.exit_button}</p>
+          <Slider
+            onChange={handleExitButton}
+            checked={isExitButton}
+            blackBorder={false}
+          />
         </div>
       </section>
       <section className={styles.white_page}>
         <h1>{content.section3_title}</h1>
-        <p className="pb-4">
-          <b>{content.section3_subtitle1}</b>
-        </p>
-        <div>
-          <Text blok={content} attribute={"section3_p1"} />
-        </div>
-        <div style={{ marginBottom: "75px" }} className={styles.switch_wraper}>
-          <b>{content.section3_subtitle1}</b>
+        <h2>{content.section3_subtitle1}</h2>
+        <Text blok={content} attribute={"section3_p1"} />
+        <div
+          style={{ marginBottom: "110px", marginTop: "48px" }}
+          className="is-flex is-justify-content-flex-end"
+        >
           <Slider
             onChange={handleCookies}
             checked={isCookies}
             blackBorder={true}
           />
         </div>
-        <p className="pb-4">
-          <b>{content.section3_subtitle2}</b>
-        </p>
+        <h2>{content.section3_subtitle2}</h2>
         <Text blok={content} attribute={"section3_p2"} />
-        <div className={styles.switch_wraper}>
-          <b>{content.usage_data}</b>
+        <div
+          style={{ marginTop: "35px" }}
+          className="is-flex is-justify-content-flex-end"
+        >
           <Slider blackBorder={true} />
         </div>
       </section>
