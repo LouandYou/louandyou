@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useState } from "react";
 import Image from "next/image";
 
 import useScrollingBackgroundColor from "../../utils/useScrollingBackgroundColor";
@@ -10,6 +10,7 @@ import { Dropdown } from "./Dropdown";
 import { Text } from "../dynamic/Text";
 import { useRouter } from "next/dist/client/router";
 import { pageGetStaticProps } from "../../lib/pageGetStaticProps";
+import { Feedback } from "./Popups/Feedback";
 
 const prependSlash = (path: string) =>
   path.charAt(0) === "/" ? path : `/${path}`;
@@ -22,6 +23,7 @@ export function Navbar({
 }): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
 
   const router = useRouter();
 
@@ -112,7 +114,7 @@ export function Navbar({
           </div>
         </div>
         <div className={styles.menu_items}>
-          <p className="control has-icons-right">
+          <div id="search" className="control has-icons-right">
             <input
               style={{ height: "50px", borderWidth: "2px" }}
               className="input is-rounded is-dark"
@@ -135,45 +137,95 @@ export function Navbar({
             >
               <FontAwesomeIcon color="#363636" icon={faSearch} />
             </span>
-          </p>
+          </div>
           <h3
+            className="is-hidden-desktop"
             onClick={() => handleOnClick("/")}
-            style={{ marginTop: "35px", marginBottom: "30px" }}
+            style={{ marginTop: "85px", marginBottom: "30px" }}
           >
             Home
           </h3>
-          <h2>{content.find_support}</h2>
-          <p>{content.about_domestic}</p>
-          <p style={{ marginBottom: "30px" }}>{content.about_sexual}</p>
-          <h2>{content.good_to_know}</h2>
-          <p>{content.about_domestic}</p>
-          <p style={{ marginBottom: "30px" }}> {content.about_sexual}</p>
-          <h3
-            style={{ marginBottom: "30px" }}
-            onClick={() => handleOnClick("/safety_tips")}
-          >
-            {content.safety_tips}
-          </h3>
-          <h3
-            style={{ marginBottom: "50px" }}
-            onClick={() => handleOnClick("/settings")}
-          >
-            {content.settings}
-          </h3>
-          <div className={styles.wrapper}>
-            <h3>{content.about_louandyou}</h3>
-            <Dropdown
-              content={<Text blok={content} attribute={"navbar_dropdown1"} />}
-            />
+          <div className="is-hidden-desktop">
+            <h2>{content.find_support}</h2>
+            <p>{content.about_domestic}</p>
+            <p style={{ marginBottom: "30px" }}>{content.about_sexual}</p>
+            <h2>{content.good_to_know}</h2>
+            <p>{content.about_domestic}</p>
+            <p style={{ marginBottom: "30px" }}> {content.about_sexual}</p>
+            <h3
+              style={{ marginBottom: "30px" }}
+              onClick={() => handleOnClick("/safety_tips")}
+            >
+              {content.safety_tips}
+            </h3>
+            <h3
+              style={{ marginBottom: "50px" }}
+              onClick={() => handleOnClick("/settings")}
+            >
+              {content.settings}
+            </h3>
+            <div className={styles.wrapper}>
+              <h3>{content.about_louandyou}</h3>
+              <Dropdown
+                content={<Text blok={content} attribute={"navbar_dropdown1"} />}
+              />
+            </div>
+            <div className={styles.wrapper}>
+              <h3>{content.contact}</h3>
+              <Dropdown
+                content={
+                  <p onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+                    <Text blok={content} attribute={"navbar_dropdown2"} />
+                    Feedback
+                  </p>
+                }
+              />
+            </div>
           </div>
-          <div className={styles.wrapper}>
-            <h3>{content.contact}</h3>
-            <Dropdown
-              content={<Text blok={content} attribute={"navbar_dropdown2"} />}
-            />
+
+          <div
+            style={{ marginTop: "135px", width: "80%" }}
+            className="is-hidden-mobile columns"
+          >
+            <div className="column">
+              <h2>{content.find_support}</h2>
+              <p>{content.for_domestic}</p>
+              <p>{content.for_sexual}</p>
+
+              <h2 style={{ marginTop: "110px" }}>{content.about_louandyou}</h2>
+              <Text blok={content} attribute={"navbar_dropdown1"} />
+            </div>
+
+            <div className="column">
+              <h2>{content.good_to_know}</h2>
+              <p>{content.about_domestic}</p>
+              <p> {content.about_sexual}</p>
+
+              <h2 style={{ marginTop: "110px" }}>{content.contact}</h2>
+              <Text blok={content} attribute={"navbar_dropdown2"} />
+              <p onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>Feedback</p>
+            </div>
+            <div className="column">
+              <h3
+                style={{ marginBottom: "35px" }}
+                onClick={() => handleOnClick("/safety_tips")}
+              >
+                {content.safety_tips}
+              </h3>
+              <h3 onClick={() => handleOnClick("/settings")}>
+                {content.settings}
+              </h3>
+            </div>
           </div>
         </div>
       </div>
+      {isFeedbackOpen && (
+        <Feedback
+          darkBackground={true}
+          content={content}
+          onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
+        />
+      )}
     </nav>
   );
 }

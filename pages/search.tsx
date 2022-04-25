@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState } from "react";
 
 import styles from "./search.module.scss";
@@ -5,25 +6,28 @@ import { pageGetPropsLayoutOnly } from "../src/lib/pageGetStaticProps";
 import { useRouter } from "next/dist/client/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { Feedback } from "../src/components/static/Popups/Feedback";
+import { Text } from "../src/components/dynamic";
 
 const queryStories = (query: string, locale: string) =>
   fetch("/api/search", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ query, language: locale })
+    body: JSON.stringify({ query, language: locale }),
   })
     .then((res) => res.json())
     .then(({ data }) => {
-      return data.reduce(
-        (stories, story) =>
-          stories.concat({
-            ...story,
-            matches: trimMatches(query, getMatches(query, story.content))
-          }),
-        []
-      )// Filter out document keys irrelevant to the search
+      return data
+        .reduce(
+          (stories, story) =>
+            stories.concat({
+              ...story,
+              matches: trimMatches(query, getMatches(query, story.content)),
+            }),
+          []
+        ) // Filter out document keys irrelevant to the search
         .filter((story) => story.matches.length > 0);
     });
 
@@ -36,9 +40,7 @@ const getMatches = (query: string, story: any) => {
     const node = story[key];
     if (nonSearchableKeys.indexOf(key) > -1) return matches;
 
-    if (
-      typeof node === "string"
-    ) {
+    if (typeof node === "string") {
       if (node.toLowerCase().includes(query.toLowerCase())) {
         matches.push(node);
       }
@@ -54,7 +56,7 @@ const getMatches = (query: string, story: any) => {
 };
 
 // Limit the total character length of the search result
-const maxLength = 100;
+const maxLength = 150;
 const trimMatches = (query: string, matches: string[]) => {
   let length = 0;
   let results: string[] = [];
@@ -113,6 +115,8 @@ export default function SearchPage({ stories, ...props }) {
   const query: string = !!q ? String(q) : "";
   const [searchInput, setSearchInput] = useState<string>("");
   const [results, setResults] = useState<any[]>([]);
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
+  const { content } = props.layoutStory;
 
   useEffect(() => {
     if (query) {
@@ -154,12 +158,12 @@ export default function SearchPage({ stories, ...props }) {
           <FontAwesomeIcon color="#363636" icon={faSearch} />
         </span>
       </div>
-      <div className="control has-icons-right mt-4">
-        {results.length > 0 && (
-          <p>
-            Ich habe <b>{results.length}</b> Ergebnisse gefunden.
-          </p>
-        )}
+      {results.length > 0 && (
+        <h2 className="mt-4 is-hidden-mobile">
+          {content.search_results_for} "{query}"
+        </h2>
+      )}
+      <div className={`has-icons-right ${styles.searchResults}`}>
         {results.map((story) => (
           <>
             <div
@@ -168,7 +172,7 @@ export default function SearchPage({ stories, ...props }) {
               className="is-clickable"
               key={story.id}
             >
-              <h3>{story.name}</h3>
+              <h3 className="is-underlined">{story.name}</h3>
               <p style={{ lineHeight: "30px" }} className="mt-2">
                 {story.matches.map((match) => (
                   <Highlight key={match} query={query} text={match} />
@@ -178,15 +182,29 @@ export default function SearchPage({ stories, ...props }) {
           </>
         ))}
         {results.length === 0 && (
-          <p style={{ marginTop: "110px" }}>
-            Leider habe ich noch keine Artikel gefunden, die zu deinem
-            Suchbegriff passen. Ich würde mich freuen, wenn du mir kurz über
-            das Feedback-Formular mitteilst, was du hier noch nicht finden
-            konntest. Dann kann ich es auf meine Liste mit Themen setzen, die
-            ich dir bald zur Verfügung stellen will.
-          </p>
+          <div className={styles.notFound}>
+            <h2>{content.search_notFound_1}</h2>
+            <br />
+            <p>
+              {content.search_notFound_2}{" "}
+              <b
+                className="is-clickable"
+                onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}
+              >
+                {content.search_notFound_3}
+              </b>{" "}
+              <Text blok={content} attribute={"search_notFound_4"} />
+            </p>
+          </div>
         )}
       </div>
+      {isFeedbackOpen && (
+        <Feedback
+          darkBackground={true}
+          content={content}
+          onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
+        />
+      )}
     </div>
   );
 }

@@ -7,9 +7,15 @@ import { pageGetPropsLayoutOnly } from "../../../lib/pageGetStaticProps";
 interface Props {
   onClose: (event: React.MouseEvent<HTMLInputElement>) => void;
   content: any;
+  darkBackground?: boolean;
 }
 
-export function Feedback({ onClose, content, ...props }: Props): ReactElement {
+export function Feedback({
+  onClose,
+  content,
+  darkBackground,
+  ...props
+}: Props): ReactElement {
   const [hover, setHover] = useState<number | null>(null);
   const [isSent, setIsSent] = useState<boolean | null>(null);
   const [buttonContent, setButtonContent] = useState<any>(
@@ -20,8 +26,6 @@ export function Feedback({ onClose, content, ...props }: Props): ReactElement {
   const [rating, setRating] = useState<number | null>(null);
   const [checkboxValue, setcheckboxValue] = useState<string | null>(null);
   const [textareaValue, setTextareaValue] = useState<string | null>(null);
-
-  console.log(props);
 
   const handleSubmit = async () => {
     if (
@@ -61,7 +65,11 @@ export function Feedback({ onClose, content, ...props }: Props): ReactElement {
   };
 
   return (
-    <div className={styles.overlay}>
+    <div
+      className={`${styles.overlay} ${
+        darkBackground ? styles.darkBackground : ""
+      }`}
+    >
       <div className={styles.content}>
         <b
           className="is-size-5 is-flex is-justify-content-flex-end is-clickable"
@@ -72,7 +80,7 @@ export function Feedback({ onClose, content, ...props }: Props): ReactElement {
         <h2>{content.feedback_title}</h2>
         <p className="py-3">{content.feedback_question1}</p>
         <div className="is-flex is-justify-content-space-evenly">
-          {[...Array(5)].map((star, index) => {
+          {[...Array(5)].map((index) => {
             const ratingValue = index + 1;
             return (
               <label key={index}>
