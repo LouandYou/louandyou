@@ -12,33 +12,27 @@ export function Footer({ content }): ReactElement {
 
   return (
     <section aria-label="Footer" className={styles.footer}>
-      <div className={`${Cookies.get("CONTRAST") ? styles.black : ""}`}>
-        <Image
-          className={styles.color}
-          src={"/logo_full_white.svg"}
-          width="210"
-          height="60"
-          alt="logo"
-          quality={100}
-        />
-      </div>
+      <Image
+        src={"/logo_full_color.png"}
+        width="175"
+        height="60"
+        alt="logo"
+        quality={100}
+      />
+
       <div className="is-hidden-tablet">
-        <div className={styles.links_container1}>
-          <div className={`mb-2 pl-4 ${styles.row_container}`}>
-            <Link href="/">{content.about_us}</Link>
-            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
-            <Link href="/">{content.what_we_do}</Link>
-          </div>
-          <div className={`pl-4 ${styles.row_container}`}>
-            <Link href="/">{content.about_lou}</Link>
-            <Link href="/">impact</Link>
-            <Link href="/">{content.partners}</Link>
-          </div>
+        <div
+          style={{ paddingLeft: "22px", marginTop: "50px", lineHeight: "35px" }}
+        >
+          <b>{content.about_louandyou}</b>
+          <Text blok={content} attribute={"navbar_dropdown1"} />
+          <b>{content.about_louandyou}</b>
+          <Text blok={content} attribute={"support"} />
         </div>
 
         <div className={styles.support}>
           <div>
-            <b className="mb-1">{content.support}</b>
+            {/* <b className="mb-1">{content.support}</b> */}
             <Text blok={content} attribute={"spende1"} />
           </div>
           <span className="is-flex is-justify-content-space-between my-4">
@@ -120,7 +114,7 @@ export function Footer({ content }): ReactElement {
           <Link href="/">{content.bylaws}</Link>
         </div>
       </div>
-      <div className={`is-hidden-mobile ${styles.desktop_container}`}>
+      {/* <div className={`is-hidden-mobile ${styles.desktop_container}`}>
         <div>
           <h1>{content.about}</h1>
           <div className={styles.column_desktop}>
@@ -227,7 +221,7 @@ export function Footer({ content }): ReactElement {
           </span>
           <p>{content.spende2}</p>
         </div>
-      </div>
+      </div> */}
       {isFeedbackOpen && (
         <Feedback
           content={content}

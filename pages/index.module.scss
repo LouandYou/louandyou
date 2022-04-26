@@ -23,7 +23,7 @@
     text-align: left;
     @include tablet {
       text-align: center;
-      font-size: 42px;
+      font-size: 47px;
       line-height: 65px;
     }
   }
@@ -32,10 +32,10 @@
   }
 
   & p {
-    text-align: left;
     @include tablet {
       line-height: 36px;
       text-align: center;
+      font-size: 26px;
     }
   }
 
@@ -75,13 +75,13 @@
     line-height: 43px;
     letter-spacing: 0.02em;
     @include tablet {
-      font-size: 42px;
+      font-size: 47px;
       margin-bottom: 25px;
     }
   }
 
   @include tablet {
-    padding: 160px 360px 100px 360px;
+    padding: 160px 320px 100px 360px;
   }
 }
 
@@ -99,7 +99,7 @@
     text-align: left;
     @include tablet {
       text-align: center;
-      font-size: 46px;
+      font-size: 47px;
       line-height: 65px;
     }
   }
@@ -111,6 +111,10 @@
     align-items: center;
     text-align: center;
     padding: 150px 360px;
+
+    & p {
+      font-size: 26px;
+    }
   }
 }
 

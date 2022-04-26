@@ -95,7 +95,7 @@ export default function Page({
         <Text blok={content} attribute={"title2_p"} />
       </section>
       <section className={styles.gradient_page}>
-        <div style={{ zIndex: 2 }}>
+        <div style={{ zIndex: 2, textAlign: "left" }}>
           <Text blok={content} attribute={"title3"} />
           <div className={styles.btn_container}>
             <LinkButton
