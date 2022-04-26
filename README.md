@@ -4,15 +4,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+1. First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Create a new file <b>.env.local</b> and copy the contents of <b>.env.example</b> into it
+
+3. Enter the <b>STORYBLOK_TOKEN</b> provided by the dev team.
+
+
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/Home.tsx`. The page auto-updates as you edit the file.
 
