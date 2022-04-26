@@ -7,9 +7,10 @@ export const SafetyCheck = ({ content }) => {
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [safety, setSafety] = useState<string>("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSafety(e.target.value);
-    safety !== "no" ? setIsPopupOpen(true) : "";
+
+    e.target.value !== "no" ? setIsPopupOpen(true) : "";
   };
 
   const handleOnKeyDown = (e) => {
