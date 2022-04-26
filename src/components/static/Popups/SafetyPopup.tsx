@@ -19,7 +19,8 @@ export const SafetyPopup = ({
     <div className={styles.overlay}>
       <div className={styles.content}>
         <b
-          className="mb-2 is-flex is-justify-content-flex-end is-clickable"
+          style={{ marginBottom: "21px" }}
+          className="is-flex is-justify-content-flex-end is-clickable"
           onClick={onClose}
         >
           ✕
@@ -42,14 +43,17 @@ export const SafetyPopup = ({
                 </button>
               </Link>
             </div>
-            <div className={`${styles.numbers_desktop} mb-2 is-hidden-mobile`}>
-              <div className="is-flex is-flex-direction-column">
+
+            <div className="columns">
+              <div className="column">
                 <p> {content.ambulance} </p>
                 <p>{content.police}</p>
-                <p>Hotline:</p>
+                <p>Hotline</p>
               </div>
-              <div className="is-flex is-flex-direction-column">
-                <b>112</b> <b>110</b> <b>080-1234567</b>
+              <div className="column has-text-weight-bold">
+                <p>112</p>
+                <p>110</p>
+                <p>080 1234567</p>
               </div>
             </div>
           </>
@@ -63,10 +67,7 @@ export const SafetyPopup = ({
                 </button>
               </Link>
             </div>
-            <p
-              style={{ color: "#979797", fontSize: "var(--size-font-footer4)" }}
-              className="mb-5"
-            >
+            <p style={{ color: "#979797", marginBottom: "60px" }}>
               {content.safety_p1}
             </p>
 

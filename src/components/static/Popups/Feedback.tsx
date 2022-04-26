@@ -72,7 +72,7 @@ export function Feedback({
     >
       <div className={styles.content}>
         <b
-          className="is-size-5 is-flex is-justify-content-flex-end is-clickable"
+          className="is-size-5 mb-3 is-flex is-justify-content-flex-end is-clickable"
           onClick={onClose}
         >
           ✕
@@ -103,8 +103,8 @@ export function Feedback({
             );
           })}
         </div>
-        <p className="pt-5 pr-2">{content.feedback_question2}</p>
-        <div style={{ gap: "20px" }} className="py-2 is-flex">
+        <p className="pt-5 pr-2 pb-2">{content.feedback_question2}</p>
+        <div style={{ gap: "60px" }} className="pb-3 pt-2 is-flex">
           <Checkbox
             type="radio"
             value="yes"
@@ -119,14 +119,15 @@ export function Feedback({
             label="no"
             onChange={(e) => setcheckboxValue(e.target.value)}
           />
-          <Checkbox
-            type="radio"
-            value="not sure"
-            checked={checkboxValue === "not sure"}
-            label="not sure"
-            onChange={(e) => setcheckboxValue(e.target.value)}
-          />
         </div>
+        <Checkbox
+          type="radio"
+          value="not sure"
+          checked={checkboxValue === "not sure"}
+          label="not sure"
+          onChange={(e) => setcheckboxValue(e.target.value)}
+        />
+
         <p className="pt-5 pr-2">{content.feedback_question3}</p>
         <textarea
           className="my-4"
