@@ -32,7 +32,7 @@ export function CookiesPopup({
       {isVisible && (
         <div className={styles.container}>
           <div className="is-flex is-justify-content-space-between">
-            <h2>cookies</h2>
+            <h2>Cookies</h2>
             <div className={styles.language_switch}>
               {locales
                 .map((loc) => (
@@ -60,15 +60,14 @@ export function CookiesPopup({
             <Text blok={story.content} attribute={"cookies_paragraph"} />
           </div>
           <div className="is-flex is-justify-content-space-between">
-            <button onClick={handleOnClick} className={styles.button}>
-              okay, cool
-            </button>
-
             <button
               onClick={() => router.push("/settings")}
               className={styles.button}
             >
-              settings
+              {story.content.cookies_link}
+            </button>
+            <button onClick={handleOnClick} className={styles.button}>
+              {story.content.cookies_link_2}
             </button>
           </div>
         </div>

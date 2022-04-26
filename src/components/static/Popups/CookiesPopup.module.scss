@@ -28,8 +28,14 @@
   }
 
   @include tablet {
-    width: 40%;
-    right: 20px;
+    width: 370px;
+    right: 25px;
+    bottom: 25px;
+
+    & p {
+      line-height: 24px !important;
+      text-align: left !important;
+    }
   }
 }
 

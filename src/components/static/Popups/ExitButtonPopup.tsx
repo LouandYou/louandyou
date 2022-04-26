@@ -51,7 +51,7 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
           onClick={() => setTogglePopup(true)}
           className={styles.purple_p}
         >
-          {content.Exit_Button_Popup2_Link}
+          {content.Exit_Button_Popup1_Link}
         </p>
       </div>
     );

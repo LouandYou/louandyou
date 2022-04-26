@@ -117,7 +117,7 @@
 }
 
 .navbar .menu_items {
-  height: 100vh;
+  height: calc(100vh - 63px);
   overflow-y: auto;
   font-family: "Lato", sans-serif;
   margin-top: 63px;

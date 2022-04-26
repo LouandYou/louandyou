@@ -22,7 +22,6 @@
     font-family: "Lato", sans-serif;
     text-align: left;
     @include tablet {
-      width: 750px;
       text-align: center;
       font-size: 42px;
       line-height: 65px;
@@ -30,6 +29,18 @@
   }
   & span {
     margin-bottom: 20px !important;
+  }
+
+  & p {
+    text-align: left;
+    @include tablet {
+      line-height: 36px;
+      text-align: center;
+    }
+  }
+
+  @include tablet {
+    padding: 0px 360px;
   }
 }
 
@@ -70,7 +81,7 @@
   }
 
   @include tablet {
-    padding: 160px 0px 100px 300px;
+    padding: 160px 360px 100px 360px;
   }
 }
 
@@ -99,7 +110,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 150px 400px;
+    padding: 150px 360px;
   }
 }
 

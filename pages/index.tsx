@@ -25,7 +25,7 @@ export default function Page({
         id="section_1"
         className={styles.gradient_page}
       >
-        <div style={{ zIndex: 2, maxWidth: "550px" }}>
+        <div style={{ zIndex: 2, maxWidth: "650px" }}>
           <Image
             className={styles.color}
             src={"/logo_full_white.svg"}
@@ -92,11 +92,11 @@ export default function Page({
 
       <section className={styles.white_page}>
         <h1>{content.title2}</h1>
-        <p>{content.title2_p}</p>
+        <Text blok={content} attribute={"title2_p"} />
       </section>
       <section className={styles.gradient_page}>
         <div style={{ zIndex: 2 }}>
-          <h1>{content.title3}</h1>
+          <Text blok={content} attribute={"title3"} />
           <div className={styles.btn_container}>
             <LinkButton
               href={"https://seu2.cleverreach.com/f/314808-318550/"}
