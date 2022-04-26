@@ -5,7 +5,7 @@ import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
 
-export default function Page({ story }) {
+export default function Page({ story, layoutStory }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
   const { content } = story;
   return (
@@ -48,7 +48,10 @@ export default function Page({ story }) {
           </button>
         </div>
         {isFeedbackOpen && (
-          <Feedback onClose={() => setIsFeedbackOpen(!isFeedbackOpen)} />
+          <Feedback
+            content={layoutStory.content}
+            onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
+          />
         )}
       </section>
     </>
