@@ -12,7 +12,7 @@ export function Dropdown(props: IProps): ReactElement {
   return (
     <>
       {props.label === "" && (
-        <p className="is-hidden-mobile">{props.content}</p>
+        <div className="is-hidden-mobile">{props.content}</div>
       )}
       <div
         className={`${styles.dropdown_wrapper} ${
