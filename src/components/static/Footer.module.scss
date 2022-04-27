@@ -37,58 +37,47 @@
 .icons_container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   padding-right: 10px;
+
   gap: 20px;
   cursor: pointer;
 }
 
 .support {
-  margin-top: 30px;
+  margin-top: 48px;
   margin-bottom: 35px;
-  padding: 15px 15px;
-  background-color: #86aaff;
+  padding: 15px 21px;
+  background-color: #c2d2ff;
   border-radius: 20px;
   width: 100%;
 
-  img {
-    filter: var(--filter);
+  & p {
+    line-height: 24px;
   }
 
-  & b {
-    line-height: 19px;
-  }
-  & p {
-    font-size: var(--size-font-footer2);
-    line-height: 23px;
-  }
   & :nth-child(3) {
     font-size: var(--size-font-footer4);
     line-height: 18px;
+    margin-top: 19px;
   }
 }
 
-.links_container2 {
+.links_row {
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: center;
-  margin-bottom: 32px;
-  & a {
-    width: 30%;
-    font-weight: 400;
-  }
-
-  & p {
-    width: 30%;
-  }
+  justify-content: flex-start;
+  padding-left: 22px;
+  margin-top: 67px;
+  line-height: 35px;
 }
 
-.last_row {
+.last_icons {
+  margin-top: 104px;
+  padding-left: 22px;
   display: flex;
-  width: 100%;
   justify-content: space-between;
-  font-size: var(--size-font-footer3);
 }
 
 .desktop_container {
@@ -104,8 +93,4 @@
   flex-direction: column;
   align-items: space-between;
   gap: 7px;
-}
-
-.color {
-  filter: var(--filter);
 }

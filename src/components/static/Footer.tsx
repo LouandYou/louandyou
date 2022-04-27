@@ -5,7 +5,6 @@ import styles from "./Footer.module.scss";
 import Link from "next/link";
 import { Text } from "../dynamic";
 import { Feedback } from "./Popups/Feedback";
-import Cookies from "js-cookie";
 
 export function Footer({ content }): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
@@ -14,214 +13,99 @@ export function Footer({ content }): ReactElement {
     <section aria-label="Footer" className={styles.footer}>
       <Image
         src={"/logo_full_color.png"}
-        width="175"
-        height="60"
+        width="180"
+        height="65"
         alt="logo"
+        priority
         quality={100}
       />
 
-      <div className="is-hidden-tablet">
+      <div className="">
         <div
           style={{ paddingLeft: "22px", marginTop: "50px", lineHeight: "35px" }}
         >
           <b>{content.about_louandyou}</b>
           <Text blok={content} attribute={"navbar_dropdown1"} />
-          <b>{content.about_louandyou}</b>
+          <span style={{ margin: "20px" }} />
           <Text blok={content} attribute={"support"} />
         </div>
 
         <div className={styles.support}>
-          <div>
-            {/* <b className="mb-1">{content.support}</b> */}
-            <Text blok={content} attribute={"spende1"} />
-          </div>
-          <span className="is-flex is-justify-content-space-between my-4">
-            <Image
-              src={"/payment/apple.svg"}
-              width="43"
-              height="16"
-              alt="apple pay logo"
-            />
-            <Image
-              src={"/payment/visa.svg"}
-              width="90"
-              height="30"
-              alt="visa logo"
-            />
-            <Image
-              src={"/payment/paypal.svg"}
-              width="56"
-              height="20"
-              alt="paypal logo"
-            />
+          <Text blok={content} attribute={"spende1"} />
+
+          <span className="is-flex my-5">
+            <p className="mr-5"> {content.or_with}</p>
+            <a href="https://www.paypal.com/donate/?token=i_YUxdgDwqrbHyMpuxPouj5DnWgnw8VpxUYVeqxLiF_NTfXhvP7liQn9F4PhmTGTbfhmfmliyYEA8F0d">
+              <Image
+                src={"/payment/paypal.svg"}
+                width="56"
+                height="20"
+                alt="paypal logo"
+              />
+            </a>
           </span>
           <p>{content.spende2}</p>
         </div>
-        <div className={`mb-5 ${styles.row_container}`}>
-          <div className="is-flex is-flex-direction-column">
-            <b>{content.follow}</b>
-            <Link href="/">newsletter</Link>
+
+        <div className="is-flex is-justify-content-space-between">
+          <div
+            style={{ paddingLeft: "22px", lineHeight: "35px" }}
+            className="is-flex is-flex-direction-column"
+          >
+            <b>{content.contact}</b>
+            <Text blok={content} attribute={"navbar_dropdown2"} />
+            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>Feedback</a>
           </div>
           <span className={styles.icons_container}>
-            <div>
-              <Image
-                className={styles.color}
-                src={"/social/instagram.png"}
-                width="34"
-                height="34"
-                alt="instagram logo"
-              />
-            </div>
-            <div>
-              <Image
-                className={styles.color}
-                src={"/social/facebook.png"}
-                width="34"
-                height="34"
-                alt="facebook logo"
-              />
-            </div>
-            <div>
-              <Image
-                className={styles.color}
-                src={"/social/linkedin.png"}
-                width="40"
-                height="34"
-                alt="linkedin logo"
-              />
-            </div>
+            <Image
+              src={"/social/instagram.png"}
+              width="34"
+              height="34"
+              alt="instagram logo"
+            />
+            <Image
+              src={"/social/facebook.png"}
+              width="34"
+              height="34"
+              alt="facebook logo"
+            />
+            <Image
+              src={"/social/linkedin.png"}
+              width="40"
+              height="34"
+              alt="linkedin logo"
+            />
           </span>
         </div>
-        <div className={styles.links_container2}>
-          <div className={styles.row_container}>
-            <p>{content.donors}</p>
-            <p>{content.for_partners}</p>
-            <p>{content.press}</p>
-          </div>
-          <div className={styles.row_container}>
-            <Link href="/">one pager</Link>
-            <Link href="/">one pager</Link>
-            <Link href="/">press kit</Link>
-          </div>
-          <div className={styles.row_container}>
-            <Link href="/">pitch deck</Link>
-          </div>
-        </div>
-        <div className={styles.last_row}>
-          <Link href="/">{content.data}</Link>
-          <Link href="/">{content.imprint}</Link>
-          <Link href="/">{content.disclaimer}</Link>
-          <Link href="/">{content.bylaws}</Link>
-        </div>
-      </div>
-      {/* <div className={`is-hidden-mobile ${styles.desktop_container}`}>
-        <div>
-          <h1>{content.about}</h1>
-          <div className={styles.column_desktop}>
-            <Link href="/">{content.what_we_do}</Link>
-            <Link href="/">{content.about_lou}</Link>
-            <Link href="/">{content.about_us}</Link>
-            <Link href="/">{content.partners}</Link>
-            <Link href="/">Impact</Link>
-          </div>
-        </div>
-        <div>
-          <div>
-            <h1>{content.donors}</h1>
-            <div className={styles.column_desktop}>
-              <Link href="/">One Pager</Link>
-              <Link href="/">Pitch Deck</Link>
-            </div>
-          </div>
-          <div>
-            <h1 style={{ marginTop: "40px" }}>{content.press}</h1>
-            <Link href="/">Press Kit</Link>
-          </div>
-          <div>
-            <h1 style={{ marginTop: "40px" }}>{content.for_partners}</h1>
-            <Link href="/">One Pager</Link>
-          </div>
-        </div>
-        <div>
-          <h1>{content.legal}</h1>
-          <div className={styles.column_desktop}>
+
+        <div className="is-flex">
+          <div className={styles.links_row}>
             <Link href="/">{content.imprint}</Link>
             <Link href="/">{content.data}</Link>
-            <Link href="/">{content.disclaimer}</Link>
             <Link href="/">{content.bylaws}</Link>
           </div>
-        </div>
-        <div>
-          <div>
-            <div className={styles.column_desktop}>
-              <h1>{content.follow}</h1>
-              <Link href="/">Newsletter</Link>
-              <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>feedback</a>
-            </div>
+          <div className={styles.links_row}>
+            <Link href="/">{content.accessibility}</Link>
+            <Link href="/">{content.disclaimer}</Link>
           </div>
-          <span
-            style={{ marginTop: "32px" }}
-            className={styles.icons_container}
-          >
-            <a href={"https://www.instagram.com/louandyouapp/"}>
-              <Image
-                className={styles.color}
-                src={"/social/instagram.png"}
-                width="34"
-                height="34"
-                alt="instagram logo"
-              />
-            </a>
-            <a href={"https://www.facebook.com/louandyou.org"}>
-              <Image
-                className={styles.color}
-                src={"/social/facebook.png"}
-                width="34"
-                height="34"
-                alt="facebook logo"
-              />
-            </a>
-            <a href={"https://www.linkedin.com/company/louandyou/"}>
-              <Image
-                className={styles.color}
-                src={"/social/linkedin.png"}
-                width="40"
-                height="34"
-                alt="linkedin logo"
-              />
-            </a>
-          </span>
         </div>
-        <div style={{ width: "500px", margin: 0 }} className={styles.support}>
-          <div style={{ textAlign: "center" }}>
-            <b>{content.support}</b>
-            <div style={{ textAlign: "left" }}>
-              <Text blok={content} attribute={"spende1"} />
-            </div>
-          </div>
-          <span className="is-flex is-justify-content-space-around my-4">
-            <Image
-              src={"/payment/apple.svg"}
-              width="43"
-              height="16"
-              alt="apple pay logo"
-            />
-            <Image
-              src={"/payment/visa.svg"}
-              width="90"
-              height="30"
-              alt="visa logo"
-            />
-            <Image
-              src={"/payment/paypal.svg"}
-              width="56"
-              height="20"
-              alt="paypal logo"
-            />
-          </span>
-          <p>{content.spende2}</p>
+        <div className={styles.last_icons}>
+          <Image
+            src={"/data-protection.png"}
+            width="129"
+            height="150"
+            alt="hey data"
+          />
+          <Image
+            src={"/german.png"}
+            width="160"
+            height="150"
+            alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
+          />
         </div>
-      </div> */}
+      </div>
+
+      <div className={`is-hidden-mobile ${styles.desktop_container}`}></div>
       {isFeedbackOpen && (
         <Feedback
           content={content}
