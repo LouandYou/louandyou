@@ -106,7 +106,6 @@ export default function Page({
             </LinkButton>
           </div>
         </div>
-        <Blobs />
       </section>
     </>
   );
