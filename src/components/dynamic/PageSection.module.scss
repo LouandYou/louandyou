@@ -6,7 +6,7 @@
   justify-content: center;
 
   &.white {
-    padding: 105px 45px;
+    padding: 110px 45px 200px 45px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,14 +16,14 @@
       font-family: "Lato", sans-serif;
       font-size: 24px;
       line-height: 32px;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
     & h2 {
       font-family: "Lato", sans-serif;
       font-size: 24px;
       line-height: 32px;
-      margin-bottom: 30px;
-      margin-top: 140px;
+      margin-bottom: 25px;
+      margin-top: 110px;
     }
 
     & h3 {
@@ -31,14 +31,14 @@
     }
 
     & h4 {
-      margin-bottom: 140px;
+      margin-bottom: 55px;
       @include tablet {
         display: none;
       }
     }
 
     @include tablet {
-      padding: 150px 350px;
+      padding: 150px 250px;
       gap: 20px;
 
       & div:first-child div div {
@@ -47,6 +47,17 @@
 
       & > div:first-child {
         margin-bottom: 0;
+      }
+
+      & h1 {
+        font-size: 35px;
+        margin-bottom: 45px;
+      }
+
+      & h2 {
+        margin-top: 250px;
+        font-size: 35px;
+        margin-bottom: 45px;
       }
     }
   }
@@ -66,7 +77,7 @@
     }
 
     @include tablet {
-      padding: 100px 350px;
+      padding: 100px 250px;
 
       & > div:first-child {
         margin-bottom: 0;
@@ -76,14 +87,14 @@
 
   &.gradient {
     display: block;
-    padding: 100px 45px 100px 45px;
+    padding: 110px 45px 102px 45px;
     background-color: #8d8bf4;
     color: var(--color-font);
     min-height: 100vh;
+    line-height: 29px;
     font-family: "Lato", sans-serif;
 
     & h1 {
-      font-family: "Lato", sans-serif;
       font-size: 41px;
       line-height: 55px;
       text-align: center;
@@ -91,8 +102,10 @@
     }
 
     & h2 {
-      font-size: 32px;
-      line-height: 43px;
+      font-size: 24px;
+      line-height: 37px;
+      text-align: center;
+      margin-bottom: 25px;
     }
     & button {
       margin-top: 118px;
@@ -111,7 +124,7 @@
       text-decoration-color: var(--color-font) !important;
     }
     @include tablet {
-      padding: 0px 350px;
+      padding: 0px 250px;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -120,6 +133,11 @@
       & h1 {
         font-size: 46px;
         line-height: 65px;
+      }
+
+      & h2 {
+        font-size: 47px;
+        margin-bottom: 60px;
       }
     }
   }
@@ -130,19 +148,19 @@
     color: var(--color-font);
     justify-content: flex-end;
     font-family: "Lato", sans-serif;
+
     & h1 {
-      text-align: left;
-      font-size: 41px;
+      font-size: 32px;
     }
     & p {
       display: none;
     }
     & > div:first-child {
-      padding: 0 40px 120px 40px;
+      padding: 0 45px 110px 45px;
     }
 
     @include tablet {
-      padding: 0px 320px;
+      padding: 0px 250px;
       align-items: center;
       justify-content: center;
 
@@ -151,7 +169,7 @@
       }
 
       & h1 {
-        font-size: 48px;
+        font-size: 47px;
         line-height: 65px;
         text-align: center;
       }

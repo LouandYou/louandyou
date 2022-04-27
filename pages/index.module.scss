@@ -24,7 +24,7 @@
     @include tablet {
       text-align: center;
       font-size: 47px;
-      line-height: 65px;
+      line-height: 63px;
     }
   }
   & span {
@@ -35,7 +35,6 @@
     @include tablet {
       line-height: 36px;
       text-align: center;
-      font-size: 26px;
     }
   }
 
@@ -111,10 +110,6 @@
     align-items: center;
     text-align: center;
     padding: 150px 360px;
-
-    & p {
-      font-size: 26px;
-    }
   }
 }
 

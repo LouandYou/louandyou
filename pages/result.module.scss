@@ -4,16 +4,15 @@
 .landing_page {
   background-color: #8b8bf4;
   min-height: 100vh;
-  padding: 105px 45px 101px 45px;
+  padding: 121px 45px 161px 45px;
   display: flex;
   flex-direction: column;
-  line-height: 37px;
-  font-weight: 400;
+  line-height: 29px;
   color: var(--color-font);
 
   @include tablet {
-    padding: 0px 350px;
-    justify-content: center !important;
+    padding: 0px 250px;
+    justify-content: center;
 
     & p {
       text-align: center;
@@ -21,24 +20,20 @@
   }
 
   & h1 {
-    font-family: "Lato", sans-serif;
     font-size: 32px;
     line-height: 43px;
-    margin-bottom: 30px;
-    margin-top: 115px;
+    margin-bottom: 55px;
 
     @include tablet {
       text-align: center;
-      font-size: 46px;
+      font-size: 47px;
       line-height: 65px;
       margin-top: 50px;
     }
   }
 
   & h2 {
-    font-family: "Lato", sans-serif;
-    font-size: 41px;
-    line-height: 55px;
+    font-size: 24px;
     text-align: center;
     @include tablet {
       text-align: center;
@@ -58,16 +53,17 @@
   justify-content: center;
   align-items: center;
   color: #101223;
-  line-height: 37px;
+  line-height: 29px;
   letter-spacing: 0.02em;
   text-align: left;
-  padding: 45px;
+  padding: 0 45px;
   @include tablet {
-    padding: 0px 350px;
+    padding: 0px 250px;
     justify-content: center;
     text-align: center;
     & span:first-child {
-      font-size: 41px;
+      font-size: 47px;
+      line-height: 63px;
       font-family: "Lato", sans-serif;
     }
   }
@@ -101,13 +97,13 @@
 .warning {
   background-color: #8b8bf4;
   min-height: 100vh;
-  padding: 106px 45px;
+  padding: 158px 45px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   text-align: center;
   color: var(--color-font);
-  line-height: 37px;
+  line-height: 29px;
   letter-spacing: 0.02em;
 
   & h1 {
@@ -115,7 +111,7 @@
     font-size: 32px;
   }
   & button {
-    margin-top: 90%;
+    margin-top: 110px;
   }
 
   @include tablet {
@@ -134,16 +130,14 @@
 }
 
 .white_page {
-  padding: 100px 45px 160px 45px;
+  padding: 108px 45px 200px 45px;
   background-color: #fff;
-  line-height: 37px;
+  line-height: 29px;
 
   & h2 {
-    font-family: "Lato", sans-serif;
-    font-size: 41px;
-    line-height: 55px;
-    text-align: center;
-    margin-bottom: 50px;
+    font-size: 32px;
+    line-height: 43px;
+    margin-bottom: 25px;
   }
   & h3 {
     font-size: 24px;
@@ -152,24 +146,30 @@
     margin: 105px 0;
   }
   & div button {
-    margin-top: 140px;
+    margin-top: 110px;
   }
 
   @include tablet {
-    padding: 200px 350px;
+    padding: 200px 250px;
     justify-content: center;
-    line-height: 50px;
+    line-height: 40px;
+    text-align: center;
 
     & h1 {
       font-size: 46px;
       line-height: 65px;
     }
 
+    & h2 {
+      font-size: 46px;
+    }
+
     & h3 {
       font-size: 46px;
       line-height: 65px;
-      margin-top: 200px;
+      margin-top: 500px;
       margin-bottom: 50px;
+      text-align: center;
     }
 
     & button {

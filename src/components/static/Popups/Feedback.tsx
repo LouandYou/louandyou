@@ -120,14 +120,15 @@ export function Feedback({
             onChange={(e) => setcheckboxValue(e.target.value)}
           />
         </div>
-        <Checkbox
-          type="radio"
-          value="not sure"
-          checked={checkboxValue === "not sure"}
-          label="not sure"
-          onChange={(e) => setcheckboxValue(e.target.value)}
-        />
-
+        <div style={{ gap: "60px" }} className="pb-3 pt-2 is-flex">
+          <Checkbox
+            type="radio"
+            value="not sure"
+            checked={checkboxValue === "not sure"}
+            label="not sure"
+            onChange={(e) => setcheckboxValue(e.target.value)}
+          />
+        </div>
         <p className="pt-5 pr-2">{content.feedback_question3}</p>
         <textarea
           className="my-4"

@@ -20,7 +20,9 @@ export default function Page({ story, layoutStory }) {
       <PageContent blok={content} name={"body"} />
       <section className={styles.warning} id="section_14">
         <h1 className="mb-5">{content.warning_title}</h1>
-        <p id="trigger-warning">{content.warning_p}</p>
+        <div id="trigger-warning">
+          <Text blok={content} attribute={"warning_p"} />
+        </div>
         <div className="is-flex is-justify-content-center">
           <LinkButton variant={`white`} href={"#section_17"}>
             {content.warning_button}
@@ -34,9 +36,9 @@ export default function Page({ story, layoutStory }) {
       </section>
       <section className={styles.white_page}>
         <h2>{content.lets_build_title1}</h2>
-        <p className="mb-5">{content.lets_build_p3}</p>
+        {/* <p className="mb-5">{content.lets_build_p3}</p> */}
         <Text blok={content} attribute={"lets_build_p1"} />
-        <h3>{content.lets_build_title2}</h3>
+        <h2 style={{ marginTop: "200px" }}>{content.lets_build_title2}</h2>
         <Text blok={content} attribute={"lets_build_p2"} />
 
         <div className="is-flex is-justify-content-center">
@@ -49,6 +51,7 @@ export default function Page({ story, layoutStory }) {
         </div>
         {isFeedbackOpen && (
           <Feedback
+            darkBackground={true}
             content={layoutStory.content}
             onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
           />
