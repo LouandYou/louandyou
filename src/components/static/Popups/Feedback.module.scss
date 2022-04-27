@@ -14,6 +14,7 @@
   align-items: center;
 
   @include tablet {
+    margin-top: 55px;
     justify-content: center;
   }
 }
@@ -32,6 +33,7 @@
   line-height: 24px !important;
   font-family: "Lato", sans-serif !important;
   font-size: 15px;
+  text-align: left !important;
 
   & h2 {
     font-size: 26px !important;

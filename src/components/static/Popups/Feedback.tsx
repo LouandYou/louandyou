@@ -104,28 +104,28 @@ export function Feedback({
           })}
         </div>
         <p className="pt-5 pr-2 pb-2">{content.feedback_question2}</p>
-        <div style={{ gap: "60px" }} className="pb-3 pt-2 is-flex">
+        <div style={{ gap: "60px" }} className="pb-2 pt-2 is-flex">
           <Checkbox
             type="radio"
             value="yes"
             checked={checkboxValue === "yes"}
-            label="yes"
+            label={content.yes}
             onChange={(e) => setcheckboxValue(e.target.value)}
           />
           <Checkbox
             type="radio"
             value="no"
             checked={checkboxValue === "no"}
-            label="no"
+            label={content.no}
             onChange={(e) => setcheckboxValue(e.target.value)}
           />
         </div>
-        <div style={{ gap: "60px" }} className="pb-3 pt-2 is-flex">
+        <div style={{ gap: "60px" }} className="pt-1 is-flex">
           <Checkbox
             type="radio"
             value="not sure"
             checked={checkboxValue === "not sure"}
-            label="not sure"
+            label={content.not_sure}
             onChange={(e) => setcheckboxValue(e.target.value)}
           />
         </div>
