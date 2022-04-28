@@ -198,7 +198,7 @@ export function Navbar({
                 {content.for_sexual}
               </p>
 
-              <h2 style={{ marginTop: "110px" }}>{content.about_louandyou}</h2>
+              <h2 style={{ marginTop: "90px" }}>{content.about_louandyou}</h2>
               <Text blok={content} attribute={"navbar_dropdown1"} />
             </div>
 
@@ -212,7 +212,7 @@ export function Navbar({
                 {content.about_sexual}
               </p>
 
-              <h2 style={{ marginTop: "110px" }}>{content.contact}</h2>
+              <h2 style={{ marginTop: "90px" }}>{content.contact}</h2>
               <Text blok={content} attribute={"navbar_dropdown2"} />
               <p onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>Feedback</p>
             </div>
