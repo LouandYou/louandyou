@@ -191,8 +191,12 @@ export function Navbar({
           >
             <div className="column">
               <h2>{content.find_support}</h2>
-              <p>{content.for_domestic}</p>
-              <p>{content.for_sexual}</p>
+              <p onClick={() => handleOnClick("/result_2")}>
+                {content.for_domestic}
+              </p>
+              <p onClick={() => handleOnClick("/result_1")}>
+                {content.for_sexual}
+              </p>
 
               <h2 style={{ marginTop: "110px" }}>{content.about_louandyou}</h2>
               <Text blok={content} attribute={"navbar_dropdown1"} />
@@ -200,8 +204,13 @@ export function Navbar({
 
             <div className="column">
               <h2>{content.good_to_know}</h2>
-              <p>{content.about_domestic}</p>
-              <p> {content.about_sexual}</p>
+              <p onClick={() => handleOnClick("/domestic_general")}>
+                {content.about_domestic}
+              </p>
+              <p onClick={() => handleOnClick("/sexual_general")}>
+                {" "}
+                {content.about_sexual}
+              </p>
 
               <h2 style={{ marginTop: "110px" }}>{content.contact}</h2>
               <Text blok={content} attribute={"navbar_dropdown2"} />

@@ -87,7 +87,6 @@ export default function Page({
             </LinkButton>
           </div>
         </div>
-        <Blobs />
       </section>
 
       <section className={styles.white_page}>
