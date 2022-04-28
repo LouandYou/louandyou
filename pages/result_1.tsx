@@ -4,6 +4,7 @@ import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Page({ story, layoutStory }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
@@ -18,15 +19,17 @@ export default function Page({ story, layoutStory }) {
         <Text blok={content} attribute={"most_importantly"} />
       </section>
       <PageContent blok={content} name={"body"} />
-      <section className={styles.warning} id="section_14">
+      <section id="trigger-warning" className={styles.warning}>
         <h1 className="mb-5">{content.warning_title}</h1>
-        <div id="trigger-warning">
+        <div>
           <Text blok={content} attribute={"warning_p"} />
         </div>
         <div className="is-flex is-justify-content-center">
-          <LinkButton variant={`white`} href={"#section_17"}>
-            {content.warning_button}
-          </LinkButton>
+          <button className={`${styles.button} ${styles.white}`}>
+            <Link href={"#headline 7"} passHref>
+              {content.warning_button}
+            </Link>
+          </button>
         </div>
       </section>
       <PageContent blok={content} name={"body2"} />

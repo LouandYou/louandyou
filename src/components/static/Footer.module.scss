@@ -1,8 +1,10 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
 .footer {
   background-color: #f4f4fd;
   padding: 42px 20px 45px 20px;
+  font-size: 15px;
   display: flex;
-  font-size: var(--size-font-footer1);
   flex-direction: column;
   align-items: center;
   color: #101223;
@@ -12,6 +14,15 @@
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 20px;
+  }
+
+  @include tablet {
+    padding: 88px 100px 48px 100px;
+    align-items: flex-start;
+
+    & a:hover {
+      color: #8d8bf4;
+    }
   }
 }
 
@@ -42,6 +53,19 @@
 
   gap: 20px;
   cursor: pointer;
+
+  & span {
+    transition: transform 0.3s;
+  }
+
+  & span:hover {
+    transform: scale(1.2);
+  }
+
+  @include tablet {
+    gap: 25px;
+    padding-right: 0;
+  }
 }
 
 .support {
@@ -56,10 +80,10 @@
     line-height: 24px;
   }
 
-  & :nth-child(3) {
-    font-size: var(--size-font-footer4);
-    line-height: 18px;
-    margin-top: 19px;
+  @include tablet {
+    padding: 30px 30px;
+    margin: 0px;
+    flex: 0.6;
   }
 }
 
@@ -74,7 +98,7 @@
 }
 
 .last_icons {
-  margin-top: 104px;
+  margin-top: 64px;
   padding-left: 22px;
   display: flex;
   justify-content: space-between;

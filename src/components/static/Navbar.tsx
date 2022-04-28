@@ -186,7 +186,7 @@ export function Navbar({
           </div>
 
           <div
-            style={{ marginTop: "135px", width: "80%" }}
+            style={{ marginTop: "135px" }}
             className="is-hidden-mobile columns"
           >
             <div className="column">
@@ -209,7 +209,7 @@ export function Navbar({
             </div>
             <div className="column">
               <h3
-                style={{ marginBottom: "35px" }}
+                style={{ marginBottom: "25px" }}
                 onClick={() => handleOnClick("/safety_tips")}
               >
                 {content.safety_tips}
