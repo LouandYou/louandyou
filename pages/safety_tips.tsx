@@ -6,7 +6,7 @@ export default function Page({ story }) {
   const { content } = story;
   return (
     <>
-      <section className={`${styles.landing_page} is-justify-content-flex-end`}>
+      <section className={`${styles.landing_page} `}>
         <Text blok={content} attribute={"section_1"} />
       </section>
 

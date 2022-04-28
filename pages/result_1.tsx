@@ -26,9 +26,7 @@ export default function Page({ story, layoutStory }) {
         </div>
         <div className="is-flex is-justify-content-center">
           <button className={`${styles.button} ${styles.white}`}>
-            <Link href={"#headline 7"} passHref>
-              {content.warning_button}
-            </Link>
+            <a href={"#headline_7"}>{content.warning_button}</a>
           </button>
         </div>
       </section>
