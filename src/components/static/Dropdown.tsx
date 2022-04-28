@@ -30,7 +30,7 @@ export function Dropdown(props: IProps): ReactElement {
           className={`${styles.dropdown_button} ${
             isVisible ? styles.rotate : ""
           }`}
-        ></button>
+        />
       </div>
       <div className={`${styles.content} ${isVisible ? styles.active : ""}`}>
         {props.content}

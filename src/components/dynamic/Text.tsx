@@ -4,8 +4,8 @@ import { render } from "storyblok-rich-text-react-renderer";
 
 export const Text = ({ blok, attribute = "body" }) => {
   return (
-    <div {...sbEditable(blok)} key={blok.uuid || blok._uid}>
-      <div>{render(blok[attribute])}</div>
+    <div className="content" {...sbEditable(blok)} key={blok.uuid || blok._uid}>
+      {render(blok[attribute])}
     </div>
   );
 };
