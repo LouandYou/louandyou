@@ -1,5 +1,4 @@
-$content-heading-color: '';
-$content-heading-line-height: '';
+$content-heading-color: "";
 
 @import "~bulma/bulma";
 @import "typography";
@@ -55,10 +54,6 @@ body {
   @include tablet {
     font-size: var(--size-font-paragraph-desktop);
   }
-}
-
-ul {
-  list-style: disc !important;
 }
 
 * {
