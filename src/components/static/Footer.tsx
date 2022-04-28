@@ -16,8 +16,8 @@ export function Footer({ content }): ReactElement {
     <section aria-label="Footer" className={styles.footer}>
       <Image
         src={"/logo_full_color.png"}
-        width="180"
-        height="65"
+        width="200"
+        height="70"
         alt="logo"
         priority
         quality={100}
@@ -125,7 +125,7 @@ export function Footer({ content }): ReactElement {
         </div>
       </div>
 
-      <div className={`is-hidden-mobile`}>
+      <div style={{ width: "100%" }} className={`is-hidden-mobile`}>
         <div
           className="is-flex is-justify-content-space-between"
           style={{ marginTop: "70px", lineHeight: "45px" }}
