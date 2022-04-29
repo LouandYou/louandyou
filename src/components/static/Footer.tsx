@@ -46,7 +46,7 @@ export function Footer({ content }): ReactElement {
               alt="paypal logo"
               onClick={() =>
                 router.push(
-                  "https://www.paypal.com/donate?token=TGxRqEWjrdgIdRKtpTLEMuEE50hJl-zIU2eq3wO9kofXnpqVMlTxpCtoyEx2lfGRjHiGi35hRpOpwVD2"
+                  "https://www.paypal.com/donate/?hosted_button_id=U3KR7UUECXXXE"
                 )
               }
             />
@@ -197,7 +197,7 @@ export function Footer({ content }): ReactElement {
                 alt="paypal logo"
                 onClick={() =>
                   router.push(
-                    "https://www.paypal.com/donate?token=TGxRqEWjrdgIdRKtpTLEMuEE50hJl-zIU2eq3wO9kofXnpqVMlTxpCtoyEx2lfGRjHiGi35hRpOpwVD2"
+                    "https://www.paypal.com/donate/?hosted_button_id=U3KR7UUECXXXE"
                   )
                 }
               />
