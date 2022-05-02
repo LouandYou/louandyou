@@ -225,19 +225,17 @@ export function Footer({ content }): ReactElement {
             style={{ flex: "0.8" }}
             className="is-flex is-align-items-center is-justify-content-space-between"
           >
-            <Link href="//https://www.louandyou.org/imprint">
-              {content.imprint}
-            </Link>
-            <Link href="/https://www.louandyou.org/datenschutzerkl%C3%A4rung">
+            <a href="https://www.louandyou.org/imprint">{content.imprint}</a>
+            <a href="https://www.louandyou.org/datenschutzerkl%C3%A4rung">
               {content.data}
-            </Link>
-            <Link href="/https://www.louandyou.org/vereinssatzung">
+            </a>
+            <a href="https://www.louandyou.org/vereinssatzung">
               {content.bylaws}
-            </Link>
-            <Link href="/">{content.accessibility}</Link>
-            <Link href="/https://www.louandyou.org/haftungsausschluss">
+            </a>
+            <a href="">{content.accessibility}</a>
+            <a href="/https://www.louandyou.org/haftungsausschluss">
               {content.disclaimer}
-            </Link>
+            </a>
           </div>
         </div>
       </div>
