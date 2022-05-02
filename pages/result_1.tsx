@@ -21,13 +21,13 @@ export default function Page({ story, layoutStory }) {
       <PageContent blok={content} name={"body"} />
       <section id="trigger-warning" className={styles.warning}>
         <h1 className="mb-5">{content.warning_title}</h1>
-        <div>
-          <Text blok={content} attribute={"warning_p"} />
-        </div>
+        <Text blok={content} attribute={"warning_p"} />
         <div className="is-flex is-justify-content-center">
-          <button className={`${styles.button} ${styles.white}`}>
-            <a href={"#headline_7"}>{content.warning_button}</a>
-          </button>
+          <a href={"#headline_7"}>
+            <button className={`${styles.button} ${styles.white}`}>
+              {content.warning_button}
+            </button>
+          </a>
         </div>
       </section>
       <PageContent blok={content} name={"body2"} />

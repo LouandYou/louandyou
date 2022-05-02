@@ -18,15 +18,15 @@ export default function Page({ story, layoutStory }) {
         <Text blok={content} attribute={"most_importantly"} />
       </section>
       <PageContent blok={content} name={"body"} />
-      <section className={styles.warning} id="section_14">
+      <section id="trigger-warning" className={styles.warning}>
         <h1 className="mb-5">{content.warning_title}</h1>
-        <div id="trigger-warning">
-          <Text blok={content} attribute={"warning_p"} />
-        </div>
+        <Text blok={content} attribute={"warning_p"} />
         <div className="is-flex is-justify-content-center">
-          <LinkButton variant={`white`} href={"#section_17"}>
-            {content.warning_button}
-          </LinkButton>
+          <a href={"#headline_7"}>
+            <button className={`${styles.button} ${styles.white}`}>
+              {content.warning_button}
+            </button>
+          </a>
         </div>
       </section>
       <PageContent blok={content} name={"body2"} />
