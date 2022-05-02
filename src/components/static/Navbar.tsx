@@ -89,7 +89,7 @@ export function Navbar({
         <div className={`is-hidden-mobile ${styles.language_wrapper}`}>
           <div className={styles.language_switch}>
             {locales
-              .reverse()
+
               .map((loc) => (
                 <Link
                   key={loc}
@@ -110,6 +110,7 @@ export function Navbar({
                   </a>
                 </Link>
               ))
+              .reverse()
               .reduce((prev, curr) => [prev, "|", curr])}
           </div>
         </div>

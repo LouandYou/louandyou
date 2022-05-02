@@ -30,10 +30,12 @@ export const PageSection = ({ blok }) => {
       key={blok.id || blok._uid}
       className={`${styles.container} ${className}`}
     >
-      <div style={{ zIndex: 2 }}>
+      <div
+        className={className === styles.white ? `content` : ""}
+        style={{ zIndex: 2 }}
+      >
         {blok.body
-          ? blok.body.map((blok) =>
-            (
+          ? blok.body.map((blok) => (
               <DynamicComponent blok={blok} key={blok._editable} />
             ))
           : null}
