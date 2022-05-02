@@ -235,7 +235,7 @@ export function Footer({ content }): ReactElement {
               {content.bylaws}
             </Link>
             <Link href="">{content.accessibility}</Link>
-            <Link href="/https://www.louandyou.org/haftungsausschluss">
+            <Link href="https://www.louandyou.org/haftungsausschluss">
               {content.disclaimer}
             </Link>
           </div>
