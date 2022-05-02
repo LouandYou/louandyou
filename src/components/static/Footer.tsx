@@ -105,19 +105,19 @@ export function Footer({ content }): ReactElement {
 
         <div className="is-flex">
           <div className={styles.links_row}>
-            <Link href="/https://www.louandyou.org/imprint">
+            <Link href="https://www.louandyou.org/imprint">
               {content.imprint}
             </Link>
-            <Link href="/https://www.louandyou.org/datenschutzerkl%C3%A4rung">
+            <Link href="https://www.louandyou.org/datenschutzerkl%C3%A4rung">
               {content.data}
             </Link>
-            <Link href="/https://www.louandyou.org/vereinssatzung">
+            <Link href="https://www.louandyou.org/vereinssatzung">
               {content.bylaws}
             </Link>
           </div>
           <div className={styles.links_row}>
             <Link href="/">{content.accessibility}</Link>
-            <Link href="/https://www.louandyou.org/haftungsausschluss">
+            <Link href="https://www.louandyou.org/haftungsausschluss">
               {content.disclaimer}
             </Link>
           </div>
@@ -225,17 +225,19 @@ export function Footer({ content }): ReactElement {
             style={{ flex: "0.8" }}
             className="is-flex is-align-items-center is-justify-content-space-between"
           >
-            <a href="https://www.louandyou.org/imprint">{content.imprint}</a>
-            <a href="https://www.louandyou.org/datenschutzerkl%C3%A4rung">
+            <Link href="https://www.louandyou.org/imprint">
+              {content.imprint}
+            </Link>
+            <Link href="https://www.louandyou.org/datenschutzerkl%C3%A4rung">
               {content.data}
-            </a>
-            <a href="https://www.louandyou.org/vereinssatzung">
+            </Link>
+            <Link href="https://www.louandyou.org/vereinssatzung">
               {content.bylaws}
-            </a>
-            <a href="">{content.accessibility}</a>
-            <a href="/https://www.louandyou.org/haftungsausschluss">
+            </Link>
+            <Link href="">{content.accessibility}</Link>
+            <Link href="/https://www.louandyou.org/haftungsausschluss">
               {content.disclaimer}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
