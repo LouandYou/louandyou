@@ -15,7 +15,7 @@ export function Footer({ content }): ReactElement {
   return (
     <section aria-label="Footer" className={styles.footer}>
       <Image
-        src={"/logo_full_color.png"}
+        src={"/logo_full_white.svg"}
         width="200"
         height="70"
         alt="logo"
@@ -123,7 +123,12 @@ export function Footer({ content }): ReactElement {
           </div>
         </div>
         <div className={styles.last_icons}>
-          <Image src={"/Data.svg"} width="129" height="150" alt="hey data" />
+          <Image
+            src={"/data_white.png"}
+            width="150"
+            height="150"
+            alt="hey data"
+          />
           <Image
             src={"/BMWI.svg"}
             width="160"
@@ -214,13 +219,19 @@ export function Footer({ content }): ReactElement {
           </div>
         </div>
         <div className="is-flex is-justify-content-space-between">
-          <Image src={"/Data.svg"} width="129" height="150" alt="hey data" />
           <Image
             src={"/BMWI.svg"}
             width="160"
             height="150"
             alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
           />
+          <Image
+            src={"/data_white.png"}
+            width="150"
+            height="150"
+            alt="hey data"
+          />
+
           <div
             style={{ flex: "0.8" }}
             className="is-flex is-align-items-center is-justify-content-space-between"

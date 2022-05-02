@@ -237,7 +237,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
           style={{ marginTop: "35px" }}
           className="is-flex is-justify-content-flex-end"
         >
-          {/* <Slider blackBorder={true} /> */}
+          <Slider blackBorder={true} ariaLabel={""} />
         </div>
       </section>
     </>
