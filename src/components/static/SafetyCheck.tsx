@@ -23,7 +23,7 @@ export const SafetyCheck = ({ content }) => {
 
   return (
     <>
-      <p className={styles.headline}>{content.physical_question}</p>
+      <h2 className={styles.headline}>{content.physical_question}</h2>
       <div style={{ columnGap: "5rem" }} className="is-flex is-flex-wrap-wrap">
         <div className="mt-5">
           <Checkbox

@@ -116,7 +116,9 @@ export function Footer({ content }): ReactElement {
             </Link>
           </div>
           <div className={styles.links_row}>
-            <Link href="/">{content.accessibility}</Link>
+            <Link href="https://www.louandyou.org/accesibility">
+              {content.accessibility}
+            </Link>
             <Link href="https://www.louandyou.org/haftungsausschluss">
               {content.disclaimer}
             </Link>
@@ -245,7 +247,9 @@ export function Footer({ content }): ReactElement {
             <Link href="https://www.louandyou.org/vereinssatzung">
               {content.bylaws}
             </Link>
-            <Link href="">{content.accessibility}</Link>
+            <Link href="https://www.louandyou.org/accesibility">
+              {content.accessibility}
+            </Link>
             <Link href="https://www.louandyou.org/haftungsausschluss">
               {content.disclaimer}
             </Link>
