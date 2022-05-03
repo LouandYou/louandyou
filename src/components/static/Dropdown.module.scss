@@ -28,7 +28,7 @@
 
 .content {
   padding: 10px 0;
-  line-height: 37px;
+  line-height: 30px;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -36,6 +36,7 @@
 
   @include tablet {
     margin-bottom: 25px;
+    line-height: 37px;
   }
 }
 
