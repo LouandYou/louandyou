@@ -10,6 +10,7 @@ import {
   setContrast,
   removeContrast,
 } from "../src/utils/cookies";
+import Script from "next/script";
 
 import styles from "./settings.module.scss";
 import { useRouter } from "next/dist/client/router";
@@ -23,6 +24,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   const [isCookies, setIsCookies] = useState<boolean>(true);
   const [isContrast, setIsContrastState] = useState<boolean>(false);
   const [isExitButton, setIsExitButton] = useState<boolean>(true);
+  const [isAnalytics, setisAnalytics] = useState<boolean>(false);
 
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
@@ -33,6 +35,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       ? setIsContrastState(true)
       : setIsContrastState(false);
     Cookies.get("EXIT_BUTTON") ? setIsExitButton(false) : setIsExitButton(true);
+    Cookies.get("ANALYTICS") ? setisAnalytics(true) : setisAnalytics(false);
   }, []);
 
   const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,6 +90,17 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       Cookies.remove("FONT_BIG");
       Cookies.remove("NEXT_LOCALE");
       setIsCookies(false);
+    }
+  };
+
+  const handleAnalytics = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      Cookies.set("ANALYTICS", true);
+      setisAnalytics(true);
+    } else {
+      Cookies.remove("ANALYTICS");
+      setisAnalytics(false);
+      router.reload();
     }
   };
 
@@ -233,12 +247,22 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         </div>
         <h2>{content.section3_subtitle2}</h2>
         <Text blok={content} attribute={"section3_p2"} />
-        <div
-          style={{ marginTop: "35px" }}
-          className="is-flex is-justify-content-flex-end"
-        >
-          <Slider blackBorder={true} ariaLabel={""} />
+        <div style={{ marginTop: "35px" }} className={styles.settings_wrapper}>
+          <p style={{ fontFamily: "Lato" }}>{content.data}</p>
+          <Slider
+            blackBorder={true}
+            ariaLabel={"analytics"}
+            checked={isAnalytics}
+            onChange={handleAnalytics}
+          />
         </div>
+        {isAnalytics && (
+          <Script
+            defer
+            data-domain="louandyou.netlify.app"
+            src="https://plausible.io/js/plausible.js"
+          />
+        )}
       </section>
     </>
   );
