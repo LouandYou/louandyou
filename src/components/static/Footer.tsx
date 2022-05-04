@@ -155,7 +155,9 @@ export function Footer({ content }): ReactElement {
           <div>
             <b>{content.contact}</b>
             <Text blok={content} attribute={"navbar_dropdown2"} />
-            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>Feedback</a>
+            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+              {content.feedback}
+            </a>
             <span
               style={{ marginTop: "44px" }}
               className={styles.icons_container}
@@ -238,6 +240,9 @@ export function Footer({ content }): ReactElement {
             style={{ flex: "0.8" }}
             className="is-flex is-align-items-center is-justify-content-space-between"
           >
+            <Link href="https://www.louandyou.org/accesibility">
+              {content.accessibility}
+            </Link>
             <Link href="https://www.louandyou.org/imprint">
               {content.imprint}
             </Link>
@@ -247,9 +252,7 @@ export function Footer({ content }): ReactElement {
             <Link href="https://www.louandyou.org/vereinssatzung">
               {content.bylaws}
             </Link>
-            <Link href="https://www.louandyou.org/accesibility">
-              {content.accessibility}
-            </Link>
+
             <Link href="https://www.louandyou.org/haftungsausschluss">
               {content.disclaimer}
             </Link>
