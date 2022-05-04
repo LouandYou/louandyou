@@ -33,6 +33,9 @@
   opacity: 0;
   overflow: hidden;
   transition: opacity 0.5s, max-height 0.5s ease-out;
+  h5 {
+    margin-bottom: 1em !important;
+  }
 
   @include tablet {
     margin-bottom: 25px;
