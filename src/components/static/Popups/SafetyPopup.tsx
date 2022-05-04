@@ -53,7 +53,7 @@ export const SafetyPopup = ({
               <div className="column has-text-weight-bold">
                 <p>112</p>
                 <p>110</p>
-                <p>080 1234567</p>
+                <p>08000 116116</p>
               </div>
             </div>
           </>
@@ -67,7 +67,11 @@ export const SafetyPopup = ({
                 </button>
               </Link>
             </div>
-            <p style={{ color: "#979797", marginBottom: "60px" }}>
+            <div className="is-hidden-mobile pb-2 is-flex">
+              <p className="pr-4">Hotline</p>
+              <p>08000 116116</p>
+            </div>
+            <p style={{ color: "#979797", marginBottom: "50px" }}>
               {content.safety_p1}
             </p>
 
