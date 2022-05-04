@@ -80,7 +80,7 @@ export function Feedback({
         <h2>{content.feedback_title}</h2>
         <p className="py-3">{content.feedback_question1}</p>
         <div className="is-flex is-justify-content-space-evenly">
-          {[...Array(5)].map((index) => {
+          {[...Array(5)].map((star, index) => {
             const ratingValue = index + 1;
             return (
               <label key={index}>
