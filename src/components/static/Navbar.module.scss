@@ -178,19 +178,23 @@
 
 .header input[type="checkbox"]:checked ~ .menu_items {
   transform: translateX(0);
+  -webkit-transform: translateX(0);
   visibility: visible;
 }
 
 .header input[type="checkbox"]:checked ~ .hamburger_lines .line1 {
   transform: rotate(44deg);
+  -webkit-transform: rotate(44deg);
 }
 
 .header input[type="checkbox"]:checked ~ .hamburger_lines .line2 {
   transform: scaleY(0);
+  -webkit-transform: scaleY(0);
 }
 
 .header input[type="checkbox"]:checked ~ .hamburger_lines .line3 {
   transform: rotate(-44deg);
+  -webkit-transform: rotate(-44deg);
 }
 
 .wrapper {
