@@ -32,11 +32,7 @@ export function Dropdown(props: IProps): ReactElement {
           }`}
         />
       </div>
-      <div
-        className={`${styles.content} ${
-          isVisible ? styles.active : ""
-        } content`}
-      >
+      <div className={`${styles.content} ${isVisible ? styles.active : ""} `}>
         {props.content}
       </div>
     </>
