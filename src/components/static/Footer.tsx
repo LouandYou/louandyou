@@ -23,7 +23,7 @@ export function Footer({ content }): ReactElement {
         quality={100}
       />
 
-      <div className="is-hidden-desktop">
+      <div className="is-hidden-tablet">
         <div
           style={{ paddingLeft: "22px", marginTop: "50px", lineHeight: "35px" }}
         >
