@@ -141,19 +141,35 @@ export function Navbar({
             </span>
           </div>
           <h3
-            className="is-hidden-desktop"
+            className="is-hidden-tablet"
             onClick={() => handleOnClick("/")}
             style={{ marginTop: "85px", marginBottom: "30px" }}
           >
             Home
           </h3>
-          <div className="is-hidden-desktop">
+          <div className="is-hidden-tablet">
             <h2>{content.find_support}</h2>
-            <p>{content.about_domestic}</p>
-            <p style={{ marginBottom: "30px" }}>{content.about_sexual}</p>
+            <p onClick={() => handleOnClick("/result_2")}>
+              {content.for_domestic}
+            </p>
+            <p
+              onClick={() => handleOnClick("/result_1")}
+              style={{ marginBottom: "30px" }}
+            >
+              {content.for_sexual}
+            </p>
+
             <h2>{content.good_to_know}</h2>
-            <p>{content.about_domestic}</p>
-            <p style={{ marginBottom: "30px" }}> {content.about_sexual}</p>
+            <p onClick={() => handleOnClick("/domestic_general")}>
+              {content.about_domestic}
+            </p>
+            <p
+              onClick={() => handleOnClick("/sexual_general")}
+              style={{ marginBottom: "30px" }}
+            >
+              {" "}
+              {content.about_sexual}
+            </p>
             <h3
               style={{ marginBottom: "30px" }}
               onClick={() => handleOnClick("/safety_tips")}
