@@ -20,7 +20,7 @@ export function Dropdown(props: IProps): ReactElement {
         }`}
       >
         <p
-          style={{ fontSize: "24px" }}
+          style={{ fontSize: "24px", margin: 0 }}
           className={isVisible ? styles.purple : ""}
         >
           {props.label}
