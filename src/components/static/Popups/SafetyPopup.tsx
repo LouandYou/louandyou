@@ -44,16 +44,17 @@ export const SafetyPopup = ({
               </Link>
             </div>
 
-            <div className="columns">
-              <div className="column">
+            <div style={{ padding: 0, margin: 0 }} className="columns">
+              <div style={{ padding: 0 }} className="column">
                 <p> {content.ambulance} </p>
-                <p>{content.police}</p>
-                <p>Hotline</p>
+                <p className="py-1"> {content.police}</p>
               </div>
-              <div className="column has-text-weight-bold">
+              <div
+                style={{ padding: 0 }}
+                className="column has-text-weight-bold"
+              >
                 <p>112</p>
-                <p>110</p>
-                <p>08000 116116</p>
+                <p className="py-1">110</p>
               </div>
             </div>
           </>
@@ -67,11 +68,18 @@ export const SafetyPopup = ({
                 </button>
               </Link>
             </div>
-            <div className="is-hidden-mobile pb-2 is-flex">
-              <p className="pr-4">Hotline</p>
-              <p>08000 116116</p>
+            <div
+              style={{ padding: 0, margin: 0 }}
+              className="columns is-hidden-mobile pb-2 is-flex"
+            >
+              <p style={{ padding: 0 }} className="column ">
+                Hotline
+              </p>
+              <p style={{ padding: 0 }} className="column has-text-weight-bold">
+                08000 116116
+              </p>
             </div>
-            <p style={{ color: "#979797", marginBottom: "50px" }}>
+            <p style={{ color: "#979797", marginBottom: "30px" }}>
               {content.safety_p1}
             </p>
 

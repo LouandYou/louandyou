@@ -19,7 +19,7 @@
 }
 
 .content {
-  padding: 25px 35px 70px 35px;
+  padding: 25px 35px 45px 35px;
   width: 100%;
   background-color: white;
   box-shadow: 2px 2px 2px #8d8bf4;
@@ -34,7 +34,7 @@
   }
 
   @include tablet {
-    width: 23%;
+    width: 350px;
     text-align: left;
     font-size: var(--size-font-footer1);
   }
