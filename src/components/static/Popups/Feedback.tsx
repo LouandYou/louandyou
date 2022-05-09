@@ -57,6 +57,8 @@ export function Feedback({
         setIsSent(true);
         setButtonContent(content.feedback_success);
       } else {
+        console.log("res", res.json());
+
         setIsSent(false);
       }
     } else {
