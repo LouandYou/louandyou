@@ -15,10 +15,11 @@ function sendEmail(req, res) {
     })
     .then(() => {
       console.debug("Email sent");
+      console.log("res", res);
       res.status(200).json({ sent: true });
     })
     .catch((error) => {
-      console.error(error);
+      console.log("error", error);
       res.json({ sent: false });
     });
 }
