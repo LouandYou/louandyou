@@ -32,7 +32,9 @@ export default function Page({ story, layoutStory }) {
       <PageContent blok={content} name={"body2"} />
       <section className={styles.landing_page}>
         <h2 className="mb-5">{content.where_to_title}</h2>
-        <Text blok={content} attribute={"where_to_p"} />
+        <div className="has-text-left">
+          <Text blok={content} attribute={"where_to_p"} />
+        </div>
       </section>
       <section className={styles.white_page}>
         <h2>{content.lets_build_title1}</h2>

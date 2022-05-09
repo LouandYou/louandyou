@@ -19,8 +19,7 @@ export const SafetyPopup = ({
     <div className={styles.overlay}>
       <div className={styles.content}>
         <b
-          style={{ marginBottom: "21px" }}
-          className="is-flex is-justify-content-flex-end is-clickable"
+          className="is-flex is-justify-content-flex-end is-clickable mb-3"
           onClick={onClose}
         >
           ✕
@@ -44,7 +43,10 @@ export const SafetyPopup = ({
               </Link>
             </div>
 
-            <div style={{ padding: 0, margin: 0 }} className="columns">
+            <div
+              style={{ padding: 0, margin: 0 }}
+              className="columns is-hidden-mobile"
+            >
               <div style={{ padding: 0 }} className="column">
                 <p> {content.ambulance} </p>
                 <p className="py-1"> {content.police}</p>
@@ -73,7 +75,7 @@ export const SafetyPopup = ({
               className="columns is-hidden-mobile pb-2 is-flex"
             >
               <p style={{ padding: 0 }} className="column ">
-                Hotline
+                {content.Hilfetelefon}
               </p>
               <p style={{ padding: 0 }} className="column has-text-weight-bold">
                 08000 116116

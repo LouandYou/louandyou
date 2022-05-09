@@ -78,7 +78,8 @@
   }
 
   @include tablet {
-    padding: 160px 250px 100px 250px;
+    padding: 100px 200px 100px 250px;
+    height: 100vh;
   }
 }
 
