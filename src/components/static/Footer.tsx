@@ -105,21 +105,21 @@ export function Footer({ content }): ReactElement {
 
         <div className="is-flex">
           <div className={styles.links_row}>
-            <Link href="https://www.louandyou.org/imprint">
+            <Link href="https://www.about.louandyou.org/imprint">
               {content.imprint}
             </Link>
-            <Link href="https://www.louandyou.org/datenschutzerkl%C3%A4rung">
+            <Link href="https://www.about.louandyou.org/datenschutzerkl%C3%A4rung">
               {content.data}
             </Link>
-            <Link href="https://www.louandyou.org/vereinssatzung">
+            <Link href="https://www.about.louandyou.org/vereinssatzung">
               {content.bylaws}
             </Link>
           </div>
           <div className={styles.links_row}>
-            <Link href="https://www.louandyou.org/accesibility">
+            <Link href="https://www.about.louandyou.org/accesibility">
               {content.accessibility}
             </Link>
-            <Link href="https://www.louandyou.org/haftungsausschluss">
+            <Link href="https://www.about.louandyou.org/haftungsausschluss">
               {content.disclaimer}
             </Link>
           </div>
@@ -240,20 +240,20 @@ export function Footer({ content }): ReactElement {
             style={{ flex: "0.8" }}
             className="is-flex is-align-items-center is-justify-content-space-between"
           >
-            <Link href="https://www.louandyou.org/accesibility">
+            <Link href="https://www.about.louandyou.org/accesibility">
               {content.accessibility}
             </Link>
-            <Link href="https://www.louandyou.org/imprint">
+            <Link href="https://www.about.louandyou.org/imprint">
               {content.imprint}
             </Link>
-            <Link href="https://www.louandyou.org/datenschutzerkl%C3%A4rung">
+            <Link href="https://www.about.louandyou.org/datenschutzerkl%C3%A4rung">
               {content.data}
             </Link>
-            <Link href="https://www.louandyou.org/vereinssatzung">
+            <Link href="https://www.about.louandyou.org/vereinssatzung">
               {content.bylaws}
             </Link>
 
-            <Link href="https://www.louandyou.org/haftungsausschluss">
+            <Link href="https://www.about.louandyou.org/haftungsausschluss">
               {content.disclaimer}
             </Link>
           </div>
