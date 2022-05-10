@@ -35,7 +35,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       ? setIsContrastState(true)
       : setIsContrastState(false);
     Cookies.get("EXIT_BUTTON") ? setIsExitButton(false) : setIsExitButton(true);
-    Cookies.get("ANALYTICS") ? setisAnalytics(true) : setisAnalytics(false);
+    // Cookies.get("ANALYTICS") ? setisAnalytics(true) : setisAnalytics(false);
   }, []);
 
   const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {

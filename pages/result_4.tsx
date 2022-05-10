@@ -1,4 +1,3 @@
-import { LinkButton } from "../src/components/static";
 import styles from "./result.module.scss";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 import { PageContent, Text } from "../src/components/dynamic";
