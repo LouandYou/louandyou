@@ -259,7 +259,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         {isAnalytics && (
           <Script
             defer
-            data-domain="louandyou.netlify.app"
+            data-domain="louandyou.org"
             src="https://plausible.io/js/plausible.js"
           />
         )}
