@@ -24,7 +24,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   const [isCookies, setIsCookies] = useState<boolean>(true);
   const [isContrast, setIsContrastState] = useState<boolean>(false);
   const [isExitButton, setIsExitButton] = useState<boolean>(true);
-  const [isAnalytics, setisAnalytics] = useState<boolean>(false);
+  const [isAnalytics, setisAnalytics] = useState<boolean>(true);
 
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
