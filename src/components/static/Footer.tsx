@@ -15,7 +15,7 @@ export function Footer({ content }): ReactElement {
   return (
     <section aria-label="Footer" className={styles.footer}>
       <Image
-        src={"/logo_full_white.svg"}
+        src={"/logo_full_color.png"}
         width="200"
         height="70"
         alt="logo"
@@ -116,21 +116,14 @@ export function Footer({ content }): ReactElement {
             </Link>
           </div>
           <div className={styles.links_row}>
-            <Link href="https://www.about.louandyou.org/accesibility">
-              {content.accessibility}
-            </Link>
+            <Text blok={content} attribute={"accessibility"} />
             <Link href="https://www.about.louandyou.org/haftungsausschluss">
               {content.disclaimer}
             </Link>
           </div>
         </div>
         <div className={styles.last_icons}>
-          <Image
-            src={"/data_white.png"}
-            width="150"
-            height="150"
-            alt="hey data"
-          />
+          <Image src={"/Data.svg"} width="150" height="150" alt="hey data" />
           <Image
             src={"/BMWI.svg"}
             width="160"
@@ -229,20 +222,13 @@ export function Footer({ content }): ReactElement {
             height="150"
             alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
           />
-          <Image
-            src={"/data_white.png"}
-            width="150"
-            height="150"
-            alt="hey data"
-          />
+          <Image src={"/Data.svg"} width="150" height="150" alt="hey data" />
 
           <div
             style={{ flex: "0.8" }}
             className="is-flex is-align-items-center is-justify-content-space-between"
           >
-            <Link href="https://www.about.louandyou.org/accesibility">
-              {content.accessibility}
-            </Link>
+            <Text blok={content} attribute={"accessibility"} />
             <Link href="https://www.about.louandyou.org/imprint">
               {content.imprint}
             </Link>
