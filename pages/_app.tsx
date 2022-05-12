@@ -13,6 +13,7 @@ import {
 } from "../src/utils/cookies";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import Script from "next/script";
 config.autoAddCss = false;
 
 if (process.env.NODE_ENV === "production") {
@@ -56,6 +57,11 @@ export default function App({ Component, pageProps }: AppProps) {
         defaultLocale={pageProps.defaultLocale}
       >
         <Component {...{ ...pageProps, story, layoutStory }} />
+        <Script
+          defer
+          data-domain="louandyou.org"
+          src="https://plausible.io/js/plausible.js"
+        />
       </Layout>
     </ExitButtonProvider>
   );

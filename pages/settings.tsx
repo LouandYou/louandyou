@@ -256,13 +256,6 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
             onChange={handleAnalytics}
           />
         </div>
-        {isAnalytics && (
-          <Script
-            defer
-            data-domain="louandyou.org"
-            src="https://plausible.io/js/plausible.js"
-          />
-        )}
       </section>
     </>
   );
