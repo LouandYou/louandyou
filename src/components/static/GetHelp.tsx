@@ -40,72 +40,58 @@ export function GetHelp({ content }): ReactElement {
     <>
       <SafetyCheck content={content} />
       <h2 className={styles.headline}>{content.violence_question}</h2>
-      <div style={{ columnGap: "4rem" }} className="is-flex is-flex-wrap-wrap">
-        <div className="pt-5">
-          <Checkbox
-            type="radio"
-            label={content.sexual}
-            value="sexual"
-            checked={violanceType === "sexual"}
-            onChange={() => setViolanceType("sexual")}
-            onKeyDown={handleOnKeyDown1}
-          />
-        </div>
-        <div className="pt-5">
-          <Checkbox
-            type="radio"
-            label={content.domestic}
-            value="domestic"
-            checked={violanceType === "domestic"}
-            onChange={() => setViolanceType("domestic")}
-            onKeyDown={handleOnKeyDown1}
-          />
-        </div>
-
-        <div className="pt-5">
-          <Checkbox
-            type="radio"
-            label={content.both}
-            value="both"
-            checked={violanceType === "both"}
-            onChange={() => setViolanceType("both")}
-            onKeyDown={handleOnKeyDown1}
-          />
-        </div>
-        <div className={`pt-5`}>
-          <Checkbox
-            type="radio"
-            label={content.not_say}
-            value="not sure"
-            checked={violanceType === "not sure"}
-            onChange={() => setViolanceType("not sure")}
-            onKeyDown={handleOnKeyDown1}
-          />
-        </div>
+      <div className={styles.checkbox_wrapper}>
+        <Checkbox
+          type="radio"
+          label={content.sexual}
+          value="sexual"
+          checked={violanceType === "sexual"}
+          onChange={() => setViolanceType("sexual")}
+          onKeyDown={handleOnKeyDown1}
+        />
+        <Checkbox
+          type="radio"
+          label={content.domestic}
+          value="domestic"
+          checked={violanceType === "domestic"}
+          onChange={() => setViolanceType("domestic")}
+          onKeyDown={handleOnKeyDown1}
+        />
+        <Checkbox
+          type="radio"
+          label={content.both}
+          value="both"
+          checked={violanceType === "both"}
+          onChange={() => setViolanceType("both")}
+          onKeyDown={handleOnKeyDown1}
+        />
+        <Checkbox
+          type="radio"
+          label={content.not_say}
+          value="not sure"
+          checked={violanceType === "not sure"}
+          onChange={() => setViolanceType("not sure")}
+          onKeyDown={handleOnKeyDown1}
+        />
       </div>
       <h2 className={styles.headline}>{content.how_long_ago}</h2>
-
-      <div style={{ columnGap: "4rem" }} className="is-flex is-flex-wrap-wrap">
-        <div className="pt-5">
-          <Checkbox
-            type="radio"
-            label={content.less}
-            value="false"
-            checked={isLongAgo === false}
-            onChange={() => setIsLongAgo(false)}
-            onKeyDown={handleOnKeyDown2}
-          />
-        </div>
-        <div className="pt-5">
-          <Checkbox
-            type="radio"
-            label={content.more}
-            value="true"
-            checked={isLongAgo === true}
-            onChange={() => setIsLongAgo(true)}
-            onKeyDown={handleOnKeyDown2}
-          />
-        </div>
+      <div className={styles.checkbox_wrapper}>
+        <Checkbox
+          type="radio"
+          label={content.less}
+          value="false"
+          checked={isLongAgo === false}
+          onChange={() => setIsLongAgo(false)}
+          onKeyDown={handleOnKeyDown2}
+        />
+        <Checkbox
+          type="radio"
+          label={content.more}
+          value="true"
+          checked={isLongAgo === true}
+          onChange={() => setIsLongAgo(true)}
+          onKeyDown={handleOnKeyDown2}
+        />
       </div>
       <div className={styles.button_container}>
         {canSubmit() && (

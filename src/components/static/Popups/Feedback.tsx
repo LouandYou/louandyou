@@ -14,7 +14,6 @@ export function Feedback({
   onClose,
   content,
   darkBackground,
-  ...props
 }: Props): ReactElement {
   const [hover, setHover] = useState<number | null>(null);
   const [isSent, setIsSent] = useState<boolean | null>(null);
@@ -106,7 +105,7 @@ export function Feedback({
           })}
         </div>
         <p className="pt-5 pr-2 pb-2">{content.feedback_question2}</p>
-        <div style={{ gap: "60px" }} className="pb-2 pt-2 is-flex">
+        <div className={styles.checkbox_wrapper}>
           <Checkbox
             type="radio"
             value="yes"
@@ -121,8 +120,6 @@ export function Feedback({
             label={content.no}
             onChange={(e) => setcheckboxValue(e.target.value)}
           />
-        </div>
-        <div style={{ gap: "60px" }} className="pt-1 is-flex">
           <Checkbox
             type="radio"
             value="not sure"
