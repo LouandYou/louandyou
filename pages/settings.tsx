@@ -35,7 +35,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       ? setIsContrastState(true)
       : setIsContrastState(false);
     Cookies.get("EXIT_BUTTON") ? setIsExitButton(false) : setIsExitButton(true);
-    Cookies.get("ANALYTICS") ? setisAnalytics(true) : setisAnalytics(false);
+    if (Cookies.get("DISABLE_ANALYTICS")) setisAnalytics(false);
   }, []);
 
   const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -95,10 +95,11 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
 
   const handleAnalytics = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      Cookies.set("ANALYTICS", true);
+      Cookies.remove("DISABLE_ANALYTICS");
       setisAnalytics(true);
+      router.reload();
     } else {
-      Cookies.remove("ANALYTICS");
+      Cookies.set("DISABLE_ANALYTICS", true);
       setisAnalytics(false);
       router.reload();
     }

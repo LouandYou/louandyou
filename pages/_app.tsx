@@ -57,11 +57,13 @@ export default function App({ Component, pageProps }: AppProps) {
         defaultLocale={pageProps.defaultLocale}
       >
         <Component {...{ ...pageProps, story, layoutStory }} />
-        <Script
-          defer
-          data-domain="louandyou.org"
-          src="https://plausible.io/js/plausible.js"
-        />
+        {!Cookies.get("DISABLE_ANALYTICS") && (
+          <Script
+            defer
+            data-domain="louandyou.org"
+            src="https://plausible.io/js/plausible.js"
+          />
+        )}
       </Layout>
     </ExitButtonProvider>
   );
