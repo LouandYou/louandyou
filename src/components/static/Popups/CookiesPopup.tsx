@@ -61,7 +61,7 @@ export function CookiesPopup({
           </div>
           <div className="is-flex is-justify-content-space-between">
             <button
-              onClick={() => router.push("/settings")}
+              onClick={() => router.push("/settings#cookies")}
               className={styles.button}
             >
               {story.content.cookies_link}

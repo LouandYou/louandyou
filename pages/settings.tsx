@@ -229,7 +229,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
           />
         </div>
       </section>
-      <section className={styles.white_page}>
+      <section id="cookies" className={styles.white_page}>
         <h1>{content.section3_title}</h1>
         <h2>{content.section3_subtitle1}</h2>
         <Text blok={content} attribute={"section3_p1"} />
