@@ -123,8 +123,17 @@ export function Footer({ content }): ReactElement {
           </div>
         </div>
         <div className={styles.last_icons}>
-          <Image src={"/Data.svg"} width="150" height="150" alt="hey data" />
           <Image
+            priority
+            src={"/Data.svg"}
+            width="150"
+            height="150"
+            alt="hey data"
+            quality={100}
+          />
+          <Image
+            quality={100}
+            priority
             src={"/BMWI.svg"}
             width="160"
             height="150"
@@ -215,14 +224,23 @@ export function Footer({ content }): ReactElement {
             <p style={{ fontSize: "11px" }}>{content.spende2}</p>
           </div>
         </div>
-        <div className="is-flex is-justify-content-space-between">
+        <div className="is-flex is-justify-content-space-between is-relative">
           <Image
+            quality={100}
+            priority
             src={"/BMWI.svg"}
             width="160"
             height="150"
             alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
           />
-          <Image src={"/Data.svg"} width="150" height="150" alt="hey data" />
+          <Image
+            priority
+            quality={100}
+            src={"/Data.svg"}
+            width="150"
+            height="150"
+            alt="hey data"
+          />
 
           <div
             style={{ flex: "0.8" }}
