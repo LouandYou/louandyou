@@ -49,7 +49,7 @@ export function Navbar({
       <div
         aria-label="Navbar Header"
         className={`${styles.header} ${
-          isLandingPage ? "" : styles.nav_background
+          isLandingPage && !isOpen ? "" : styles.nav_background
         }`}
       >
         <div aria-label="logo-home" className={styles.logo}>
