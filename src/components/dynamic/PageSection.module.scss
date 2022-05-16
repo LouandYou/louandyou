@@ -185,7 +185,7 @@
     height: 100vh;
     background-color: #8d8bf4;
     color: var(--color-font);
-    justify-content: flex-end;
+    justify-content: center;
     font-family: "Lato", sans-serif;
 
     h1 {
@@ -196,9 +196,9 @@
       display: none;
     }
 
-    // > div:first-child {
-    //   padding: 0 45px 110px 45px;
-    // }
+    > div:first-child {
+      padding: 0 45px 110px 45px;
+    }
 
     @include tablet {
       padding: 0px 250px;
