@@ -4,6 +4,7 @@ import Link from "next/link";
 import { LinkButton, CookiesPopup } from "../src/components/static";
 import { GetHelp } from "../src/components/static";
 
+import whiteLogo from "../public/logo_full_white.svg";
 import Image from "next/image";
 import styles from "./index.module.scss";
 import { Text } from "../src/components/dynamic";
@@ -28,7 +29,7 @@ export default function Page({
         <div style={{ zIndex: 2, maxWidth: "650px" }}>
           <Image
             className={styles.color}
-            src={"/logo_full_white.svg"}
+            src={whiteLogo}
             layout="responsive"
             width="250"
             height="100"
