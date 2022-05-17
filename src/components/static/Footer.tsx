@@ -7,6 +7,14 @@ import { Text } from "../dynamic";
 import { Feedback } from "./Popups/Feedback";
 import { useRouter } from "next/dist/client/router";
 
+import louLogo from "../../../public/logo_full_color.png";
+import paypal from "../../../public/payment/paypal.svg";
+import instagram from "../../../public/social/instagram.svg";
+import facebook from "../../../public/social/facebook.svg";
+import linkedin from "../../../public/social/linkedin.svg";
+import heyData from "../../../public/Data.svg";
+import BMWI from "../../../public/BMWI.svg";
+
 export function Footer({ content }): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
 
@@ -15,7 +23,7 @@ export function Footer({ content }): ReactElement {
   return (
     <section aria-label="Footer" className={styles.footer}>
       <Image
-        src={"/logo_full_color.png"}
+        src={louLogo}
         width="200"
         height="70"
         alt="logo"
@@ -39,7 +47,7 @@ export function Footer({ content }): ReactElement {
             <p className="mr-5">{content.or_with}</p>
 
             <Image
-              src={"/payment/paypal.svg"}
+              src={paypal}
               className="is-clickable"
               width="56"
               height="20"
@@ -65,12 +73,12 @@ export function Footer({ content }): ReactElement {
           </div>
           <span className={styles.icons_container}>
             <a
-              href={"https://www.instagram.com/louandyouapp/"}
+              href="https://www.instagram.com/louandyouapp/"
               rel="noreferrer"
               target={"_blank"}
             >
               <Image
-                src={"/social/instagram.svg"}
+                src={instagram}
                 width="40"
                 height="40"
                 alt="instagram logo"
@@ -82,7 +90,7 @@ export function Footer({ content }): ReactElement {
               target={"_blank"}
             >
               <Image
-                src={"/social/facebook.svg"}
+                src={facebook}
                 width="40"
                 height="40"
                 alt="facebook logo"
@@ -94,7 +102,7 @@ export function Footer({ content }): ReactElement {
               target={"_blank"}
             >
               <Image
-                src={"/social/linkedin.svg"}
+                src={linkedin}
                 width="40"
                 height="40"
                 alt="linkedin logo"
@@ -125,7 +133,7 @@ export function Footer({ content }): ReactElement {
         <div className={styles.last_icons}>
           <Image
             priority
-            src={"/Data.svg"}
+            src={heyData}
             width="150"
             height="150"
             alt="hey data"
@@ -134,7 +142,7 @@ export function Footer({ content }): ReactElement {
           <Image
             quality={100}
             priority
-            src={"/BMWI.svg"}
+            src={BMWI}
             width="160"
             height="150"
             alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
@@ -170,7 +178,7 @@ export function Footer({ content }): ReactElement {
                 target={"_blank"}
               >
                 <Image
-                  src={"/social/instagram.svg"}
+                  src={instagram}
                   width="40"
                   height="40"
                   alt="instagram logo"
@@ -182,7 +190,7 @@ export function Footer({ content }): ReactElement {
                 target={"_blank"}
               >
                 <Image
-                  src={"/social/facebook.svg"}
+                  src={facebook}
                   width="40"
                   height="40"
                   alt="facebook logo"
@@ -194,7 +202,7 @@ export function Footer({ content }): ReactElement {
                 target={"_blank"}
               >
                 <Image
-                  src={"/social/linkedin.svg"}
+                  src={linkedin}
                   width="40"
                   height="40"
                   alt="linkedin logo"
@@ -209,7 +217,7 @@ export function Footer({ content }): ReactElement {
               <p className="mr-5"> {content.or_with}</p>
 
               <Image
-                src={"/payment/paypal.svg"}
+                src={paypal}
                 width="56"
                 height="20"
                 className="is-clickable"
@@ -228,7 +236,7 @@ export function Footer({ content }): ReactElement {
           <Image
             quality={100}
             priority
-            src={"/BMWI.svg"}
+            src={BMWI}
             width="160"
             height="150"
             alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
@@ -236,7 +244,7 @@ export function Footer({ content }): ReactElement {
           <Image
             priority
             quality={100}
-            src={"/Data.svg"}
+            src={heyData}
             width="150"
             height="150"
             alt="hey data"
