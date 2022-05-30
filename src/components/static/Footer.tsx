@@ -9,9 +9,9 @@ import { useRouter } from "next/dist/client/router";
 
 import louLogo from "../../../public/logo_full_color.png";
 import paypal from "../../../public/payment/paypal.svg";
-import instagram from "../../../public/social/instagram.svg";
-import facebook from "../../../public/social/facebook.svg";
-import linkedin from "../../../public/social/linkedin.svg";
+import instagram from "../../../public/social/Instagram.svg";
+import facebook from "../../../public/social/Facebook.svg";
+import linkedin from "../../../public/social/Linkedin.svg";
 import heyData from "../../../public/Data.svg";
 import BMWI from "../../../public/BMWI.svg";
 
