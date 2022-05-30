@@ -24,7 +24,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   const [isCookies, setIsCookies] = useState<boolean>(true);
   const [isContrast, setIsContrastState] = useState<boolean>(false);
   const [isExitButton, setIsExitButton] = useState<boolean>(true);
-  const [isAnalytics, setisAnalytics] = useState<boolean>(true);
+  const [isAnalytics, setisAnalytics] = useState<boolean>(false);
 
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
@@ -35,7 +35,9 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       ? setIsContrastState(true)
       : setIsContrastState(false);
     Cookies.get("EXIT_BUTTON") ? setIsExitButton(false) : setIsExitButton(true);
-    if (Cookies.get("DISABLE_ANALYTICS")) setisAnalytics(false);
+    Cookies.get("ENABLE_ANALYTICS")
+      ? setisAnalytics(true)
+      : setisAnalytics(false);
   }, []);
 
   const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -95,11 +97,11 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
 
   const handleAnalytics = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      Cookies.remove("DISABLE_ANALYTICS");
+      Cookies.set("ENABLE_ANALYTICS", true);
       setisAnalytics(true);
       router.reload();
     } else {
-      Cookies.set("DISABLE_ANALYTICS", true);
+      Cookies.remove("ENABLE_ANALYTICS");
       setisAnalytics(false);
       router.reload();
     }

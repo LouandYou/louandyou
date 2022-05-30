@@ -57,7 +57,7 @@ export default function App({ Component, pageProps }: AppProps) {
         defaultLocale={pageProps.defaultLocale}
       >
         <Component {...{ ...pageProps, story, layoutStory }} />
-        {!Cookies.get("DISABLE_ANALYTICS") && (
+        {Cookies.get("ENABLE_ANALYTICS") && (
           <Script
             defer
             data-domain="louandyou.org"
