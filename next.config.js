@@ -5,7 +5,4 @@ module.exports = {
     locales: ["en", "de"],
     defaultLocale: "de",
   },
-  images: {
-    domains: ["x.klarnacdn.net", "https://www.paypalobjects.com"],
-  },
 };
