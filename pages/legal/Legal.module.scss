@@ -1,0 +1,17 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.legal {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 110px 45px 200px 45px;
+  background-color: #8b8bf4;
+  line-height: 29px;
+  color: var(--color-font);
+
+  @include tablet {
+    padding: 110px 250px;
+    line-height: 37px;
+  }
+}
