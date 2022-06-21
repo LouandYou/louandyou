@@ -4,9 +4,8 @@ import styles from "./Legal.module.scss";
 
 export default function Page({ story }) {
   const { content } = story;
-
   return (
-    <section className={`${styles.legal} content`}>
+    <section className={styles.legal}>
       <Text blok={content} attribute={"body1"} />
     </section>
   );
@@ -15,6 +14,6 @@ export default function Page({ story }) {
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "legal/accessibility",
+    slug: "legal/imprint",
   });
 }
