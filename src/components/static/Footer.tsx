@@ -255,17 +255,10 @@ export function Footer({ content }): ReactElement {
             className="is-flex is-align-items-center is-justify-content-space-between"
           >
             <Text blok={content} attribute={"accessibility"} />
-            <Link href="https://www.about.louandyou.org/imprint">
-              {content.imprint}
-            </Link>
-            <Link href="https://www.about.louandyou.org/datenschutzerkl%C3%A4rung">
-              {content.data}
-            </Link>
-            <Link href="https://www.about.louandyou.org/vereinssatzung">
-              {content.bylaws}
-            </Link>
-
-            <Link href="https://www.about.louandyou.org/haftungsausschluss">
+            <Link href="/legal/imprint">{content.imprint}</Link>
+            <Link href="/legal/data_protection">{content.data}</Link>
+            <Link href="/legal/bylaws">{content.bylaws}</Link>
+            <Link href="/legal/disclaimer_of_liability">
               {content.disclaimer}
             </Link>
           </div>
