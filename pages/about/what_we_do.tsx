@@ -30,7 +30,9 @@ export default function Page({ story }) {
         <div>
           <Text blok={content} attribute={"text2"} />
           <div
-            className={"mt-5 is-flex-tablet is-justify-content-space-between"}
+            className={
+              "mt-5 is-flex-tablet is-justify-content-space-between has-text-centered"
+            }
           >
             <LinkButton variant={"white"} href={"/about/meet_lou"}>
               {content.button1}
