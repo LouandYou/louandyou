@@ -33,7 +33,6 @@ export default function Page({ story, layoutStory }) {
         <Text blok={content} attribute={"text2"} />
         <div className="is-flex is-justify-content-space-between is-flex-wrap-wrap ">
           <div className={`${styles.text_blok} card`}>
-            {" "}
             <div className="content">{content.card1}</div>
           </div>
           <div className={`${styles.text_blok} card`}>{content.card2}</div>
