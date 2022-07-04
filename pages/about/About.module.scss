@@ -1,0 +1,242 @@
+@use "../../src/components/static/Button.module.scss";
+
+@import "~bulma/sass/utilities/mixins.sass";
+
+.white_page {
+  padding: 120px 45px 110px 45px;
+  min-height: 100vh;
+  line-height: 30px;
+
+  & h1 {
+    margin-bottom: 45px;
+    font-size: 32px;
+    line-height: 43px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    font-weight: 400 !important;
+
+    &:not(:first-child) {
+      margin-top: 4rem;
+    }
+  }
+
+  .container {
+    position: relative;
+    height: 450px;
+    margin-top: 2rem;
+  }
+
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      font-size: 40px;
+      line-height: 50px;
+    }
+    .container {
+      width: 300%;
+      margin-left: 4rem;
+    }
+  }
+
+  @include desktop {
+    padding: 120px 250px;
+  }
+}
+
+.gradient_page {
+  padding: 120px 45px 110px 45px;
+  min-height: 100vh;
+  background-color: #8d8bf4;
+  color: var(--color-font);
+  line-height: 30px;
+
+  & h1 {
+    margin-bottom: 35px;
+    font-size: 32px;
+    line-height: 43px;
+    letter-spacing: 0.02em;
+    text-align: left;
+
+    &:not(:first-child) {
+      margin-top: 4rem;
+    }
+  }
+
+  & button {
+    margin: 0.8rem 0rem;
+    width: 100%;
+  }
+
+  @include tablet {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    h1 {
+      text-align: center;
+      font-size: 49px;
+      line-height: 63px;
+    }
+
+    & button {
+      padding: 10px;
+      width: 240px;
+      margin: 2rem 0;
+    }
+  }
+  @include desktop {
+    padding: 120px 250px;
+  }
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  a {
+    margin-top: 2.5rem;
+  }
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4rem;
+  }
+}
+
+.text_blok {
+  background-color: #8d8bf4;
+  font-size: 0.8rem !important;
+  color: white;
+  padding: 1rem 0.5rem;
+  width: 8rem;
+  margin: 5px;
+  height: 12rem;
+  line-height: 25px;
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  @include tablet {
+    width: 8rem;
+
+    margin-top: 5rem;
+  }
+}
+
+.better_together {
+  padding: 0 45px;
+  min-height: 100vh;
+  background-color: #8d8bf4;
+  color: var(--color-font);
+  line-height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  & h1 {
+    margin-bottom: 35px;
+    font-size: 32px;
+    line-height: 43px;
+    letter-spacing: 0.02em;
+    text-align: left;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+  }
+
+  .description {
+    font-size: 0.6rem;
+    width: 100%;
+    line-height: 22px;
+    padding-top: 8px;
+  }
+
+  @include tablet {
+    padding: 30px 250px;
+
+    h1 {
+      font-size: 49px;
+      line-height: 63px;
+    }
+
+    .container {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .description {
+      padding: 0 0.7rem;
+      width: 45%;
+      line-height: 24px;
+    }
+  }
+}
+
+.team {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 3rem;
+  line-height: 20px;
+  margin-bottom: 5rem;
+
+  @include tablet {
+    grid-template-columns: repeat(5, 1fr);
+    line-height: 22px;
+    margin-bottom: 7rem;
+  }
+}
+
+.timeline {
+  display: flex;
+  margin-bottom: 1.5rem;
+  height: 25%;
+
+  & p:first-child {
+    flex: 0.35;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  & p:nth-child(2) {
+    flex: 0.7;
+    margin-bottom: 1rem;
+  }
+
+  @include tablet {
+    margin-bottom: 0.5rem;
+    & p:first-child {
+      flex: 0.3;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }
+  @include desktop {
+    & p:first-child {
+      flex: 0.25;
+    }
+  }
+}
+
+.support {
+  font-size: 0.9rem;
+  font-family: "Lato", sans-serif;
+  color: #101223;
+  margin-top: 3rem;
+  padding: 1rem;
+  background-color: #c2d2ff;
+  border-radius: 20px;
+
+  @include tablet {
+    width: 70%;
+  }
+}
