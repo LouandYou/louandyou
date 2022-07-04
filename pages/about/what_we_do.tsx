@@ -29,14 +29,16 @@ export default function Page({ story }) {
       <section className={styles.gradient_page}>
         <div>
           <Text blok={content} attribute={"text2"} />
-          <div className={"mt-5 is-mobile-flex"}>
+          <div
+            className={"mt-5 is-flex-tablet is-justify-content-space-between"}
+          >
             <LinkButton variant={"white"} href={"/about/meet_lou"}>
               {content.button1}
             </LinkButton>
-            <LinkButton variant={"white"} href={"about/impact"}>
+            <LinkButton variant={"white"} href={"/about/impact"}>
               {content.button2}
             </LinkButton>
-            <LinkButton variant={"white"} href={"about/donate"}>
+            <LinkButton variant={"white"} href={"/about/donate"}>
               {content.button3}
             </LinkButton>
           </div>
