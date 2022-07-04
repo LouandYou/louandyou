@@ -1,7 +1,6 @@
 import { pageGetStaticProps } from "../../src/lib/pageGetStaticProps";
 import { Text } from "../../src/components/dynamic";
 import styles from "./About.module.scss";
-import iphone from "../../public/about/Flat_Home_EN.webp";
 import projecttogether from "../../public/about/projectTogether_logo.webp";
 import kreativpiloten from "../../public/about/logo_kreativpiloten_.webp";
 import updateDE from "../../public/about/UpdateDE_Logo.webp";
@@ -15,16 +14,13 @@ export default function Page({ story }) {
     <>
       <section className={styles.white_page}>
         <Text blok={content} attribute={"text1"} />
-        <div className={styles.container}>
-          <Image
-            src={iphone}
-            alt={"Lou&You"}
-            layout={"fill"}
-            objectFit={"contain"}
-            priority
-            quality={100}
-          />
-        </div>
+
+        {/*  eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          style={{ width: "350px" }}
+          alt="Lou&You"
+          src={"/about/Flat_Home_EN.webp"}
+        />
       </section>
       <section className={styles.gradient_page}>
         <div>
