@@ -71,7 +71,7 @@ export default function Page({ story }) {
                 quality={100}
               />
               <p>{member.name}</p>
-              <p style={{ fontSize: "0.6rem" }}>{member.title}</p>
+              <p style={{ fontSize: "0.5rem" }}>{member.title}</p>
             </div>
           ))}
         </div>
