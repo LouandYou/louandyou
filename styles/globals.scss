@@ -15,6 +15,20 @@ $content-heading-color: "";
 // $yellow: #fceb30;
 // $orange: #ed6b06;
 
+@font-face {
+  font-family: "Wulkan";
+  src: url(../fonts/Wulkan-Display-Bold.woff);
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Wulkan";
+  src: url(../fonts/Wulkan-Display-Medium.woff);
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --size-font-paragraph: 18pt;
   --size-font-paragraph-desktop: 20px;
