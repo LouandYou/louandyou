@@ -15,17 +15,35 @@ $content-heading-color: "";
 // $yellow: #fceb30;
 // $orange: #ed6b06;
 
+/*
+ *	WebFont Package Licensed to Lou&You
+ */
+
+/* Wulkan Display Bold */
 @font-face {
   font-family: "Wulkan";
-  src: url(../fonts/Wulkan-Display-Bold.woff);
-  font-weight: bold;
+  src: url("../fonts/Wulkan-Bold/eot/Wulkan-Bold.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/Wulkan-Bold/eot/Wulkan-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/Wulkan-Bold/woff2/Wulkan-Bold.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/Wulkan-Bold/woff/Wulkan-Bold.woff") format("woff"); /* Pretty Modern Browsers */
+  font-weight: 700;
   font-style: normal;
 }
 
+/* Wulkan Display Medium */
 @font-face {
   font-family: "Wulkan";
-  src: url(../fonts/Wulkan-Display-Medium.woff);
-  font-weight: normal;
+  src: url("../fonts/Wulkan-Medium/eot/Wulkan-Medium.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/Wulkan-Medium/eot/Wulkan-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/Wulkan-Medium/woff2/Wulkan-Medium.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../fonts/Wulkan-Medium/woff/Wulkan-Medium.woff") format("woff"); /* Pretty Modern Browsers */
+  font-weight: 500;
   font-style: normal;
 }
 
