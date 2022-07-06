@@ -16,10 +16,10 @@ export function CookiesPopup({
 }): ReactElement {
   story = useStoryblok(story, preview, locale);
 
-  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    Cookies.get("COOKIES_POPUP") ? setIsVisible(false) : null;
+    Cookies.get("COOKIES_POPUP") ? null : setIsVisible(true);
   }, []);
 
   const handleOnClick = () => {
