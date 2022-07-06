@@ -38,6 +38,7 @@ export default function Page({
           />
 
           <Text blok={content} attribute={"description"} />
+          <p>this is my test environment!</p>
         </div>
         <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
           <div className={styles.language_switch}>
