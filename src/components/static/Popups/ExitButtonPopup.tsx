@@ -5,6 +5,7 @@ import styles from "./ExitButtonPopup.module.scss";
 import Link from "next/link";
 import { ExitButtonContext } from "../ExitButton/ExitButtonContext";
 import { Text } from "../../dynamic";
+import { COOKIES } from "../../../config";
 
 interface Props {
   onClose: () => void;
@@ -13,23 +14,23 @@ interface Props {
 
 export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
   const [togglePopup, setTogglePopup] = useState<boolean>(false);
-  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
   useEffect(() => {
-    Cookies.get("EXIT_BUTTON_POPUP") ? setIsVisible(false) : null;
+    Cookies.get(COOKIES.EXIT_BUTTON_POPUP) ? null : setIsVisible(true);
   }, []);
 
   const handleClickOne = () => {
     onClose();
-    Cookies.set("EXIT_BUTTON_POPUP", true);
+    Cookies.set(COOKIES.EXIT_BUTTON_POPUP, true);
   };
 
   const handleClickTwo = () => {
     toggleIsVisible!();
-    Cookies.set("EXIT_BUTTON_POPUP", true);
-    Cookies.set("EXIT_BUTTON", true);
+    Cookies.set(COOKIES.EXIT_BUTTON_POPUP, true);
+    Cookies.set(COOKIES.EXIT_BUTTON, true);
   };
 
   const popupOne = () => {

@@ -10,11 +10,11 @@ import {
   setContrast,
   removeContrast,
 } from "../src/utils/cookies";
-import Script from "next/script";
 
 import styles from "./settings.module.scss";
 import { useRouter } from "next/dist/client/router";
 import { ExitButtonContext } from "../src/components/static/ExitButton/ExitButtonContext";
+import { ALL_COOKIES, COOKIES } from "../src/config";
 
 const Settings = ({ story, locale, preview, defaultLocale }) => {
   const { content } = useStoryblok(story, preview, locale);
@@ -29,19 +29,23 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
   useEffect(() => {
-    Cookies.get("FONT_BIG") ? setIsBigFont(true) : setIsBigFont(false);
-    Cookies.get("DISABLE_COOKIES") ? setIsCookies(false) : setIsCookies(true);
-    Cookies.get("CONTRAST")
+    Cookies.get(COOKIES.FONT_BIG) ? setIsBigFont(true) : setIsBigFont(false);
+    Cookies.get(COOKIES.DISABLE_COOKIES)
+      ? setIsCookies(false)
+      : setIsCookies(true);
+    Cookies.get(COOKIES.CONTRAST)
       ? setIsContrastState(true)
       : setIsContrastState(false);
-    Cookies.get("EXIT_BUTTON") ? setIsExitButton(false) : setIsExitButton(true);
-    Cookies.get("ENABLE_ANALYTICS")
+    Cookies.get(COOKIES.EXIT_BUTTON)
+      ? setIsExitButton(false)
+      : setIsExitButton(true);
+    Cookies.get(COOKIES.ENABLE_ANALYTICS)
       ? setisAnalytics(true)
       : setisAnalytics(false);
   }, []);
 
   const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {
-    isCookies && Cookies.set("NEXT_LOCALE", e.target.value);
+    isCookies && Cookies.set(COOKIES.NEXT_LOCALE, e.target.value);
     e.target.value === defaultLocale
       ? router.push("/settings", "/settings", { locale: "de" })
       : router.push("/en/settings");
@@ -51,11 +55,11 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
     if (e.target.checked) {
       setIsContrastState(true);
       setContrast();
-      Cookies.set("CONTRAST", true);
+      Cookies.set(COOKIES.CONTRAST, true);
     } else {
       setIsContrastState(false);
       removeContrast();
-      Cookies.remove("CONTRAST");
+      Cookies.remove(COOKIES.CONTRAST);
     }
   };
 
@@ -63,45 +67,46 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
     if (e.target.checked) {
       setBigFont();
       setIsBigFont(true);
-      isCookies && Cookies.set("FONT_BIG", true);
+      isCookies && Cookies.set(COOKIES.FONT_BIG, true);
     } else {
       setSmallFont();
       setIsBigFont(false);
-      Cookies.remove("FONT_BIG");
+      Cookies.remove(COOKIES.FONT_BIG);
     }
   };
 
   const handleExitButton = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setIsExitButton(true);
-      isCookies && Cookies.set("EXIT_BUTTON", true);
+      isCookies && Cookies.set(COOKIES.EXIT_BUTTON, true);
       toggleIsVisible!();
     } else {
       setIsExitButton(false);
-      Cookies.remove("EXIT_BUTTON");
+      Cookies.remove(COOKIES.EXIT_BUTTON);
       toggleIsVisible!();
     }
   };
 
   const handleCookies = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      Cookies.remove("DISABLE_COOKIES");
+      Cookies.remove(COOKIES.DISABLE_COOKIES);
       setIsCookies(true);
     } else {
-      Cookies.set("DISABLE_COOKIES", true);
-      Cookies.remove("FONT_BIG");
-      Cookies.remove("NEXT_LOCALE");
+      Cookies.set(COOKIES.DISABLE_COOKIES, true);
+      ALL_COOKIES.forEach((cookie) => {
+        Cookies.remove(cookie);
+      });
       setIsCookies(false);
     }
   };
 
   const handleAnalytics = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      Cookies.set("ENABLE_ANALYTICS", true);
+      Cookies.set(COOKIES.ENABLE_ANALYTICS, true);
       setisAnalytics(true);
       router.reload();
     } else {
-      Cookies.remove("ENABLE_ANALYTICS");
+      Cookies.remove(COOKIES.ENABLE_ANALYTICS);
       setisAnalytics(false);
       router.reload();
     }
@@ -113,11 +118,11 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       if (!checked) {
         setIsContrastState(true);
         setContrast();
-        Cookies.set("CONTRAST", true);
+        Cookies.set(COOKIES.CONTRAST, true);
       } else {
         setIsContrastState(false);
         removeContrast();
-        Cookies.remove("CONTRAST");
+        Cookies.remove(COOKIES.CONTRAST);
       }
     }
   };
@@ -128,11 +133,11 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       if (!checked) {
         setBigFont();
         setIsBigFont(true);
-        isCookies && Cookies.set("FONT_BIG", true);
+        isCookies && Cookies.set(COOKIES.FONT_BIG, true);
       } else {
         setSmallFont();
         setIsBigFont(false);
-        Cookies.remove("FONT_BIG");
+        Cookies.remove(COOKIES.FONT_BIG);
       }
     }
   };
@@ -142,11 +147,11 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       const checked = e.target.previousElementSibling.checked;
       if (!checked) {
         setIsExitButton(true);
-        isCookies && Cookies.set("EXIT_BUTTON", true);
+        isCookies && Cookies.set(COOKIES.EXIT_BUTTON, true);
         toggleIsVisible!();
       } else {
         setIsExitButton(false);
-        Cookies.remove("EXIT_BUTTON");
+        Cookies.remove(COOKIES.EXIT_BUTTON);
         toggleIsVisible!();
       }
     }
@@ -156,12 +161,12 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
     if (e.code === "Space" || e.code === "Enter") {
       const checked = e.target.previousElementSibling.checked;
       if (!checked) {
-        Cookies.remove("DISABLE_COOKIES");
+        Cookies.remove(COOKIES.DISABLE_COOKIES);
         setIsCookies(true);
       } else {
-        Cookies.set("DISABLE_COOKIES", true);
-        Cookies.remove("FONT_BIG");
-        Cookies.remove("NEXT_LOCALE");
+        Cookies.set(COOKIES.DISABLE_COOKIES, true);
+        Cookies.remove(COOKIES.FONT_BIG);
+        Cookies.remove(COOKIES.NEXT_LOCALE);
         setIsCookies(false);
       }
     }

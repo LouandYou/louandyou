@@ -6,6 +6,7 @@ import { Text } from "../../dynamic";
 
 import styles from "./CookiesPopup.module.scss";
 import router from "next/dist/client/router";
+import { COOKIES } from "../../../config";
 
 export function CookiesPopup({
   locales,
@@ -19,12 +20,12 @@ export function CookiesPopup({
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    Cookies.get("COOKIES_POPUP") ? null : setIsVisible(true);
+    Cookies.get(COOKIES.USER_CONSENT) ? null : setIsVisible(true);
   }, []);
 
   const handleOnClick = () => {
     setIsVisible(false);
-    Cookies.set("COOKIES_POPUP", true);
+    Cookies.set(COOKIES.USER_CONSENT, true);
   };
 
   return (

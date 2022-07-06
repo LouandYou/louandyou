@@ -5,9 +5,7 @@ import styles from "./ExitButton.module.scss";
 import { ExitButtonContext } from "./ExitButtonContext";
 import Cookies from "js-cookie";
 import { useRouter } from "next/dist/client/router";
-import { Simulate } from "react-dom/test-utils";
-import load = Simulate.load;
-import exit from "../../../../pages/api/exit-preview";
+import { COOKIES } from "../../../config";
 
 let paths: string[] = [];
 let exiting = false;
@@ -22,7 +20,7 @@ export function ExitButton({ content }): ReactElement {
   const pathname = router.pathname;
   const stepToBeginning = () => {
     if (paths.length === 1) {
-      exitPage()
+      exitPage();
       return;
     }
     paths.pop();
@@ -40,14 +38,12 @@ export function ExitButton({ content }): ReactElement {
     }
   }, [pathname]);
 
-
-
   const onClick = () => {
     exiting = true;
 
     // If the history is too long recursing backwards could take too much time
     // so exiting immediately is safer
-    if(paths.length > 12) {
+    if (paths.length > 12) {
       exitPage();
       return;
     }
@@ -59,11 +55,11 @@ export function ExitButton({ content }): ReactElement {
   const isLandingPage = useScrollingBackgroundColor({
     elements: () =>
       Array.from(document.querySelectorAll("#section_1, #section_2")),
-    offset: 70
+    offset: 70,
   });
 
   useEffect(() => {
-    Cookies.get("EXIT_BUTTON_POPUP") ? setIsPopupOpen(false) : null;
+    Cookies.get(COOKIES.EXIT_BUTTON_POPUP) ? setIsPopupOpen(false) : null;
   }, []);
 
   return (

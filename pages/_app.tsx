@@ -14,6 +14,7 @@ import {
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Script from "next/script";
+import { COOKIES } from "../src/config";
 config.autoAddCss = false;
 
 if (process.env.NODE_ENV === "production") {
@@ -24,8 +25,8 @@ if (process.env.NODE_ENV === "production") {
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    Cookies.get("FONT_BIG") ? setBigFont() : setSmallFont();
-    Cookies.get("CONTRAST") ? setContrast() : removeContrast();
+    Cookies.get(COOKIES.FONT_BIG) ? setBigFont() : setSmallFont();
+    Cookies.get(COOKIES.CONTRAST) ? setContrast() : removeContrast();
   }, []);
 
   let story = useStoryblok(
@@ -57,7 +58,7 @@ export default function App({ Component, pageProps }: AppProps) {
         defaultLocale={pageProps.defaultLocale}
       >
         <Component {...{ ...pageProps, story, layoutStory }} />
-        {Cookies.get("ENABLE_ANALYTICS") && (
+        {Cookies.get(COOKIES.ENABLE_ANALYTICS) && (
           <Script
             defer
             data-domain="louandyou.org"
