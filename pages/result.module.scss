@@ -12,7 +12,7 @@
   line-height: 29px;
   color: var(--color-font);
 
-  @include tablet {
+  @include desktop {
     padding: 110px 250px;
     justify-content: center;
     text-align: center;
@@ -24,7 +24,7 @@
     line-height: 43px;
     margin-bottom: 55px;
 
-    @include tablet {
+    @include desktop {
       text-align: center;
       font-size: 47px;
       line-height: 65px;
@@ -34,7 +34,7 @@
   & h2 {
     font-size: 24px;
     text-align: center;
-    @include tablet {
+    @include desktop {
       text-align: center;
       font-size: 46px;
       line-height: 65px;

@@ -1,7 +1,7 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
 .gradient_page {
-  padding: 0 65px;
+  padding: 0 35px;
   height: 100vh;
   background-color: #8d8bf4;
   color: var(--color-font);
@@ -36,7 +36,7 @@
     }
   }
 
-  @include tablet {
+  @include desktop {
     padding: 0px 250px;
   }
 }
@@ -77,14 +77,14 @@
     }
   }
 
-  @include tablet {
+  @include desktop {
     padding: 100px 200px 100px 250px;
     min-height: 100vh;
   }
 }
 
 .white_page {
-  padding: 150px 45px 110px 45px;
+  padding: 150px 35px 110px 35px;
   min-height: 100vh;
   line-height: 29px;
 
@@ -102,7 +102,7 @@
     }
   }
 
-  @include tablet {
+  @include desktop {
     display: flex;
     flex-direction: column;
     justify-content: center;
