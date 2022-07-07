@@ -32,7 +32,7 @@ export const PageSection = ({ blok }) => {
     >
       <div
         className={className === styles.white ? `content` : ""}
-        style={{ zIndex: 2 }}
+        style={{ zIndex: 2, maxWidth: "100%" }}
       >
         {blok.body
           ? blok.body.map((blok) => (
@@ -40,6 +40,7 @@ export const PageSection = ({ blok }) => {
             ))
           : null}
       </div>
+
       {className === styles.headline && <Blobs />}
     </section>
   );
