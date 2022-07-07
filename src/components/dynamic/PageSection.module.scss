@@ -52,8 +52,6 @@
     }
 
     @include tablet {
-      padding: 150px 250px;
-
       div:first-child div div {
         margin-bottom: 50px;
       }
@@ -80,6 +78,9 @@
       h5 {
         font-size: var(--size-font-paragraph-desktop);
       }
+    }
+    @include desktop {
+      padding: 150px 250px;
     }
   }
 
@@ -154,12 +155,6 @@
     }
 
     @include tablet {
-      padding: 0px 250px;
-      height: 100vh;
-      display: flex;
-
-      justify-content: center;
-
       h1 {
         font-size: 46px;
         line-height: 65px;
@@ -175,6 +170,14 @@
         margin-top: 80px;
         text-align: center;
       }
+    }
+
+    @include desktop {
+      padding: 0px 250px;
+      height: 100vh;
+      display: flex;
+
+      justify-content: center;
     }
   }
 
@@ -198,10 +201,10 @@
     }
 
     @include tablet {
-      padding: 0px 250px;
       align-items: center;
       justify-content: center;
       line-height: 37px;
+      padding: 0 25px;
 
       > div:first-child {
         padding: 0;
@@ -218,6 +221,9 @@
         margin-top: 40px;
         font-family: "Maitree", serif;
       }
+    }
+    @include desktop {
+      padding: 0px 250px;
     }
   }
 }

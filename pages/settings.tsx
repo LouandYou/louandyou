@@ -198,7 +198,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
             ariaLabel={content.big}
           />
         </div>
-        <div className="is-hidden-desktop">
+        <div className="is-hidden-tablet">
           <h2 className="mb-4">{content.language}</h2>
           <div className={styles.checkbox_wraper}>
             <Checkbox

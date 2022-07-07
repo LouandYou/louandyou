@@ -1,8 +1,8 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
 .landing_page {
-  padding: 162px 50px 120px 45px;
-  min-height: 100vh;
+  padding: 160px 50px 120px 45px;
+  height: 100vh;
   color: #101223;
   font-family: "Lato", sans-serif;
 
@@ -33,7 +33,15 @@
   }
 
   @include tablet {
-    padding: 225px 250px 100px 250px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+  }
+
+  @include desktop {
+    padding: 0 250px;
+    height: 100vh;
   }
 }
 
@@ -76,7 +84,7 @@
     line-height: 37px;
   }
 
-  @include tablet {
+  @include desktop {
     padding: 180px 250px 150px 250px;
   }
 }
@@ -120,7 +128,7 @@
     line-height: 37px;
   }
 
-  @include tablet {
+  @include desktop {
     padding: 250px 250px 150px 250px;
   }
 }
