@@ -72,12 +72,11 @@ export function Feedback({
       }`}
     >
       <div className={styles.content}>
-        <b
-          className="is-size-5 mb-3 is-flex is-justify-content-flex-end is-clickable"
-          onClick={onClose}
-        >
-          ✕
-        </b>
+        <div className="mb-1 has-text-right">
+          <b className="is-size-6  is-clickable" onClick={onClose}>
+            ✕
+          </b>
+        </div>
         <h2>{content.feedback_title}</h2>
         <p className="py-3">{content.feedback_question1}</p>
         <div className="is-flex is-justify-content-space-evenly">
@@ -104,7 +103,7 @@ export function Feedback({
             );
           })}
         </div>
-        <p className="pt-5 pr-2 pb-2">{content.feedback_question2}</p>
+        <p className="pt-3 pr-2 pb-2">{content.feedback_question2}</p>
         <div className={styles.checkbox_wrapper}>
           <Checkbox
             type="radio"
@@ -128,7 +127,7 @@ export function Feedback({
             onChange={(e) => setcheckboxValue(e.target.value)}
           />
         </div>
-        <p className="pt-5 pr-2">{content.feedback_question3}</p>
+        <p className="pt-3 pr-2">{content.feedback_question3}</p>
         <textarea
           className="my-4"
           onChange={(e) => setTextareaValue(e.target.value)}

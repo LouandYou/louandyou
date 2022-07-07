@@ -266,6 +266,7 @@ export function Footer({ content }): ReactElement {
       </div>
       {isFeedbackOpen && (
         <Feedback
+          darkBackground={true}
           content={content}
           onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
         />
