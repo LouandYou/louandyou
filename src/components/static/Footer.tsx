@@ -113,19 +113,13 @@ export function Footer({ content }): ReactElement {
 
         <div className="is-flex">
           <div className={styles.links_row}>
-            <Link href="https://www.about.louandyou.org/imprint">
-              {content.imprint}
-            </Link>
-            <Link href="https://www.about.louandyou.org/datenschutzerkl%C3%A4rung">
-              {content.data}
-            </Link>
-            <Link href="https://www.about.louandyou.org/vereinssatzung">
-              {content.bylaws}
-            </Link>
+            <Link href="/legal/imprint">{content.imprint}</Link>
+            <Link href="/legal/data_protection">{content.data}</Link>
+            <Link href="/legal/bylaws">{content.bylaws}</Link>
           </div>
           <div className={styles.links_row}>
             <Text blok={content} attribute={"accessibility"} />
-            <Link href="https://www.about.louandyou.org/haftungsausschluss">
+            <Link href="/legal/disclaimer_of_liability">
               {content.disclaimer}
             </Link>
           </div>
