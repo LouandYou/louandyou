@@ -4,14 +4,14 @@ h3,
 h5 {
   margin: 0;
   font-family: "Wulkan", sans-serif;
-  color: #32328c;
+  // color: #32328c;
 }
 
 a {
   color: var(--lou-color-text);
   text-decoration: none !important;
 
-  & :hover {
-    color: #32328c;
-  }
+  // & :hover {
+  //   color: #32328c;
+  // }
 }
