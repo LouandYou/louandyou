@@ -173,7 +173,7 @@
 
   &.headline {
     height: 100vh;
-    padding: 0 45px 110px 45px;
+
     // background-image: url("../../../public/gradients/1.png");
 
     // background-size: cover;
@@ -187,6 +187,9 @@
 
     p {
       display: none;
+    }
+    > div:first-child {
+      padding: 0 45px 110px 45px;
     }
 
     @include tablet {
