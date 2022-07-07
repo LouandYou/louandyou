@@ -222,10 +222,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       <section className={styles.color_page}>
         <h1>{content.section2_title}</h1>
         <Text blok={content} attribute={"section2_p"} />
-        <div
-          style={{ fontFamily: "Lato", marginTop: "48px" }}
-          className={styles.settings_wrapper}
-        >
+        <div style={{ marginTop: "48px" }} className={styles.settings_wrapper}>
           <p>{content.exit_button}</p>
           <Slider
             onKeyDown={handleOnKeyDown3}
@@ -244,7 +241,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
           style={{ marginBottom: "110px", marginTop: "48px" }}
           className={styles.settings_wrapper}
         >
-          <p style={{ fontFamily: "Lato" }}>{content.section3_subtitle1}</p>
+          <p>{content.section3_subtitle1}</p>
           <Slider
             onKeyDown={handleOnKeyDown4}
             onChange={handleCookies}
@@ -256,7 +253,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         <h2>{content.section3_subtitle2}</h2>
         <Text blok={content} attribute={"section3_p2"} />
         <div style={{ marginTop: "35px" }} className={styles.settings_wrapper}>
-          <p style={{ fontFamily: "Lato" }}>{content.data}</p>
+          <p>{content.data}</p>
           <Slider
             blackBorder={true}
             ariaLabel={"analytics"}

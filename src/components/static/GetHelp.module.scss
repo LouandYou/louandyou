@@ -2,11 +2,12 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
 .headline {
-  font-family: "Lato", sans-serif;
   color: #101223;
   line-height: 24px;
   padding-top: 37px;
   letter-spacing: 0.02em;
+  font-size: 1.05rem;
+  font-family: "Avenir", serif;
   @include tablet {
     margin-top: 18px;
   }

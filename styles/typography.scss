@@ -1,11 +1,17 @@
 h1,
 h2,
-h3 {
+h3,
+h5 {
   margin: 0;
-  font-family: "Lato", sans-serif;
+  font-family: "Wulkan", sans-serif;
+  color: #32328c;
 }
 
 a {
   color: var(--lou-color-text);
-  text-decoration: none;
+  text-decoration: none !important;
+
+  & :hover {
+    color: #32328c;
+  }
 }
