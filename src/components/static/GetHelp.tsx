@@ -59,18 +59,18 @@ export function GetHelp({ content }): ReactElement {
         />
         <Checkbox
           type="radio"
-          label={content.both}
-          value="both"
-          checked={violanceType === "both"}
-          onChange={() => setViolanceType("both")}
-          onKeyDown={handleOnKeyDown1}
-        />
-        <Checkbox
-          type="radio"
           label={content.not_say}
           value="not sure"
           checked={violanceType === "not sure"}
           onChange={() => setViolanceType("not sure")}
+          onKeyDown={handleOnKeyDown1}
+        />
+        <Checkbox
+          type="radio"
+          label={content.both}
+          value="both"
+          checked={violanceType === "both"}
+          onChange={() => setViolanceType("both")}
           onKeyDown={handleOnKeyDown1}
         />
       </div>

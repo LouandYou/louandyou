@@ -29,24 +29,22 @@ export default function Page({
         </div>
         <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
           <div className={styles.language_switch}>
-            {locales
-              .map((loc) => (
-                <Link
-                  key={loc}
-                  href={`/${loc === defaultLocale ? "" : loc}`}
-                  locale={false}
-                  passHref
+            {locales.map((loc) => (
+              <Link
+                key={loc}
+                href={`/${loc === defaultLocale ? "" : loc}`}
+                locale={false}
+                passHref
+              >
+                <div
+                  className={`mx-3 px-1 ${
+                    loc === locale ? styles.underlined : ""
+                  }`}
                 >
-                  <div
-                    className={`px-1 mx-1 ${
-                      loc === locale ? styles.underlined : ""
-                    }`}
-                  >
-                    {loc.toUpperCase()}
-                  </div>
-                </Link>
-              ))
-              .reduce((prev, curr) => [prev, "|", curr])}
+                  {loc.toUpperCase()}
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
         <CookiesPopup
@@ -76,14 +74,15 @@ export default function Page({
             </LinkButton>
           </div>
         </div>
+        <Blobs />
       </section>
 
       <section className={styles.white_page}>
         <h1>{content.title2}</h1>
         <Text blok={content} attribute={"title2_p"} />
       </section>
-      <section className={styles.gradient_page}>
-        <div style={{ zIndex: 2, textAlign: "left" }}>
+      <section className={styles.blue_section}>
+        <div style={{ zIndex: 2 }}>
           <Text blok={content} attribute={"title3"} />
           <div className={styles.btn_container}>
             <LinkButton

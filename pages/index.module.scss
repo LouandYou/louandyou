@@ -1,11 +1,11 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
 .gradient_page {
-  padding: 0 35px;
+  padding: 0 45px;
   height: 100vh;
   background-color: #8d8bf4;
   color: var(--color-font);
-  line-height: 30px;
+  line-height: 35px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,8 @@
   position: relative;
 
   h1 {
-    font-size: 32px;
+    font-size: 34px;
+    font-weight: bold;
     line-height: 43px;
     letter-spacing: 0.02em;
     text-align: left;
@@ -34,27 +35,28 @@
     }
   }
 
-  @include desktop {
-    padding: 0px 250px;
-
+  @include tablet {
     p {
       line-height: 36px;
       text-align: center;
     }
 
     h1 {
-      text-align: center;
-      font-size: 49px;
+      text-align: left;
+      font-size: 50px;
       line-height: 63px;
     }
+  }
+  @include desktop {
+    padding: 0px 250px;
   }
 }
 
 .language_wrapper {
   position: absolute;
   bottom: 20px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: normal !important;
   z-index: 2;
 }
 
@@ -68,7 +70,6 @@
 
 .underlined {
   border-bottom: 1.5px solid var(--color-font);
-  padding-bottom: 3px;
 }
 
 .find_help {
@@ -77,15 +78,18 @@
   & h1 {
     font-size: 24px;
     line-height: 43px;
+    font-weight: bold;
+    color: #5353e9;
     letter-spacing: 0.02em;
+
     @include tablet {
-      font-size: 43px;
-      margin-bottom: 25px;
+      font-size: 34px;
+      margin-bottom: 48px;
     }
   }
 
   @include desktop {
-    padding: 100px 200px 100px 250px;
+    padding: 105px 102px 100px 481px;
     min-height: 100vh;
   }
 }
@@ -94,27 +98,27 @@
   padding: 150px 35px 110px 35px;
   min-height: 100vh;
   line-height: 29px;
+  font-size: 18px;
 
   & h1 {
     margin-bottom: 25px;
     font-size: 32px;
     line-height: 43px;
     letter-spacing: 0.02em;
-    text-align: left;
+    font-weight: bold;
+    color: #5353e9;
     @include tablet {
-      text-align: center;
       font-size: 47px;
-      line-height: 65px;
+      line-height: 64px;
     }
   }
 
   @include desktop {
+    padding: 105px 102px 100px 481px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 150px 250px;
   }
 }
 
@@ -136,5 +140,41 @@
     button {
       margin: 0 15px;
     }
+  }
+}
+
+.blue_section {
+  padding: 110px 35px 110px 35px;
+  background-color: #5353e9;
+  color: white;
+  height: 100vh;
+  font-size: 34px;
+  font-family: "Wulkan", serif;
+  font-weight: bold;
+
+  h1 {
+    font-weight: bold;
+  }
+
+  @include tablet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      font-size: 18px;
+      font-family: "Avenir";
+      font-weight: normal;
+    }
+    h1 {
+      font-size: 34px;
+      margin-bottom: 16px;
+    }
+  }
+
+  @include desktop {
+    height: 400px;
+    padding: 85px 250px;
   }
 }
