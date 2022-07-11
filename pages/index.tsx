@@ -3,9 +3,6 @@ import Link from "next/link";
 
 import { LinkButton, CookiesPopup } from "../src/components/static";
 import { GetHelp } from "../src/components/static";
-
-import whiteLogo from "../public/logo_full_white.svg";
-import Image from "next/image";
 import styles from "./index.module.scss";
 import { Text } from "../src/components/dynamic";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
@@ -26,17 +23,8 @@ export default function Page({
         id="section_1"
         className={styles.gradient_page}
       >
-        <div style={{ zIndex: 2, maxWidth: "650px" }}>
-          <Image
-            className={styles.color}
-            src={whiteLogo}
-            layout="responsive"
-            width="250"
-            height="100"
-            alt="logo"
-            priority
-          />
-
+        <div className={styles.landing_page_container}>
+          <img alt="logo" src="./logo_full_white.svg" />
           <Text blok={content} attribute={"description"} />
         </div>
         <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
