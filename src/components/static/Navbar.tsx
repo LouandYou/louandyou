@@ -184,7 +184,7 @@ export function Navbar({
                 content={<Text blok={content} attribute={"navbar_dropdown1"} />}
               />
             </div>
-            <div className={styles.wrapper}>
+            <div style={{ marginTop: "20px" }} className={styles.wrapper}>
               <h2>{content.contact}</h2>
               <Dropdown
                 content={

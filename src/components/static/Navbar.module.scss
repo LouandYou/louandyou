@@ -109,7 +109,7 @@
 }
 
 .menu_items {
-  min-height: 100vh;
+  height: calc(100vh - 1px);
   overflow-y: auto;
   padding: 80px 45px;
   background-color: #f0f0fd;
@@ -148,7 +148,7 @@
 
   h2 {
     margin-top: 48px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-size: 14px;
     font-family: "Avenir", serif;
     font-weight: 600;
@@ -201,7 +201,9 @@
 .wrapper {
   & h2 {
     position: absolute;
-    padding-top: 2px;
     margin: 0;
   }
+}
+.Dropdown_dropdown_wrapper__4qWSo {
+  margin: 0 !important;
 }

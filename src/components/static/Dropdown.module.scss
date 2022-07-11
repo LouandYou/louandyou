@@ -2,7 +2,6 @@
 
 .dropdown_wrapper {
   width: 100%;
-  margin: 6px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,7 +28,7 @@
 }
 
 .content {
-  padding: 10px 0;
+  padding: 12px 0;
   line-height: 30px;
   max-height: 0;
   opacity: 0;
