@@ -11,6 +11,7 @@ function test() {
       >
         Is This Wulkan bold?
       </h1>
+      stage test
     </div>
   );
 }
