@@ -4,35 +4,28 @@
 .landing_page {
   background-color: #8b8bf4;
   min-height: 100vh;
-  padding: 121px 45px 161px 45px;
+  padding: 130px 45px 128px 45px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   line-height: 29px;
   color: var(--color-font);
+  position: relative;
 
   @include tablet {
     justify-content: center;
-    text-align: center;
-    line-height: 37px;
   }
 
   & h1 {
-    font-size: 32px;
+    font-size: 34px;
     line-height: 43px;
-    margin-bottom: 55px;
-
-    @include tablet {
-      text-align: center;
-      font-size: 47px;
-      line-height: 65px;
-    }
+    margin-bottom: 24px;
   }
 
   & h2 {
     font-size: 24px;
-    text-align: center;
+
     @include tablet {
-      text-align: center;
       font-size: 46px;
       line-height: 65px;
     }
@@ -42,7 +35,26 @@
     text-decoration: underline;
   }
   @include desktop {
-    padding: 110px 250px;
+    padding: 90px 0px 30px 0px;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    h1 {
+      margin-bottom: 26px;
+      width: 90%;
+      line-height: 91px;
+      font-size: 92px;
+      grid-column: 3 / span 20;
+    }
+    div {
+      grid-column: 10 / span 13;
+    }
+
+    h2 {
+      font-size: 50px;
+      line-height: 64px;
+      grid-column: 10 / span 13;
+    }
   }
 }
 
@@ -52,22 +64,39 @@
   justify-content: center;
   align-items: center;
   color: #101223;
-  line-height: 29px;
   letter-spacing: 0.02em;
-  text-align: left;
+  font-size: 18px;
   padding: 0 45px;
+
+  & h1 {
+    font-size: 18px;
+    font-family: "Avenir", serif;
+    font-weight: normal;
+    margin-bottom: 45px;
+  }
+
   @include tablet {
     justify-content: center;
-    text-align: center;
-    line-height: 37px;
-    & span:first-child {
-      font-size: 47px;
-      line-height: 63px;
+    line-height: 30px;
+
+    & h1 {
+      font-family: "Wulkan", serif;
+      font-size: 42px;
+      line-height: 56px;
+      color: #5353e9;
+      margin-bottom: 24px;
+      font-weight: bold;
     }
   }
 
   @include desktop {
-    padding: 0px 250px;
+    padding: 160px 0 210px 0;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    * {
+      grid-column: 10 / span 13;
+    }
   }
 }
 
@@ -97,19 +126,18 @@
 }
 
 .warning {
-  background-color: #8b8bf4;
+  background-color: #5353e9;
   min-height: 100vh;
   padding: 158px 45px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  text-align: center;
   color: var(--color-font);
-  line-height: 29px;
   letter-spacing: 0.02em;
 
   & h1 {
-    font-size: 32px;
+    font-size: 34px;
+    margin-bottom: 24px;
   }
   & button {
     margin-top: 110px;
@@ -122,14 +150,19 @@
     }
 
     & button {
-      margin-top: 100px;
+      margin-top: 72px;
     }
   }
+  @include tablet {
+    h1 {
+      font-size: 50px;
+    }
+  }
+
   @include desktop {
     height: 100vh;
     padding: 0px 250px;
     justify-content: center;
-    line-height: 37px;
   }
 }
 
@@ -139,18 +172,18 @@
   line-height: 29px;
 
   & h2 {
-    font-size: 32px;
-    line-height: 43px;
+    font-size: 34px;
+    line-height: 42px;
     margin-bottom: 25px;
+    color: #5353e9;
   }
   & h3 {
     font-size: 24px;
-    text-align: center;
     line-height: 32px;
     margin: 105px 0;
   }
   & div button {
-    margin-top: 110px;
+    margin-top: 65px;
   }
 
   @include tablet {
@@ -160,8 +193,9 @@
     }
 
     & h2 {
-      font-size: 46px;
-      line-height: 65px;
+      font-size: 50px;
+      line-height: 64px;
+      width: 80%;
     }
 
     & h3 {
@@ -169,17 +203,15 @@
       line-height: 65px;
       margin-top: 500px;
       margin-bottom: 50px;
-      text-align: center;
-    }
-
-    & button {
-      margin-top: 145px;
     }
   }
   @include desktop {
-    padding: 200px 250px;
+    padding: 150px 250px;
     justify-content: center;
-    line-height: 40px;
-    text-align: center;
   }
+}
+
+.blue_page {
+  background-color: #5353e9;
+  color: #fff;
 }
