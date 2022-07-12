@@ -5,13 +5,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .dropdown_button {
   background: transparent url("../../../public/unfold_button_black.svg")
     no-repeat;
   border: none;
-  cursor: pointer;
   width: 20px;
   height: 20px;
   z-index: 1;
@@ -28,19 +28,21 @@
 }
 
 .content {
-  padding: 12px 0;
+  padding: 12px 0 12px 0;
   line-height: 30px;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition: opacity 0.5s, max-height 0.5s ease-out;
   -webkit-transition: opacity 0.5s, max-height 0.5s ease-out;
+
   h5 {
     margin-bottom: 1em !important;
   }
 
   @include tablet {
     line-height: 37px;
+    padding: 12px 0;
   }
 }
 

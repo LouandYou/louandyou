@@ -15,18 +15,15 @@ export function Dropdown(props: IProps): ReactElement {
         <div className="is-hidden-mobile">{props.content}</div>
       )}
       <div
+        onClick={() => setIsVisible(!isVisible)}
         className={`${styles.dropdown_wrapper} ${
           props.label === "" ? "is-hidden-tablet" : ""
         }`}
       >
-        <p
-          style={{ fontSize: "24px", margin: 0 }}
-          className={isVisible ? styles.purple : ""}
-        >
+        <h3 style={{ fontSize: "24px", margin: 0, color: "#5353E9" }}>
           {props.label}
-        </p>
+        </h3>
         <button
-          onClick={() => setIsVisible(!isVisible)}
           className={`${styles.dropdown_button} ${
             isVisible ? styles.rotate : ""
           }`}
