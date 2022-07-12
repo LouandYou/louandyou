@@ -89,8 +89,14 @@
   }
 
   @include desktop {
-    padding: 105px 102px 100px 481px;
+    padding: 105px 0 100px 0;
     min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    * {
+      grid-column: 10 / span 13;
+    }
   }
 }
 
@@ -114,11 +120,13 @@
   }
 
   @include desktop {
-    padding: 105px 102px 100px 481px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 105px 0px 100px 0px;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    * {
+      grid-column: 10 / span 13;
+    }
   }
 }
 

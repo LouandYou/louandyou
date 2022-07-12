@@ -78,8 +78,10 @@ export default function Page({
       </section>
 
       <section className={styles.white_page}>
-        <h1>{content.title2}</h1>
-        <Text blok={content} attribute={"title2_p"} />
+        <div>
+          <h1>{content.title2}</h1>
+          <Text blok={content} attribute={"title2_p"} />
+        </div>
       </section>
       <section className={styles.blue_section}>
         <div style={{ zIndex: 2 }}>
