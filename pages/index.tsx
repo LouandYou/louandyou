@@ -58,8 +58,10 @@ export default function Page({
       </section>
 
       <section className={styles.find_help}>
-        <h1>{content.question_headline}</h1>
-        <GetHelp content={content} />
+        <div>
+          <h1>{content.question_headline}</h1>
+          <GetHelp content={content} />
+        </div>
       </section>
 
       <section className={styles.gradient_page}>
