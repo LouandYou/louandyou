@@ -13,9 +13,9 @@ const queryStories = (query: string, locale: string) =>
   fetch("/api/search", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify({ query, language: locale }),
+    body: JSON.stringify({ query, language: locale })
   })
     .then((res) => res.json())
     .then(({ data }) => {
@@ -24,7 +24,7 @@ const queryStories = (query: string, locale: string) =>
           (stories, story) =>
             stories.concat({
               ...story,
-              matches: trimMatches(query, getMatches(query, story.content)),
+              matches: trimMatches(query, getMatches(query, story.content))
             }),
           []
         ) // Filter out document keys irrelevant to the search
@@ -114,6 +114,7 @@ export default function SearchPage({ stories, ...props }) {
   let { q } = router.query;
   const query: string = !!q ? String(q) : "";
   const [searchInput, setSearchInput] = useState<string>("");
+  const [isSearching, setIsSearching] = useState<boolean>(true);
   const [results, setResults] = useState<any[]>([]);
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
   const { content } = props.layoutStory;
@@ -123,6 +124,10 @@ export default function SearchPage({ stories, ...props }) {
       setSearchInput(query);
       queryStories(query, props.locale).then((stories) => {
         setResults(stories);
+        setIsSearching(false);
+      }).catch(() => {
+        // TODO display error message
+        setIsSearching(false);
       });
     }
   }, [props.locale, query]);
@@ -135,53 +140,52 @@ export default function SearchPage({ stories, ...props }) {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.searchContainer} control has-icons-right`}>
-        <input
-          style={{ height: "50px", borderWidth: "2px" }}
-          className="input is-rounded is-dark"
-          placeholder="search"
-          value={searchInput}
-          onChange={(event) => setSearchInput(event.target.value)}
-          onKeyPress={(event) => {
-            if (event.key === "Enter") {
+      <div className={styles.searchContainer}>
+        {results.length > 0 && (
+          <h2 className="mt-4 is-hidden-mobile">
+            {content.search_results_for} "{query}"
+          </h2>
+        )}
+        <div className={`${styles.inputContainer} control has-icons-right`}>
+          <input
+            className={`${styles.inputBar} input is-rounded is-dark`}
+            placeholder="search"
+            value={searchInput}
+            onChange={(event) => setSearchInput(event.target.value)}
+            onKeyPress={(event) => {
+              if (event.key === "Enter") {
+                onQuery();
+              }
+            }}
+          />
+          <span
+            style={{ zIndex: 0 }}
+            className="icon is-small is-right is-clickable "
+            onClick={() => {
               onQuery();
-            }
-          }}
-        />
-        <span
-          style={{ zIndex: 0 }}
-          className="icon is-small is-right is-clickable "
-          onClick={() => {
-            onQuery();
-          }}
-        >
+            }}
+          >
           <FontAwesomeIcon color="#363636" icon={faSearch} />
         </span>
+        </div>
       </div>
-      {results.length > 0 && (
-        <h2 className="mt-4 is-hidden-mobile">
-          {content.search_results_for} "{query}"
-        </h2>
-      )}
       <div className={`has-icons-right ${styles.searchResults}`}>
         {results.map((story) => (
-          <>
-            <div
-              onClick={() => router.push(story.full_slug)}
-              style={{ marginTop: "50px", overflowWrap: "anywhere" }}
-              className="is-clickable"
-              key={story.id}
-            >
-              <h3 className="is-underlined">{story.name}</h3>
-              <p style={{ lineHeight: "30px" }} className="mt-2">
-                {story.matches.map((match) => (
-                  <Highlight key={match} query={query} text={match} />
-                ))}
-              </p>
-            </div>
-          </>
+          <div
+            onClick={() => router.push(story.full_slug)}
+            style={{ marginTop: "50px", overflowWrap: "anywhere" }}
+            className={`is-clickable`}
+            key={story.id}
+          >
+            <h3>{story.name}</h3>
+            <p className={`${styles.itemBody} mt-4`}>
+              {story.matches.map((match) => (
+                <Highlight key={match} query={query} text={match} />
+              ))}
+            </p>
+          </div>
         ))}
-        {results.length === 0 && (
+        {!isSearching && results.length === 0 && (
           <div className={styles.notFound}>
             <h2>{content.search_notFound_1}</h2>
             <br />

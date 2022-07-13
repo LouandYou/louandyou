@@ -1,6 +1,8 @@
 @import "~bulma/sass/utilities/mixins.sass";
+@import "colors.scss";
 
 .container {
+  background-color: $light-bg;
   min-height: 100vh;
   display: flex;
   justify-content: flex-start;
@@ -8,11 +10,10 @@
   flex-flow: column;
   margin-top: 63px;
   padding: 40px 45px;
+  color: $primary-purple;
 
-  & input {
-    width: 300px;
-    position: absolute;
-    right: 0;
+  p {
+    color: black;
   }
 
   & h3 {
@@ -24,6 +25,7 @@
     padding-right: 62px;
 
     & h2 {
+      width: 100%;
       font-size: 30px;
       line-height: 50px;
     }
@@ -31,13 +33,33 @@
 }
 
 .searchContainer {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
   width: 100%;
 }
 
-.searchResults {
-  margin-top: 30px;
+.inputContainer {
+  width: 100%;
+}
+
+.inputBar {
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+
+  height: 50px;
+  border-width: 2px;
+  width: 100%;
   @include tablet {
-    padding: 0 250px 45px 250px;
+    width: 180px;
+  }
+}
+
+.searchResults {
+  margin-top: 80px;
+  @include desktop {
+    padding: 0 100px 45px 250px;
   }
 }
 
@@ -48,4 +70,14 @@
     margin-top: 180px;
     text-align: center;
   }
+}
+
+.resultItem {
+  margin-top: 50px;
+  overflow-wrap: anywhere;
+}
+
+.itemBody {
+  line-height: 30px;
+  margin-top: 16px;
 }
