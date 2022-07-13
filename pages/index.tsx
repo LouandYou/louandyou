@@ -24,7 +24,7 @@ export default function Page({
         className={styles.gradient_page}
       >
         <div className={styles.landing_page_container}>
-          <img alt="logo" src="/logo_full_white.svg" />
+          <img width="510" alt="logo" src="/logo_full_white.svg" />
           <Text blok={content} attribute={"description"} />
         </div>
         <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
