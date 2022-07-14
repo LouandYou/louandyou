@@ -6,10 +6,10 @@ export default function Page({ story }) {
   const { content } = story;
   return (
     <>
-      <section className={`${styles.landing_page} `}>
-        <Text blok={content} attribute={"section_1"} />
+      <section className={styles.landing_page}>
+        <h1>{content.headline}</h1>
+        <Text blok={content} attribute={"subline"} />
       </section>
-
       <PageContent blok={content} name={"body"} />
     </>
   );
