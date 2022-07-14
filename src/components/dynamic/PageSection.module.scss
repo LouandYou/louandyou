@@ -60,10 +60,6 @@
     }
 
     @include tablet {
-      div:first-child div div {
-        margin-bottom: 50px;
-      }
-
       > div:first-child {
         margin-bottom: 0;
       }

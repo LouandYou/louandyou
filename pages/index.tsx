@@ -68,10 +68,10 @@ export default function Page({
         <div style={{ zIndex: 2 }}>
           <h1>{content.title1}</h1>
           <div className={styles.btn_container}>
-            <LinkButton href="/domestic_general" variant="white">
+            <LinkButton href="/domestic_general" variant="purple">
               {content.domestic_violence}
             </LinkButton>
-            <LinkButton href="/sexual_general" variant="white">
+            <LinkButton href="/sexual_general" variant="purple">
               {content.sexual_violence}
             </LinkButton>
           </div>
