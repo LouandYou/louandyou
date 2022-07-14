@@ -232,7 +232,7 @@ export function Navbar({
                 Feedback
               </h3>
             </div>
-            <div style={{ marginTop: "29px" }} className="column">
+            <div style={{ marginTop: "38px" }} className="column">
               <h3 onClick={() => handleOnClick("/safety_tips")}>
                 {content.safety_tips}
               </h3>
