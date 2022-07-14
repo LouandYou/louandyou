@@ -1,4 +1,6 @@
+@use "../src/components/static/Button.module.scss";
 @import "~bulma/sass/utilities/mixins.sass";
+@import "colors.scss";
 
 .overlay {
   position: fixed;
@@ -28,33 +30,24 @@
   padding: 29px 30px 20px 30px;
   border-radius: 35px;
   background-color: white;
-  box-shadow: 2px 2px 2px #8d8bf4;
+  box-shadow: 2px 2px 2px $primary-purple;
   z-index: 10;
   text-align: left;
-  line-height: 27px;
+  line-height: 24px;
+  font-size: 14px !important;
   margin-bottom: 30%;
   letter-spacing: 0.02em;
 
   @include tablet {
     position: fixed;
     margin-bottom: 0;
-    width: 40%;
+    width: 32%;
     right: 120px;
   }
 }
 
-.button {
-  width: 250px;
-  height: 50px;
-  border: none;
-  background-color: #8b8bf4;
-  color: white;
-  border-radius: 40px;
-  font-size: 17px;
-}
-
 .purple_p {
-  color: #8b8bf4;
+  color: $primary-purple;
   text-align: center;
   padding: 15px 30px 0 30px !important;
   cursor: pointer;
