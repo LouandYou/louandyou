@@ -134,7 +134,7 @@ export function Navbar({
               }}
               className="icon is-right"
             >
-              <i className="fas fa-envelope">
+              <i className="fas fa-envelope is-clickable">
                 <FontAwesomeIcon icon={faSearch} />
               </i>
             </span>
