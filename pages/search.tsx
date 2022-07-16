@@ -131,7 +131,6 @@ export default function SearchPage({ stories, ...props }) {
           }
         })
         .catch(() => {
-          // TODO display error message
           router.push("/not_found");
         });
     }
