@@ -51,6 +51,7 @@
 .searchContainer {
   display: flex;
   flex-flow: row;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
 }
@@ -74,8 +75,6 @@
 
 .notFound {
   background-color: $primary-purple;
-  // margin-top: 110px;
-  // line-height: 33px;
   color: white !important;
 
   input {
