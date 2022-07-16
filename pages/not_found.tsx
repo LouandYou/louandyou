@@ -23,7 +23,10 @@ export default function SearchPage({ stories, ...props }) {
 
   return (
     <div className={`${styles.container} ${styles.notFound}`}>
-      <div style={{ width: "100%" }} className="is-flex is-justify-content-end">
+      <div
+        style={{ width: "100%" }}
+        className="is-flex-tablet is-justify-content-end"
+      >
         <div id="search" className="control has-icons-right">
           <input
             className="input is-rounded"

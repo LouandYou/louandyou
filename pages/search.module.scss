@@ -31,10 +31,28 @@
       height: 36px;
     }
   }
+  .searchContainer {
+    width: 100%;
+  }
+
+  .searchResults {
+    margin-top: 10px;
+
+    @include desktop {
+      padding: 0 100px 45px 250px;
+    }
+  }
 
   @include tablet {
     padding-left: 85px;
     padding-right: 62px;
+
+    .searchContainer {
+      display: flex;
+      flex-flow: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
 
     & h2 {
       width: 100%;
@@ -45,21 +63,6 @@
     i {
       height: 80%;
     }
-  }
-}
-
-.searchContainer {
-  display: flex;
-  flex-flow: row;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-}
-
-.searchResults {
-  margin-top: 80px;
-  @include desktop {
-    padding: 0 100px 45px 250px;
   }
 }
 
