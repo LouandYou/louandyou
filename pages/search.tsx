@@ -6,6 +6,7 @@ import { pageGetPropsLayoutOnly } from "../src/lib/pageGetStaticProps";
 import { useRouter } from "next/dist/client/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Loader from "../src/components/static/Popups/Loader";
 
 const queryStories = (query: string, locale: string) =>
   fetch("/api/search", {
@@ -112,18 +113,21 @@ export default function SearchPage({ stories, ...props }) {
   let { q } = router.query;
   const query: string = !!q ? String(q) : "";
   const [searchInput, setSearchInput] = useState<string>("");
+  const [isSearching, setIsSearching] = useState<boolean>(true);
   const [results, setResults] = useState<any[]>([]);
   const { content } = props.layoutStory;
 
   useEffect(() => {
     if (query) {
+      setIsSearching(true);
       setSearchInput(query);
       queryStories(query, props.locale)
         .then((stories) => {
-          if (stories.length > 0) {
-            setResults(stories);
-          } else {
+          if (stories.length === 0) {
             router.push("/not_found");
+          } else {
+            setResults(stories);
+            setIsSearching(false);
           }
         })
         .catch(() => {
@@ -142,7 +146,7 @@ export default function SearchPage({ stories, ...props }) {
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>
-        {results.length > 0 && (
+        {!isSearching && (
           <h2 className="is-hidden-mobile">
             {content.search_results_for} "{query}"
           </h2>
@@ -159,82 +163,39 @@ export default function SearchPage({ stories, ...props }) {
               }
             }}
           />
-          <span
-            style={{ zIndex: 0 }}
-            onClick={() => {
-              onQuery();
-            }}
-            className="icon is-right"
-          >
-            <i className="fas fa-envelope">
+          <span style={{ zIndex: 0 }} className="icon is-right">
+            <i
+              onClick={() => {
+                onQuery();
+              }}
+              className="fas fa-envelope is-clickable"
+            >
               <FontAwesomeIcon icon={faSearch} />
             </i>
           </span>
         </div>
-        {/* <div className={`${styles.inputContainer} control has-icons-right`}>
-          <input
-            className={`${styles.inputBar} input is-rounded is-dark`}
-            placeholder="search"
-            value={searchInput}
-            onChange={(event) => setSearchInput(event.target.value)}
-            onKeyPress={(event) => {
-              if (event.key === "Enter") {
-                onQuery();
-              }
-            }}
-          />
-          <span
-            style={{ zIndex: 0 }}
-            className="icon is-small is-right is-clickable "
-            onClick={() => {
-              onQuery();
-            }}
-          >
-          <FontAwesomeIcon color="#363636" icon={faSearch} />
-        </span>
-        </div> */}
       </div>
-
-      <div className={`has-icons-right ${styles.searchResults}`}>
-        {results.map((story) => (
-          <div
-            onClick={() => router.push(story.full_slug)}
-            style={{ marginTop: "50px", overflowWrap: "anywhere" }}
-            className={`is-clickable`}
-            key={story.id}
-          >
-            <h3>{story.name}</h3>
-            <p className={`${styles.itemBody} mt-4`}>
-              {story.matches.map((match) => (
-                <Highlight key={match} query={query} text={match} />
-              ))}
-            </p>
-          </div>
-        ))}
-        {/* {!isSearching && results.length === 0 && (
-          <div className={styles.notFound}>
-            <h2>{content.search_notFound_1}</h2>
-            <br />
-            <p>
-              {content.search_notFound_2}{" "}
-              <b
-                className="is-clickable"
-                onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}
-              >
-                {content.search_notFound_3}
-              </b>{" "}
-              <Text blok={content} attribute={"search_notFound_4"} />
-            </p>
-          </div>
-        )} */}
-      </div>
-      {/* {isFeedbackOpen && (
-        <Feedback
-          darkBackground={true}
-          content={content}
-          onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
-        />
-      )} */}
+      {isSearching ? (
+        <Loader />
+      ) : (
+        <div className={`has-icons-right ${styles.searchResults}`}>
+          {results.map((story) => (
+            <div
+              onClick={() => router.push(story.full_slug)}
+              style={{ marginTop: "50px", overflowWrap: "anywhere" }}
+              className={`is-clickable`}
+              key={story.id}
+            >
+              <h3>{story.name}</h3>
+              <p className={`${styles.itemBody} mt-4`}>
+                {story.matches.map((match) => (
+                  <Highlight key={match} query={query} text={match} />
+                ))}
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
