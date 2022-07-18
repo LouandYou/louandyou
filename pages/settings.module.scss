@@ -1,4 +1,5 @@
 @import "~bulma/sass/utilities/mixins.sass";
+@import "colors.scss";
 
 .landing_page {
   padding: 160px 50px 120px 45px;
@@ -6,6 +7,7 @@
   color: #101223;
 
   & h1 {
+    color: $primary-purple;
     font-size: 32px;
     line-height: 48px;
 
@@ -16,8 +18,9 @@
   }
 
   & h2 {
+    color: $primary-purple;
     margin-top: 55px;
-    font-size: 24px;
+    font-size: 20px;
 
     @include tablet {
       font-size: 30px;
@@ -39,8 +42,14 @@
   }
 
   @include desktop {
-    padding: 0 250px;
+    padding: 170px 0;
     height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    * {
+      grid-column: 10 / span 13;
+    }
   }
 }
 
@@ -58,32 +67,44 @@
 .settings_wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
+  label {
+    margin-top: 5px;
+  }
   @include tablet {
     width: 300px;
   }
 }
 
 .color_page {
-  background: #8b8bf4;
+  background: $primary-purple;
   padding: 120px 50px 120px 45px;
   color: var(--color-font);
+  font-size: 16px;
 
   & h1 {
-    font-size: 32px;
-    line-height: 43px;
-    margin-bottom: 80px;
+    font-size: 34px;
+    line-height: 42px;
+    margin-bottom: 24px;
+
     @include tablet {
-      font-size: 47px;
+      font-size: 50px;
       line-height: 65px;
     }
   }
   & p {
-    line-height: 37px;
+    line-height: 28px;
+    margin-bottom: 1rem;
   }
 
   @include desktop {
-    padding: 180px 250px 150px 250px;
+    padding: 120px 0;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    * {
+      grid-column: 10 / span 13;
+    }
   }
 }
 
@@ -99,29 +120,41 @@
   padding: 105px 50px 250px 45px;
 
   & h1 {
-    font-size: 32px;
-    line-height: 43px;
+    color: $primary-purple;
+    font-size: 34px;
+    line-height: 42px;
     margin-bottom: 48px;
 
     @include tablet {
-      font-size: 47px;
+      font-size: 50px;
       line-height: 65px;
     }
   }
 
   & h2 {
-    margin-bottom: 43px;
-    font-size: 24px;
+    color: $primary-purple;
+    margin-bottom: 16px;
+    font-size: 20px;
+
     @include tablet {
-      font-size: 30px;
+      font-size: 34px;
+      margin-bottom: 24px;
+      line-height: 42px;
     }
   }
 
   & p {
-    line-height: 37px;
+    font-size: 16px;
+    line-height: 28px;
   }
 
   @include desktop {
-    padding: 250px 250px 150px 250px;
+    padding: 120px 0;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    * {
+      grid-column: 10 / span 13;
+    }
   }
 }

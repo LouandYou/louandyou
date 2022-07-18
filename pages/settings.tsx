@@ -238,7 +238,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         <h2>{content.section3_subtitle1}</h2>
         <Text blok={content} attribute={"section3_p1"} />
         <div
-          style={{ marginBottom: "110px", marginTop: "48px" }}
+          style={{ marginBottom: "96px", marginTop: "50px" }}
           className={styles.settings_wrapper}
         >
           <p>{content.section3_subtitle1}</p>
