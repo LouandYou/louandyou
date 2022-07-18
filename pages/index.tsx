@@ -29,22 +29,25 @@ export default function Page({
         </div>
         <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
           <div className={styles.language_switch}>
-            {locales.map((loc) => (
-              <Link
-                key={loc}
-                href={`/${loc === defaultLocale ? "" : loc}`}
-                locale={false}
-                passHref
-              >
-                <div
-                  className={`mx-3 px-1 ${
-                    loc === locale ? styles.underlined : ""
-                  }`}
+            {locales
+              .map((loc) => (
+                <Link
+                  key={loc}
+                  href={`/${loc === defaultLocale ? "" : loc}`}
+                  locale={false}
+                  passHref
                 >
-                  {loc.toUpperCase()}
-                </div>
-              </Link>
-            ))}
+                  <div
+                    className={`mx-3 px-1 ${
+                      loc === locale ? styles.underlined : ""
+                    }`}
+                  >
+                    {loc.toUpperCase()}
+                  </div>
+                </Link>
+              ))
+              .reverse()
+              .reduce((prev, curr) => [prev, "|", curr])}
           </div>
         </div>
         <CookiesPopup
