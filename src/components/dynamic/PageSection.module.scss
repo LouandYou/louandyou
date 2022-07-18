@@ -167,7 +167,6 @@
     }
 
     @include desktop {
-      padding-top: 140px;
       display: grid;
       grid-template-columns: repeat(24, 1fr);
       align-items: center;
