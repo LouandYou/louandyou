@@ -6,6 +6,8 @@ import { ExitButtonContext } from "./ExitButtonContext";
 import Cookies from "js-cookie";
 import { useRouter } from "next/dist/client/router";
 import { COOKIES } from "../../../config";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 let paths: string[] = [];
 let exiting = false;
@@ -77,7 +79,8 @@ export function ExitButton({ content }): ReactElement {
             onClick={onClick}
             className={`${styles.exit_bt} ${isPopupOpen ? styles.pulse : ""}`}
           >
-            ✕
+            {/* <FontAwesomeIcon icon={faXmark} width={13} height={13} /> */}
+            <img width={25} height={25} src="./x.svg" />
           </button>
         </>
       )}
