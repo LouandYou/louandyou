@@ -110,7 +110,7 @@ export function Navbar({
                 </Link>
               ))
               .reverse()
-              .reduce((prev, curr) => [prev, "/", curr])}
+              .reduce((prev, curr) => [prev, "|", curr])}
           </div>
         </div>
         <div className={styles.menu_items}>
