@@ -115,12 +115,10 @@
   z-index: 10;
   transform: translate(-150%);
   -webkit-transform: translate(-150%);
-  perspective: 1000;
-  backface-visibility: hidden;
   display: flex;
   visibility: hidden;
   flex-direction: column;
-  transition: transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  transition: translate 0.5s ease-in-out, visibility 0.5s ease-in-out;
   -webkit-transition: transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
 
   input {
