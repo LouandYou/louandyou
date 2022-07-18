@@ -31,7 +31,9 @@ export const PageSection = ({ blok }) => {
       className={`${styles.container} ${className}`}
     >
       <div
-        className={className === styles.white ? `content` : ""}
+        className={
+          className === styles.white || styles.gradient ? `content` : ""
+        }
         style={{ zIndex: 2, maxWidth: "100%" }}
       >
         {blok.body

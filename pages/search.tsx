@@ -6,8 +6,7 @@ import { pageGetPropsLayoutOnly } from "../src/lib/pageGetStaticProps";
 import { useRouter } from "next/dist/client/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Feedback } from "../src/components/static/Popups/Feedback";
-import { Text } from "../src/components/dynamic";
+import Loader from "../src/components/static/Popups/Loader";
 
 const queryStories = (query: string, locale: string) =>
   fetch("/api/search", {
@@ -114,18 +113,51 @@ export default function SearchPage({ stories, ...props }) {
   let { q } = router.query;
   const query: string = !!q ? String(q) : "";
   const [searchInput, setSearchInput] = useState<string>("");
+  const [isSearching, setIsSearching] = useState<boolean>(true);
   const [results, setResults] = useState<any[]>([]);
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
   const { content } = props.layoutStory;
+
+  // assign to slug translated name
+  const pages = {
+    result: content.result,
+    settings: content.settings,
+    domestic_general: content.domestic_page,
+    sexual_general: content.sexual_page,
+    safety_tips: content.safety_page,
+    faq: "FAQ",
+    accessibility: content.accessibility,
+    imprint: content.imprint,
+    data_protection: content.data,
+    bylaws: content.bylaws,
+    disclaimer_of_liability: content.disclaimer,
+    donate: content.donate,
+    join_us: content.join_us,
+    press: content.press,
+    team: content.team,
+    better_together: content.better_together,
+    impact: content.impact,
+    meet_lou: content.meet_lou,
+    what_we_do: content.what_we_do,
+  };
 
   useEffect(() => {
     if (query) {
+      setIsSearching(true);
       setSearchInput(query);
-      queryStories(query, props.locale).then((stories) => {
-        setResults(stories);
-      });
+      queryStories(query, props.locale)
+        .then((stories) => {
+          if (stories.length === 0) {
+            router.push("/not_found");
+          } else {
+            setResults(stories);
+            setIsSearching(false);
+          }
+        })
+        .catch(() => {
+          router.push("/not_found");
+        });
     }
-  }, [props.locale, query]);
+  }, [props.locale, query, router]);
 
   const onQuery = () => {
     if (searchInput.length > 0) {
@@ -135,75 +167,56 @@ export default function SearchPage({ stories, ...props }) {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.searchContainer} control has-icons-right`}>
-        <input
-          style={{ height: "50px", borderWidth: "2px" }}
-          className="input is-rounded is-dark"
-          placeholder="search"
-          value={searchInput}
-          onChange={(event) => setSearchInput(event.target.value)}
-          onKeyPress={(event) => {
-            if (event.key === "Enter") {
-              onQuery();
-            }
-          }}
-        />
-        <span
-          style={{ zIndex: 0 }}
-          className="icon is-small is-right is-clickable "
-          onClick={() => {
-            onQuery();
-          }}
-        >
-          <FontAwesomeIcon color="#363636" icon={faSearch} />
-        </span>
+      <div className={styles.searchContainer}>
+        {!isSearching && (
+          <h2 className="is-hidden-mobile">
+            {content.search_results_for} "{query}"
+          </h2>
+        )}
+        <div id="search" className="control has-icons-right">
+          <input
+            className="input is-rounded"
+            placeholder="search"
+            value={searchInput}
+            onChange={(event) => setSearchInput(event.target.value)}
+            onKeyPress={(event) => {
+              if (event.key === "Enter") {
+                onQuery();
+              }
+            }}
+          />
+          <span style={{ zIndex: 0 }} className="icon is-right">
+            <i
+              onClick={() => {
+                onQuery();
+              }}
+              className="fas fa-envelope is-clickable"
+            >
+              <FontAwesomeIcon icon={faSearch} />
+            </i>
+          </span>
+        </div>
       </div>
-      {results.length > 0 && (
-        <h2 className="mt-4 is-hidden-mobile">
-          {content.search_results_for} "{query}"
-        </h2>
-      )}
-      <div className={`has-icons-right ${styles.searchResults}`}>
-        {results.map((story) => (
-          <>
+      {isSearching ? (
+        <Loader />
+      ) : (
+        <div className={`has-icons-right ${styles.searchResults}`}>
+          {results.map((story) => (
             <div
               onClick={() => router.push(story.full_slug)}
               style={{ marginTop: "50px", overflowWrap: "anywhere" }}
-              className="is-clickable"
+              className={`is-clickable`}
               key={story.id}
             >
-              <h3 className="is-underlined">{story.name}</h3>
-              <p style={{ lineHeight: "30px" }} className="mt-2">
+              <h3>{pages[story.name] || story.name}</h3>
+              <p className={`${styles.itemBody} mt-4`}>
                 {story.matches.map((match) => (
                   <Highlight key={match} query={query} text={match} />
                 ))}
               </p>
             </div>
-          </>
-        ))}
-        {results.length === 0 && (
-          <div className={styles.notFound}>
-            <h2>{content.search_notFound_1}</h2>
-            <br />
-            <p>
-              {content.search_notFound_2}{" "}
-              <b
-                className="is-clickable"
-                onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}
-              >
-                {content.search_notFound_3}
-              </b>{" "}
-              <Text blok={content} attribute={"search_notFound_4"} />
-            </p>
-          </div>
-        )}
-      </div>
-      {isFeedbackOpen && (
-        <Feedback
-          darkBackground={true}
-          content={content}
-          onClose={() => setIsFeedbackOpen(!isFeedbackOpen)}
-        />
+          ))}
+        </div>
       )}
     </div>
   );

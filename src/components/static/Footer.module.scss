@@ -1,9 +1,9 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
 .footer {
-  background-color: #f4f4ff;
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
   padding: 42px 20px 45px 20px;
-  font-size: 15px;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,8 +15,13 @@
     margin-bottom: 20px;
   }
 
+  b {
+    color: #4242ba;
+    font-weight: 600;
+  }
+
   @include desktop {
-    padding: 88px 100px 48px 100px;
+    padding: 88px 100px 20px 100px;
     align-items: flex-start;
 
     // & a:hover {
@@ -55,8 +60,8 @@
   margin-top: 48px;
   margin-bottom: 35px;
   padding: 15px 21px;
-  background-color: #c2d2ff;
-  border-radius: 20px;
+  background-color: #fbfbff;
+  border-radius: 12px;
   width: 100%;
 
   & p {
@@ -64,7 +69,7 @@
   }
 
   @include tablet {
-    padding: 30px 30px;
+    padding: 17px;
     margin: 0px;
     flex: 0.5;
   }

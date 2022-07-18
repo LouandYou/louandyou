@@ -4,12 +4,13 @@
 .headline {
   color: #101223;
   line-height: 24px;
-  padding-top: 37px;
+  margin-top: 32px;
   letter-spacing: 0.02em;
-  font-size: 1.05rem;
+  font-size: 18px;
+  font-weight: 600;
   font-family: "Avenir", serif;
   @include tablet {
-    margin-top: 18px;
+    margin-top: 46px;
   }
 }
 
@@ -24,11 +25,12 @@
   flex-wrap: wrap;
 
   label {
-    margin-top: 1.5rem;
+    margin-top: 17px;
     min-width: 50%;
 
     @include tablet {
-      min-width: 33%;
+      min-width: 0;
+      margin-right: 70px;
     }
   }
 }

@@ -1,11 +1,11 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
 .gradient_page {
-  padding: 0 35px;
+  padding: 0 45px;
   height: 100vh;
   background-color: #8d8bf4;
   color: var(--color-font);
-  line-height: 30px;
+  line-height: 35px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -13,28 +13,40 @@
   align-items: center;
   position: relative;
 
-  & h1 {
-    font-size: 32px;
+  h1 {
+    font-size: 34px;
+    font-weight: bold;
     line-height: 43px;
     letter-spacing: 0.02em;
     text-align: left;
-    @include tablet {
-      text-align: center;
-      font-size: 49px;
-      line-height: 63px;
-    }
-  }
-  & span {
-    margin-bottom: 20px !important;
   }
 
-  & p {
-    @include tablet {
+  .landing_page_container {
+    z-index: 2;
+    max-width: 567px;
+    font-family: "Wulkan", serif;
+    font-weight: bold;
+    font-size: 24px;
+
+    img {
+      margin-bottom: 3rem;
+      width: 510px;
+      height: auto;
+    }
+  }
+
+  @include tablet {
+    p {
       line-height: 36px;
       text-align: center;
     }
-  }
 
+    h1 {
+      text-align: left;
+      font-size: 50px;
+      line-height: 63px;
+    }
+  }
   @include desktop {
     padding: 0px 250px;
   }
@@ -44,7 +56,7 @@
   position: absolute;
   bottom: 20px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
   z-index: 2;
 }
 
@@ -58,7 +70,6 @@
 
 .underlined {
   border-bottom: 1.5px solid var(--color-font);
-  padding-bottom: 3px;
 }
 
 .find_help {
@@ -67,16 +78,27 @@
   & h1 {
     font-size: 24px;
     line-height: 43px;
+    font-weight: bold;
+    color: #5353e9;
     letter-spacing: 0.02em;
+
     @include tablet {
-      font-size: 43px;
-      margin-bottom: 25px;
+      font-size: 34px;
+      margin-bottom: 48px;
     }
   }
 
   @include desktop {
-    padding: 100px 200px 100px 250px;
+    padding: 100px 0;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    * {
+      grid-column: 10 / span 13;
+    }
   }
 }
 
@@ -84,32 +106,36 @@
   padding: 150px 35px 110px 35px;
   min-height: 100vh;
   line-height: 29px;
+  font-size: 18px;
 
   & h1 {
     margin-bottom: 25px;
     font-size: 32px;
     line-height: 43px;
     letter-spacing: 0.02em;
-    text-align: left;
+    font-weight: bold;
+    color: #5353e9;
     @include tablet {
-      text-align: center;
       font-size: 47px;
-      line-height: 65px;
+      line-height: 64px;
     }
   }
 
   @include desktop {
-    display: flex;
-    flex-direction: column;
+    padding: 0;
+    display: grid;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 150px 250px;
+    align-content: center;
+    grid-template-columns: repeat(24, 1fr);
+
+    * {
+      grid-column: 10 / span 13;
+    }
   }
 }
 
 .btn_container {
-  margin-top: 70px;
+  margin-top: 48px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -129,6 +155,38 @@
   }
 }
 
-.color {
-  filter: var(--filter);
+.blue_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 35px;
+  background-color: #5353e9;
+  color: white;
+  height: 100vh;
+  font-size: 34px;
+  line-height: 42px;
+  font-family: "Wulkan", serif;
+  font-weight: bold;
+
+  h1 {
+    font-weight: bold;
+  }
+
+  @include tablet {
+    p {
+      font-size: 18px;
+      font-family: "Avenir";
+      font-weight: normal;
+    }
+    h1 {
+      font-size: 34px;
+      margin-bottom: 16px;
+    }
+  }
+
+  @include desktop {
+    height: 400px;
+    padding: 85px 250px;
+  }
 }

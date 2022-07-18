@@ -1,4 +1,6 @@
+@use "../src/components/static/Button.module.scss";
 @import "~bulma/sass/utilities/mixins.sass";
+@import "colors.scss";
 
 .container {
   padding: 29px 30px 20px 30px;
@@ -9,21 +11,24 @@
   color: #101223;
   background-color: white;
   z-index: 10;
-  box-shadow: 2px 2px 2px #8d8bf4;
+  box-shadow: 2px 2px 2px $primary-purple;
   text-align: left;
   line-height: 27px;
   -webkit-animation: fadein 1s;
   animation: fadein 1s;
 
   & h2 {
-    font-size: 26px;
-    font-weight: 600;
+    color: $primary-purple;
+    font-size: 24px;
   }
 
   & p {
-    padding: 15px 0;
-    font-size: 17px !important;
-    letter-spacing: 0.02em;
+    line-height: 24px;
+    font-size: 14px !important;
+  }
+
+  button {
+    width: 150px !important;
   }
 
   @include tablet {
@@ -32,8 +37,8 @@
     bottom: 25px;
 
     & p {
-      line-height: 24px !important;
       text-align: left !important;
+      line-height: 24px !important;
     }
   }
 }
@@ -47,28 +52,16 @@
   }
 }
 
-.button {
-  width: 48.3%;
-  height: 50px;
-  border: none;
-  background-color: #8b8bf4;
-  color: white;
-  border-radius: 40px;
-  font-size: 17px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
 .language_switch {
-  color: #979c9e;
+  color: #d1d1d3;
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 600;
   display: flex;
   & div {
     cursor: pointer;
   }
 }
 
-.purple {
-  color: #8b8bf4;
+.selected {
+  color: $primary-purple;
 }

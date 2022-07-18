@@ -147,7 +147,7 @@ export function Footer({ content }): ReactElement {
       <div style={{ width: "100%" }} className={`is-hidden-mobile`}>
         <div
           className="is-flex is-justify-content-space-between"
-          style={{ marginTop: "70px", lineHeight: "45px" }}
+          style={{ marginTop: "70px", lineHeight: "42px" }}
         >
           <div>
             <b>{content.about_louandyou}</b>
@@ -207,7 +207,7 @@ export function Footer({ content }): ReactElement {
           <div className={styles.support}>
             <Text blok={content} attribute={"spende1"} />
 
-            <span className="is-flex my-5 is-align-items-center">
+            <span className="is-flex my-4 is-align-items-center">
               <p className="mr-5"> {content.or_with}</p>
 
               <Image
@@ -223,7 +223,9 @@ export function Footer({ content }): ReactElement {
                 }
               />
             </span>
-            <p style={{ fontSize: "11px" }}>{content.spende2}</p>
+            <p style={{ fontSize: "11px", lineHeight: "18px" }}>
+              {content.spende2}
+            </p>
           </div>
         </div>
         <div className="is-flex is-justify-content-space-between is-relative">
@@ -246,7 +248,7 @@ export function Footer({ content }): ReactElement {
 
           <div
             style={{ flex: "0.8" }}
-            className="is-flex is-align-items-center is-justify-content-space-between"
+            className="is-flex is-align-items-flex-end is-justify-content-space-between"
           >
             <Text blok={content} attribute={"accessibility"} />
             <Link href="/legal/imprint">{content.imprint}</Link>

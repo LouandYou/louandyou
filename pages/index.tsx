@@ -3,9 +3,6 @@ import Link from "next/link";
 
 import { LinkButton, CookiesPopup } from "../src/components/static";
 import { GetHelp } from "../src/components/static";
-
-import whiteLogo from "../public/logo_full_white.svg";
-import Image from "next/image";
 import styles from "./index.module.scss";
 import { Text } from "../src/components/dynamic";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
@@ -26,17 +23,8 @@ export default function Page({
         id="section_1"
         className={styles.gradient_page}
       >
-        <div style={{ zIndex: 2, maxWidth: "650px" }}>
-          <Image
-            className={styles.color}
-            src={whiteLogo}
-            layout="responsive"
-            width="250"
-            height="100"
-            alt="logo"
-            priority
-          />
-
+        <div className={styles.landing_page_container}>
+          <img width="510" alt="logo" src="/logo_full_white.svg" />
           <Text blok={content} attribute={"description"} />
         </div>
         <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
@@ -50,7 +38,7 @@ export default function Page({
                   passHref
                 >
                   <div
-                    className={`px-1 mx-1 ${
+                    className={`mx-3 px-1 ${
                       loc === locale ? styles.underlined : ""
                     }`}
                   >
@@ -58,6 +46,7 @@ export default function Page({
                   </div>
                 </Link>
               ))
+              .reverse()
               .reduce((prev, curr) => [prev, "|", curr])}
           </div>
         </div>
@@ -72,30 +61,35 @@ export default function Page({
       </section>
 
       <section className={styles.find_help}>
-        <h1>{content.question_headline}</h1>
-        <GetHelp content={content} />
+        <div>
+          <h1>{content.question_headline}</h1>
+          <GetHelp content={content} />
+        </div>
       </section>
 
       <section className={styles.gradient_page}>
         <div style={{ zIndex: 2 }}>
           <h1>{content.title1}</h1>
           <div className={styles.btn_container}>
-            <LinkButton href="/domestic_general" variant="white">
+            <LinkButton href="/domestic_general" variant="purple">
               {content.domestic_violence}
             </LinkButton>
-            <LinkButton href="/sexual_general" variant="white">
+            <LinkButton href="/sexual_general" variant="purple">
               {content.sexual_violence}
             </LinkButton>
           </div>
         </div>
+        <Blobs />
       </section>
 
       <section className={styles.white_page}>
-        <h1>{content.title2}</h1>
-        <Text blok={content} attribute={"title2_p"} />
+        <div>
+          <h1>{content.title2}</h1>
+          <Text blok={content} attribute={"title2_p"} />
+        </div>
       </section>
-      <section className={styles.gradient_page}>
-        <div style={{ zIndex: 2, textAlign: "left" }}>
+      <section className={styles.blue_section}>
+        <div style={{ zIndex: 2 }}>
           <Text blok={content} attribute={"title3"} />
           <div className={styles.btn_container}>
             <LinkButton

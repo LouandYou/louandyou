@@ -3,6 +3,7 @@ import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
+import Blobs from "../src/components/static/Popups/Blobs";
 
 export default function Page({ story, layoutStory }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
@@ -16,11 +17,11 @@ export default function Page({ story, layoutStory }) {
       <section className={styles.white_page_full}>
         <Text blok={content} attribute={"most_importantly"} />
       </section>
+      <section className={styles.blue_page}></section>
       <PageContent blok={content} name={"body"} />
       <section id="trigger-warning" className={styles.warning}>
-        <h1 className="mb-5">{content.warning_title}</h1>
         <Text blok={content} attribute={"warning_p"} />
-        <div className="is-flex is-justify-content-center">
+        <div className="is-flex-tablet is-justify-content-center">
           <a href={"#headline_7"}>
             <button className={`${styles.button} ${styles.white}`}>
               {content.warning_button}
@@ -29,12 +30,6 @@ export default function Page({ story, layoutStory }) {
         </div>
       </section>
       <PageContent blok={content} name={"body2"} />
-      <section className={styles.landing_page}>
-        <h2 className="mb-5">{content.where_to_title}</h2>
-        <div className="has-text-left">
-          <Text blok={content} attribute={"where_to_p"} />
-        </div>
-      </section>
       <section className={styles.white_page}>
         <h2>{content.lets_build_title1}</h2>
         <Text blok={content} attribute={"lets_build_p1"} />

@@ -35,39 +35,40 @@ export function CookiesPopup({
           <div className="is-flex is-justify-content-space-between">
             <h2>Cookies</h2>
             <div className={styles.language_switch}>
-              {locales
-                .map((loc) => (
-                  <Link
-                    key={loc}
-                    href={`/${loc === defaultLocale ? "" : loc}`}
-                    locale={false}
-                    passHref
-                  >
-                    <a>
-                      <div
-                        className={`px-1 ${
-                          loc === locale ? styles.purple : ""
-                        }`}
-                      >
-                        {loc.toUpperCase()}
-                      </div>
-                    </a>
-                  </Link>
-                ))
-                .reduce((prev, curr) => [prev, "|", curr])}
+              {locales.map((loc) => (
+                <Link
+                  key={loc}
+                  href={`/${loc === defaultLocale ? "" : loc}`}
+                  locale={false}
+                  passHref
+                >
+                  <a>
+                    <div
+                      className={`px-2 ${
+                        loc === locale ? styles.selected : ""
+                      }`}
+                    >
+                      {loc.toUpperCase()}
+                    </div>
+                  </a>
+                </Link>
+              ))}
             </div>
           </div>
-          <div className="py-3">
+          <div className="py-5">
             <Text blok={story.content} attribute={"cookies_paragraph"} />
           </div>
           <div className="is-flex is-justify-content-space-between">
             <button
               onClick={() => router.push("/settings#cookies")}
-              className={styles.button}
+              className={`${styles.button} ${styles.purple} mr-1`}
             >
               {story.content.cookies_link}
             </button>
-            <button onClick={handleOnClick} className={styles.button}>
+            <button
+              onClick={handleOnClick}
+              className={`${styles.button} ${styles.purple}`}
+            >
               {story.content.cookies_link_2}
             </button>
           </div>

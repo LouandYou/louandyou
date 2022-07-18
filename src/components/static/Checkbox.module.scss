@@ -1,3 +1,5 @@
+@import "colors.scss";
+
 .container {
   display: block;
   position: relative;
@@ -20,12 +22,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 24px;
+  width: 24px;
   border: #afafb1 1.5px solid;
   border-radius: 50%;
 }
 
 .container input:checked ~ .checkmark {
-  background-color: #8b8bf4;
+  background-color: $primary-purple;
 }

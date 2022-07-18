@@ -72,7 +72,7 @@ export function Feedback({
       }`}
     >
       <div className={styles.content}>
-        <div className="mb-1 has-text-right">
+        <div className="has-text-right">
           <b className="is-size-6  is-clickable" onClick={onClose}>
             ✕
           </b>
@@ -103,7 +103,7 @@ export function Feedback({
             );
           })}
         </div>
-        <p className="pt-3 pr-2 pb-2">{content.feedback_question2}</p>
+        <p className="pt-4 pr-2">{content.feedback_question2}</p>
         <div className={styles.checkbox_wrapper}>
           <Checkbox
             type="radio"
@@ -129,14 +129,14 @@ export function Feedback({
         </div>
         <p className="pt-3 pr-2">{content.feedback_question3}</p>
         <textarea
-          className="my-4"
+          className="my-3"
           onChange={(e) => setTextareaValue(e.target.value)}
         />
         <div className="is-flex is-justify-content-center">
           <button
             onClick={handleSubmit}
-            className={`${styles.button} ${
-              isSent ? styles.green_full : styles.purple_full
+            className={`${styles.button} ${styles.purple} ${
+              isSent ? styles.green_full : ""
             }`}
           >
             {buttonContent}
