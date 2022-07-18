@@ -117,6 +117,29 @@ export default function SearchPage({ stories, ...props }) {
   const [results, setResults] = useState<any[]>([]);
   const { content } = props.layoutStory;
 
+  // assign to slug translated name
+  const pages = {
+    result: content.result,
+    settings: content.settings,
+    domestic_general: content.domestic_page,
+    sexual_general: content.sexual_page,
+    safety_tips: content.safety_page,
+    faq: "FAQ",
+    accessibility: content.accessibility,
+    imprint: content.imprint,
+    data_protection: content.data,
+    bylaws: content.bylaws,
+    disclaimer_of_liability: content.disclaimer,
+    donate: content.donate,
+    join_us: content.join_us,
+    press: content.press,
+    team: content.team,
+    better_together: content.better_together,
+    impact: content.impact,
+    meet_lou: content.meet_lou,
+    what_we_do: content.what_we_do,
+  };
+
   useEffect(() => {
     if (query) {
       setIsSearching(true);
@@ -185,7 +208,7 @@ export default function SearchPage({ stories, ...props }) {
               className={`is-clickable`}
               key={story.id}
             >
-              <h3>{story.name}</h3>
+              <h3>{pages[story.name] || story.name}</h3>
               <p className={`${styles.itemBody} mt-4`}>
                 {story.matches.map((match) => (
                   <Highlight key={match} query={query} text={match} />
