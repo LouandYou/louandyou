@@ -248,7 +248,7 @@ export function Footer({ content }): ReactElement {
 
           <div
             style={{ flex: "0.8" }}
-            className="is-flex is-align-items-center is-justify-content-space-between"
+            className="is-flex is-align-items-flex-end is-justify-content-space-between"
           >
             <Text blok={content} attribute={"accessibility"} />
             <Link href="/legal/imprint">{content.imprint}</Link>
