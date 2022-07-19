@@ -7,14 +7,10 @@ import { Text } from "../dynamic";
 import { Feedback } from "./Popups/Feedback";
 import { useRouter } from "next/dist/client/router";
 
-import louLogo from "../../../public/logo_full_color.svg";
 import paypal from "../../../public/payment/paypal.svg";
 import instagram from "../../../public/social/Instagram.svg";
 import facebook from "../../../public/social/Facebook.svg";
 import linkedin from "../../../public/social/Linkedin.svg";
-import heyData from "../../../public/hey_data.svg";
-import BMWI from "../../../public/BMWI.svg";
-import background from "../../../public/gradients/gradient_footer.png";
 
 export function Footer({ content }): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
@@ -23,15 +19,11 @@ export function Footer({ content }): ReactElement {
 
   return (
     <section aria-label="Footer" className={styles.footer}>
-      <Image
-        src={louLogo}
-        width="200"
-        height="70"
-        alt="logo"
-        priority
-        quality={100}
+      <img
+        src="/logo_full_color.svg"
+        alt="Lou&You Logo"
+        className={styles.logo}
       />
-
       <div className="is-hidden-tablet">
         <div
           style={{
@@ -133,20 +125,10 @@ export function Footer({ content }): ReactElement {
           </div>
         </div>
         <div className={styles.last_icons}>
-          <Image
-            priority
-            src={heyData}
-            width="150"
-            height="150"
-            alt="hey data"
-            quality={100}
-          />
-          <Image
-            quality={100}
-            priority
-            src={BMWI}
-            width="160"
-            height="150"
+          <img width={"108px"} src="/hey_data.svg" alt="hey data" />
+          <img
+            width={"108px"}
+            src="/BMWI.svg"
             alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
           />
         </div>
@@ -155,7 +137,7 @@ export function Footer({ content }): ReactElement {
       <div style={{ width: "100%" }} className={`is-hidden-mobile`}>
         <div
           className="is-flex is-justify-content-space-between"
-          style={{ marginTop: "70px", lineHeight: "42px" }}
+          style={{ marginTop: "65px", lineHeight: "38px" }}
         >
           <div>
             <b>{content.about_louandyou}</b>
@@ -238,23 +220,20 @@ export function Footer({ content }): ReactElement {
           </div>
         </div>
         <div className="is-flex is-justify-content-space-between is-relative">
-          <Image
-            quality={100}
-            priority
-            src={BMWI}
-            width="160"
-            height="150"
-            alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
-          />
-          <Image
-            priority
-            quality={100}
-            src={heyData}
-            width="150"
-            height="150"
-            alt="hey data"
-          />
+          <div>
+            <img
+              style={{
+                marginLeft: "-15px",
+                marginRight: "30px",
+                marginTop: "-15px",
+              }}
+              width={"130px"}
+              src="/BMWI.svg"
+              alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
+            />
 
+            <img width={"83px"} src="/hey_data.svg" alt="hey data" />
+          </div>
           <div
             style={{ flex: "0.8" }}
             className="is-flex is-align-items-flex-end is-justify-content-space-between"

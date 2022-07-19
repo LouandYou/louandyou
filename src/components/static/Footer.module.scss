@@ -14,13 +14,16 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
-
   padding: 92px 20px 45px 20px;
   font-size: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #101223;
+
+  & .logo {
+    width: 220px;
+  }
 
   b {
     font-size: 16px;
@@ -38,8 +41,7 @@
   }
 
   @include desktop {
-    height: 100vh;
-    padding: 70px 55px 24px 55px;
+    padding: 80px 55px 24px 55px;
     align-items: flex-start;
   }
 }
@@ -68,12 +70,16 @@
   margin-top: 48px;
   margin-bottom: 48px;
   padding: 15px 19px;
-  background-color: #fbfbff;
+  background-color: rgba($color: white, $alpha: 0.4);
   border-radius: 12px;
   width: 100%;
 
-  & p {
+  p {
     line-height: 24px;
+  }
+
+  & b:first-child {
+    margin-bottom: 10px !important;
   }
 
   @include tablet {
@@ -97,5 +103,5 @@
   position: relative;
   margin-top: 64px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
