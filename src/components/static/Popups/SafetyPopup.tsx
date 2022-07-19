@@ -18,46 +18,32 @@ export const SafetyPopup = ({
   return (
     <div className={styles.overlay}>
       <div className={styles.content}>
-        <b
-          className="is-flex is-justify-content-flex-end is-clickable mb-3"
-          onClick={onClose}
-        >
-          ✕
-        </b>
+        <div className="is-flex is-justify-content-space-between">
+          <h2>{content.headline}</h2>
+          <b onClick={onClose}>✕</b>
+        </div>
         {safety === "yes" && (
           <>
             <div className={`${styles.container} is-hidden-tablet`}>
               <Link href="tel:112" passHref>
-                <button
-                  className={`mb-3 ${styles.button} ${styles.purple_full}`}
-                >
+                <button className={`mb-3 ${styles.button} ${styles.orange}`}>
                   {content.call_ambulance}
                 </button>
               </Link>
               <Link href="tel:110" passHref>
-                <button
-                  className={`mb-3 ${styles.button} ${styles.purple_full}`}
-                >
+                <button className={`mb-3 ${styles.button} ${styles.orange}`}>
                   {content.call_police}
                 </button>
               </Link>
             </div>
 
-            <div
-              style={{ padding: 0, margin: 0 }}
-              className="columns is-hidden-mobile"
-            >
-              <div style={{ padding: 0 }} className="column">
-                <p> {content.ambulance} </p>
-                <p className="py-1"> {content.police}</p>
-              </div>
-              <div
-                style={{ padding: 0 }}
-                className="column has-text-weight-bold"
-              >
-                <p>112</p>
-                <p className="py-1">110</p>
-              </div>
+            <div className="is-hidden-mobile">
+              <p className="is-flex">
+                {content.ambulance}:<p className={styles.orange_text}>112</p>
+              </p>
+              <p className="is-flex py-1">
+                {content.police}: <p className={styles.orange_text}>110</p>
+              </p>
             </div>
           </>
         )}
@@ -65,28 +51,27 @@ export const SafetyPopup = ({
           <>
             <div className={`${styles.container} is-hidden-tablet`}>
               <Link href="tel:08000116116" passHref>
-                <button className={`mb-3 ${styles.button} ${styles.purple}`}>
+                <button className={` ${styles.button} ${styles.orange_border}`}>
                   {content.hotline}
                 </button>
               </Link>
             </div>
-            <div
-              style={{ padding: 0, margin: 0 }}
-              className="columns is-hidden-mobile pb-2 is-flex"
-            >
-              <p style={{ padding: 0 }} className="column ">
-                {content.Hilfetelefon}
-              </p>
-              <p style={{ padding: 0 }} className="column has-text-weight-bold">
-                08000 116116
+            <div className="is-hidden-mobile">
+              <p className="is-flex">
+                {content.Hilfetelefon}:
+                <p className={styles.orange_text}> 08000 116116</p>
               </p>
             </div>
-            <p style={{ color: "#979797", marginBottom: "30px" }}>
+            {/* <p style={{ color: "#979797", marginBottom: "30px" }}>
               {content.safety_p1}
-            </p>
+            </p> */}
 
-            <p className="mb-3">{content.safety_p3}</p>
-            <Text blok={content} attribute={"safety_p2"} />
+            <p style={{ marginTop: "32px" }} className="mb-2">
+              {content.safety_p3}
+            </p>
+            <div style={{ fontWeight: 600, fontSize: "16px" }}>
+              <Text blok={content} attribute={"safety_p2"} />
+            </div>
           </>
         )}
       </div>

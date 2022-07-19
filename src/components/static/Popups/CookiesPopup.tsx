@@ -44,7 +44,7 @@ export function CookiesPopup({
                 >
                   <a>
                     <div
-                      className={`px-2 ${
+                      className={`mx-1 ${
                         loc === locale ? styles.selected : ""
                       }`}
                     >
@@ -55,19 +55,19 @@ export function CookiesPopup({
               ))}
             </div>
           </div>
-          <div className="py-5">
+          <div style={{ marginBottom: "36px" }}>
             <Text blok={story.content} attribute={"cookies_paragraph"} />
           </div>
-          <div className="is-flex is-justify-content-space-between">
+          <div className="is-flex is-flex-direction-column">
             <button
               onClick={() => router.push("/settings#cookies")}
-              className={`${styles.button} ${styles.purple} mr-1`}
+              className={`${styles.button} ${styles.purple} mb-2`}
             >
               {story.content.cookies_link}
             </button>
             <button
               onClick={handleOnClick}
-              className={`${styles.button} ${styles.purple}`}
+              className={`${styles.button} ${styles.purple_secondery}`}
             >
               {story.content.cookies_link_2}
             </button>

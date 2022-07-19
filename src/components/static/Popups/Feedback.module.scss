@@ -24,46 +24,54 @@
 }
 
 .content {
-  padding: 15px 35px 25px 35px;
+  padding: 24px 28px 25px 28px;
   margin: 0 15px;
   width: 100%;
-  // height: 80%;
+
   color: #101223;
   background-color: white;
   box-shadow: 2px 2px 2px $primary-purple;
-  border-radius: 35px;
+  border-radius: 20px;
   line-height: 24px !important;
-  font-size: 15px !important;
+  font-size: 16px !important;
   text-align: left !important;
 
-  & h2 {
-    color: $primary-purple;
-    font-size: 22px !important;
-    line-height: 33px !important;
-    margin: 0 !important;
-    text-align: left !important;
+  h2 {
+    font-size: 24px !important;
+    margin-bottom: 24px !important;
+    color: #101223 !important;
+    font-weight: 400;
+    line-height: 24px !important;
   }
 
-  & input[type="radio"] {
+  b {
+    color: $secondary-grey;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 400 !important;
+  }
+
+  p {
+  }
+  input[type="radio"] {
     display: none;
   }
 
-  & textarea {
-    padding: 10px 13px;
+  textarea {
+    padding: 10px;
     border: #afafb1 1.5px solid;
     border-radius: 13px;
     width: 100%;
     min-height: 100px;
     resize: none;
-    font-size: 13px;
+    font-size: 14px;
   }
 
-  & button {
+  button {
     margin: 0 !important;
   }
   @include tablet {
-    width: 380px;
-    margin: 50px;
+    width: 400px;
   }
 }
 
@@ -72,15 +80,17 @@
   flex-wrap: wrap;
 
   label {
-    margin-top: 12px;
-    width: 50%;
+    margin-top: 14px;
+    margin-right: 35px;
   }
 }
 
 .star {
-  width: 28px;
-  height: 28px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
+  margin-right: 18px;
+  margin-bottom: 32px;
   transition: color 200ms;
 }
 
@@ -96,10 +106,8 @@
   justify-content: center;
 }
 
-.error {
-  color: red;
-  text-align: center;
-  margin-top: 16px;
+.disabled {
+  opacity: 0.2;
 }
 
 .loader {

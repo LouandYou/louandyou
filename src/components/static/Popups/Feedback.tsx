@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 
 import styles from "./Feedback.module.scss";
 import { Checkbox } from "..";
@@ -20,50 +20,46 @@ export function Feedback({
   const [buttonContent, setButtonContent] = useState<any>(
     content.feedback_submit
   );
-  const [isEmptyForm, setIsEmptyForm] = useState<boolean | null>(false);
-
+  const [isEmptyForm, setIsEmptyForm] = useState<boolean>(true);
   const [rating, setRating] = useState<number | null>(null);
   const [checkboxValue, setcheckboxValue] = useState<string | null>(null);
-  const [textareaValue, setTextareaValue] = useState<string | null>(null);
+  const [textareaValue, setTextareaValue] = useState<string>("");
 
   const handleSubmit = async () => {
-    if (
-      (rating !== null || checkboxValue !== null || textareaValue !== null) &&
-      isSent !== true
-    ) {
-      setButtonContent(
-        <div className={styles.container}>
-          <div className={styles.loader} />
-        </div>
-      );
-      setIsEmptyForm(false);
+    setButtonContent(
+      <div className={styles.container}>
+        <div className={styles.loader} />
+      </div>
+    );
 
-      const res = await fetch("/api/sendgrid", {
-        body: JSON.stringify({
-          rating: rating,
-          checkboxValue: checkboxValue,
-          textareaValue: textareaValue,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      });
+    const res = await fetch("/api/sendgrid", {
+      body: JSON.stringify({
+        rating: rating,
+        checkboxValue: checkboxValue,
+        textareaValue: textareaValue,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
 
-      const { sent } = await res.json();
+    const { sent } = await res.json();
 
-      if (sent) {
-        setIsSent(true);
-        setButtonContent(content.feedback_success);
-      } else {
-        console.log("res", res.json());
-
-        setIsSent(false);
-      }
+    if (sent) {
+      setIsSent(true);
+      setButtonContent(content.feedback_success);
     } else {
-      setIsEmptyForm(true);
+      console.log("res", res.json());
+      setIsSent(false);
     }
   };
+
+  useEffect(() => {
+    if (rating !== null || checkboxValue !== null || textareaValue !== "") {
+      setIsEmptyForm(false);
+    } else setIsEmptyForm(true);
+  }, [textareaValue, rating, checkboxValue]);
 
   return (
     <div
@@ -72,14 +68,13 @@ export function Feedback({
       }`}
     >
       <div className={styles.content}>
-        <div className="has-text-right">
-          <b className="is-size-6  is-clickable" onClick={onClose}>
-            ✕
-          </b>
+        <div className="is-flex is-justify-content-space-between">
+          <h2>Feedback</h2>
+          <b onClick={onClose}>✕</b>
         </div>
-        <h2>{content.feedback_title}</h2>
-        <p className="py-3">{content.feedback_question1}</p>
-        <div className="is-flex is-justify-content-space-evenly">
+
+        <p className="pb-3">{content.feedback_question1}</p>
+        <div className="is-flex">
           {[...Array(5)].map((star, index) => {
             const ratingValue = index + 1;
             return (
@@ -88,7 +83,9 @@ export function Feedback({
                   type="radio"
                   name="rating"
                   value={ratingValue}
-                  onClick={() => setRating(ratingValue)}
+                  onClick={() => {
+                    setRating(ratingValue);
+                  }}
                 />
                 <div
                   className={`${styles.star}  ${
@@ -103,7 +100,7 @@ export function Feedback({
             );
           })}
         </div>
-        <p className="pt-4 pr-2">{content.feedback_question2}</p>
+        <p>{content.feedback_question2}</p>
         <div className={styles.checkbox_wrapper}>
           <Checkbox
             type="radio"
@@ -127,24 +124,25 @@ export function Feedback({
             onChange={(e) => setcheckboxValue(e.target.value)}
           />
         </div>
-        <p className="pt-3 pr-2">{content.feedback_question3}</p>
+        <p className="pt-5">{content.feedback_question3}</p>
         <textarea
           className="my-3"
           onChange={(e) => setTextareaValue(e.target.value)}
         />
         <div className="is-flex is-justify-content-center">
           <button
+            disabled={isEmptyForm}
             onClick={handleSubmit}
             className={`${styles.button} ${styles.purple} ${
-              isSent ? styles.green_full : ""
-            }`}
+              isEmptyForm && styles.disabled
+            } ${isSent && styles.green_full}`}
           >
             {buttonContent}
           </button>
         </div>
-        {isEmptyForm && (
+        {/* {isEmptyForm && (
           <p className={styles.error}> {content.feedback_error}</p>
-        )}
+        )} */}
       </div>
     </div>
   );
