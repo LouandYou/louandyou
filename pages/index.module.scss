@@ -62,12 +62,11 @@
   display: flex;
   & div {
     cursor: pointer;
-    color: var(--color-font);
   }
 }
 
 .underlined {
-  border-bottom: 1.5px solid var(--color-font);
+  border-bottom: 1.5px solid;
 }
 
 .find_help {
