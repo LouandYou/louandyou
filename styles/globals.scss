@@ -107,7 +107,9 @@ body {
   line-height: 30px;
   margin: 0;
   font-size: var(--size-font-paragraph);
-  background: white;
+  background: url("../public/gradients/gradient_main.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #101223;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

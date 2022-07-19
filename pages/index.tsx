@@ -6,7 +6,6 @@ import { GetHelp } from "../src/components/static";
 import styles from "./index.module.scss";
 import { Text } from "../src/components/dynamic";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
-import Blobs from "../src/components/static/Popups/Blobs";
 
 export default function Page({
   story,
@@ -57,7 +56,6 @@ export default function Page({
           story={story}
           preview={preview}
         />
-        <Blobs />
       </section>
 
       <section className={styles.find_help}>
@@ -79,7 +77,6 @@ export default function Page({
             </LinkButton>
           </div>
         </div>
-        <Blobs />
       </section>
 
       <section className={styles.white_page}>

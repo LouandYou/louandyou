@@ -2,7 +2,6 @@ import { DynamicComponent } from "./DynamicComponent";
 import { sbEditable } from "@storyblok/storyblok-editable";
 
 import styles from "./PageSection.module.scss";
-import Blobs from "../static/Popups/Blobs";
 
 const variants = {
   white: {
@@ -42,8 +41,6 @@ export const PageSection = ({ blok }) => {
             ))
           : null}
       </div>
-
-      {className === styles.headline && <Blobs />}
     </section>
   );
 };

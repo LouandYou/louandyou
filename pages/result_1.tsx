@@ -3,7 +3,6 @@ import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
-import Blobs from "../src/components/static/Popups/Blobs";
 
 export default function Page({ story, layoutStory }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
