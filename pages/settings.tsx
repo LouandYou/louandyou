@@ -219,7 +219,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
         </div>
       </section>
 
-      <section className={styles.color_page}>
+      <section id="section_2" className={styles.color_page}>
         <h1>{content.section2_title}</h1>
         <Text blok={content} attribute={"section2_p"} />
         <div style={{ marginTop: "48px" }} className={styles.settings_wrapper}>
