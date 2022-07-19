@@ -32,7 +32,8 @@
     }
   }
   & a {
-    color: var(--color-font);
+    color: #5353e9;
+    font-weight: 400 !important;
     text-decoration: underline;
   }
   @include desktop {

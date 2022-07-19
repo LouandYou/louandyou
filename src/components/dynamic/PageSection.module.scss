@@ -118,7 +118,7 @@
     padding: 110px 45px 102px 45px;
     min-height: 100vh;
     background-color: #5353e9;
-    color: var(--color-font);
+    color: white !important;
 
     h1 {
       font-size: 34px;
@@ -143,6 +143,7 @@
 
     a {
       text-decoration: underline;
+      color: white !important;
     }
 
     div a:hover {
@@ -181,8 +182,6 @@
   &.headline {
     height: 100vh;
     justify-content: flex-end;
-    // background-color: #8d8bf4;
-    // color: var(--color-font);
 
     h1 {
       font-size: 34px;

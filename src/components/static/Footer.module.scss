@@ -3,17 +3,13 @@
 
 .footer {
   background: linear-gradient(
-      138.69deg,
-      rgba(251, 251, 255, 0.87) 5.26%,
-      rgba(245, 250, 255, 0.42) 53.77%,
-      #f5faff 93.55%,
-      #fbfbff 93.55%
-    ),
-    url("../../../public/gradients/gradient_footer.png");
+    138.69deg,
+    rgba(251, 251, 255, 0.87) 5.26%,
+    rgba(245, 250, 255, 0.42) 53.77%,
+    #f5faff 93.55%,
+    #fbfbff 93.55%
+  );
 
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
   padding: 92px 20px 45px 20px;
   font-size: 15px;
   display: flex;
