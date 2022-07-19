@@ -125,7 +125,7 @@ export function Footer({ content }): ReactElement {
           </div>
         </div>
         <div className={styles.last_icons}>
-          <img width={"108px"} src="/hey_data.svg" alt="hey data" />
+          <img width={"108px"} src="/hey_data.png" alt="hey data" />
           <img
             width={"108px"}
             src="/BMWI.svg"
@@ -232,7 +232,7 @@ export function Footer({ content }): ReactElement {
               alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
             />
 
-            <img width={"83px"} src="/hey_data.svg" alt="hey data" />
+            <img width={"83px"} src="/hey_data.png" alt="hey data" />
           </div>
           <div
             style={{ flex: "0.8" }}
