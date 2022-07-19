@@ -2,7 +2,6 @@
 @import "colors.scss";
 
 .footer {
-  // background-color: rgba($color: #ffffff, $alpha: 0.5);
   background: linear-gradient(
       138.69deg,
       rgba(251, 251, 255, 0.87) 5.26%,
@@ -11,6 +10,7 @@
       #fbfbff 93.55%
     ),
     url("../../../public/gradients/gradient_footer.png");
+
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -41,21 +41,7 @@
     height: 100vh;
     padding: 70px 55px 24px 55px;
     align-items: flex-start;
-
-    // & a:hover {
-    //   color: #8d8bf4;
-    // }
   }
-}
-
-.foreground {
-  background: linear-gradient(
-    138.69deg,
-    rgba(251, 251, 255, 0.87) 5.26%,
-    rgba(245, 250, 255, 0.42) 53.77%,
-    #f5faff 93.55%,
-    #fbfbff 93.55%
-  );
 }
 
 .icons_container {
@@ -63,10 +49,8 @@
   justify-content: center;
   align-items: flex-end;
   cursor: pointer;
+  padding-right: 19px;
 
-  a {
-    margin-right: 15px;
-  }
   span {
     transition: transform 0.3s;
   }
@@ -77,10 +61,6 @@
 
   @include tablet {
     padding-right: 0;
-
-    a {
-      margin-right: 20px;
-    }
   }
 }
 

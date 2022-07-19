@@ -23,11 +23,6 @@ export function Footer({ content }): ReactElement {
 
   return (
     <section aria-label="Footer" className={styles.footer}>
-      {/* <div className={styles.foreground} /> */}
-      {/* <img
-        className={styles.background}
-        src={"/gradients/gradient_footer.png"}
-      /> */}
       <Image
         src={louLogo}
         width="200"
@@ -91,8 +86,8 @@ export function Footer({ content }): ReactElement {
             >
               <Image
                 src={instagram}
-                width="40"
-                height="40"
+                width="38"
+                height="38"
                 alt="instagram logo"
               />
             </a>
@@ -100,11 +95,12 @@ export function Footer({ content }): ReactElement {
               href={"https://www.facebook.com/louandyou.org"}
               rel="noreferrer"
               target={"_blank"}
+              className="px-3"
             >
               <Image
                 src={facebook}
-                width="40"
-                height="40"
+                width="38"
+                height="38"
                 alt="facebook logo"
               />
             </a>
@@ -115,8 +111,8 @@ export function Footer({ content }): ReactElement {
             >
               <Image
                 src={linkedin}
-                width="40"
-                height="40"
+                width="38"
+                height="38"
                 alt="linkedin logo"
               />
             </a>
@@ -194,6 +190,7 @@ export function Footer({ content }): ReactElement {
                 href={"https://www.facebook.com/louandyou.org"}
                 rel="noreferrer"
                 target={"_blank"}
+                className="px-3"
               >
                 <Image
                   src={facebook}
