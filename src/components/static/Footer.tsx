@@ -7,13 +7,14 @@ import { Text } from "../dynamic";
 import { Feedback } from "./Popups/Feedback";
 import { useRouter } from "next/dist/client/router";
 
-import louLogo from "../../../public/logo_full_color.png";
+import louLogo from "../../../public/logo_full_color.svg";
 import paypal from "../../../public/payment/paypal.svg";
 import instagram from "../../../public/social/Instagram.svg";
 import facebook from "../../../public/social/Facebook.svg";
 import linkedin from "../../../public/social/Linkedin.svg";
-import heyData from "../../../public/Data.svg";
+import heyData from "../../../public/hey_data.svg";
 import BMWI from "../../../public/BMWI.svg";
+import background from "../../../public/gradients/gradient_footer.png";
 
 export function Footer({ content }): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
@@ -22,6 +23,11 @@ export function Footer({ content }): ReactElement {
 
   return (
     <section aria-label="Footer" className={styles.footer}>
+      {/* <div className={styles.foreground} /> */}
+      {/* <img
+        className={styles.background}
+        src={"/gradients/gradient_footer.png"}
+      /> */}
       <Image
         src={louLogo}
         width="200"
@@ -33,18 +39,22 @@ export function Footer({ content }): ReactElement {
 
       <div className="is-hidden-tablet">
         <div
-          style={{ paddingLeft: "22px", marginTop: "50px", lineHeight: "35px" }}
+          style={{
+            paddingLeft: "19px",
+            marginTop: "50px",
+            lineHeight: "35px",
+          }}
         >
           <b>{content.about_louandyou}</b>
           <Text blok={content} attribute={"navbar_dropdown1"} />
-          <span style={{ margin: "20px" }} />
+          <span style={{ margin: "16px" }} />
           <Text blok={content} attribute={"support"} />
         </div>
 
         <div className={styles.support}>
           <Text blok={content} attribute={"spende1"} />
           <span className="is-flex my-5">
-            <p className="mr-5">{content.or_with}</p>
+            <p className="mr-3">{content.or_with}</p>
 
             <Image
               src={paypal}
@@ -59,12 +69,14 @@ export function Footer({ content }): ReactElement {
               }
             />
           </span>
-          <p style={{ fontSize: "11px" }}>{content.spende2}</p>
+          <p style={{ fontSize: "11px", lineHeight: "18px" }}>
+            {content.spende2}
+          </p>
         </div>
 
         <div className="is-flex is-justify-content-space-between">
           <div
-            style={{ paddingLeft: "22px", lineHeight: "35px" }}
+            style={{ paddingLeft: "19px", lineHeight: "35px" }}
             className="is-flex is-flex-direction-column"
           >
             <b>{content.contact}</b>
@@ -163,7 +175,7 @@ export function Footer({ content }): ReactElement {
               {content.feedback}
             </a>
             <span
-              style={{ marginTop: "44px" }}
+              style={{ marginTop: "24px" }}
               className={styles.icons_container}
             >
               <a
@@ -173,8 +185,8 @@ export function Footer({ content }): ReactElement {
               >
                 <Image
                   src={instagram}
-                  width="40"
-                  height="40"
+                  width="30"
+                  height="30"
                   alt="instagram logo"
                 />
               </a>
@@ -185,8 +197,8 @@ export function Footer({ content }): ReactElement {
               >
                 <Image
                   src={facebook}
-                  width="40"
-                  height="40"
+                  width="30"
+                  height="30"
                   alt="facebook logo"
                 />
               </a>
@@ -197,8 +209,8 @@ export function Footer({ content }): ReactElement {
               >
                 <Image
                   src={linkedin}
-                  width="40"
-                  height="40"
+                  width="30"
+                  height="30"
                   alt="linkedin logo"
                 />
               </a>
