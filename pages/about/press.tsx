@@ -11,7 +11,7 @@ export default function Page({ story }) {
     <>
       <section className={`${styles.better_together} is-flex-direction-column`}>
         <Text blok={content} attribute={"text1"} />
-        <button className={`${styles.button} ${styles.white} my-5`}>
+        <button className={`${styles.button} ${styles.purple} my-5`}>
           <Text blok={content} attribute={"press"} />
         </button>
         <div className={styles.container}>
