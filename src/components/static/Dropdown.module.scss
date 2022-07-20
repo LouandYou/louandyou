@@ -29,7 +29,7 @@
 }
 
 .content {
-  padding: 12px 0 12px 0;
+  padding: 12px 0 21px 0;
   line-height: 30px;
   max-height: 0;
   opacity: 0;
@@ -43,7 +43,7 @@
 
   @include tablet {
     line-height: 37px;
-    padding: 12px 0;
+    padding: 12px 0 26px 0;
   }
 }
 

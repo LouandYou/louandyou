@@ -1,0 +1,70 @@
+@mixin font-face-common {
+  font-display: swap;
+}
+
+/* Wulkan Display Bold */
+@font-face {
+  font-family: "Wulkan";
+  src: url("../public/fonts/Wulkan-Bold/eot/Wulkan-Bold.eot"); /* IE9 Compat Modes */
+  src: url("../public/fonts/Wulkan-Bold/eot/Wulkan-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../public/fonts/Wulkan-Bold/woff2/Wulkan-Bold.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../public/fonts/Wulkan-Bold/woff/Wulkan-Bold.woff") format("woff"); /* Pretty Modern Browsers */
+  font-weight: 700;
+  font-style: normal;
+  @include font-face-common;
+}
+
+/* Wulkan Display Medium */
+@font-face {
+  font-family: "Wulkan";
+  src: url("../public/fonts/Wulkan-Medium/eot/Wulkan-Medium.eot"); /* IE9 Compat Modes */
+  src: url("../public/fonts/Wulkan-Medium/eot/Wulkan-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../public/fonts/Wulkan-Medium/woff2/Wulkan-Medium.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../public/fonts/Wulkan-Medium/woff/Wulkan-Medium.woff")
+      format("woff"); /* Pretty Modern Browsers */
+  font-weight: 500;
+  font-style: normal;
+  @include font-face-common;
+}
+
+/* Avenir */
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../public/fonts/Avenir/AvenirNextLTPro-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+  @include font-face-common;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../public/fonts/Avenir/AvenirNextLTPro-Bold.otf");
+  font-weight: bold;
+  font-style: normal;
+  @include font-face-common;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../public/fonts/Avenir/AvenirNextLTPro-It.otf");
+  font-weight: normal;
+  font-style: italic;
+  @include font-face-common;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../public/fonts/Avenir/AvenirNextCyr-Demi.woff2") format("woff2"),
+    url("../public/fonts/Avenir/AvenirNextCyr-Demi.woff") format("woff"),
+    url("../public/fonts/Avenir/AvenirNextCyr-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  @include font-face-common;
+}
