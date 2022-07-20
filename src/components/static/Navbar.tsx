@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React, { ReactElement, useState } from "react";
-import Image from "next/image";
 
 import useScrollingBackgroundColor from "../../utils/useScrollingBackgroundColor";
 import styles from "./Navbar.module.scss";
