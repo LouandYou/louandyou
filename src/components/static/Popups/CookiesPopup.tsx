@@ -59,12 +59,14 @@ export function CookiesPopup({
             <Text blok={story.content} attribute={"cookies_paragraph"} />
           </div>
           <div className="is-flex is-flex-direction-column">
-            <button
-              onClick={() => router.push("/settings#cookies")}
-              className={`${styles.button} ${styles.purple} mb-2`}
-            >
-              {story.content.cookies_link}
-            </button>
+            <Link passHref href={"/settings#cookies"}>
+              <button
+                // onClick={() => router.push("/settings#cookies")}
+                className={`${styles.button} ${styles.purple} mb-2`}
+              >
+                {story.content.cookies_link}
+              </button>
+            </Link>
             <button
               onClick={handleOnClick}
               className={`${styles.button} ${styles.purple_secondery}`}
