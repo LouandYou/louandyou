@@ -18,7 +18,7 @@ export default function Page({ story }) {
       <section className={styles.warning}>
         <Text blok={content} attribute={"last"} />
         <div className="is-flex-tablet is-justify-content-center">
-          <Link passHref href={"./result_2"}>
+          <Link passHref href={"/result_2"}>
             <button className={`${styles.button} ${styles.white}`}>
               {content.last_btn}
             </button>

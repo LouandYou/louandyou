@@ -54,7 +54,29 @@
   border: none;
   background: #68a005;
   color: var(--color-font);
-  font-size: 13px !important;
-  letter-spacing: 0.02rem;
-  padding: 12px 22px 12px 27px;
+}
+
+.orange {
+  background-color: $primary-orange;
+  color: white;
+  border: none;
+}
+
+.purple_secondery {
+  border: none;
+  background-color: $secondary-purple;
+  color: white;
+}
+
+.purple_border {
+  border: 1.5px solid $primary-purple !important;
+  color: $primary-purple !important;
+  &:active {
+    background: $primary-purple !important;
+    color: white;
+  }
+  &:hover {
+    background: $primary-purple !important;
+    color: white;
+  }
 }

@@ -1,36 +1,50 @@
 @use "Button.module";
 @import "~bulma/sass/utilities/mixins.sass";
+@import "colors.scss";
 
 .headline {
-  color: #101223;
+  color: $primary-purple;
   line-height: 24px;
-  margin-top: 32px;
-  letter-spacing: 0.02em;
-  font-size: 18px;
+  font-size: 16px;
+  padding-top: 5px;
   font-weight: 600;
   font-family: "Avenir", serif;
-  @include tablet {
-    margin-top: 46px;
-  }
+}
+
+.number {
+  font-family: "Wulkan", serif;
+  font-weight: 400;
+  font-size: 32px;
+  color: $primary-purple;
+  line-height: 24px;
+  margin-right: 24px;
 }
 
 .button_container {
-  padding-top: 74px;
+  padding-top: 50px;
   display: flex;
+  width: 260px;
+  margin-left: 35px;
   justify-content: center;
 }
 
 .checkbox_wrapper {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 35px;
 
   label {
-    margin-top: 17px;
-    min-width: 50%;
+    margin-top: 15px;
+    min-width: 40%;
+    font-size: 16px !important;
 
     @include tablet {
       min-width: 0;
-      margin-right: 70px;
+      margin-right: 60px;
     }
   }
+}
+
+.disabled {
+  background-color: #a6a6f5;
 }

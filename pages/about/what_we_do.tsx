@@ -30,13 +30,13 @@ export default function Page({ story }) {
               "mt-5 is-flex-tablet is-justify-content-space-between has-text-centered"
             }
           >
-            <LinkButton variant={"white"} href={"/about/meet_lou"}>
+            <LinkButton variant={"purple"} href={"/about/meet_lou"}>
               {content.button1}
             </LinkButton>
-            <LinkButton variant={"white"} href={"/about/impact"}>
+            <LinkButton variant={"purple"} href={"/about/impact"}>
               {content.button2}
             </LinkButton>
-            <LinkButton variant={"white"} href={"/about/donate"}>
+            <LinkButton variant={"purple"} href={"/about/donate"}>
               {content.button3}
             </LinkButton>
           </div>

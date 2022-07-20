@@ -1,32 +1,46 @@
 @import "~bulma/sass/utilities/mixins.sass";
+@import "colors.scss";
 
 .footer {
-  background-color: rgba($color: #ffffff, $alpha: 0.5);
-  padding: 42px 20px 45px 20px;
-  font-size: 14px;
+  background: linear-gradient(
+    138.69deg,
+    rgba(251, 251, 255, 0.87) 5.26%,
+    rgba(245, 250, 255, 0.42) 53.77%,
+    #f5faff 93.55%,
+    #fbfbff 93.55%
+  );
+
+  padding: 92px 20px 45px 20px;
+  font-size: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #101223;
 
-  & h1 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
+  & .logo {
+    width: 220px;
   }
 
   b {
-    color: #4242ba;
+    font-size: 16px;
     font-weight: 600;
+    line-height: 35px;
+    font-family: "Avenir", serif;
+    color: $Primary-Purple-Blue;
+  }
+
+  @include tablet {
+    font-size: 14px;
+    b {
+      font-size: 19px;
+    }
   }
 
   @include desktop {
-    padding: 88px 100px 20px 100px;
+    padding: 80px 55px 24px 55px;
     align-items: flex-start;
-
-    // & a:hover {
-    //   color: #8d8bf4;
-    // }
+    justify-content: space-around;
+    min-height: 100vh;
   }
 }
 
@@ -35,10 +49,8 @@
   justify-content: center;
   align-items: flex-end;
   cursor: pointer;
+  padding-right: 19px;
 
-  a {
-    margin-right: 15px;
-  }
   span {
     transition: transform 0.3s;
   }
@@ -49,27 +61,27 @@
 
   @include tablet {
     padding-right: 0;
-
-    a {
-      margin-right: 20px;
-    }
   }
 }
 
 .support {
   margin-top: 48px;
-  margin-bottom: 35px;
-  padding: 15px 21px;
-  background-color: #fbfbff;
+  margin-bottom: 48px;
+  padding: 15px 19px;
+  background-color: rgba($color: white, $alpha: 0.4);
   border-radius: 12px;
   width: 100%;
 
-  & p {
+  p {
     line-height: 24px;
   }
 
+  & b:first-child {
+    margin-bottom: 10px !important;
+  }
+
   @include tablet {
-    padding: 17px;
+    padding: 17px 30px;
     margin: 0px;
     flex: 0.5;
   }
@@ -80,7 +92,7 @@
   flex-direction: column;
   width: 100%;
   justify-content: flex-start;
-  padding-left: 22px;
+  padding-left: 19px;
   margin-top: 67px;
   line-height: 35px;
 }
@@ -88,7 +100,6 @@
 .last_icons {
   position: relative;
   margin-top: 64px;
-  padding-left: 22px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }

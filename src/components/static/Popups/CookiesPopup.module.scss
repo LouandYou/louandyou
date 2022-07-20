@@ -3,32 +3,33 @@
 @import "colors.scss";
 
 .container {
-  padding: 29px 30px 20px 30px;
-  border-radius: 35px;
+  padding: 28px 28px 35px 28px;
+  border-radius: 20px;
   bottom: 15px;
   position: fixed;
+  filter: drop-shadow(0.4px 0.5px 0.2px grey);
   width: 95%;
   color: #101223;
   background-color: white;
   z-index: 10;
-  box-shadow: 2px 2px 2px $primary-purple;
   text-align: left;
   line-height: 27px;
   -webkit-animation: fadein 1s;
   animation: fadein 1s;
 
   & h2 {
-    color: $primary-purple;
     font-size: 24px;
+    margin-bottom: 16px;
   }
 
   & p {
+    color: $secondary-grey;
     line-height: 24px;
     font-size: 14px !important;
   }
 
   button {
-    width: 150px !important;
+    width: 100% !important;
   }
 
   @include tablet {
@@ -54,7 +55,7 @@
 
 .language_switch {
   color: #d1d1d3;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 600;
   display: flex;
   & div {
@@ -64,4 +65,8 @@
 
 .selected {
   color: $primary-purple;
+  border-bottom: 1px solid $primary-purple;
+}
+
+.underline {
 }

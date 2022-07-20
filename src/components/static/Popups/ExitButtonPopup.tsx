@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ExitButtonContext } from "../ExitButton/ExitButtonContext";
 import { Text } from "../../dynamic";
 import { COOKIES } from "../../../config";
+import { useRouter } from "next/router";
 
 interface Props {
   onClose: () => void;
@@ -16,6 +17,7 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
   const [togglePopup, setTogglePopup] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
+  const router = useRouter();
   const { toggleIsVisible } = useContext(ExitButtonContext);
 
   useEffect(() => {
@@ -33,12 +35,18 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
     Cookies.set(COOKIES.EXIT_BUTTON, true);
   };
 
+  const handleClickThree = () => {
+    onClose();
+    Cookies.set(COOKIES.EXIT_BUTTON_POPUP, true);
+    router.push("/settings#section_2");
+  };
+
   const popupOne = () => {
     return (
       <div className={styles.container}>
-        <div className="mb-4">
-          <Text blok={content} attribute="Exit_Button_Popup1_Paragraph" />
-        </div>
+        <h2>Exit Button</h2>
+        <Text blok={content} attribute="Exit_Button_Popup1_Paragraph" />
+
         <div className="is-flex is-justify-content-center">
           <button
             onClick={handleClickOne}
@@ -64,15 +72,13 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
   const popupTwo = () => {
     return (
       <div className={styles.container}>
-        <p className="mb-5">{content.Exit_Button_Popup2_Paragraph}</p>
+        <p>{content.Exit_Button_Popup2_Paragraph}</p>
         <div className="is-flex is-justify-content-center">
           <button
-            onClick={handleClickOne}
+            onClick={handleClickThree}
             className={`${styles.button} ${styles.purple}`}
           >
-            <Link passHref href={"/settings#section_2"}>
-              {content.Exit_Button_Popup2_Button}
-            </Link>
+            {content.Exit_Button_Popup2_Button}
           </button>
         </div>
         <p

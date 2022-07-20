@@ -6,7 +6,6 @@ import { GetHelp } from "../src/components/static";
 import styles from "./index.module.scss";
 import { Text } from "../src/components/dynamic";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
-import Blobs from "../src/components/static/Popups/Blobs";
 
 export default function Page({
   story,
@@ -27,29 +26,7 @@ export default function Page({
           <img width="510" alt="logo" src="/logo_full_white.svg" />
           <Text blok={content} attribute={"description"} />
         </div>
-        <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
-          <div className={styles.language_switch}>
-            {locales
-              .map((loc) => (
-                <Link
-                  key={loc}
-                  href={`/${loc === defaultLocale ? "" : loc}`}
-                  locale={false}
-                  passHref
-                >
-                  <div
-                    className={`mx-3 px-1 ${
-                      loc === locale ? styles.underlined : ""
-                    }`}
-                  >
-                    {loc.toUpperCase()}
-                  </div>
-                </Link>
-              ))
-              .reverse()
-              .reduce((prev, curr) => [prev, "|", curr])}
-          </div>
-        </div>
+
         <CookiesPopup
           locales={locales}
           locale={locale}
@@ -57,12 +34,11 @@ export default function Page({
           story={story}
           preview={preview}
         />
-        <Blobs />
       </section>
 
       <section className={styles.find_help}>
-        <div>
-          <h1>{content.question_headline}</h1>
+        <h1>{content.question_headline}</h1>
+        <div className={styles.container}>
           <GetHelp content={content} />
         </div>
       </section>
@@ -79,7 +55,6 @@ export default function Page({
             </LinkButton>
           </div>
         </div>
-        <Blobs />
       </section>
 
       <section className={styles.white_page}>

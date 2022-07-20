@@ -6,6 +6,7 @@
   justify-content: center;
 
   &.white {
+    background: rgba($color: white, $alpha: 0.7);
     padding: 128px 45px 200px 45px;
     display: flex;
     flex-direction: column;
@@ -26,7 +27,7 @@
     h2 {
       font-size: 24px;
       line-height: 32px;
-      margin-bottom: 25px;
+      margin-bottom: 32px;
       margin-top: 100px;
       color: #5353e9;
     }
@@ -117,13 +118,13 @@
     padding: 110px 45px 102px 45px;
     min-height: 100vh;
     background-color: #5353e9;
-    color: var(--color-font);
+    color: white !important;
 
     h1 {
       font-size: 34px;
       line-height: 42px;
       margin-bottom: 24px;
-      color: var(--color-font) !important;
+      // color: var(--color-font) !important;
     }
 
     h2 {
@@ -142,10 +143,11 @@
 
     a {
       text-decoration: underline;
+      color: white !important;
     }
 
     div a:hover {
-      color: var(--color-font) !important;
+      // color: var(--color-font) !important;
       text-decoration-color: var(--color-font) !important;
     }
 
@@ -178,13 +180,13 @@
   }
 
   &.headline {
+    padding: 110px 45px 102px 45px;
     height: 100vh;
     justify-content: flex-end;
-    background-color: #8d8bf4;
-    color: var(--color-font);
 
     h1 {
       font-size: 34px;
+      color: #5353e9;
     }
 
     p {

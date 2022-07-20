@@ -9,8 +9,9 @@
 }
 
 .dropdown_button {
-  background: transparent url("../../../public/unfold_button_black.svg")
-    no-repeat;
+  background: transparent url("../../../public/unfold_button_black.svg");
+  background-size: contain;
+  cursor: pointer;
   border: none;
   width: 20px;
   height: 20px;
@@ -28,7 +29,7 @@
 }
 
 .content {
-  padding: 12px 0 12px 0;
+  padding: 12px 0 21px 0;
   line-height: 30px;
   max-height: 0;
   opacity: 0;
@@ -42,7 +43,7 @@
 
   @include tablet {
     line-height: 37px;
-    padding: 12px 0;
+    padding: 12px 0 26px 0;
   }
 }
 

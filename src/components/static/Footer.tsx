@@ -7,13 +7,10 @@ import { Text } from "../dynamic";
 import { Feedback } from "./Popups/Feedback";
 import { useRouter } from "next/dist/client/router";
 
-import louLogo from "../../../public/logo_full_color.png";
 import paypal from "../../../public/payment/paypal.svg";
 import instagram from "../../../public/social/Instagram.svg";
 import facebook from "../../../public/social/Facebook.svg";
 import linkedin from "../../../public/social/Linkedin.svg";
-import heyData from "../../../public/Data.svg";
-import BMWI from "../../../public/BMWI.svg";
 
 export function Footer({ content }): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
@@ -22,29 +19,29 @@ export function Footer({ content }): ReactElement {
 
   return (
     <section aria-label="Footer" className={styles.footer}>
-      <Image
-        src={louLogo}
-        width="200"
-        height="70"
-        alt="logo"
-        priority
-        quality={100}
+      <img
+        src="/logo_full_color.svg"
+        alt="Lou&You Logo"
+        className={styles.logo}
       />
-
       <div className="is-hidden-tablet">
         <div
-          style={{ paddingLeft: "22px", marginTop: "50px", lineHeight: "35px" }}
+          style={{
+            paddingLeft: "19px",
+            marginTop: "50px",
+            lineHeight: "35px",
+          }}
         >
           <b>{content.about_louandyou}</b>
           <Text blok={content} attribute={"navbar_dropdown1"} />
-          <span style={{ margin: "20px" }} />
+          <span style={{ margin: "16px" }} />
           <Text blok={content} attribute={"support"} />
         </div>
 
         <div className={styles.support}>
           <Text blok={content} attribute={"spende1"} />
           <span className="is-flex my-5">
-            <p className="mr-5">{content.or_with}</p>
+            <p className="mr-3">{content.or_with}</p>
 
             <Image
               src={paypal}
@@ -59,15 +56,20 @@ export function Footer({ content }): ReactElement {
               }
             />
           </span>
-          <p style={{ fontSize: "11px" }}>{content.spende2}</p>
+          <p style={{ fontSize: "11px", lineHeight: "18px" }}>
+            {content.spende2}
+          </p>
         </div>
 
         <div className="is-flex is-justify-content-space-between">
           <div
-            style={{ paddingLeft: "22px", lineHeight: "35px" }}
+            style={{ paddingLeft: "19px", lineHeight: "35px" }}
             className="is-flex is-flex-direction-column"
           >
             <b>{content.contact}</b>
+            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+              {content.contact_us}
+            </a>
             <Text blok={content} attribute={"navbar_dropdown2"} />
             <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>Feedback</a>
           </div>
@@ -79,8 +81,8 @@ export function Footer({ content }): ReactElement {
             >
               <Image
                 src={instagram}
-                width="40"
-                height="40"
+                width="38"
+                height="38"
                 alt="instagram logo"
               />
             </a>
@@ -88,11 +90,12 @@ export function Footer({ content }): ReactElement {
               href={"https://www.facebook.com/louandyou.org"}
               rel="noreferrer"
               target={"_blank"}
+              className="px-3"
             >
               <Image
                 src={facebook}
-                width="40"
-                height="40"
+                width="38"
+                height="38"
                 alt="facebook logo"
               />
             </a>
@@ -103,8 +106,8 @@ export function Footer({ content }): ReactElement {
             >
               <Image
                 src={linkedin}
-                width="40"
-                height="40"
+                width="38"
+                height="38"
                 alt="linkedin logo"
               />
             </a>
@@ -125,20 +128,10 @@ export function Footer({ content }): ReactElement {
           </div>
         </div>
         <div className={styles.last_icons}>
-          <Image
-            priority
-            src={heyData}
-            width="150"
-            height="150"
-            alt="hey data"
-            quality={100}
-          />
-          <Image
-            quality={100}
-            priority
-            src={BMWI}
-            width="160"
-            height="150"
+          <img width={"108px"} src="/hey_data.png" alt="hey data" />
+          <img
+            width={"108px"}
+            src="/BMWI.svg"
             alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
           />
         </div>
@@ -147,7 +140,7 @@ export function Footer({ content }): ReactElement {
       <div style={{ width: "100%" }} className={`is-hidden-mobile`}>
         <div
           className="is-flex is-justify-content-space-between"
-          style={{ marginTop: "70px", lineHeight: "42px" }}
+          style={{ marginTop: "65px", lineHeight: "38px" }}
         >
           <div>
             <b>{content.about_louandyou}</b>
@@ -156,14 +149,17 @@ export function Footer({ content }): ReactElement {
           <div>
             <Text blok={content} attribute={"support"} />
           </div>
-          <div>
+          <div className="is-flex is-flex-direction-column">
             <b>{content.contact}</b>
+            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+              {content.contact_us}
+            </a>
             <Text blok={content} attribute={"navbar_dropdown2"} />
             <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
               {content.feedback}
             </a>
             <span
-              style={{ marginTop: "44px" }}
+              style={{ marginTop: "24px" }}
               className={styles.icons_container}
             >
               <a
@@ -173,8 +169,8 @@ export function Footer({ content }): ReactElement {
               >
                 <Image
                   src={instagram}
-                  width="40"
-                  height="40"
+                  width="30"
+                  height="30"
                   alt="instagram logo"
                 />
               </a>
@@ -182,11 +178,12 @@ export function Footer({ content }): ReactElement {
                 href={"https://www.facebook.com/louandyou.org"}
                 rel="noreferrer"
                 target={"_blank"}
+                className="px-3"
               >
                 <Image
                   src={facebook}
-                  width="40"
-                  height="40"
+                  width="30"
+                  height="30"
                   alt="facebook logo"
                 />
               </a>
@@ -197,8 +194,8 @@ export function Footer({ content }): ReactElement {
               >
                 <Image
                   src={linkedin}
-                  width="40"
-                  height="40"
+                  width="30"
+                  height="30"
                   alt="linkedin logo"
                 />
               </a>
@@ -229,23 +226,20 @@ export function Footer({ content }): ReactElement {
           </div>
         </div>
         <div className="is-flex is-justify-content-space-between is-relative">
-          <Image
-            quality={100}
-            priority
-            src={BMWI}
-            width="160"
-            height="150"
-            alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
-          />
-          <Image
-            priority
-            quality={100}
-            src={heyData}
-            width="150"
-            height="150"
-            alt="hey data"
-          />
+          <div>
+            <img
+              style={{
+                marginLeft: "-15px",
+                marginRight: "30px",
+                marginTop: "-15px",
+              }}
+              width={"130px"}
+              src="/BMWI.svg"
+              alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
+            />
 
+            <img width={"83px"} src="/hey_data.png" alt="hey data" />
+          </div>
           <div
             style={{ flex: "0.8" }}
             className="is-flex is-align-items-flex-end is-justify-content-space-between"

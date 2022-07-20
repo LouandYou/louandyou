@@ -1,12 +1,13 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { Checkbox } from "./Checkbox";
 import styles from "./GetHelp.module.scss";
 import Link from "next/link";
 import { SafetyCheck } from "./SafetyCheck";
 
 export function GetHelp({ content }): ReactElement {
-  const [violanceType, setViolanceType] = useState<string>();
-  const [isLongAgo, setIsLongAgo] = useState<boolean>();
+  const [violanceType, setViolanceType] = useState<string>("");
+  const [isLongAgo, setIsLongAgo] = useState<boolean | null>(null);
+  const [isEmptyForm, setIsEmptyForm] = useState<boolean>(true);
 
   const getHref = () => {
     if (violanceType === "sexual" && !isLongAgo) {
@@ -34,12 +35,21 @@ export function GetHelp({ content }): ReactElement {
     }
   };
 
-  const canSubmit = () => violanceType !== undefined && isLongAgo !== undefined;
+  // const canSubmit = () => violanceType !== undefined && isLongAgo !== undefined;
+
+  useEffect(() => {
+    if (violanceType !== "" && isLongAgo !== null) {
+      setIsEmptyForm(false);
+    }
+  }, [violanceType, isLongAgo]);
 
   return (
     <>
       <SafetyCheck content={content} />
-      <h2 className={styles.headline}>{content.violence_question}</h2>
+      <div className="is-flex mt-4">
+        <p className={styles.number}>2</p>
+        <h2 className={styles.headline}>{content.violence_question}</h2>
+      </div>
       <div className={styles.checkbox_wrapper}>
         <Checkbox
           type="radio"
@@ -59,22 +69,28 @@ export function GetHelp({ content }): ReactElement {
         />
         <Checkbox
           type="radio"
-          label={content.not_say}
-          value="not sure"
-          checked={violanceType === "not sure"}
-          onChange={() => setViolanceType("not sure")}
-          onKeyDown={handleOnKeyDown1}
-        />
-        <Checkbox
-          type="radio"
           label={content.both}
           value="both"
           checked={violanceType === "both"}
           onChange={() => setViolanceType("both")}
           onKeyDown={handleOnKeyDown1}
         />
+        <Checkbox
+          type="radio"
+          label={content.not_say}
+          value="not sure"
+          checked={violanceType === "not sure"}
+          onChange={() => setViolanceType("not sure")}
+          onKeyDown={handleOnKeyDown1}
+        />
       </div>
-      <h2 className={styles.headline}>{content.how_long_ago}</h2>
+      <div className="is-flex mt-4">
+        <p className={styles.number}>3</p>
+        <h2 style={{ paddingTop: "10px" }} className={styles.headline}>
+          {content.how_long_ago}
+        </h2>
+      </div>
+
       <div className={styles.checkbox_wrapper}>
         <Checkbox
           type="radio"
@@ -94,13 +110,16 @@ export function GetHelp({ content }): ReactElement {
         />
       </div>
       <div className={styles.button_container}>
-        {canSubmit() && (
-          <Link href={getHref()} passHref>
-            <button className={`${styles.button} ${styles.purple}`}>
-              {content.start}
-            </button>
-          </Link>
-        )}
+        <Link href={getHref()} passHref>
+          <button
+            disabled={isEmptyForm}
+            className={`${styles.button} ${styles.purple} ${
+              isEmptyForm && styles.disabled
+            }`}
+          >
+            {content.start}
+          </button>
+        </Link>
       </div>
     </>
   );

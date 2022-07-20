@@ -2,92 +2,8 @@ $content-heading-color: "";
 
 @import "~bulma/bulma";
 @import "typography";
+@import "fonts";
 @import "~bulma/sass/utilities/mixins.sass";
-
-// Lou&You colors
-
-// $purple: #8b8bf4;
-// $lilac: #a1bbff;
-// $warm-black: #101223;
-// $green: #68a005;
-// $leaf: #9ebe38;
-// $red: #bf1151;
-// $yellow: #fceb30;
-// $orange: #ed6b06;
-
-/*
- *	WebFont Package Licensed to Lou&You
- */
-
-@mixin font-face-common {
-  font-display: swap;
-}
-
-/* Wulkan Display Bold */
-@font-face {
-  font-family: "Wulkan";
-  src: url("../fonts/Wulkan-Bold/eot/Wulkan-Bold.eot"); /* IE9 Compat Modes */
-  src: url("../fonts/Wulkan-Bold/eot/Wulkan-Bold.eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-IE8 */ url("../fonts/Wulkan-Bold/woff2/Wulkan-Bold.woff2")
-      format("woff2"),
-    /* Super Modern Browsers */
-      url("../fonts/Wulkan-Bold/woff/Wulkan-Bold.woff") format("woff"); /* Pretty Modern Browsers */
-  font-weight: 700;
-  font-style: normal;
-  @include font-face-common;
-}
-
-/* Wulkan Display Medium */
-@font-face {
-  font-family: "Wulkan";
-  src: url("../fonts/Wulkan-Medium/eot/Wulkan-Medium.eot"); /* IE9 Compat Modes */
-  src: url("../fonts/Wulkan-Medium/eot/Wulkan-Medium.eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-IE8 */ url("../fonts/Wulkan-Medium/woff2/Wulkan-Medium.woff2")
-      format("woff2"),
-    /* Super Modern Browsers */
-      url("../fonts/Wulkan-Medium/woff/Wulkan-Medium.woff") format("woff"); /* Pretty Modern Browsers */
-  font-weight: 500;
-  font-style: normal;
-  @include font-face-common;
-}
-
-/* Avenir */
-
-@font-face {
-  font-family: "Avenir";
-  src: url("../fonts/Avenir/AvenirNextLTPro-Regular.otf");
-  font-weight: normal;
-  font-style: normal;
-  @include font-face-common;
-}
-
-@font-face {
-  font-family: "Avenir";
-  src: url("../fonts/Avenir/AvenirNextLTPro-Bold.otf");
-  font-weight: bold;
-  font-style: normal;
-  @include font-face-common;
-}
-
-@font-face {
-  font-family: "Avenir";
-  src: url("../fonts/Avenir/AvenirNextLTPro-It.otf");
-  font-weight: normal;
-  font-style: italic;
-  @include font-face-common;
-}
-
-@font-face {
-  font-family: "Avenir";
-  src: url("../fonts/Avenir/AvenirNextCyr-Demi.woff2") format("woff2"),
-    url("../fonts/Avenir/AvenirNextCyr-Demi.woff") format("woff"),
-    url("../fonts/Avenir/AvenirNextCyr-Demi.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  @include font-face-common;
-}
 
 :root {
   --size-font-paragraph: 18pt;
@@ -118,7 +34,9 @@ body {
   line-height: 30px;
   margin: 0;
   font-size: var(--size-font-paragraph);
-  background: white;
+  background: url("../public/gradients/gradient_main.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #101223;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

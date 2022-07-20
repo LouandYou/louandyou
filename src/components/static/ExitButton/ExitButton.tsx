@@ -80,7 +80,7 @@ export function ExitButton({ content }): ReactElement {
             className={`${styles.exit_bt} ${isPopupOpen ? styles.pulse : ""}`}
           >
             {/* <FontAwesomeIcon icon={faXmark} width={13} height={13} /> */}
-            <img width={25} height={25} src="./x.svg" />
+            <img width={25} height={25} src="/x.svg" />
           </button>
         </>
       )}

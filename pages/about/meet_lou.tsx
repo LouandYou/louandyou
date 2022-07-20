@@ -13,10 +13,7 @@ export default function Page({ story, layoutStory }) {
 
   return (
     <>
-      <section
-        style={{ backgroundColor: "#8d8bf4", color: "white" }}
-        className={styles.white_page}
-      >
+      <section className={styles.white_page}>
         <Text blok={content} attribute={"text1"} />
         <div className={styles.container}>
           <Image
@@ -46,7 +43,7 @@ export default function Page({ story, layoutStory }) {
         <button
           style={{ width: "350px" }}
           onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}
-          className={`${styles.button} ${styles.white}`}
+          className={`${styles.button} ${styles.purple}`}
         >
           {content.feedback}
         </button>
