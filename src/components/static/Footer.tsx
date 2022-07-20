@@ -67,6 +67,9 @@ export function Footer({ content }): ReactElement {
             className="is-flex is-flex-direction-column"
           >
             <b>{content.contact}</b>
+            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+              {content.contact_us}
+            </a>
             <Text blok={content} attribute={"navbar_dropdown2"} />
             <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>Feedback</a>
           </div>
@@ -148,6 +151,9 @@ export function Footer({ content }): ReactElement {
           </div>
           <div>
             <b>{content.contact}</b>
+            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+              {content.contact_us}
+            </a>
             <Text blok={content} attribute={"navbar_dropdown2"} />
             <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
               {content.feedback}

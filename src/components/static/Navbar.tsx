@@ -173,6 +173,9 @@ export function Navbar({
               <Dropdown
                 content={
                   <>
+                    <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+                      {content.contact_us}
+                    </h3>
                     <Text blok={content} attribute={"navbar_dropdown2"} />
                     <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
                       Feedback
@@ -211,6 +214,9 @@ export function Navbar({
               </h3>
 
               <h2 style={{ marginTop: "90px" }}>{content.contact}</h2>
+              <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+                {content.contact_us}
+              </h3>
               <Text blok={content} attribute={"navbar_dropdown2"} />
               <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
                 Feedback
