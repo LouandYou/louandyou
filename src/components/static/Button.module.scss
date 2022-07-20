@@ -68,15 +68,15 @@
   color: white;
 }
 
-.orange_border {
-  border: 1.5px solid $primary-orange;
-  color: $primary-orange;
+.purple_border {
+  border: 1.5px solid $primary-purple !important;
+  color: $primary-purple !important;
   &:active {
-    background: $primary-orange;
+    background: $primary-purple !important;
     color: white;
   }
   &:hover {
-    background: $primary-orange;
+    background: $primary-purple !important;
     color: white;
   }
 }
