@@ -23,7 +23,10 @@ export const SafetyCheck = ({ content }) => {
 
   return (
     <>
-      <h2 className={styles.headline}>{content.physical_question}</h2>
+      <div className="is-flex mt-4">
+        <p className={styles.number}>1</p>
+        <h2 className={styles.headline}>{content.physical_question}</h2>
+      </div>
       <div className={styles.checkbox_wrapper}>
         <Checkbox
           onKeyDown={handleOnKeyDown}

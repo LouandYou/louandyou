@@ -37,8 +37,8 @@ export default function Page({
       </section>
 
       <section className={styles.find_help}>
-        <div>
-          <h1>{content.question_headline}</h1>
+        <h1>{content.question_headline}</h1>
+        <div className={styles.container}>
           <GetHelp content={content} />
         </div>
       </section>
