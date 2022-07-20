@@ -149,7 +149,7 @@ export function Footer({ content }): ReactElement {
           <div>
             <Text blok={content} attribute={"support"} />
           </div>
-          <div>
+          <div className="is-flex is-flex-direction-column">
             <b>{content.contact}</b>
             <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
               {content.contact_us}
