@@ -26,29 +26,7 @@ export default function Page({
           <img width="510" alt="logo" src="/logo_full_white.svg" />
           <Text blok={content} attribute={"description"} />
         </div>
-        <div className={`is-hidden-tablet ${styles.language_wrapper}`}>
-          <div className={styles.language_switch}>
-            {locales
-              .map((loc) => (
-                <Link
-                  key={loc}
-                  href={`/${loc === defaultLocale ? "" : loc}`}
-                  locale={false}
-                  passHref
-                >
-                  <div
-                    className={`mx-3 px-1 ${
-                      loc === locale ? styles.underlined : ""
-                    }`}
-                  >
-                    {loc.toUpperCase()}
-                  </div>
-                </Link>
-              ))
-              .reverse()
-              .reduce((prev, curr) => [prev, "|", curr])}
-          </div>
-        </div>
+
         <CookiesPopup
           locales={locales}
           locale={locale}

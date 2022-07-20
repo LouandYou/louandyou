@@ -28,7 +28,7 @@ export function Layout({
               : "Hi, ich bin Lou Ich bin eine digitale Begleitung für Menschen, die häusliche oder sexualisierte Gewalt erlebt haben. Was auch immer du gerade durchmachst - ich bin da, um dich auf deinem Weg in ein selbstbestimmtes Leben zu unterstützen."
           }
         />
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <Navbar
         locale={locale}

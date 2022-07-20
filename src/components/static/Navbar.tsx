@@ -54,19 +54,10 @@ export function Navbar({
       >
         <div aria-label="logo-home" className={styles.logo}>
           <Link passHref href="/">
-            <a>
-              <Image
-                src={"/ampersand.svg"}
-                layout="fixed"
-                width="50"
-                height="50"
-                alt="logo-home"
-                priority
-                onClick={() => setIsOpen(false)}
-              />
-            </a>
+            <img src="/ampersand.png" alt="logo-home" />
           </Link>
         </div>
+
         <input
           checked={isOpen}
           onChange={() => setIsOpen(!isOpen)}
@@ -85,33 +76,27 @@ export function Navbar({
           <span className={`${styles.line} ${styles.line2}`} />
           <span className={`${styles.line} ${styles.line3}`} />
         </div>
-        <div className={`is-hidden-mobile ${styles.language_wrapper}`}>
-          <div className={styles.language_switch}>
-            {locales
-
-              .map((loc) => (
-                <Link
-                  key={loc}
-                  href={prependSlash(
-                    `${loc === defaultLocale ? "" : loc}${router.pathname}`
-                  )}
-                  locale={false}
-                  passHref
+        <div className={styles.language_wrapper}>
+          {locales.map((loc) => (
+            <Link
+              key={loc}
+              href={prependSlash(
+                `${loc === defaultLocale ? "" : loc}${router.pathname}`
+              )}
+              locale={false}
+              passHref
+            >
+              <a>
+                <div
+                  style={{ margin: "0 5px", padding: "0 2px" }}
+                  aria-label={loc === "de" ? "Deutsch" : "English"}
+                  className={loc === locale ? styles.selected : ""}
                 >
-                  <a>
-                    <div
-                      style={{ margin: "0 5px" }}
-                      aria-label={loc === "de" ? "Deutsch" : "English"}
-                      className={loc === locale ? styles.selected : ""}
-                    >
-                      {loc}
-                    </div>
-                  </a>
-                </Link>
-              ))
-              .reverse()
-              .reduce((prev, curr) => [prev, "|", curr])}
-          </div>
+                  {loc.toUpperCase()}
+                </div>
+              </a>
+            </Link>
+          ))}
         </div>
         <div className={styles.menu_items}>
           <div id="search" className="control has-icons-right">
