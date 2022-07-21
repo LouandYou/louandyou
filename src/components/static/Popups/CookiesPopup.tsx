@@ -9,12 +9,12 @@ import router from "next/dist/client/router";
 import { COOKIES } from "../../../config";
 
 export function CookiesPopup({
-  locales,
-  locale,
-  defaultLocale,
-  story,
-  preview,
-}): ReactElement {
+                               locales,
+                               locale,
+                               defaultLocale,
+                               story,
+                               preview
+                             }): ReactElement {
   story = useStoryblok(story, preview, locale);
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -59,14 +59,13 @@ export function CookiesPopup({
             <Text blok={story.content} attribute={"cookies_paragraph"} />
           </div>
           <div className="is-flex is-flex-direction-column">
-            <Link passHref href={"/settings#cookies"}>
-              <button
-                // onClick={() => router.push("/settings#cookies")}
-                className={`${styles.button} ${styles.purple} mb-2`}
-              >
-                {story.content.cookies_link}
-              </button>
-            </Link>
+            <a
+              {/* TODO nextjs link anchor does not work here */}
+              href={"/settings#cookies"}
+              className={`${styles.button} ${styles.purple} mb-2`}
+            >
+              {story.content.cookies_link}
+            </a>
             <button
               onClick={handleOnClick}
               className={`${styles.button} ${styles.purple_secondery}`}

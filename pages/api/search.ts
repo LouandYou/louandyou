@@ -9,7 +9,6 @@ export default async function search(req, res) {
     });
   }
 
-  console.debug("query", query);
   const params = {
     version: "draft",
     search_term: query,
