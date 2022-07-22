@@ -55,7 +55,7 @@ export function CookiesPopup({
               ))}
             </div>
           </div>
-          <div style={{ marginBottom: "36px" }}>
+          <div style={{ marginBottom: "30px" }}>
             <Text blok={story.content} attribute={"cookies_paragraph"} />
           </div>
           <div className="is-flex is-flex-direction-column">

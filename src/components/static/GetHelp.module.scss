@@ -26,6 +26,10 @@
   width: 260px;
   margin-left: 35px;
   justify-content: center;
+
+  @include tablet {
+    width: 100%;
+  }
 }
 
 .checkbox_wrapper {
