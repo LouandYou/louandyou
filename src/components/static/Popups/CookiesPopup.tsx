@@ -5,7 +5,6 @@ import Cookies from "js-cookie";
 import { Text } from "../../dynamic";
 
 import styles from "./CookiesPopup.module.scss";
-import router from "next/dist/client/router";
 import { COOKIES } from "../../../config";
 
 export function CookiesPopup({
@@ -60,10 +59,7 @@ export function CookiesPopup({
           </div>
           <div className="is-flex is-flex-direction-column">
             <Link passHref href={"/settings#cookies"}>
-              <button
-                // onClick={() => router.push("/settings#cookies")}
-                className={`${styles.button} ${styles.purple} mb-2`}
-              >
+              <button className={`${styles.button} ${styles.purple} mb-2`}>
                 {story.content.cookies_link}
               </button>
             </Link>
