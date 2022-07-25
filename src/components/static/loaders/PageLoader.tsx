@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Loader.module.scss";
+import styles from "./Loaders.module.scss";
 
-function Loader() {
+function PageLoader() {
   return (
     <div className={styles.lds_ring}>
       <div></div>
@@ -12,4 +12,4 @@ function Loader() {
   );
 }
 
-export default Loader;
+export default PageLoader;

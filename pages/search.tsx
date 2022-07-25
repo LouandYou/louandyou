@@ -6,7 +6,7 @@ import { pageGetPropsLayoutOnly } from "../src/lib/pageGetStaticProps";
 import { useRouter } from "next/dist/client/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Loader from "../src/components/static/Popups/Loader";
+import PageLoader from "../src/components/static/loaders/PageLoader";
 
 const queryStories = (query: string, locale: string) =>
   fetch("/api/search", {
@@ -198,7 +198,7 @@ export default function SearchPage({ stories, ...props }) {
         </div>
       </div>
       {isSearching ? (
-        <Loader />
+        <PageLoader />
       ) : (
         <div className={`has-icons-right ${styles.searchResults}`}>
           {results.map((story) => (

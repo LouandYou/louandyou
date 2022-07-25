@@ -3,6 +3,7 @@ import React, { ReactElement, useEffect, useState } from "react";
 import styles from "./Feedback.module.scss";
 import { Checkbox } from "..";
 import { pageGetPropsLayoutOnly } from "../../../lib/pageGetStaticProps";
+import ButtonLoader from "../loaders/ButtonLoader";
 
 interface Props {
   onClose: (event: React.MouseEvent<HTMLInputElement>) => void;
@@ -26,13 +27,9 @@ export function Feedback({
   const [textareaValue, setTextareaValue] = useState<string>("");
 
   const handleSubmit = async () => {
-    setButtonContent(
-      <div className={styles.container}>
-        <div className={styles.loader} />
-      </div>
-    );
+    setButtonContent(<ButtonLoader />);
 
-    const res = await fetch("/api/sendgrid", {
+    const res = await fetch("/api/feedback", {
       body: JSON.stringify({
         rating: rating,
         checkboxValue: checkboxValue,
