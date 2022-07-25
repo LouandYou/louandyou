@@ -28,9 +28,6 @@
     font-size: 14px !important;
   }
 
-  button {
-    width: 100% !important;
-  }
 
   @include tablet {
     width: 377px;
@@ -42,6 +39,12 @@
       line-height: 24px !important;
     }
   }
+}
+
+.button {
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
 }
 
 @keyframes fadein {
@@ -58,6 +61,7 @@
   font-size: 14px;
   font-weight: 600;
   display: flex;
+
   & div {
     cursor: pointer;
   }

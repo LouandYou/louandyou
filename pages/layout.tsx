@@ -40,6 +40,6 @@ export async function getStaticProps(props) {
       slug: "home",
     })),
     // Hide this page in production
-    notFound: process.env.NODE_ENV === "production",
+    // notFound: process.env.NODE_ENV === "production",
   };
 }

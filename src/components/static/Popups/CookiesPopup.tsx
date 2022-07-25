@@ -8,12 +8,12 @@ import styles from "./CookiesPopup.module.scss";
 import { COOKIES } from "../../../config";
 
 export function CookiesPopup({
-  locales,
-  locale,
-  defaultLocale,
-  story,
-  preview,
-}): ReactElement {
+                               locales,
+                               locale,
+                               defaultLocale,
+                               story,
+                               preview
+                             }): ReactElement {
   story = useStoryblok(story, preview, locale);
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -27,51 +27,50 @@ export function CookiesPopup({
     Cookies.set(COOKIES.USER_CONSENT, true);
   };
 
-  return (
-    <>
-      {isVisible && (
-        <div className={styles.container}>
-          <div className="is-flex is-justify-content-space-between">
-            <h2>Cookies</h2>
-            <div className={styles.language_switch}>
-              {locales.map((loc) => (
-                <Link
-                  key={loc}
-                  href={`/${loc === defaultLocale ? "" : loc}`}
-                  locale={false}
-                  passHref
-                >
-                  <a>
-                    <div
-                      className={`mx-1 ${
-                        loc === locale ? styles.selected : ""
-                      }`}
-                    >
-                      {loc.toUpperCase()}
-                    </div>
-                  </a>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div style={{ marginBottom: "30px" }}>
-            <Text blok={story.content} attribute={"cookies_paragraph"} />
-          </div>
-          <div className="is-flex is-flex-direction-column">
-            <Link passHref href={"/settings#cookies"}>
-              <button className={`${styles.button} ${styles.purple} mb-2`}>
-                {story.content.cookies_link}
-              </button>
-            </Link>
-            <button
-              onClick={handleOnClick}
-              className={`${styles.button} ${styles.purple_secondery}`}
-            >
-              {story.content.cookies_link_2}
-            </button>
-          </div>
-        </div>
-      )}
-    </>
-  );
+  if (!isVisible) {
+    return <></>;
+  }
+
+  return <div className={styles.container}>
+    <div className="is-flex is-justify-content-space-between">
+      <h2>Cookies</h2>
+      <div className={styles.language_switch}>
+        {locales.map((loc) => (
+          <Link
+            key={loc}
+            href={`/${loc === defaultLocale ? "" : loc}`}
+            locale={false}
+            passHref
+          >
+            <a>
+              <div
+                className={`mx-1 ${
+                  loc === locale ? styles.selected : ""
+                }`}
+              >
+                {loc.toUpperCase()}
+              </div>
+            </a>
+          </Link>
+        ))}
+      </div>
+    </div>
+    <div style={{ marginBottom: "36px" }}>
+      <Text blok={story.content} attribute={"cookies_paragraph"} />
+    </div>
+    <div className="is-flex is-flex-direction-column">
+      <a
+        href={"/settings#cookies"}
+        className={`${styles.button} ${styles.purple} mb-2`}
+      >
+        {story.content.cookies_link}
+      </a>
+      <button
+        onClick={handleOnClick}
+        className={`${styles.button} ${styles.purple_secondery}`}
+      >
+        {story.content.cookies_link_2}
+      </button>
+    </div>
+  </div>;
 }
