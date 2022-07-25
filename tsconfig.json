@@ -17,6 +17,6 @@
     "downlevelIteration": true,
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/sendgrid.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/feedback.ts"],
   "exclude": ["node_modules"]
 }
