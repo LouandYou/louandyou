@@ -76,6 +76,11 @@
     line-height: 24px;
   }
 
+  & .rechnung p {
+    line-height: 18px !important;
+    font-size: 11px;
+  }
+
   & b:first-child {
     margin-bottom: 10px !important;
   }
@@ -83,7 +88,7 @@
   @include tablet {
     padding: 17px 30px;
     margin: 0px;
-    flex: 0.5;
+    flex: 0.53;
   }
 }
 

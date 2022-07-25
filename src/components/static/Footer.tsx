@@ -56,9 +56,9 @@ export function Footer({ content }): ReactElement {
               }
             />
           </span>
-          <p style={{ fontSize: "11px", lineHeight: "18px" }}>
-            {content.spende2}
-          </p>
+          <div className={styles.rechnung}>
+            <Text blok={content} attribute={"spende2"} />
+          </div>
         </div>
 
         <div className="is-flex is-justify-content-space-between">
@@ -131,7 +131,7 @@ export function Footer({ content }): ReactElement {
           <img width={"108px"} src="/hey_data.png" alt="hey data" />
           <img
             width={"108px"}
-            src="/BMWI.svg"
+            src="/BMWI.png"
             alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
           />
         </div>
@@ -220,9 +220,9 @@ export function Footer({ content }): ReactElement {
                 }
               />
             </span>
-            <p style={{ fontSize: "11px", lineHeight: "18px" }}>
-              {content.spende2}
-            </p>
+            <div className={styles.rechnung}>
+              <Text blok={content} attribute={"spende2"} />
+            </div>
           </div>
         </div>
         <div className="is-flex is-justify-content-space-between is-relative">
@@ -234,11 +234,11 @@ export function Footer({ content }): ReactElement {
                 marginTop: "-15px",
               }}
               width={"130px"}
-              src="/BMWI.svg"
+              src="/BMWI.png"
               alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
             />
 
-            <img width={"83px"} src="/hey_data.png" alt="hey data" />
+            <img width={"100px"} src="/hey_data.png" alt="hey data" />
           </div>
           <div
             style={{ flex: "0.8" }}
