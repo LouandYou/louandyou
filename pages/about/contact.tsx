@@ -1,5 +1,6 @@
 import { pageGetStaticProps } from "../../src/lib/pageGetStaticProps";
 import { Text } from "../../src/components/dynamic";
+import { LinkButton } from "../../src/components/static";
 import styles from "./About.module.scss";
 import { useEffect, useState } from "react";
 import ButtonLoader from "../../src/components/static/loaders/ButtonLoader";
@@ -119,7 +120,15 @@ export default function Page({ story }) {
         <Text blok={content} attribute={"text2"} />
       </section>
       <section className={styles.blue_section}>
-        <Text blok={content} attribute={"text2"} />
+        <h2>{content.text3}</h2>
+        <div className={styles.btn_container}>
+          <LinkButton
+            href={"https://seu2.cleverreach.com/f/314808-318550/"}
+            variant="white"
+          >
+            {content.text3_button}
+          </LinkButton>
+        </div>
       </section>
     </>
   );

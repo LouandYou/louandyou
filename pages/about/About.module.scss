@@ -317,6 +317,7 @@
   h3 {
     font-size: 34px;
     margin-bottom: 1.5rem;
+    line-height: 43px;
   }
 
   @include tablet {
@@ -328,5 +329,26 @@
 
   @include desktop {
     padding: 85px 250px;
+  }
+}
+
+.btn_container {
+  margin-top: 48px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    margin: 7.5px 0;
+  }
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
+
+    button {
+      margin: 0 15px;
+    }
   }
 }
