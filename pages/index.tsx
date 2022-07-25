@@ -1,19 +1,11 @@
 import React from "react";
-import Link from "next/link";
-
-import { LinkButton, CookiesPopup } from "../src/components/static";
+import { LinkButton } from "../src/components/static";
 import { GetHelp } from "../src/components/static";
 import styles from "./index.module.scss";
 import { Text } from "../src/components/dynamic";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 
-export default function Page({
-  story,
-  preview,
-  locales,
-  locale,
-  defaultLocale,
-}) {
+export default function Page({ story }) {
   const content = story.content;
   return (
     <>
