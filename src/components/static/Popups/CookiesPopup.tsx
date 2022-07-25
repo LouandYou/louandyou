@@ -5,6 +5,7 @@ import { Text } from "../../dynamic";
 
 import styles from "./CookiesPopup.module.scss";
 import { COOKIES } from "../../../config";
+import LanguageSwitch from "../LanguageSwitch";
 
 export function CookiesPopup({
   locales,
@@ -31,24 +32,11 @@ export function CookiesPopup({
     <div className={styles.container}>
       <div className="is-flex is-justify-content-space-between">
         <h2>Cookies</h2>
-        <div className={styles.language_switch}>
-          {locales.map((loc) => (
-            <Link
-              key={loc}
-              href={`/${loc === defaultLocale ? "" : loc}`}
-              locale={false}
-              passHref
-            >
-              <a>
-                <div
-                  className={`mx-1 ${loc === locale ? styles.selected : ""}`}
-                >
-                  {loc.toUpperCase()}
-                </div>
-              </a>
-            </Link>
-          ))}
-        </div>
+        <LanguageSwitch
+          locales={locales}
+          locale={locale}
+          defaultLocale={defaultLocale}
+        />
       </div>
       <div style={{ marginBottom: "36px" }}>
         <Text blok={content} attribute={"cookies_paragraph"} />

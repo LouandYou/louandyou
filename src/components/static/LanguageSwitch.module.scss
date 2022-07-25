@@ -1,0 +1,18 @@
+@import "~bulma/sass/utilities/mixins.sass";
+
+.container {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  line-height: 20px;
+
+  @include tablet {
+    margin: 0 1rem 0 auto;
+  }
+}
+
+.selected {
+  color: #5353e9;
+  border-bottom: 1px solid;
+}

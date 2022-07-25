@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React, { ReactElement, useState } from "react";
 import { Turn as Hamburger } from "hamburger-react";
 import useScrollingBackgroundColor from "../../utils/useScrollingBackgroundColor";
@@ -10,14 +9,12 @@ import { Text } from "../dynamic/Text";
 import { useRouter } from "next/dist/client/router";
 import { pageGetStaticProps } from "../../lib/pageGetStaticProps";
 import { Feedback } from "./Popups/Feedback";
-
-const prependSlash = (path: string) =>
-  path.charAt(0) === "/" ? path : `/${path}`;
+import LanguageSwitch from "./LanguageSwitch";
 
 export function Navbar({
   content,
-  locale,
   locales,
+  locale,
   defaultLocale,
 }): ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -64,28 +61,11 @@ export function Navbar({
         >
           <img src="/ampersand.png" alt="logo-home" />
         </div>
-        <div className={styles.language_wrapper}>
-          {locales.map((loc) => (
-            <Link
-              key={loc}
-              href={prependSlash(
-                `${loc === defaultLocale ? "" : loc}${router.pathname}`
-              )}
-              locale={false}
-              passHref
-            >
-              <a>
-                <div
-                  style={{ margin: "0 5px", padding: "0 2px" }}
-                  aria-label={loc === "de" ? "Deutsch" : "English"}
-                  className={loc === locale ? styles.selected : ""}
-                >
-                  {loc.toUpperCase()}
-                </div>
-              </a>
-            </Link>
-          ))}
-        </div>
+        <LanguageSwitch
+          locales={locales}
+          locale={locale}
+          defaultLocale={defaultLocale}
+        />
         <Hamburger
           rounded
           size={20}

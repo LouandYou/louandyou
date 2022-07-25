@@ -28,7 +28,6 @@
     font-size: 14px !important;
   }
 
-
   @include tablet {
     width: 377px;
     right: 25px;
@@ -54,20 +53,4 @@
   to {
     opacity: 1;
   }
-}
-
-.language_switch {
-  color: #d1d1d3;
-  font-size: 14px;
-  font-weight: 600;
-  display: flex;
-
-  & div {
-    cursor: pointer;
-  }
-}
-
-.selected {
-  color: $primary-purple;
-  border-bottom: 1px solid $primary-purple;
 }

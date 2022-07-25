@@ -44,23 +44,6 @@
   }
 }
 
-.language_wrapper {
-  margin: 0;
-  font-weight: 600;
-  font-size: 14px;
-  display: flex;
-  line-height: 20px;
-
-  @include tablet {
-    margin: 0 1rem 0 auto;
-  }
-}
-
-.selected {
-  color: #5353e9;
-  border-bottom: 1px solid;
-}
-
 .menu_items {
   height: calc(100vh - 1px);
   overflow-y: auto;
