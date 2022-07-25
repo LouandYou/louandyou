@@ -17,7 +17,7 @@ export default function Page({ story, layoutStory }) {
         <Text blok={content} attribute={"text1"} />
         <div className={styles.support}>
           <Text blok={layoutStory.content} attribute={"spende1"} />
-          <span className="is-flex my-3 is-justify-content-center">
+          <span className="is-flex my-3">
             <p className="mr-5">{layoutStory.content.or_with}</p>
 
             <Image
@@ -33,9 +33,9 @@ export default function Page({ story, layoutStory }) {
               }
             />
           </span>
-          <p style={{ fontSize: "0.7rem", lineHeight: "20px" }}>
-            {layoutStory.content.spende2}
-          </p>
+          <div className={styles.rechnung}>
+            <Text blok={content} attribute={"spende2"} />
+          </div>
         </div>
       </section>
     </>

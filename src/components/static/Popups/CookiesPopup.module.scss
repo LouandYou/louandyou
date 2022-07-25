@@ -14,8 +14,8 @@
   z-index: 10;
   text-align: left;
   line-height: 27px;
-  -webkit-animation: fadein 1s;
-  animation: fadein 1s;
+  -webkit-animation: fadein 1s ease;
+  animation: fadein 1s ease;
 
   & h2 {
     font-size: 24px;
