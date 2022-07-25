@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import Head from "next/head";
-import { ExitButton, Footer, Navbar } from ".";
+import { CookiesPopup, ExitButton, Footer, Navbar } from ".";
 
 interface Props {
   locale?: string;
@@ -38,6 +38,12 @@ export function Layout({
       />
       <main>{children}</main>
       <Footer content={content} />
+      <CookiesPopup
+        locales={locales}
+        locale={locale}
+        defaultLocale={defaultLocale}
+        content={content}
+      />
       <ExitButton content={content} />
     </>
   );

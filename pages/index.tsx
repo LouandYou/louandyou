@@ -26,14 +26,6 @@ export default function Page({
           <img width="510" alt="logo" src="/logo_full_white.svg" />
           <Text blok={content} attribute={"description"} />
         </div>
-
-        <CookiesPopup
-          locales={locales}
-          locale={locale}
-          defaultLocale={defaultLocale}
-          story={story}
-          preview={preview}
-        />
       </section>
 
       <section className={styles.find_help}>
