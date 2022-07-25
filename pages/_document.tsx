@@ -22,13 +22,6 @@ class MyDocument extends Document {
             `,
             }}
           />
-          <link
-            rel="preload"
-            href="/fonts/Wulkan-Bold.woff"
-            as="font"
-            type="font/woff"
-            crossOrigin="anonymous"
-          />
         </Head>
         <body>
           <Main />
