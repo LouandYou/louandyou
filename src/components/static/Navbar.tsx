@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { ReactElement, useState } from "react";
-
+import { Turn as Hamburger } from "hamburger-react";
 import useScrollingBackgroundColor from "../../utils/useScrollingBackgroundColor";
 import styles from "./Navbar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -46,34 +46,23 @@ export function Navbar({
   return (
     <nav className={styles.navbar}>
       <div
+        onKeyPress={(event) => {
+          if (event.key === "Enter") {
+            handleOnClick("/");
+          }
+        }}
         aria-label="Navbar Header"
         className={`${styles.header} ${
           isLandingPage && !isOpen ? "" : styles.nav_background
         }`}
       >
-        <div aria-label="logo-home" className={styles.logo}>
-          <Link passHref href="/">
-            <img src="/ampersand.png" alt="logo-home" />
-          </Link>
-        </div>
-
-        <input
-          checked={isOpen}
-          onChange={() => setIsOpen(!isOpen)}
-          className={styles.checkbox}
-          type="checkbox"
-          tabIndex={-1}
-          aria-label={!isOpen ? "Open Navbar" : "Close Navbar"}
-        />
         <div
-          onKeyDown={({ code }) => (code === "Enter" ? setIsOpen(!isOpen) : "")}
+          aria-label="home button"
           tabIndex={0}
-          className={styles.hamburger_lines}
-          aria-label={!isOpen ? "Open Navbar" : "Close Navbar"}
+          onClick={() => handleOnClick("/")}
+          className={styles.logo_container}
         >
-          <span className={`${styles.line} ${styles.line1}`} />
-          <span className={`${styles.line} ${styles.line2}`} />
-          <span className={`${styles.line} ${styles.line3}`} />
+          <img src="/ampersand.png" alt="logo-home" />
         </div>
         <div className={styles.language_wrapper}>
           {locales.map((loc) => (
@@ -97,142 +86,146 @@ export function Navbar({
             </Link>
           ))}
         </div>
-        <div className={styles.menu_items}>
-          <div id="search" className="control has-icons-right">
-            <input
-              className="input is-rounded"
-              placeholder="search"
-              value={searchInput}
-              onChange={(event) => setSearchInput(event.target.value)}
-              onKeyPress={(event) => {
-                if (event.key === "Enter") {
-                  search();
-                  setIsOpen(false);
-                }
-              }}
-            />
-            <span
-              onClick={() => {
+        <Hamburger
+          rounded
+          size={20}
+          toggled={isOpen}
+          toggle={setIsOpen}
+          duration={0.6}
+          label="Show menu"
+        />
+      </div>
+      <div className={`${styles.menu_items} ${isOpen && styles.active}`}>
+        <div id="search" className="control has-icons-right is-flex">
+          <input
+            className="input is-rounded"
+            placeholder="search"
+            value={searchInput}
+            onChange={(event) => setSearchInput(event.target.value)}
+            onKeyPress={(event) => {
+              if (event.key === "Enter") {
                 search();
                 setIsOpen(false);
-              }}
-              className="icon is-right"
-            >
-              <i className="fas fa-envelope is-clickable">
-                <FontAwesomeIcon icon={faSearch} />
-              </i>
-            </span>
-          </div>
-          <h3
-            className="is-hidden-tablet"
-            onClick={() => handleOnClick("/")}
-            style={{ marginTop: "85px" }}
+              }
+            }}
+          />
+          <span
+            onClick={() => {
+              search();
+              setIsOpen(false);
+            }}
+            className="icon is-right"
           >
-            Home
+            <i className="fas fa-envelope is-clickable">
+              <FontAwesomeIcon icon={faSearch} />
+            </i>
+          </span>
+        </div>
+        <h3
+          className="is-hidden-tablet"
+          onClick={() => handleOnClick("/")}
+          style={{ marginTop: "40px" }}
+        >
+          Home
+        </h3>
+        <div className="is-hidden-tablet">
+          <h2>{content.find_support}</h2>
+          <h3 onClick={() => handleOnClick("/result_2")}>
+            {content.for_domestic}
           </h3>
-          <div className="is-hidden-tablet">
+          <h3
+            onClick={() => handleOnClick("/result_1")}
+            style={{ marginBottom: "30px" }}
+          >
+            {content.for_sexual}
+          </h3>
+
+          <h2>{content.good_to_know}</h2>
+          <h3 onClick={() => handleOnClick("/domestic_general")}>
+            {content.about_domestic}
+          </h3>
+          <h3
+            onClick={() => handleOnClick("/sexual_general")}
+            style={{ marginBottom: "30px" }}
+          >
+            {" "}
+            {content.about_sexual}
+          </h3>
+          <h3 onClick={() => handleOnClick("/safety_tips")}>
+            {content.safety_tips}
+          </h3>
+          <h3
+            style={{ marginBottom: "50px" }}
+            onClick={() => handleOnClick("/settings")}
+          >
+            {content.settings}
+          </h3>
+          <div className={styles.wrapper}>
+            <h2>{content.about_louandyou}</h2>
+            <Dropdown
+              content={<Text blok={content} attribute={"navbar_dropdown1"} />}
+            />
+          </div>
+          <div className={styles.wrapper}>
+            <h2>{content.contact}</h2>
+            <Dropdown
+              content={
+                <>
+                  <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+                    {content.contact_us}
+                  </h3>
+                  <Text blok={content} attribute={"navbar_dropdown2"} />
+                  <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+                    Feedback
+                  </h3>
+                </>
+              }
+            />
+          </div>
+        </div>
+
+        <div className="is-hidden-mobile columns">
+          <div className="column">
             <h2>{content.find_support}</h2>
             <h3 onClick={() => handleOnClick("/result_2")}>
               {content.for_domestic}
             </h3>
-            <h3
-              onClick={() => handleOnClick("/result_1")}
-              style={{ marginBottom: "30px" }}
-            >
+            <h3 onClick={() => handleOnClick("/result_1")}>
               {content.for_sexual}
             </h3>
 
+            <h2 style={{ marginTop: "90px" }}>{content.about_louandyou}</h2>
+            <Text blok={content} attribute={"navbar_dropdown1"} />
+          </div>
+
+          <div className="column">
             <h2>{content.good_to_know}</h2>
             <h3 onClick={() => handleOnClick("/domestic_general")}>
               {content.about_domestic}
             </h3>
-            <h3
-              onClick={() => handleOnClick("/sexual_general")}
-              style={{ marginBottom: "30px" }}
-            >
+            <h3 onClick={() => handleOnClick("/sexual_general")}>
               {" "}
               {content.about_sexual}
             </h3>
+
+            <h2 style={{ marginTop: "90px" }}>{content.contact}</h2>
+            <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
+              {content.contact_us}
+            </h3>
+            <Text blok={content} attribute={"navbar_dropdown2"} />
+            <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>Feedback</h3>
+          </div>
+          <div style={{ marginTop: "38px" }} className="column">
             <h3 onClick={() => handleOnClick("/safety_tips")}>
               {content.safety_tips}
             </h3>
-            <h3
-              style={{ marginBottom: "50px" }}
-              onClick={() => handleOnClick("/settings")}
-            >
+            <h3 onClick={() => handleOnClick("/settings")}>
               {content.settings}
             </h3>
-            <div className={styles.wrapper}>
-              <h2>{content.about_louandyou}</h2>
-              <Dropdown
-                content={<Text blok={content} attribute={"navbar_dropdown1"} />}
-              />
-            </div>
-            <div className={styles.wrapper}>
-              <h2>{content.contact}</h2>
-              <Dropdown
-                content={
-                  <>
-                    <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
-                      {content.contact_us}
-                    </h3>
-                    <Text blok={content} attribute={"navbar_dropdown2"} />
-                    <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
-                      Feedback
-                    </h3>
-                  </>
-                }
-              />
-            </div>
-          </div>
-
-          <div
-            style={{ marginTop: "90px" }}
-            className="is-hidden-mobile columns"
-          >
-            <div className="column">
-              <h2>{content.find_support}</h2>
-              <h3 onClick={() => handleOnClick("/result_2")}>
-                {content.for_domestic}
-              </h3>
-              <h3 onClick={() => handleOnClick("/result_1")}>
-                {content.for_sexual}
-              </h3>
-
-              <h2 style={{ marginTop: "90px" }}>{content.about_louandyou}</h2>
-              <Text blok={content} attribute={"navbar_dropdown1"} />
-            </div>
-
-            <div className="column">
-              <h2>{content.good_to_know}</h2>
-              <h3 onClick={() => handleOnClick("/domestic_general")}>
-                {content.about_domestic}
-              </h3>
-              <h3 onClick={() => handleOnClick("/sexual_general")}>
-                {" "}
-                {content.about_sexual}
-              </h3>
-
-              <h2 style={{ marginTop: "90px" }}>{content.contact}</h2>
-              <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
-                {content.contact_us}
-              </h3>
-              <Text blok={content} attribute={"navbar_dropdown2"} />
-              <h3 onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
-                Feedback
-              </h3>
-            </div>
-            <div style={{ marginTop: "38px" }} className="column">
-              <h3 onClick={() => handleOnClick("/safety_tips")}>
-                {content.safety_tips}
-              </h3>
-              <h3 onClick={() => handleOnClick("/settings")}>
-                {content.settings}
-              </h3>
-            </div>
           </div>
         </div>
       </div>
+
       {isFeedbackOpen && (
         <Feedback
           darkBackground={true}

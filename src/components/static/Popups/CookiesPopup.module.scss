@@ -3,7 +3,7 @@
 @import "colors.scss";
 
 .container {
-  padding: 28px 28px 35px 28px;
+  padding: 25px;
   border-radius: 20px;
   bottom: 15px;
   position: fixed;
@@ -30,7 +30,7 @@
 
 
   @include tablet {
-    width: 370px;
+    width: 377px;
     right: 25px;
     bottom: 25px;
 
@@ -70,7 +70,4 @@
 .selected {
   color: $primary-purple;
   border-bottom: 1px solid $primary-purple;
-}
-
-.underline {
 }

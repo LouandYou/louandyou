@@ -5,7 +5,6 @@ import Cookies from "js-cookie";
 import { Text } from "../../dynamic";
 
 import styles from "./CookiesPopup.module.scss";
-import router from "next/dist/client/router";
 import { COOKIES } from "../../../config";
 
 export function CookiesPopup({

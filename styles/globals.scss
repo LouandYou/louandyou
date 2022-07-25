@@ -6,7 +6,7 @@ $content-heading-color: "";
 @import "~bulma/sass/utilities/mixins.sass";
 
 :root {
-  --size-font-paragraph: 18pt;
+  --size-font-paragraph: 16px;
   --size-font-paragraph-desktop: 20px;
   --size-font-footer1: 15px;
   --size-font-footer2: 14px;
@@ -54,4 +54,8 @@ main {
 button {
   font-family: "Avenir", serif !important;
   font-size: 16px;
+}
+
+.hamburger-react:focus {
+  outline: none;
 }

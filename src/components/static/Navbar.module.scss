@@ -10,10 +10,13 @@
 }
 
 .header {
+  padding: 0 0.6rem 0 0.6rem;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  width: 100vw;
   height: 50px;
   background: linear-gradient(
     #fbfbff,
@@ -25,92 +28,31 @@
     #fbfbff 100%
   );
   filter: drop-shadow(0px 1px 0.5px rgba(0, 0, 0, 0.1));
-}
 
-.checkbox {
-  position: absolute;
-  display: block;
-  height: 32px;
-  width: 32px;
-  top: 17px;
-  right: 24px;
-  z-index: 5;
-  opacity: 0;
-  cursor: pointer;
+  .logo_container {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
-  @include tablet {
-    right: 32px;
+    img {
+      width: 19px;
+      height: auto;
+    }
   }
-}
-
-.hamburger_lines {
-  display: block;
-  height: 14px;
-  width: 18px;
-  position: absolute;
-  top: 17px;
-  right: 24px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  @include tablet {
-    right: 32px;
-  }
-}
-
-.logo {
-  position: absolute;
-  top: 13px;
-  left: 24px;
-  z-index: 1;
-  width: 19px;
-  height: auto;
-  cursor: pointer;
-
-  @include tablet {
-    left: 32px;
-  }
-}
-
-.line {
-  display: block;
-  height: 2px;
-  width: 100%;
-  border-radius: 10px;
-  background: #191946;
-}
-
-.line1 {
-  transform-origin: 0% 0%;
-  transition: transform 0.4s ease-in-out;
-  -webkit-transition: transform 0.4s ease-in-out;
-}
-
-.line2 {
-  transition: transform 0.2s ease-in-out;
-  -webkit-transition: transform 0.2s ease-in-out;
-}
-
-.line3 {
-  transform-origin: 0% 100%;
-  transition: transform 0.4s ease-in-out;
-  -webkit-transition: transform 0.4s ease-in-out;
 }
 
 .language_wrapper {
-  position: absolute;
-  top: 14px;
-  right: 41%;
+  margin: 0;
+  font-weight: 600;
   font-size: 14px;
   display: flex;
-  z-index: 2;
-
   line-height: 20px;
 
   @include tablet {
-    right: 94px;
+    margin: 0 1rem 0 auto;
   }
 }
 
@@ -122,7 +64,7 @@
 .menu_items {
   height: calc(100vh - 1px);
   overflow-y: auto;
-  padding: 80px 45px;
+  padding: 80px 2rem;
   background-color: #f0f0fd;
   z-index: 10;
   transform: translate(-150%);
@@ -138,8 +80,7 @@
     height: 46px;
     width: 100%;
     font-size: 12px;
-    position: absolute;
-    right: 0;
+    margin-left: auto;
     border: #c8c7cb 1px solid;
 
     @include tablet {
@@ -149,8 +90,8 @@
   }
 
   @include tablet {
-    padding-left: 85px;
-    padding-right: 62px;
+    padding: 80px 65px 60px 65px;
+    justify-content: space-around;
 
     i {
       height: 80%;
@@ -188,27 +129,6 @@
   }
 }
 
-.header input[type="checkbox"]:checked ~ .menu_items {
-  transform: translateX(0);
-  -webkit-transform: translateX(0);
-  visibility: visible;
-}
-
-.header input[type="checkbox"]:checked ~ .hamburger_lines .line1 {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
-.header input[type="checkbox"]:checked ~ .hamburger_lines .line2 {
-  transform: scaleY(0);
-  -webkit-transform: scaleY(0);
-}
-
-.header input[type="checkbox"]:checked ~ .hamburger_lines .line3 {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
 .wrapper {
   line-height: 20px;
   & h2 {
@@ -216,6 +136,9 @@
     margin: 0;
   }
 }
-.Dropdown_dropdown_wrapper__4qWSo {
-  margin: 0 !important;
+
+.active {
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  visibility: visible;
 }
