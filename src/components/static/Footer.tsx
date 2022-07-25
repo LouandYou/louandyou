@@ -66,11 +66,7 @@ export function Footer({ content }): ReactElement {
             style={{ paddingLeft: "19px", lineHeight: "35px" }}
             className="is-flex is-flex-direction-column"
           >
-            <b>{content.contact}</b>
-            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
-              {content.contact_us}
-            </a>
-            <Text blok={content} attribute={"navbar_dropdown2"} />
+            <Text blok={content} attribute={"contact_menu"} />
             <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>Feedback</a>
           </div>
           <span className={styles.icons_container}>
@@ -150,11 +146,7 @@ export function Footer({ content }): ReactElement {
             <Text blok={content} attribute={"support"} />
           </div>
           <div className="is-flex is-flex-direction-column">
-            <b>{content.contact}</b>
-            <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
-              {content.contact_us}
-            </a>
-            <Text blok={content} attribute={"navbar_dropdown2"} />
+            <Text blok={content} attribute={"contact_menu"} />
             <a onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}>
               {content.feedback}
             </a>
