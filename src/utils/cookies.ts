@@ -1,8 +1,15 @@
 export function setBigFont() {
-  document.documentElement.style.setProperty("--size-font-paragraph", "24px");
   document.documentElement.style.setProperty(
-    "--size-font-paragraph-desktop",
-    "26px"
+    "--size-font-paragraph-content",
+    "1.25rem"
+  );
+  document.documentElement.style.setProperty(
+    "--size-font-paragraph-headline",
+    "1.375rem"
+  );
+  document.documentElement.style.setProperty(
+    "--size-font-subheadline",
+    "1.5rem"
   );
 
   document.documentElement.style.setProperty("--size-font-footer1", "21px");
@@ -12,10 +19,17 @@ export function setBigFont() {
 }
 
 export function setSmallFont() {
-  document.documentElement.style.setProperty("--size-font-paragraph", "18px");
   document.documentElement.style.setProperty(
-    "--size-font-paragraph-desktop",
-    "20px"
+    "--size-font-paragraph-content",
+    "1rem"
+  );
+  document.documentElement.style.setProperty(
+    "--size-font-paragraph-headline",
+    "1.125rem"
+  );
+  document.documentElement.style.setProperty(
+    "--size-font-subheadline",
+    "1.25rem"
   );
 
   document.documentElement.style.setProperty("--size-font-footer1", "16px");

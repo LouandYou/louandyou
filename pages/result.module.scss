@@ -2,15 +2,14 @@
 @import "~bulma/sass/utilities/mixins.sass";
 
 .landing_page {
-  // background-color: #8b8bf4;
   min-height: 100vh;
   padding: 130px 45px 128px 45px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   line-height: 29px;
-  // color: var(--color-font);
   position: relative;
+  font-size: var(--size-font-paragraph-headline);
 
   @include tablet {
     justify-content: center;
@@ -67,11 +66,11 @@
   align-items: center;
   color: #101223;
   letter-spacing: 0.02em;
-  font-size: 18px;
+  font-size: var(--size-font-paragraph-headline);
   padding: 0 45px;
 
   & h1 {
-    font-size: 18px;
+    font-size: var(--size-font-paragraph-headline);
     font-family: "Avenir", serif;
     font-weight: normal;
     margin-bottom: 45px;
@@ -136,6 +135,7 @@
   justify-content: flex-end;
   color: var(--color-font);
   letter-spacing: 0.02em;
+  font-size: var(--size-font-subheadline);
 
   & h1 {
     font-size: 34px;
@@ -172,6 +172,7 @@
   padding: 108px 45px 200px 45px;
   background-color: #fff;
   line-height: 29px;
+  font-size: var(--size-font-paragraph-content);
 
   & h2 {
     font-size: 34px;

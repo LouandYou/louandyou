@@ -132,7 +132,7 @@
   padding: 150px 35px 110px 35px;
   min-height: 100vh;
   line-height: 29px;
-  font-size: 18px;
+  font-size: var(--size-font-paragraph-headline);
 
   & h1 {
     margin-bottom: 25px;
@@ -201,7 +201,7 @@
 
   @include tablet {
     p {
-      font-size: 18px;
+      font-size: var(--size-font-paragraph-headline);
       font-family: "Avenir";
       font-weight: normal;
     }
