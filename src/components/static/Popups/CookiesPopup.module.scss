@@ -7,13 +7,13 @@
   border-radius: 20px;
   bottom: 15px;
   position: fixed;
+  margin: 0 15px;
   filter: drop-shadow(0.4px 0.5px 0.2px grey);
-  width: 95%;
   color: #101223;
   background-color: white;
   z-index: 10;
   text-align: left;
-  line-height: 27px;
+  line-height: 20px;
   -webkit-animation: fadein 1s ease;
   animation: fadein 1s ease;
 
@@ -32,6 +32,7 @@
     width: 377px;
     right: 25px;
     bottom: 25px;
+    margin: 0;
 
     & p {
       text-align: left !important;
