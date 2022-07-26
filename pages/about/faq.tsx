@@ -7,7 +7,7 @@ export default function Page({ story }) {
 
   return (
     <>
-      <section className={styles.white_page}>
+      <section className={`${styles.white_page} content`}>
         <Text blok={content} attribute={"text1"} />
       </section>
     </>
