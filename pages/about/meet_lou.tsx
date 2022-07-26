@@ -28,14 +28,12 @@ export default function Page({ story, layoutStory }) {
       </section>
       <section style={{ display: "block" }} className={styles.white_page}>
         <Text blok={content} attribute={"text2"} />
-        <div className="is-flex is-justify-content-space-between is-flex-wrap-wrap ">
-          <div className={`${styles.text_blok} card`}>
-            <div className="content">{content.card1}</div>
-          </div>
-          <div className={`${styles.text_blok} card`}>{content.card2}</div>
-          <div className={`${styles.text_blok} card`}>{content.card3}</div>
-          <div className={`${styles.text_blok} card`}>{content.card4}</div>
-          <div className={`${styles.text_blok} card`}>{content.card5}</div>
+        <div className={styles.cards_container}>
+          <div className={styles.text_blok}>{content.card1}</div>
+          <div className={styles.text_blok}>{content.card2}</div>
+          <div className={styles.text_blok}>{content.card3}</div>
+          <div className={styles.text_blok}>{content.card4}</div>
+          <div className={styles.text_blok}>{content.card5}</div>
         </div>
       </section>
       <section className={`${styles.gradient_page} is-flex-direction-column `}>
