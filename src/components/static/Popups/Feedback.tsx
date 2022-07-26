@@ -137,9 +137,6 @@ export function Feedback({
             {buttonContent}
           </button>
         </div>
-        {/* {isEmptyForm && (
-          <p className={styles.error}> {content.feedback_error}</p>
-        )} */}
       </div>
     </div>
   );

@@ -25,8 +25,8 @@ if (process.env.NODE_ENV === "production") {
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    Cookies.get(COOKIES.FONT_BIG) ? setBigFont() : setSmallFont();
-    Cookies.get(COOKIES.CONTRAST) ? setContrast() : removeContrast();
+    Cookies.get(COOKIES.FONT_BIG) && setBigFont();
+    Cookies.get(COOKIES.CONTRAST) && setContrast();
   }, []);
 
   let story = useStoryblok(

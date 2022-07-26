@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React, { ReactElement, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { Text } from "../../dynamic";
