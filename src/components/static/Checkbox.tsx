@@ -6,8 +6,9 @@ interface Props {
   label: string;
   checked?: boolean;
   type: string;
+  name?: string;
   value?: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;
 }
 
@@ -16,6 +17,7 @@ export const Checkbox = ({
   label,
   value,
   checked,
+  name,
   onChange,
   onKeyDown,
   defaultChecked,
@@ -26,6 +28,7 @@ export const Checkbox = ({
         defaultChecked={defaultChecked}
         type={type}
         value={value}
+        name={name}
         checked={checked}
         onChange={onChange}
         role="checkbox"

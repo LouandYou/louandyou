@@ -1,6 +1,6 @@
 import React from "react";
 import { LinkButton } from "../src/components/static";
-import { GetHelp } from "../src/components/static";
+import { SearchMask } from "../src/components/static";
 import styles from "./index.module.scss";
 import { Text } from "../src/components/dynamic";
 import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
@@ -23,7 +23,7 @@ export default function Page({ story }) {
       <section className={styles.find_help}>
         <h1>{content.question_headline}</h1>
         <div className={styles.container}>
-          <GetHelp content={content} />
+          <SearchMask content={content} />
         </div>
       </section>
 
