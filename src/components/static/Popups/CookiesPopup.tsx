@@ -11,16 +11,29 @@ export function CookiesPopup({
   locale,
   defaultLocale,
   content,
+  setIsCookiePopupResolved,
 }): ReactElement {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    Cookies.get(COOKIES.USER_CONSENT) ? null : setIsVisible(true);
+    const timeoutID = setTimeout(() => {
+      Cookies.get(COOKIES.COOKIES_POPUP_RESOLVED) === undefined
+        ? setIsVisible(true)
+        : null;
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeoutID);
+    };
   }, []);
 
-  const handleOnClick = () => {
+  const handleOnClick = (disableCookies: boolean) => {
     setIsVisible(false);
-    Cookies.set(COOKIES.USER_CONSENT, true);
+    Cookies.set(COOKIES.COOKIES_POPUP_RESOLVED, true);
+    setTimeout(() => {
+      setIsCookiePopupResolved();
+    }, 1000);
+    disableCookies && Cookies.set(COOKIES.DISABLE_COOKIES, true);
   };
 
   if (!isVisible) {
@@ -41,14 +54,14 @@ export function CookiesPopup({
         <Text blok={content} attribute={"cookies_paragraph"} />
       </div>
       <div className="is-flex is-flex-direction-column">
-        <a
-          href={"/settings#cookies"}
+        <button
+          onClick={() => handleOnClick(true)}
           className={`${styles.button} ${styles.purple} mb-2`}
         >
           {content.cookies_link}
-        </a>
+        </button>
         <button
-          onClick={handleOnClick}
+          onClick={() => handleOnClick(false)}
           className={`${styles.button} ${styles.purple_secondery}`}
         >
           {content.cookies_link_2}

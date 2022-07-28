@@ -1,6 +1,8 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import Head from "next/head";
+import Cookies from "js-cookie";
 import { CookiesPopup, ExitButton, Footer, Navbar } from ".";
+import { COOKIES } from "../../../src/config";
 
 interface Props {
   locale?: string;
@@ -16,6 +18,14 @@ export function Layout({
   defaultLocale,
   locales,
 }: React.PropsWithChildren<Props>): ReactElement {
+  const [isCookiePopupResolved, setIsCookiePopupResolved] = useState<
+    boolean | undefined
+  >(false);
+
+  useEffect(() => {
+    setIsCookiePopupResolved(Cookies.get(COOKIES.COOKIES_POPUP_RESOLVED));
+  }, []);
+
   return (
     <>
       <Head>
@@ -39,12 +49,13 @@ export function Layout({
       <main>{children}</main>
       <Footer content={content} />
       <CookiesPopup
+        setIsCookiePopupResolved={() => setIsCookiePopupResolved(true)}
         locales={locales}
         locale={locale}
         defaultLocale={defaultLocale}
         content={content}
       />
-      <ExitButton content={content} />
+      {isCookiePopupResolved && <ExitButton content={content} />}
     </>
   );
 }
