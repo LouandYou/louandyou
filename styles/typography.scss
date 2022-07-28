@@ -1,3 +1,5 @@
+@import "colors.scss";
+
 h1,
 h2,
 h3,
@@ -8,10 +10,6 @@ h5 {
 }
 
 a {
-  color: var(--lou-color-text);
+  color: $primary-purple;
   text-decoration: none !important;
-
-  // & :hover {
-  //   color: #32328c;
-  // }
 }

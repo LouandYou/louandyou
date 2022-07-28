@@ -29,6 +29,10 @@
     color: $Primary-Purple-Blue;
   }
 
+  a {
+    color: $primary-soft-black;
+  }
+
   @include tablet {
     font-size: 14px;
     b {

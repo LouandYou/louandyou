@@ -1,4 +1,5 @@
 @import "~bulma/sass/utilities/mixins.sass";
+@import "colors.scss";
 
 .container {
   margin: 0;
@@ -7,12 +8,16 @@
   display: flex;
   line-height: 20px;
 
+  a {
+    color: #101223;
+  }
+
   @include tablet {
     margin: 0 1rem 0 auto;
   }
 }
 
 .selected {
-  color: #5353e9;
+  color: $primary-purple;
   border-bottom: 1px solid;
 }
