@@ -124,12 +124,16 @@ export function Footer({ content }): ReactElement {
           </div>
         </div>
         <div className={styles.last_icons}>
-          <img width={"108px"} src="/hey_data.png" alt="hey data" />
-          <img
-            width={"108px"}
-            src="/BMWI.png"
-            alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
-          />
+          <a href="https://heydata.eu">
+            <img width={"108px"} src="/hey_data.png" alt="hey data" />
+          </a>
+          <a href="https://www.bmwk.de/">
+            <img
+              width={"108px"}
+              src="/BMWI.png"
+              alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
+            />
+          </a>
         </div>
       </div>
 
@@ -219,18 +223,21 @@ export function Footer({ content }): ReactElement {
         </div>
         <div className="is-flex is-justify-content-space-between is-relative">
           <div>
-            <img
-              style={{
-                marginLeft: "-15px",
-                marginRight: "30px",
-                marginTop: "-15px",
-              }}
-              width={"130px"}
-              src="/BMWI.png"
-              alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
-            />
-
-            <img width={"100px"} src="/hey_data.png" alt="hey data" />
+            <a href="https://www.bmwk.de/">
+              <img
+                style={{
+                  marginLeft: "-15px",
+                  marginRight: "30px",
+                  marginTop: "-15px",
+                }}
+                width={"130px"}
+                src="/BMWI.png"
+                alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
+              />
+            </a>
+            <a href="https://heydata.eu">
+              <img width={"100px"} src="/hey_data.png" alt="hey data" />
+            </a>
           </div>
           <div
             style={{ flex: "0.8" }}
