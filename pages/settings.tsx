@@ -36,7 +36,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
     Cookies.get(COOKIES.CONTRAST)
       ? setIsContrastState(true)
       : setIsContrastState(false);
-    Cookies.get(COOKIES.EXIT_BUTTON)
+    Cookies.get(COOKIES.HIDE_EXIT_BUTTON)
       ? setIsExitButton(false)
       : setIsExitButton(true);
     Cookies.get(COOKIES.ENABLE_ANALYTICS)
@@ -78,11 +78,11 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   const handleExitButton = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setIsExitButton(true);
-      isCookies && Cookies.set(COOKIES.EXIT_BUTTON, true);
+      isCookies && Cookies.set(COOKIES.HIDE_EXIT_BUTTON, true);
       toggleIsVisible!();
     } else {
       setIsExitButton(false);
-      Cookies.remove(COOKIES.EXIT_BUTTON);
+      Cookies.remove(COOKIES.HIDE_EXIT_BUTTON);
       toggleIsVisible!();
     }
   };
@@ -147,11 +147,11 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       const checked = e.target.previousElementSibling.checked;
       if (!checked) {
         setIsExitButton(true);
-        isCookies && Cookies.set(COOKIES.EXIT_BUTTON, true);
+        isCookies && Cookies.set(COOKIES.HIDE_EXIT_BUTTON, true);
         toggleIsVisible!();
       } else {
         setIsExitButton(false);
-        Cookies.remove(COOKIES.EXIT_BUTTON);
+        Cookies.remove(COOKIES.HIDE_EXIT_BUTTON);
         toggleIsVisible!();
       }
     }

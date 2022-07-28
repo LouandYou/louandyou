@@ -2,7 +2,6 @@ import React, { ReactElement, useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
 import styles from "./ExitButtonPopup.module.scss";
-import Link from "next/link";
 import { ExitButtonContext } from "../ExitButton/ExitButtonContext";
 import { Text } from "../../dynamic";
 import { COOKIES } from "../../../config";
@@ -25,14 +24,17 @@ export function ExitButtonPopup({ onClose, content }: Props): ReactElement {
   }, []);
 
   const handleClickOne = () => {
+    // Closes first popup and set a cookie that the pop was handled
     onClose();
     Cookies.set(COOKIES.EXIT_BUTTON_POPUP, true);
   };
 
   const handleClickTwo = () => {
+    // Hide exit button, set a cookie that the pop was handled and save cookie to hide exit button
     toggleIsVisible!();
     Cookies.set(COOKIES.EXIT_BUTTON_POPUP, true);
-    Cookies.set(COOKIES.EXIT_BUTTON, true);
+    !Cookies.get(COOKIES.DISABLE_COOKIES) &&
+      Cookies.set(COOKIES.HIDE_EXIT_BUTTON, true);
   };
 
   const handleClickThree = () => {
