@@ -33,6 +33,10 @@
     color: $primary-soft-black;
   }
 
+  a:hover {
+    color: $primary-purple !important;
+  }
+
   @include tablet {
     font-size: 14px;
     b {
