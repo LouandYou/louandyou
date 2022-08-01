@@ -15,6 +15,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Script from "next/script";
 import { COOKIES } from "../src/config";
+import GradientBackground from "../src/components/static/GradientBackground";
 config.autoAddCss = false;
 
 if (process.env.NODE_ENV === "production") {
@@ -57,6 +58,7 @@ export default function App({ Component, pageProps }: AppProps) {
         locale={pageProps.locale}
         defaultLocale={pageProps.defaultLocale}
       >
+        <GradientBackground />
         <Component {...{ ...pageProps, story, layoutStory }} />
         {Cookies.get(COOKIES.ENABLE_ANALYTICS) && (
           <Script

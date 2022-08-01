@@ -164,6 +164,7 @@ export function Footer({ content }): ReactElement {
                 target={"_blank"}
               >
                 <Image
+                  priority
                   src={instagram}
                   width="30"
                   height="30"
@@ -177,6 +178,7 @@ export function Footer({ content }): ReactElement {
                 className="px-3"
               >
                 <Image
+                  priority
                   src={facebook}
                   width="30"
                   height="30"
@@ -189,6 +191,7 @@ export function Footer({ content }): ReactElement {
                 target={"_blank"}
               >
                 <Image
+                  priority
                   src={linkedin}
                   width="30"
                   height="30"
@@ -204,6 +207,7 @@ export function Footer({ content }): ReactElement {
               <p className="mr-5"> {content.or_with}</p>
 
               <Image
+                priority
                 src={paypal}
                 width="56"
                 height="20"
