@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { ReactElement, useState } from "react";
 import Image from "next/image";
 
@@ -12,18 +13,14 @@ import instagram from "../../../public/social/Instagram.svg";
 import facebook from "../../../public/social/Facebook.svg";
 import linkedin from "../../../public/social/Linkedin.svg";
 
-export function Footer({ content }): ReactElement {
+export function Footer({ content, locale }): ReactElement {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
 
   const router = useRouter();
 
   return (
     <section aria-label="Footer" className={styles.footer}>
-      <img
-        src="/logo_full_color.svg"
-        alt="Lou&You Logo"
-        className={styles.logo}
-      />
+      <img src="/logo_full_color.svg" alt="Lou&You" className={styles.logo} />
       <div className="is-hidden-tablet">
         <div
           style={{
@@ -48,7 +45,7 @@ export function Footer({ content }): ReactElement {
               className="is-clickable"
               width="56"
               height="20"
-              alt="paypal logo"
+              alt="Paypal"
               onClick={() =>
                 router.push(
                   "https://www.paypal.com/donate/?hosted_button_id=U3KR7UUECXXXE"
@@ -75,12 +72,7 @@ export function Footer({ content }): ReactElement {
               rel="noreferrer"
               target={"_blank"}
             >
-              <Image
-                src={instagram}
-                width="38"
-                height="38"
-                alt="instagram logo"
-              />
+              <Image src={instagram} width="38" height="38" alt="Instagram" />
             </a>
             <a
               href={"https://www.facebook.com/louandyou.org"}
@@ -88,24 +80,14 @@ export function Footer({ content }): ReactElement {
               target={"_blank"}
               className="px-3"
             >
-              <Image
-                src={facebook}
-                width="38"
-                height="38"
-                alt="facebook logo"
-              />
+              <Image src={facebook} width="38" height="38" alt="Facebook" />
             </a>
             <a
               href={"https://www.linkedin.com/company/louandyou/"}
               rel="noreferrer"
               target={"_blank"}
             >
-              <Image
-                src={linkedin}
-                width="38"
-                height="38"
-                alt="linkedin logo"
-              />
+              <Image src={linkedin} width="38" height="38" alt="Linkedin" />
             </a>
           </span>
         </div>
@@ -125,13 +107,25 @@ export function Footer({ content }): ReactElement {
         </div>
         <div className={styles.last_icons}>
           <a href="https://heydata.eu">
-            <img width={"108px"} src="/hey_data.png" alt="hey data" />
+            <img
+              width={"108px"}
+              src="/hey_data.png"
+              alt={
+                locale === "en"
+                  ? "HeyData - seal of quality in data protection"
+                  : "HeyData - Qualitätssiegel Datenschutz"
+              }
+            />
           </a>
           <a href="https://www.bmwk.de/">
             <img
               width={"108px"}
               src="/BMWI.png"
-              alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
+              alt={
+                locale === "en"
+                  ? "Funded by the German Federal Ministry for Economic Affairs and Climate Action following a resolution by the German Bundestag"
+                  : "Gefördert durch Bundesministerium für Wirtschaft und Klimaschutz aufgrund eines Beschlusses des deutschen Bundestags"
+              }
             />
           </a>
         </div>
@@ -168,7 +162,7 @@ export function Footer({ content }): ReactElement {
                   src={instagram}
                   width="30"
                   height="30"
-                  alt="instagram logo"
+                  alt="Instagram"
                 />
               </a>
               <a
@@ -182,7 +176,7 @@ export function Footer({ content }): ReactElement {
                   src={facebook}
                   width="30"
                   height="30"
-                  alt="facebook logo"
+                  alt="Facebook"
                 />
               </a>
               <a
@@ -195,7 +189,7 @@ export function Footer({ content }): ReactElement {
                   src={linkedin}
                   width="30"
                   height="30"
-                  alt="linkedin logo"
+                  alt="Linkedin"
                 />
               </a>
             </span>
@@ -212,7 +206,7 @@ export function Footer({ content }): ReactElement {
                 width="56"
                 height="20"
                 className="is-clickable"
-                alt="paypal logo"
+                alt="Paypal"
                 onClick={() =>
                   router.push(
                     "https://www.paypal.com/donate/?hosted_button_id=U3KR7UUECXXXE"
@@ -236,11 +230,23 @@ export function Footer({ content }): ReactElement {
                 }}
                 width={"130px"}
                 src="/BMWI.png"
-                alt="gefördert durch bundesministerium für wirtschaft und klimaschutz"
+                alt={
+                  locale === "en"
+                    ? "Funded by the German Federal Ministry for Economic Affairs and Climate Action following a resolution by the German Bundestag"
+                    : "Gefördert durch Bundesministerium für Wirtschaft und Klimaschutz aufgrund eines Beschlusses des deutschen Bundestags"
+                }
               />
             </a>
             <a href="https://heydata.eu">
-              <img width={"100px"} src="/hey_data.png" alt="hey data" />
+              <img
+                width={"100px"}
+                src="/hey_data.png"
+                alt={
+                  locale === "en"
+                    ? "HeyData - seal of quality in data protection"
+                    : "HeyData - Qualitätssiegel Datenschutz"
+                }
+              />
             </a>
           </div>
           <div

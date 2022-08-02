@@ -30,7 +30,11 @@ export default function Page({ story, layoutStory, locale }) {
         <div className={styles.container}>
           <Image
             src={iphone}
-            alt={"Lou&You"}
+            alt={
+              locale === "en"
+                ? "Lou&You webapp opened on a smartphone"
+                : "Lou&You Web-App geöffnet auf einem Smartphone"
+            }
             layout={"fill"}
             objectFit={"contain"}
             priority

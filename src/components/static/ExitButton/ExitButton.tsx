@@ -6,8 +6,6 @@ import { ExitButtonContext } from "./ExitButtonContext";
 import Cookies from "js-cookie";
 import { useRouter } from "next/dist/client/router";
 import { COOKIES } from "../../../config";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 let paths: string[] = [];
 let exiting = false;
@@ -16,7 +14,7 @@ function exitPage() {
   window.location.replace("https://www.google.de/");
 }
 
-export function ExitButton({ content }): ReactElement {
+export function ExitButton({ content, locale }): ReactElement {
   const { isVisible } = useContext(ExitButtonContext);
   let router = useRouter();
   const pathname = router.pathname;
@@ -80,7 +78,12 @@ export function ExitButton({ content }): ReactElement {
             className={`${styles.exit_bt} ${isPopupOpen ? styles.pulse : ""}`}
           >
             {/* <FontAwesomeIcon icon={faXmark} width={13} height={13} /> */}
-            <img width={25} height={25} src="/x.svg" />
+            <img
+              width={25}
+              height={25}
+              src="/x.svg"
+              alt={locale === "en" ? "exit button" : "Exit Knopf"}
+            />
           </button>
         </>
       )}

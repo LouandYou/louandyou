@@ -32,7 +32,11 @@ export default function Page({ story, locale }) {
         {/*  eslint-disable-next-line @next/next/no-img-element */}
         <img
           style={{ width: "350px" }}
-          alt="Lou&You"
+          alt={
+            locale === "en"
+              ? "Lou&You webapp opened on a smartphone"
+              : "Lou&You Web-App geöffnet auf einem Smartphone"
+          }
           src={"/about/Flat_Home_EN.webp"}
         />
       </section>
@@ -67,7 +71,7 @@ export default function Page({ story, locale }) {
             >
               <Image
                 src={kreativpiloten}
-                alt={"Lou&You"}
+                alt={"Kultur und Kreativpiloten Deutschland"}
                 width="210%"
                 height="100%"
                 objectFit={"contain"}
@@ -82,7 +86,7 @@ export default function Page({ story, locale }) {
             >
               <Image
                 src={updateDE}
-                alt={"Lou&You"}
+                alt={"Update Deutschland"}
                 width="210%"
                 height="100%"
                 objectFit={"contain"}
@@ -97,7 +101,7 @@ export default function Page({ story, locale }) {
             >
               <Image
                 src={projecttogether}
-                alt={"Lou&You"}
+                alt={"Project Together"}
                 width="210%"
                 height="100%"
                 objectFit={"contain"}

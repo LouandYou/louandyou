@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { ReactElement, useState } from "react";
 import { Turn as Hamburger } from "hamburger-react";
 import useScrollingBackgroundColor from "../../utils/useScrollingBackgroundColor";
@@ -59,7 +60,14 @@ export function Navbar({
           onClick={() => handleOnClick("/")}
           className={styles.logo_container}
         >
-          <img src="/ampersand.png" alt="logo-home" />
+          <img
+            src="/ampersand.png"
+            alt={
+              locale === "en"
+                ? `Lou&You ampersand – home`
+                : `Und-Zeichen - Startseite `
+            }
+          />
         </div>
         <LanguageSwitch
           locales={locales}
@@ -72,7 +80,15 @@ export function Navbar({
           toggled={isOpen}
           toggle={setIsOpen}
           duration={0.6}
-          label="Show menu"
+          label={
+            locale === "en"
+              ? isOpen
+                ? "Open menu button"
+                : "Close menu button"
+              : isOpen
+              ? "öffne Menü"
+              : "Schließe Menü"
+          }
         />
       </div>
       <div className={`${styles.menu_items} ${isOpen && styles.active}`}>

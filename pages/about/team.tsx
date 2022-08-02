@@ -78,7 +78,7 @@ export default function Page({ story, locale }) {
             <div key={index}>
               <Image
                 src={`/team_photos/L&Y_${member.name}.jpg`}
-                alt={member.name}
+                alt={""}
                 width={187}
                 height={245}
                 priority

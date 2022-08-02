@@ -47,7 +47,7 @@ export function Layout({
         content={content}
       />
       <main>{children}</main>
-      <Footer content={content} />
+      <Footer content={content} locale={locale} />
       <CookiesPopup
         setIsCookiePopupResolved={() => setIsCookiePopupResolved(true)}
         locales={locales}
@@ -55,7 +55,9 @@ export function Layout({
         defaultLocale={defaultLocale}
         content={content}
       />
-      {isCookiePopupResolved && <ExitButton content={content} />}
+      {isCookiePopupResolved && (
+        <ExitButton locale={locale} content={content} />
+      )}
     </>
   );
 }
