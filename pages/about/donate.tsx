@@ -4,13 +4,30 @@ import styles from "./About.module.scss";
 import { useRouter } from "next/dist/client/router";
 import paypal from "../../public/payment/paypal.svg";
 import Image from "next/image";
+import Head from "next/head";
 
-export default function Page({ story, layoutStory }) {
+export default function Page({ story, layoutStory, locale }) {
   const { content } = story;
   const router = useRouter();
 
   return (
     <>
+      <Head>
+        <title>
+          {locale === "en"
+            ? "Support us with a Donation"
+            : "Fördere uns mit einer Spende"}
+          | Lou&You
+        </title>
+        <meta
+          name="description"
+          content={
+            locale === "en"
+              ? `We want no one, who experiences violence, to feel alone on their journey towards healing. If you want to support our work, we are thankful for any donation.`
+              : `Wir möchten, dass keine Person die Gewalt erfährt, sich auf ihrem Weg alleine fühlt. Wenn du uns unterstützen möchtest, sind wir dankbar für jede Spende.`
+          }
+        />
+      </Head>
       <section
         className={`${styles.gradient_page} is-flex-direction-column is-justify-content-space-around`}
       >

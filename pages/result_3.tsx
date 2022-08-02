@@ -3,12 +3,29 @@ import { pageGetStaticProps } from "../src/lib/pageGetStaticProps";
 import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
+import Head from "next/head";
 
-export default function Page({ story, layoutStory }) {
+export default function Page({ story, layoutStory, locale }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
   const { content } = story;
   return (
     <>
+      <Head>
+        <title>
+          {locale === "en"
+            ? "Find Support for Sexual Violence"
+            : "Finde Unterstützung bei sexualisierter Gewalt"}
+          | Lou&You
+        </title>
+        <meta
+          name="description"
+          content={
+            locale === "en"
+              ? `I will help you find urgent, legal or emotional support, as well as answers to any of your questions and concerns.`
+              : `Ich helfe dir, akute, emotionale oder legale Unterstützung zu finden und Antworten auf all deine Sorgen und Fragen zu erhalten.`
+          }
+        />
+      </Head>
       <section className={styles.landing_page}>
         <h1>{content.headline}</h1>
         <Text blok={content} attribute={"subline"} />

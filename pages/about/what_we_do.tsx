@@ -6,12 +6,26 @@ import kreativpiloten from "../../public/about/logo_kreativpiloten_.webp";
 import updateDE from "../../public/about/UpdateDE_Logo.webp";
 import Image from "next/image";
 import { LinkButton } from "../../src/components/static";
+import Head from "next/head";
 
-export default function Page({ story }) {
+export default function Page({ story, locale }) {
   const { content } = story;
 
   return (
     <>
+      <Head>
+        <title>
+          {locale === "en" ? "What we do" : "Was wir tun"} | Lou&You
+        </title>
+        <meta
+          name="description"
+          content={
+            locale === "en"
+              ? "We are a non-profit start-up from Berlin and our web-app Lou is the first digital companion to help create a better future for survivors."
+              : "Wir sind ein gemeinnütziges Start-up aus Berlin und unsere Web-App Lou die erste digitale Begleitung, die eine bessere Zukunft für Betroffene ermöglicht."
+          }
+        />
+      </Head>
       <section className={styles.white_page}>
         <Text blok={content} attribute={"text1"} />
 

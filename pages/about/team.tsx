@@ -6,8 +6,9 @@ import Image from "next/image";
 import projecttogether from "../../public/about/projectTogether_logo.webp";
 import kreativpiloten from "../../public/about/logo_kreativpiloten_.webp";
 import updateDE from "../../public/about/UpdateDE_Logo.webp";
+import Head from "next/head";
 
-export default function Page({ story }) {
+export default function Page({ story, locale }) {
   const { content } = story;
 
   const team = [
@@ -55,6 +56,19 @@ export default function Page({ story }) {
 
   return (
     <>
+      <Head>
+        <title>
+          {locale === "en" ? "About the Team" : "Über das Team"} | Lou&You
+        </title>
+        <meta
+          name="description"
+          content={
+            locale === "en"
+              ? `Others may say "it's always been this way", we say "not for much longer!"`
+              : `Wenn andere sagen "das ist schon immer so gewesen", sagen wir: "nicht mehr lange!"`
+          }
+        />
+      </Head>
       <section className={styles.gradient_page}>
         <Text blok={content} attribute={"text1"} />
       </section>

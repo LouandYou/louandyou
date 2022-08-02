@@ -6,13 +6,25 @@ import iphone from "../../public/about/lou_mockup.webp";
 import Image from "next/image";
 import { Feedback } from "../../src/components/static/Popups/Feedback";
 import { useState } from "react";
+import Head from "next/head";
 
-export default function Page({ story, layoutStory }) {
+export default function Page({ story, layoutStory, locale }) {
   const { content } = story;
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
 
   return (
     <>
+      <Head>
+        <title>{locale === "en" ? "About Lou" : "Über Lou"} | Lou&You</title>
+        <meta
+          name="description"
+          content={
+            locale === "en"
+              ? "Hi, I'm Lou. Have you yourself experienced violence or want to support someone else who has? No matter your questions or concerns: I am here to help."
+              : "Hallo, ich bin Lou. Hast du selbst Gewalt erlebt oder willst jemanden unterstützen? Egal welche Fragen oder Sorgen du hast: ich bin hier, um dir zu helfen."
+          }
+        />
+      </Head>
       <section className={styles.white_page}>
         <Text blok={content} attribute={"text1"} />
         <div className={styles.container}>
