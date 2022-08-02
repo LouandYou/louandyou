@@ -34,8 +34,8 @@ export function Layout({
           name="description"
           content={
             locale === "en"
-              ? "Hi, my name is Lou I'm a digital companion for people affected by gender-based violence. Whatever you are going through, I am here to support you on your journey towards a self-determined life."
-              : "Hi, ich bin Lou Ich bin eine digitale Begleitung für Menschen, die häusliche oder sexualisierte Gewalt erlebt haben. Was auch immer du gerade durchmachst - ich bin da, um dich auf deinem Weg in ein selbstbestimmtes Leben zu unterstützen."
+              ? "Hi, I'm Lou. I'm here for you when you've experienced violence and to help you live a self-determined life."
+              : "Hi, ich bin Lou. Ich bin für dich da, wenn du Gewalt erlebt hast, und helfe dir, dein Leben selbstbestimmt zu gestalten."
           }
         />
         <link rel="icon" href="/favicon.png" />
