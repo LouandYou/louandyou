@@ -35,8 +35,9 @@ body {
   line-height: 30px;
   margin: 0;
   font-size: var(--size-font-paragraph-content);
-  background: url("../public/gradients/gradient-small.png");
-  background-size: contain;
+  background: url("../public/gradients/gradient_main.jpg");
+  background-size: cover;
+
   color: #101223;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -55,9 +56,7 @@ button {
   outline: none;
 }
 
+section,
 main {
-  position: relative;
-}
-section {
   position: relative;
 }

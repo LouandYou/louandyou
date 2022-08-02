@@ -58,7 +58,7 @@ export default function App({ Component, pageProps }: AppProps) {
         locale={pageProps.locale}
         defaultLocale={pageProps.defaultLocale}
       >
-        <GradientBackground />
+        {/* <GradientBackground /> */}
         <Component {...{ ...pageProps, story, layoutStory }} />
         {Cookies.get(COOKIES.ENABLE_ANALYTICS) && (
           <Script
