@@ -16,6 +16,9 @@ const variants = {
   headline: {
     className: styles.headline,
   },
+  warning: {
+    className: styles.warning,
+  },
 };
 
 export const PageSection = ({ blok }) => {

@@ -4,6 +4,7 @@ import { PageContent, Text } from "../src/components/dynamic";
 import { Feedback } from "../src/components/static/Popups/Feedback";
 import { useState } from "react";
 import Head from "next/head";
+import { LinkButton } from "../src/components/static";
 
 export default function Page({ story, layoutStory, locale }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false);
@@ -34,17 +35,6 @@ export default function Page({ story, layoutStory, locale }) {
         <Text blok={content} attribute={"most_importantly"} />
       </section>
       <PageContent blok={content} name={"body"} />
-      <section id="trigger-warning" className={styles.warning}>
-        <Text blok={content} attribute={"warning_p"} />
-        <div className="is-flex-tablet is-justify-content-center">
-          <a href={"#headline_7"}>
-            <button className={`${styles.button} ${styles.white}`}>
-              {content.warning_button}
-            </button>
-          </a>
-        </div>
-      </section>
-      <PageContent blok={content} name={"body2"} />
       <section className={styles.white_page}>
         <h2>{content.lets_build_title1}</h2>
         <Text blok={content} attribute={"lets_build_p1"} />
