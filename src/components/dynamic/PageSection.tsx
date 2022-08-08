@@ -36,7 +36,7 @@ export const PageSection = ({ blok, headlines }) => {
       {className === styles.white && (
         <div className={`${styles.sideScroll} is-hidden-mobile content`}>
           <h3>Quick Links</h3>
-          <ul>
+          <ol>
             {headlines.map((headline, index) => (
               <a key={index} href={`#${headline.id}`}>
                 <li
@@ -49,7 +49,7 @@ export const PageSection = ({ blok, headlines }) => {
                 </li>
               </a>
             ))}
-          </ul>
+          </ol>
         </div>
       )}
       <div
