@@ -1,4 +1,5 @@
 @import "~bulma/sass/utilities/mixins.sass";
+@import "colors.scss";
 
 .container {
   display: flex;
@@ -8,9 +9,6 @@
   &.white {
     background: rgba($color: white, $alpha: 0.7);
     padding: 128px 45px 200px 45px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     font-size: var(--size-font-paragraph-content);
 
     p {
@@ -74,12 +72,11 @@
     }
     @include desktop {
       padding: 150px 0px;
-
       display: grid;
       grid-template-columns: repeat(24, 1fr);
 
-      * {
-        grid-column: 10 / span 13;
+      div {
+        grid-column: 11 / span 12;
       }
     }
   }
@@ -172,7 +169,7 @@
       align-items: center;
 
       * {
-        grid-column: 10 / span 13;
+        grid-column: 11 / span 12;
       }
     }
   }
@@ -219,7 +216,7 @@
       grid-template-columns: repeat(24, 1fr);
 
       * {
-        grid-column: 10 / span 13;
+        grid-column: 11 / span 12;
       }
     }
   }
@@ -270,4 +267,27 @@
 .text {
   max-width: 100%;
   word-wrap: break-word;
+}
+
+.sideScroll {
+  position: sticky;
+  grid-column: 1 / span 8 !important;
+  align-self: start;
+  padding-left: 2rem;
+  top: 150px;
+
+  z-index: 2;
+  font-size: 14px;
+
+  a {
+    color: $primary-soft-black !important;
+
+    & :hover {
+      color: $Primary-Purple-Blue !important;
+    }
+  }
+}
+
+.primary {
+  color: $Primary-Purple-Blue;
 }

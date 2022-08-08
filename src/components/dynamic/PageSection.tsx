@@ -21,8 +21,9 @@ const variants = {
   },
 };
 
-export const PageSection = ({ blok }) => {
+export const PageSection = ({ blok, headlines }) => {
   const { className, props } = variants[blok.config || "white"] || {};
+  const showIndex = false;
 
   return (
     <section
@@ -32,6 +33,24 @@ export const PageSection = ({ blok }) => {
       key={blok.id || blok._uid}
       className={`${styles.container} ${className}`}
     >
+      {className === styles.white && (
+        <div className={`${styles.sideScroll} is-desktop content`}>
+          <h3>Quick Links</h3>
+          <ul>
+            {headlines.map((headline, index) => (
+              <a
+                className={`${
+                  headline.id.charAt(9) === blok.id.charAt(8) && styles.primary
+                }`}
+                key={index}
+                href={`#${headline.id}`}
+              >
+                <li>{headline.headline}</li>
+              </a>
+            ))}
+          </ul>
+        </div>
+      )}
       <div
         className={
           className === styles.white || styles.gradient ? `content` : ""
@@ -40,7 +59,11 @@ export const PageSection = ({ blok }) => {
       >
         {blok.body
           ? blok.body.map((blok) => (
-              <DynamicComponent blok={blok} key={blok._editable} />
+              <DynamicComponent
+                headlines={headlines}
+                blok={blok}
+                key={blok._editable}
+              />
             ))
           : null}
       </div>

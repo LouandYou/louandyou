@@ -11,10 +11,10 @@ const Components = {
   Dropdown: Dropdown,
 };
 
-export const DynamicComponent = ({ blok }) => {
+export const DynamicComponent = ({ blok, headlines }) => {
   if (typeof Components[blok.component] !== "undefined") {
     const Component = Components[blok.component];
-    return <Component blok={blok} />;
+    return <Component headlines={headlines} blok={blok} />;
   }
   return <Placeholder componentName={blok.component} />;
 };
