@@ -110,7 +110,7 @@ export default function Page({ story }) {
 
         <p className="mt-5">{content.form_p}</p>
       </section>
-      <section className={styles.blue_section}>
+      <section className={`${styles.blue_section} ${styles.link}`}>
         <Text blok={content} attribute={"text1"} />
       </section>
       <section
