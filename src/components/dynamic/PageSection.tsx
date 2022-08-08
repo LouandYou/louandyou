@@ -33,7 +33,7 @@ export const PageSection = ({ blok, headlines }) => {
       key={blok.id || blok._uid}
       className={`${styles.container} ${className}`}
     >
-      {className === styles.white && (
+      {/* {className === styles.white && (
         <div className={`${styles.sideScroll} is-hidden-mobile content`}>
           <h3>Quick Links</h3>
           <ol>
@@ -51,7 +51,7 @@ export const PageSection = ({ blok, headlines }) => {
             ))}
           </ol>
         </div>
-      )}
+      )} */}
       <div
         className={
           className === styles.white || styles.gradient ? `content` : ""
