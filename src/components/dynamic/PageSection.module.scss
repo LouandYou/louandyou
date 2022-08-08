@@ -188,9 +188,6 @@
     p {
       display: none;
     }
-    > div:first-child {
-      padding: 0 45px 110px 45px;
-    }
 
     @include tablet {
       align-items: center;
