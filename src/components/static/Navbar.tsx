@@ -92,7 +92,7 @@ export function Navbar({
         />
       </div>
       <div className={`${styles.menu_items} ${isOpen && styles.active}`}>
-        <div id="search" className="control has-icons-right is-flex">
+        <div id="search" className="control has-icons-right is-flex-tablet">
           <input
             className="input is-rounded"
             placeholder="search"

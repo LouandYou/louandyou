@@ -72,12 +72,17 @@
     }
   }
 
+  i {
+    margin-top: 8px;
+  }
+
   @include tablet {
     padding: 80px 65px 60px 65px;
     justify-content: space-around;
 
     i {
       height: 80%;
+      margin: 0;
     }
   }
 
