@@ -55,7 +55,6 @@ export default function Page({ story, layoutStory, locale }) {
       <section className={`${styles.gradient_page} is-flex-direction-column `}>
         <Text blok={content} attribute={"text3"} />
         <button
-          style={{ width: "350px" }}
           onClick={() => setIsFeedbackOpen(!isFeedbackOpen)}
           className={`${styles.button} ${styles.purple}`}
         >
