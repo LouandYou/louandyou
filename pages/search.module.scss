@@ -18,6 +18,9 @@
   & h3 {
     font-size: 26px;
   }
+  i {
+    margin-top: 8px;
+  }
 
   input {
     background-color: transparent;
@@ -95,6 +98,10 @@
     }
   }
 
+  i {
+    margin-top: 8px;
+  }
+
   p {
     color: white;
   }
@@ -109,6 +116,9 @@
       font-size: 50px;
       margin-bottom: 32px;
       line-height: 64px;
+    }
+    i {
+      height: 80%;
     }
   }
 
