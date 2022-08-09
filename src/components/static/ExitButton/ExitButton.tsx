@@ -79,8 +79,6 @@ export function ExitButton({ content, locale }): ReactElement {
           >
             {/* <FontAwesomeIcon icon={faXmark} width={13} height={13} /> */}
             <img
-              width={25}
-              height={25}
               src="/x.svg"
               alt={locale === "en" ? "exit button" : "Exit Knopf"}
             />

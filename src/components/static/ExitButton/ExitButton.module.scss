@@ -17,6 +17,12 @@
   -webkit-animation: fadein 1s;
   animation: fadein 1s;
   z-index: 2;
+
+  img {
+    width: 25px !important;
+    height: 25px !important;
+    max-width: none;
+  }
 }
 
 .hide {
