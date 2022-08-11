@@ -2,8 +2,6 @@ import { DynamicComponent } from "./DynamicComponent";
 import { sbEditable } from "@storyblok/storyblok-editable";
 import { StoryData } from "storyblok-js-client";
 
-import styles from "./PageContent.module.scss";
-
 type PageSectionProps = {
   blok: StoryData<any>;
   name: string;
@@ -12,9 +10,13 @@ type PageSectionProps = {
 export const PageContent = ({ blok, name }: PageSectionProps) => {
   const body = blok[name];
 
-  const headlines = body
-    .filter(({ component, headline }) => component === "section" && !!headline)
-    .map((headline) => ({ headline: headline.headline, id: headline.id }));
+  const headlines =
+    body &&
+    body
+      .filter(
+        ({ component, headline }) => component === "section" && !!headline
+      )
+      .map((headline) => ({ headline: headline.headline, id: headline.id }));
 
   // const showIndex = true;
 
