@@ -17,7 +17,7 @@ export default function Page({ story }) {
         <div className={styles.container}>
           <Image
             priority
-            alt="Nessa"
+            alt=""
             src={maria}
             objectFit={"contain"}
             width={135}
