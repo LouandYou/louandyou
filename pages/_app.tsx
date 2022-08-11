@@ -5,17 +5,12 @@ import Cookies from "js-cookie";
 import { ExitButtonProvider } from "../src/components/static/ExitButton/ExitButtonProvider";
 import { Layout } from "../src/components/static";
 import { useStoryblok } from "../src/lib/storyblok";
-import {
-  setBigFont,
-  setSmallFont,
-  setContrast,
-  removeContrast,
-} from "../src/utils/cookies";
+import { setBigFont, setContrast } from "../src/utils/cookies";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import Script from "next/script";
 import { COOKIES } from "../src/config";
-import GradientBackground from "../src/components/static/GradientBackground";
+import PlausibleProvider from "next-plausible";
+
 config.autoAddCss = false;
 
 if (process.env.NODE_ENV === "production") {
@@ -51,23 +46,20 @@ export default function App({ Component, pageProps }: AppProps) {
   }
 
   return (
-    <ExitButtonProvider>
-      <Layout
-        content={layoutStory.content}
-        locales={pageProps.locales}
-        locale={pageProps.locale}
-        defaultLocale={pageProps.defaultLocale}
-      >
-        {/* <GradientBackground /> */}
-        <Component {...{ ...pageProps, story, layoutStory }} />
-        {Cookies.get(COOKIES.ENABLE_ANALYTICS) && (
-          <Script
-            defer
-            data-domain="louandyou.org"
-            src="https://plausible.io/js/plausible.js"
-          />
-        )}
-      </Layout>
-    </ExitButtonProvider>
+    <PlausibleProvider
+      enabled={Cookies.get(COOKIES.ENABLE_ANALYTICS)}
+      domain="louandyou.org"
+    >
+      <ExitButtonProvider>
+        <Layout
+          content={layoutStory.content}
+          locales={pageProps.locales}
+          locale={pageProps.locale}
+          defaultLocale={pageProps.defaultLocale}
+        >
+          <Component {...{ ...pageProps, story, layoutStory }} />
+        </Layout>
+      </ExitButtonProvider>
+    </PlausibleProvider>
   );
 }
