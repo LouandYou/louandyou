@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <PlausibleProvider
-      enabled={Cookies.get(COOKIES.ENABLE_ANALYTICS)}
+      enabled={Cookies.get(COOKIES.ENABLE_ANALYTICS) ? true : false}
       domain="louandyou.org"
     >
       <ExitButtonProvider>
