@@ -126,7 +126,7 @@ export function Navbar({
         </h3>
         <div className="is-hidden-tablet">
           <h2>{content.find_support}</h2>
-          <h3 onClick={() => handleOnClick("/result_2")}>
+          <h3 onClick={() => handleOnClick("/result_3")}>
             {content.for_domestic}
           </h3>
           <h3
@@ -180,7 +180,7 @@ export function Navbar({
         <div className="is-hidden-mobile columns">
           <div className="column">
             <h2>{content.find_support}</h2>
-            <h3 onClick={() => handleOnClick("/result_2")}>
+            <h3 onClick={() => handleOnClick("/result_3")}>
               {content.for_domestic}
             </h3>
             <h3 onClick={() => handleOnClick("/result_1")}>
