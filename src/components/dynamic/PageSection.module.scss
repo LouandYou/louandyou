@@ -18,7 +18,7 @@
     h1 {
       font-size: 24px;
       line-height: 32px;
-      margin-bottom: 25px;
+      margin-bottom: 32px;
       color: #5353e9;
     }
 
@@ -58,9 +58,9 @@
       }
 
       h1 {
-        font-size: 32px;
+        font-size: 34px;
         margin-bottom: 45px;
-        line-height: 45px;
+        line-height: 42px;
       }
 
       h2 {
@@ -268,9 +268,9 @@
 
 .sideScroll {
   position: sticky;
-  grid-column: 1 / span 8 !important;
+  grid-column: 2 / span 8 !important;
   align-self: start;
-  padding-left: 2rem;
+  // padding-left: 2rem;
   top: 150px;
 
   z-index: 2;
