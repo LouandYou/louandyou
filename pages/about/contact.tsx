@@ -64,13 +64,16 @@ export default function Page({ story }) {
 
   return (
     <>
-      <section className={`${styles.white_page} is-flex-direction-column`}>
+      <section
+        className={`${styles.white_page} is-flex-direction-column is-align-items-flex-start `}
+      >
+        <h2>{content.form_headline}</h2>
+        <p className="mb-5">{content.form_p}</p>
         <form
           className={styles.contact_form}
           onSubmit={handleSubmit}
           method="post"
         >
-          <h2>{content.form_headline}</h2>
           <div className={styles.field}>
             <label htmlFor="name">Name *</label>
             <input
@@ -107,15 +110,13 @@ export default function Page({ story }) {
             </button>
           </div>
         </form>
-
-        <p className="mt-5">{content.form_p}</p>
       </section>
       <section className={`${styles.blue_section} ${styles.link}`}>
         <Text blok={content} attribute={"text1"} />
       </section>
       <section
-        style={{ background: "none", color: "#101223" }}
-        className={styles.blue_section}
+        style={{ minHeight: "fit-content" }}
+        className={styles.white_page}
       >
         <Text blok={content} attribute={"text2"} />
       </section>
