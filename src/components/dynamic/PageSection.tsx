@@ -34,7 +34,7 @@ export const PageSection = ({ blok, headlines }) => {
       className={`${styles.container} ${className}`}
     >
       {className === styles.white && (
-        <div className={`${styles.sideScroll} is-hidden-mobile content`}>
+        <div className={`${styles.sideScroll} is-hidden-touch content`}>
           <h3>Quick Links</h3>
           <ol>
             {headlines.map((headline, index) => (
@@ -50,6 +50,24 @@ export const PageSection = ({ blok, headlines }) => {
               </a>
             ))}
           </ol>
+        </div>
+      )}
+      {className === styles.white && (
+        <div className={`${styles.sideScroll} is-hidden-tablet`}>
+          <ul>
+            {headlines.map((headline, index) => (
+              <a key={index} href={`#${headline.id}`}>
+                <li
+                  className={`${
+                    headline.id.charAt(9) === blok.id.charAt(8) &&
+                    styles.primary
+                  }`}
+                >
+                  ●
+                </li>
+              </a>
+            ))}
+          </ul>
         </div>
       )}
       <div
