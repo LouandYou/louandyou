@@ -268,7 +268,6 @@
 }
 
 .sideScroll {
-  position: sticky;
   margin-right: 22.5px;
   margin-bottom: 21px;
   top: 150px;
@@ -290,6 +289,7 @@
   }
 
   @include desktop {
+    position: sticky;
     grid-column: 2 / span 8 !important;
     align-self: start;
     top: 150px;
