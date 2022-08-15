@@ -10,6 +10,8 @@ type PageSectionProps = {
 export const PageContent = ({ blok, name }: PageSectionProps) => {
   const body = blok[name];
 
+  // *Side navigation*
+  // Creates an array of the headlines from the "body" section and passed them as props to the individual sections
   const headlines =
     body &&
     body
@@ -18,22 +20,8 @@ export const PageContent = ({ blok, name }: PageSectionProps) => {
       )
       .map((headline) => ({ headline: headline.headline, id: headline.id }));
 
-  // const showIndex = true;
-
   return (
     <div>
-      {/* {showIndex && (
-        <div className={`${styles.sideScroll} is-desktop`}>
-          <h3>Overview</h3>
-          <ul>
-            {headlines.map((headline, index) => (
-              <a key={index} href={`#${headline.id}`}>
-                <li>{headline.headline}</li>
-              </a>
-            ))}
-          </ul>
-        </div>
-      )} */}
       <div {...sbEditable(blok as any)} key={blok.uuid}>
         {blok[name]
           ? blok[name].map((blok) => (
