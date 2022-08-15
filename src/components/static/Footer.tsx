@@ -11,6 +11,7 @@ import { useRouter } from "next/dist/client/router";
 import paypal from "../../../public/payment/paypal.svg";
 import instagram from "../../../public/social/Instagram.svg";
 import facebook from "../../../public/social/Facebook.svg";
+import twitter from "../../../public/social/Twitter.svg";
 import linkedin from "../../../public/social/Linkedin.svg";
 
 export function Footer({ content, locale }): ReactElement {
@@ -72,7 +73,7 @@ export function Footer({ content, locale }): ReactElement {
               rel="noreferrer"
               target={"_blank"}
             >
-              <Image src={instagram} width="38" height="38" alt="Instagram" />
+              <Image src={instagram} width="30" height="30" alt="Instagram" />
             </a>
             <a
               href={"https://www.facebook.com/louandyou.org"}
@@ -80,14 +81,22 @@ export function Footer({ content, locale }): ReactElement {
               target={"_blank"}
               className="px-3"
             >
-              <Image src={facebook} width="38" height="38" alt="Facebook" />
+              <Image src={facebook} width="30" height="30" alt="Facebook" />
+            </a>
+            <a
+              href={"https://twitter.com/Louandyou_"}
+              rel="noreferrer"
+              target={"_blank"}
+              className="pr-3"
+            >
+              <Image src={twitter} width="30" height="30" alt="Facebook" />
             </a>
             <a
               href={"https://www.linkedin.com/company/louandyou/"}
               rel="noreferrer"
               target={"_blank"}
             >
-              <Image src={linkedin} width="38" height="38" alt="Linkedin" />
+              <Image src={linkedin} width="30" height="30" alt="Linkedin" />
             </a>
           </span>
         </div>
@@ -174,6 +183,20 @@ export function Footer({ content, locale }): ReactElement {
                 <Image
                   priority
                   src={facebook}
+                  width="30"
+                  height="30"
+                  alt="Facebook"
+                />
+              </a>
+              <a
+                href={"https://twitter.com/Louandyou_"}
+                rel="noreferrer"
+                target={"_blank"}
+                className="pr-3"
+              >
+                <Image
+                  priority
+                  src={twitter}
                   width="30"
                   height="30"
                   alt="Facebook"
