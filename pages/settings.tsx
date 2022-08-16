@@ -21,7 +21,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   const router = useRouter();
 
   const [isBigFont, setIsBigFont] = useState<boolean>(false);
-  const [isCookies, setIsCookies] = useState<boolean>(true);
+  const [isEssentialCookies, setIsEssentialCookies] = useState<boolean>(true);
   const [isContrast, setIsContrastState] = useState<boolean>(false);
   const [isExitButton, setIsExitButton] = useState<boolean>(true);
   const [isAnalytics, setisAnalytics] = useState<boolean>(false);
@@ -31,8 +31,8 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
   useEffect(() => {
     Cookies.get(COOKIES.FONT_BIG) ? setIsBigFont(true) : setIsBigFont(false);
     Cookies.get(COOKIES.DISABLE_COOKIES)
-      ? setIsCookies(false)
-      : setIsCookies(true);
+      ? setIsEssentialCookies(false)
+      : setIsEssentialCookies(true);
     Cookies.get(COOKIES.CONTRAST)
       ? setIsContrastState(true)
       : setIsContrastState(false);
@@ -44,18 +44,22 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       : setisAnalytics(false);
   }, []);
 
+  //language
+
   const handleLocale = (e: React.ChangeEvent<HTMLInputElement>) => {
-    isCookies && Cookies.set(COOKIES.NEXT_LOCALE, e.target.value);
+    isEssentialCookies && Cookies.set(COOKIES.NEXT_LOCALE, e.target.value);
     e.target.value === defaultLocale
       ? router.push("/settings", "/settings", { locale: "de" })
       : router.push("/en/settings");
   };
 
+  //contrast
+
   const handleContrast = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setIsContrastState(true);
       setContrast();
-      Cookies.set(COOKIES.CONTRAST, true);
+      isEssentialCookies && Cookies.set(COOKIES.CONTRAST, true);
     } else {
       setIsContrastState(false);
       removeContrast();
@@ -63,11 +67,28 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
     }
   };
 
+  const handleOnKeyDown1 = (e) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      const checked = e.target.previousElementSibling.checked;
+      if (!checked) {
+        setIsContrastState(true);
+        setContrast();
+        isEssentialCookies && Cookies.set(COOKIES.CONTRAST, true);
+      } else {
+        setIsContrastState(false);
+        removeContrast();
+        Cookies.remove(COOKIES.CONTRAST);
+      }
+    }
+  };
+
+  //font size
+
   const handleFontSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setBigFont();
       setIsBigFont(true);
-      isCookies && Cookies.set(COOKIES.FONT_BIG, true);
+      isEssentialCookies && Cookies.set(COOKIES.FONT_BIG, true);
     } else {
       setSmallFont();
       setIsBigFont(false);
@@ -75,10 +96,27 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
     }
   };
 
+  const handleOnKeyDown2 = (e) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      const checked = e.target.previousElementSibling.checked;
+      if (!checked) {
+        setBigFont();
+        setIsBigFont(true);
+        isEssentialCookies && Cookies.set(COOKIES.FONT_BIG, true);
+      } else {
+        setSmallFont();
+        setIsBigFont(false);
+        Cookies.remove(COOKIES.FONT_BIG);
+      }
+    }
+  };
+
+  // exit button
+
   const handleExitButton = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setIsExitButton(true);
-      isCookies && Cookies.set(COOKIES.HIDE_EXIT_BUTTON, true);
+      isEssentialCookies && Cookies.set(COOKIES.HIDE_EXIT_BUTTON, true);
       toggleIsVisible!();
     } else {
       setIsExitButton(false);
@@ -87,18 +125,54 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
     }
   };
 
+  const handleOnKeyDown3 = (e) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      const checked = e.target.previousElementSibling.checked;
+      if (!checked) {
+        setIsExitButton(true);
+        isEssentialCookies && Cookies.set(COOKIES.HIDE_EXIT_BUTTON, true);
+        toggleIsVisible!();
+      } else {
+        setIsExitButton(false);
+        Cookies.remove(COOKIES.HIDE_EXIT_BUTTON);
+        toggleIsVisible!();
+      }
+    }
+  };
+
+  // essential cookies
+
   const handleCookies = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       Cookies.remove(COOKIES.DISABLE_COOKIES);
-      setIsCookies(true);
+      setIsEssentialCookies(true);
     } else {
       Cookies.set(COOKIES.DISABLE_COOKIES, true);
       ALL_COOKIES.forEach((cookie) => {
         Cookies.remove(cookie);
       });
-      setIsCookies(false);
+      setIsEssentialCookies(false);
     }
   };
+
+  const handleOnKeyDown4 = (e) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      const checked = e.target.previousElementSibling.checked;
+      console.log(checked);
+      if (!checked) {
+        Cookies.remove(COOKIES.DISABLE_COOKIES);
+        setIsEssentialCookies(true);
+      } else {
+        Cookies.set(COOKIES.DISABLE_COOKIES, true);
+        ALL_COOKIES.forEach((cookie) => {
+          Cookies.remove(cookie);
+        });
+        setIsEssentialCookies(false);
+      }
+    }
+  };
+
+  // analytics
 
   const handleAnalytics = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -109,66 +183,6 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
       Cookies.remove(COOKIES.ENABLE_ANALYTICS);
       setisAnalytics(false);
       router.reload();
-    }
-  };
-
-  const handleOnKeyDown1 = (e) => {
-    if (e.code === "Space" || e.code === "Enter") {
-      const checked = e.target.previousElementSibling.checked;
-      if (!checked) {
-        setIsContrastState(true);
-        setContrast();
-        Cookies.set(COOKIES.CONTRAST, true);
-      } else {
-        setIsContrastState(false);
-        removeContrast();
-        Cookies.remove(COOKIES.CONTRAST);
-      }
-    }
-  };
-
-  const handleOnKeyDown2 = (e) => {
-    if (e.code === "Space" || e.code === "Enter") {
-      const checked = e.target.previousElementSibling.checked;
-      if (!checked) {
-        setBigFont();
-        setIsBigFont(true);
-        isCookies && Cookies.set(COOKIES.FONT_BIG, true);
-      } else {
-        setSmallFont();
-        setIsBigFont(false);
-        Cookies.remove(COOKIES.FONT_BIG);
-      }
-    }
-  };
-
-  const handleOnKeyDown3 = (e) => {
-    if (e.code === "Space" || e.code === "Enter") {
-      const checked = e.target.previousElementSibling.checked;
-      if (!checked) {
-        setIsExitButton(true);
-        isCookies && Cookies.set(COOKIES.HIDE_EXIT_BUTTON, true);
-        toggleIsVisible!();
-      } else {
-        setIsExitButton(false);
-        Cookies.remove(COOKIES.HIDE_EXIT_BUTTON);
-        toggleIsVisible!();
-      }
-    }
-  };
-
-  const handleOnKeyDown4 = (e) => {
-    if (e.code === "Space" || e.code === "Enter") {
-      const checked = e.target.previousElementSibling.checked;
-      if (!checked) {
-        Cookies.remove(COOKIES.DISABLE_COOKIES);
-        setIsCookies(true);
-      } else {
-        Cookies.set(COOKIES.DISABLE_COOKIES, true);
-        Cookies.remove(COOKIES.FONT_BIG);
-        Cookies.remove(COOKIES.NEXT_LOCALE);
-        setIsCookies(false);
-      }
     }
   };
 
@@ -245,7 +259,7 @@ const Settings = ({ story, locale, preview, defaultLocale }) => {
           <Slider
             onKeyDown={handleOnKeyDown4}
             onChange={handleCookies}
-            checked={isCookies}
+            checked={isEssentialCookies}
             blackBorder={true}
             ariaLabel={"cookies"}
           />
