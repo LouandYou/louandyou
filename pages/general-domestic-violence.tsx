@@ -49,6 +49,6 @@ export default function Page({ story, locale }) {
 export async function getStaticProps(props) {
   return pageGetStaticProps({
     ...props,
-    slug: "domestic_general",
+    slug: "general-domestic-violence",
   });
 }

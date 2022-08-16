@@ -31,10 +31,10 @@ export default function Page({ story }) {
         <div style={{ zIndex: 2 }}>
           <h1>{content.title1}</h1>
           <div className={styles.btn_container}>
-            <LinkButton href="/domestic_general" variant="purple">
+            <LinkButton href="/general-domestic-violence" variant="purple">
               {content.domestic_violence}
             </LinkButton>
-            <LinkButton href="/sexual_general" variant="purple">
+            <LinkButton href="/general-sexual-violence" variant="purple">
               {content.sexual_violence}
             </LinkButton>
           </div>

@@ -137,11 +137,11 @@ export function Navbar({
           </h3>
 
           <h2>{content.good_to_know}</h2>
-          <h3 onClick={() => handleOnClick("/domestic_general")}>
+          <h3 onClick={() => handleOnClick("/general-domestic-violence")}>
             {content.about_domestic}
           </h3>
           <h3
-            onClick={() => handleOnClick("/sexual_general")}
+            onClick={() => handleOnClick("/general-sexual-violence")}
             style={{ marginBottom: "30px" }}
           >
             {" "}
@@ -193,10 +193,10 @@ export function Navbar({
 
           <div className="column">
             <h2>{content.good_to_know}</h2>
-            <h3 onClick={() => handleOnClick("/domestic_general")}>
+            <h3 onClick={() => handleOnClick("/general-domestic-violence")}>
               {content.about_domestic}
             </h3>
-            <h3 onClick={() => handleOnClick("/sexual_general")}>
+            <h3 onClick={() => handleOnClick("/general-sexual-violence")}>
               {" "}
               {content.about_sexual}
             </h3>
