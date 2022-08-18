@@ -9,6 +9,7 @@
   &.white {
     background: rgba($color: white, $alpha: 0.7);
     padding: 128px 45px 200px 22.5px;
+    word-break: break-word;
     font-size: var(--size-font-paragraph-content);
     flex-direction: row;
 

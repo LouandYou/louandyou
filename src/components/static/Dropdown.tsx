@@ -20,7 +20,7 @@ export function Dropdown(props: IProps): ReactElement {
           props.label === "" ? "is-hidden-tablet" : ""
         }`}
       >
-        <h3 style={{ fontSize: "24px", margin: 0, color: "#5353E9" }}>
+        <h3 style={{ fontSize: "20px", margin: 0, color: "#5353E9" }}>
           {props.label}
         </h3>
         <button
