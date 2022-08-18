@@ -15,13 +15,13 @@ export default function Page({ story }) {
         className={styles.gradient_page}
       >
         <div className={styles.landing_page_container}>
-          <img width="510" alt="Lou&You" src="/logo_full_white.svg" />
+          <img width="510" alt="Lou&You" src="/logo-lou&you.png" />
           <Text blok={content} attribute={"description"} />
         </div>
       </section>
 
       <section className={styles.find_help}>
-        <h1>{content.question_headline}</h1>
+        <Text blok={content} attribute={"question_headline"} />
         <div className={styles.container}>
           <SearchMask content={content} />
         </div>
