@@ -21,7 +21,7 @@ export function Footer({ content, locale }): ReactElement {
 
   return (
     <section aria-label="Footer" className={styles.footer}>
-      <img src="/logo_full_color.svg" alt="Lou&You" className={styles.logo} />
+      <img src="/logo-lou&you.png" alt="Lou&You" className={styles.logo} />
       <div className="is-hidden-tablet">
         <div
           style={{
