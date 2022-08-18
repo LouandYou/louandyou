@@ -27,7 +27,8 @@ export default function Page({ story }) {
             height={180}
             quality={100}
           />
-          <div className={styles.description}>
+          <div className="ml-5">
+            {" "}
             <Text blok={content} attribute={"nessa"} />
           </div>
         </div>
