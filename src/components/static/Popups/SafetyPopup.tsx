@@ -59,7 +59,7 @@ export const SafetyPopup = ({
             <div className="is-hidden-mobile">
               <p className="is-flex">
                 {content.Hilfetelefon}:
-                <p className={styles.purple_text}> 08000 116116</p>
+                <p className={styles.purple_text}>08000 116 016</p>
               </p>
             </div>
 
