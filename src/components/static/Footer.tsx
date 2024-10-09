@@ -27,7 +27,7 @@ export function Footer({ content, locale }): ReactElement {
           style={{
             paddingLeft: "19px",
             marginTop: "50px",
-            lineHeight: "35px",
+            lineHeight: "35px"
           }}
         >
           <b>{content.about_louandyou}</b>
@@ -115,17 +115,6 @@ export function Footer({ content, locale }): ReactElement {
           </div>
         </div>
         <div className={styles.last_icons}>
-          <a href="https://heydata.eu">
-            <img
-              width={"108px"}
-              src="/hey_data.png"
-              alt={
-                locale === "en"
-                  ? "HeyData - seal of quality in data protection"
-                  : "HeyData - Qualitätssiegel Datenschutz"
-              }
-            />
-          </a>
           <a href="https://www.bmwk.de/">
             <img
               width={"108px"}
@@ -244,33 +233,27 @@ export function Footer({ content, locale }): ReactElement {
         </div>
         <div className="is-flex is-justify-content-space-between is-relative">
           <div>
-            <a href="https://www.bmwk.de/">
-              <img
-                style={{
-                  marginLeft: "-15px",
-                  marginRight: "30px",
-                  marginTop: "-15px",
-                }}
-                width={"130px"}
-                src="/BMWI.png"
-                alt={
-                  locale === "en"
-                    ? "Funded by the German Federal Ministry for Economic Affairs and Climate Action following a resolution by the German Bundestag"
-                    : "Gefördert durch Bundesministerium für Wirtschaft und Klimaschutz aufgrund eines Beschlusses des deutschen Bundestags"
-                }
-              />
-            </a>
-            <a href="https://heydata.eu">
-              <img
-                width={"100px"}
-                src="/hey_data.png"
-                alt={
-                  locale === "en"
-                    ? "HeyData - seal of quality in data protection"
-                    : "HeyData - Qualitätssiegel Datenschutz"
-                }
-              />
-            </a>
+            <div>
+              <p>
+                Hier kommt Text dazu.
+              </p>
+              <a href="https://www.bmwk.de/">
+                <img
+                  style={{
+                    marginLeft: "-15px",
+                    marginRight: "30px",
+                    marginTop: "-15px"
+                  }}
+                  width={"130px"}
+                  src="/BMWI.png"
+                  alt={
+                    locale === "en"
+                      ? "Funded by the German Federal Ministry for Economic Affairs and Climate Action following a resolution by the German Bundestag"
+                      : "Gefördert durch Bundesministerium für Wirtschaft und Klimaschutz aufgrund eines Beschlusses des deutschen Bundestags"
+                  }
+                />
+              </a>
+            </div>
           </div>
           <div
             style={{ flex: "0.8" }}
@@ -283,6 +266,19 @@ export function Footer({ content, locale }): ReactElement {
             <Link href="/legal/disclaimer_of_liability">
               {content.disclaimer}
             </Link>
+          </div>
+          <div>
+            <a href="https://heydata.eu">
+              <img
+                width={"100px"}
+                src="/hey_data.png"
+                alt={
+                  locale === "en"
+                    ? "HeyData - seal of quality in data protection"
+                    : "HeyData - Qualitätssiegel Datenschutz"
+                }
+              />
+            </a>
           </div>
         </div>
       </div>
