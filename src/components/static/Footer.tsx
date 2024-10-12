@@ -267,19 +267,6 @@ export function Footer({ content, locale }): ReactElement {
               {content.disclaimer}
             </Link>
           </div>
-          <div>
-            <a href="https://heydata.eu">
-              <img
-                width={"100px"}
-                src="/hey_data.png"
-                alt={
-                  locale === "en"
-                    ? "HeyData - seal of quality in data protection"
-                    : "HeyData - Qualitätssiegel Datenschutz"
-                }
-              />
-            </a>
-          </div>
         </div>
       </div>
       {isFeedbackOpen && (
