@@ -54,6 +54,9 @@ export function Footer({ content, locale }): ReactElement {
               }
             />
           </span>
+          <div className={styles.rechnung}>
+            <Text blok={content} attribute={"spende2"} />
+          </div>
         </div>
 
         <div className="is-flex is-justify-content-space-between">
