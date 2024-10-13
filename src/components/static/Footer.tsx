@@ -226,16 +226,13 @@ export function Footer({ content, locale }): ReactElement {
                 }
               />
             </span>
-            <div className={styles.rechnung}>
-              <Text blok={content} attribute={"spende2"} />
-            </div>
           </div>
         </div>
         <div className="is-flex is-justify-content-space-between is-relative">
           <div>
             <div>
               <p>
-                Hier kommt Text dazu.
+                Lou&You ist ein Projekt des SIGE e.V., das durch eine Förderung des BMWK Programms IGP ermöglicht wurde
               </p>
               <a href="https://www.bmwk.de/">
                 <img
